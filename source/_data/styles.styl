@@ -1,0 +1,120 @@
+// 自定义背景样式
+body {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+// 文章卡片样式
+.post-block {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+// 侧边栏样式
+.sidebar {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+// 导航栏样式
+.header-inner {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+// 链接样式
+.use-motion .post-block, .use-motion .comments, .use-motion .post-header, .use-motion .post-body, .use-motion .collection-header {
+  opacity: 1;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.8);
+}
+
+// 文章标题样式
+.posts-expand .post-title {
+  color: #333;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+// 正文内容字体
+.post-body {
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+}
+
+// 代码字体
+.code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  font-size: 14px;
+}
+
+// 全局字体优化
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+// 链接样式
+a {
+  color: #3498db;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+// 代码块样式
+.highlight {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+// 鼠标指针样式
+a, button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+// 按钮悬停效果
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
