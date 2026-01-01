@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #00d742;
+    background: #a8a787;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2929,6 +2929,36 @@ body::after {
 }
 body {
   animation: flicker 5s infinite;
+  position: relative;
+}
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+  font-family: monospace;
+  color: rgba(0,255,255,0.7);
+  overflow: hidden;
+  opacity: 0.15;
+  font-size: 14px;
+}
+.matrix-rain span {
+  position: absolute;
+  top: -20px;
+  animation: matrixFall linear infinite;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+.terminal-text {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  color: #0f0;
+  text-shadow: 0 0 5px rgba(0,255,0,0.7);
+  background-color: rgba(0,20,0,0.8);
+  padding: 2px 4px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,255,0,0.3);
 }
 .post-block {
   background: rgba(10,5,20,0.7) !important;
@@ -3013,6 +3043,11 @@ body {
   margin: 20px 0;
   position: relative;
   animation: cyberGlitch 3s infinite;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #0ff;
+  width: 0;
+  animation: typing 3.5s steps(40, end), cursor 0.75s infinite, cyberGlitch 3s infinite;
 }
 .posts-expand .post-title:after {
   content: '';
@@ -3196,6 +3231,11 @@ button {
     background-position: 0 100%;
   }
 }
+@keyframes matrixFall {
+  to {
+    top: 100vh;
+  }
+}
 @keyframes flicker {
   0%, 100% {
     opacity: 1;
@@ -3228,6 +3268,22 @@ button {
   }
   100% {
     background-position: 400% 0;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes cursor {
+  0%, 50% {
+    border-color: #0ff;
+  }
+  51%, 100% {
+    border-color: transparent;
   }
 }
 @keyframes cyberGlitch {
