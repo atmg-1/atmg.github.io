@@ -880,6 +880,155 @@ function createHackerBackgroundEffects() {
 
 // 创建背景乱码和黑客代码效果
 createHackerBackgroundEffects();
+
+// 创建高级赛博朋克效果
+function createAdvancedCyberpunkEffects() {
+  // 创建数据流效果容器
+  const dataStreamEffect = document.createElement('div');
+  dataStreamEffect.className = 'data-stream-effect';
+  document.body.appendChild(dataStreamEffect);
   
+  // 创建高级网格系统
+  const advancedGrid = document.createElement('div');
+  advancedGrid.className = 'advanced-grid';
+  document.body.appendChild(advancedGrid);
+  
+  // 为主要内容区域添加高级霓虹效果
+  const mainContent = document.querySelector('.main-inner') || document.querySelector('main') || document.querySelector('.content');
+  if (mainContent) {
+    mainContent.classList.add('advanced-neon', 'holographic-effect');
+  }
+  
+  // 为所有文章块添加终极赛博朋克效果
+  const postBlocks = document.querySelectorAll('.post-block, .article-item, .post-content');
+  postBlocks.forEach(block => {
+    block.classList.add('ultimate-cyberpunk');
+    
+    // 添加鼠标移动事件来创建粒子爆炸效果
+    block.addEventListener('mousemove', function(e) {
+      if (Math.random() > 0.7) { // 30% 概率触发
+        createParticleExplosion(e, this);
+      }
+    });
+  });
+  
+  // 为标题添加高级故障效果
+  const titles = document.querySelectorAll('h1, h2, h3, .post-title, .site-title');
+  titles.forEach(title => {
+    title.classList.add('glitch-advanced');
+    title.setAttribute('data-text', title.textContent);
+    
+    // 添加点击时的霓虹扫描线效果
+    title.addEventListener('click', function() {
+      createNeonScanline();
+    });
+  });
+  
+  // 创建霓虹扫描线效果
+  function createNeonScanline() {
+    const scanline = document.createElement('div');
+    scanline.className = 'neon-scanline';
+    document.body.appendChild(scanline);
+    
+    // 3秒后移除扫描线
+    setTimeout(() => {
+      if (scanline.parentNode) {
+        scanline.remove();
+      }
+    }, 3000);
+  }
+  
+  // 创建粒子爆炸效果
+  function createParticleExplosion(e, container) {
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'particle-container';
+    
+    // 计算相对于容器的位置
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    particleContainer.style.left = x + 'px';
+    particleContainer.style.top = y + 'px';
+    
+    // 创建多个粒子
+    for (let i = 0; i < 12; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      
+      // 随机颜色
+      const colors = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00'];
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      
+      // 随机方向和距离
+      const angle = (i * 30) * Math.PI / 180; // 30度间隔
+      const distance = 50 + Math.random() * 50; // 50-100px
+      
+      particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+      particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+      
+      particleContainer.appendChild(particle);
+    }
+    
+    container.appendChild(particleContainer);
+    
+    // 600ms后移除粒子容器
+    setTimeout(() => {
+      if (particleContainer.parentNode) {
+        particleContainer.remove();
+      }
+    }, 600);
+  }
+  
+  // 创建高级粒子系统
+  for (let i = 0; i < 150; i++) { // 增加粒子数量
+    setTimeout(() => {
+      const advancedParticle = document.createElement('div');
+      advancedParticle.className = 'advanced-particle';
+      
+      // 随机位置
+      advancedParticle.style.left = Math.random() * 100 + 'vw';
+      advancedParticle.style.top = Math.random() * 100 + 'vh';
+      
+      // 随机颜色
+      const colors = [
+        'rgba(0, 255, 255, 0.7)',  // 青色
+        'rgba(255, 0, 255, 0.7)',  // 品红
+        'rgba(0, 255, 200, 0.7)',  // 蓝绿色
+        'rgba(255, 200, 0, 0.7)'   // 黄色
+      ];
+      advancedParticle.style.color = colors[Math.floor(Math.random() * colors.length)];
+      
+      // 随机大小
+      const size = Math.random() * 3 + 1;
+      advancedParticle.style.width = size + 'px';
+      advancedParticle.style.height = size + 'px';
+      
+      // 随机动画延迟
+      advancedParticle.style.animationDelay = Math.random() * 10 + 's';
+      
+      document.body.appendChild(advancedParticle);
+      
+      // 设置生命周期
+      setTimeout(() => {
+        if (advancedParticle.parentNode) {
+          advancedParticle.remove();
+        }
+      }, 20000);
+    }, i * 100); // 分批创建，避免性能问题
+  }
+  
+  // 为页面中的文本元素添加赛博朋克光晕效果
+  const textElements = document.querySelectorAll('p, span, div, li');
+  textElements.forEach(el => {
+    if (Math.random() > 0.9) { // 10% 概率添加光晕效果
+      el.classList.add('cyber-glow');
+    }
+  });
+}
+
+// 初始化高级赛博朋克效果
+setTimeout(createAdvancedCyberpunkEffects, 1500); // 等待其他效果加载后再初始化
+
 // 初始化页面特定的互动功能
 setTimeout(addInteractiveFeatures, 1000); // 等待启动屏幕消失后再初始化
