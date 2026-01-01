@@ -67,6 +67,57 @@ function addTypingUnderscore() {
   });
 }
 
+// 创建启动画面
+function createStartupScreen() {
+  const startupScreen = document.createElement('div');
+  startupScreen.className = 'startup-screen';
+  startupScreen.innerHTML = `
+    <div class="glitch-text-init" data-text="叶同学的博客">叶同学的博客</div>
+    <div class="click-prompt">CLICK ANYWHERE TO ENTER</div>
+  `;
+  document.body.appendChild(startupScreen);
+
+  // 点击启动画面后移除
+  startupScreen.addEventListener('click', function() {
+    const title = startupScreen.querySelector('.glitch-text-init');
+    title.classList.add('glitch-disappear');
+    
+    // 更新提示文字
+    const prompt = startupScreen.querySelector('.click-prompt');
+    prompt.textContent = 'LOADING...';
+    
+    // 延迟一段时间后完全移除启动画面
+    setTimeout(() => {
+      startupScreen.classList.add('fade-out');
+      
+      // 在动画结束后清理元素
+      setTimeout(() => {
+        if (startupScreen.parentNode) {
+          startupScreen.parentNode.removeChild(startupScreen);
+        }
+      }, 800);
+    }, 500);
+  });
+
+  // 也可以通过按键进入
+  document.addEventListener('keydown', function(e) {
+    if (e.key === ' ' || e.key === 'Enter') {
+      startupScreen.click();
+    }
+  });
+
+  // 3秒后自动进入（可选）
+  setTimeout(() => {
+    // 只有在用户还没有手动点击的情况下才自动进入
+    if (startupScreen.parentNode) {
+      startupScreen.click();
+    }
+  }, 5000);
+}
+
+// 初始化启动画面
+createStartupScreen();
+
 // 代码雨效果实现
 document.addEventListener('DOMContentLoaded', function() {
   // 添加标题打字效果
