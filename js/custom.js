@@ -47,18 +47,21 @@ function addTypingUnderscore() {
         title.style.animation = 'cyberGlitch 3s infinite';
         
         // 添加一个轻微的脉冲效果来增强完成感
-        title.style.animation = 'cyberGlitch 3s infinite, pulse 0.5s ease';
-        
-        // 添加一个独立的脉冲动画
-        const pulseStyle = document.createElement('style');
-        pulseStyle.textContent = `
-          @keyframes pulse {
-            0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #0080ff, 0 0 20px #0080ff; }
-            50% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #0080ff, 0 0 40px #0080ff; }
-            100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #0080ff, 0 0 20px #0080ff; }
-          }
-        `;
-        document.head.appendChild(pulseStyle);
+        // 检查是否已存在pulse动画样式，避免重复添加
+        let existingStyle = document.getElementById('pulse-animation');
+        if (!existingStyle) {
+          const pulseStyle = document.createElement('style');
+          pulseStyle.id = 'pulse-animation';
+          pulseStyle.textContent = `
+            @keyframes pulse {
+              0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #0080ff, 0 0 20px #0080ff; }
+              50% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #0080ff, 0 0 40px #0080ff; }
+              100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #0080ff, 0 0 20px #0080ff; }
+            }
+          `;
+          document.head.appendChild(pulseStyle);
+        }
+        title.style.animation = 'cyberGlitch 8s infinite, pulse 0.5s ease';
       }
     }, typingSpeed);
   });
