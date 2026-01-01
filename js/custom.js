@@ -30,10 +30,10 @@ function addTypingUnderscore() {
         i++;
         
         // 添加打字音效（可选，通过CSS动画模拟）
-        title.style.transform = 'scale(1.01)';
+        title.style.transform = 'scale(1.02)';
         setTimeout(() => {
           title.style.transform = 'scale(1)';
-        }, 50);
+        }, 40);
       } else {
         clearInterval(typeWriter);
         

@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #9fffb9;
+    background: #9c01ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2934,9 +2934,9 @@ body::after {
   z-index: -1;
 }
 body {
-  animation: flicker 10s infinite, hologram 25s ease-in-out infinite;
+  animation: flicker 15s infinite, hologram 30s ease-in-out infinite;
   position: relative;
-  transition: all 0.5s ease;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 body::after {
   content: '';
@@ -2956,6 +2956,8 @@ body::after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: auto;
 }
 .post-block {
   transition: all 0.4s ease;
@@ -2967,7 +2969,8 @@ a {
   transition: all 0.3s ease;
 }
 .typing-complete {
-  animation: cyberGlitch 6s infinite, globalPulse 8s infinite !important;
+  animation: cyberGlitch 8s infinite, globalPulse 10s infinite !important;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 .matrix-rain {
   position: fixed;
@@ -3025,8 +3028,9 @@ a {
   animation: borderAnimation 3s linear infinite;
 }
 .post-block:hover {
-  box-shadow: 0 0 20px rgba(0,255,255,0.5), 0 0 40px rgba(0,200,255,0.3), inset 0 0 15px rgba(0,255,255,0.2);
-  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0,255,255,0.6), 0 0 45px rgba(0,200,255,0.4), inset 0 0 20px rgba(0,255,255,0.3);
+  transform: translateY(-8px) scale(1.02);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .sidebar {
   background: rgba(30,30,46,0.8) !important;
@@ -3154,9 +3158,11 @@ a::before {
 }
 a:hover {
   color: #f0f;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
+  text-shadow: 0 0 15px #0ff, 0 0 25px #f0f;
   text-decoration: none;
-  animation: linkGlitch 0.3s infinite;
+  animation: linkGlitch 0.4s infinite;
+  transform: translateX(2px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 a:hover::before {
   transform: translateX(0);
@@ -3172,8 +3178,10 @@ a:hover::before {
   margin: 20px 0;
 }
 .highlight:hover {
-  box-shadow: 0 4px 15px rgba(0,150,255,0.3), 0 0 20px rgba(0,195,255,0.2);
-  border-color: rgba(0,200,255,0.4);
+  box-shadow: 0 6px 20px rgba(0,150,255,0.4), 0 0 25px rgba(0,195,255,0.3), inset 0 0 15px rgba(0,255,255,0.2);
+  border-color: rgba(0,220,255,0.6);
+  transform: translateY(-2px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 a,
 button {
@@ -3248,9 +3256,11 @@ button {
   transition: 0.5s;
 }
 .btn:hover {
-  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 35px #f0f;
+  text-shadow: 0 0 15px #0ff, 0 0 25px #f0f;
   color: #f0f;
+  transform: translateY(-3px) scale(1.03);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .btn:hover::before {
   left: 100%;
