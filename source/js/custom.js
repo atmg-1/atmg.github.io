@@ -216,15 +216,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 为标题添加打字机效果
-    const title = document.querySelector('.site-title, h1, .title');
-    if (title) {
-      // 如果是文章页面的标题，应用打字机效果
-      if (window.location.pathname.includes('/20')) { // 检查是否是文章页
-        title.classList.add('typewriter');
-      } else {
-        title.classList.add('cyber-glitch-text', 'cyber-flicker');
-      }
-    }
+    // 为所有标题添加打字机效果
+    const allTitles = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .site-title, .title');
+    allTitles.forEach(title => {
+      // 为标题添加打字机效果
+      title.classList.add('typewriter');
+      
+      // 同时添加赛博朋克效果
+      title.classList.add('cyber-glitch-text', 'cyber-flicker');
+    });
 
     // 为页面中的文本元素添加赛博朋克动画
     const textElements = document.querySelectorAll('h1, h2, h3, h4, .post-title, .post-header');
@@ -369,20 +369,18 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // 为文章内容添加像素文字效果
-    if (window.location.pathname.includes('/20')) { // 只在文章页面应用像素效果
-      const postContent = document.querySelector('.post-body, .post-content, .article-content');
-      if (postContent) {
-        // 为整个文章内容区域添加像素效果
-        postContent.classList.add('pixel-content');
-        
-        // 为文章内的标题添加像素效果
-        const headings = postContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        headings.forEach(heading => {
-          heading.classList.add('pixel-title');
-        });
-      }
-    }
+    // 为所有内容添加像素文字效果
+    const allContent = document.querySelectorAll('.post-body, .post-content, .article-content, p, span, div');
+    allContent.forEach(content => {
+      // 为内容区域添加像素效果
+      content.classList.add('pixel-content');
+      
+      // 为内容中的标题添加像素效果
+      const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headings.forEach(heading => {
+        heading.classList.add('pixel-title');
+      });
+    });
     
     // 为文章内容中的文本添加随机像素文字效果
     const paragraphs = document.querySelectorAll('p, span, div');
@@ -678,7 +676,7 @@ function addTagInteractions() {
       // 随机颜色变化
       const colors = ['#00ffff', '#ff00ff', '#ffff00', '#00ff00'];
       this.style.color = colors[Math.floor(Math.random() * colors.length)];
-      this.style.textShadow = `0 0 8px ${colors[Math.floor(Math.random() * colors.length)}`;
+      this.style.textShadow = `0 0 8px ${colors[Math.floor(Math.random() * colors.length)]}`;
     });
     
     tag.addEventListener('mouseleave', function() {
