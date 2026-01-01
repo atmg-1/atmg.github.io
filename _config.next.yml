@@ -251,6 +251,7 @@ excerpt_description: false
 
 # Post meta display settings
 post_meta:
+  enable: false
   item_text: false
   created_at: false
   updated_at:
