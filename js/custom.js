@@ -72,10 +72,33 @@ document.addEventListener('DOMContentLoaded', function() {
   // 添加标题打字效果
   addTypingUnderscore();
   
+  // 添加游戏界面装饰元素
+  addGameUIDecorations();
+  
   // 创建代码雨容器
   const matrixContainer = document.createElement('div');
   matrixContainer.className = 'matrix-rain';
   document.body.appendChild(matrixContainer);
+
+  // 创建数据流装饰
+  const dataStream = document.createElement('div');
+  dataStream.className = 'data-stream';
+  document.body.appendChild(dataStream);
+
+  // 创建全息网格
+  const hologramGrid = document.createElement('div');
+  hologramGrid.className = 'hologram-grid';
+  document.body.appendChild(hologramGrid);
+
+  function addGameUIDecorations() {
+    // 创建四个角的装饰元素
+    const corners = ['tl', 'tr', 'bl', 'br'];
+    corners.forEach(pos => {
+      const corner = document.createElement('div');
+      corner.className = `game-ui-corner ${pos}`;
+      document.body.appendChild(corner);
+    });
+  }
 
   // 代码雨字符集
   const chars = '01abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/'; 
