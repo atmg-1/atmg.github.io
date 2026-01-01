@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff3232;
+    background: #f92183;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2930,6 +2930,24 @@ body::after {
 body {
   animation: flicker 5s infinite;
   position: relative;
+  transition: all 0.5s ease;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.post-block {
+  transition: all 0.4s ease;
+}
+a {
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar {
+  transition: all 0.3s ease;
+}
+.typing-complete {
+  animation: cyberGlitch 3s infinite, globalPulse 4s infinite !important;
 }
 .matrix-rain {
   position: fixed;
@@ -3245,6 +3263,17 @@ button {
   }
   100% {
     background-position: 0 100%;
+  }
+}
+@keyframes globalPulse {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.05);
+  }
+  100% {
+    filter: brightness(1);
   }
 }
 @keyframes matrixFall {
