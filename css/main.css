@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f698ff;
+    background: #e46c3e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2953,7 +2953,7 @@ a {
   transition: all 0.3s ease;
 }
 .typing-complete {
-  animation: cyberGlitch 3s infinite, globalPulse 4s infinite !important;
+  animation: cyberGlitch 6s infinite, globalPulse 8s infinite !important;
 }
 .matrix-rain {
   position: fixed;
@@ -3367,16 +3367,10 @@ button {
   0% {
     text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
   }
-  15% {
-    text-shadow: -2px 0 5px #ff00c8, 2px 0 10px #00fff8, -2px 0 15px #ff00c8, 2px 0 20px #00fff8;
+  5% {
+    text-shadow: -1px 0 5px #ff00c8, 1px 0 10px #00fff8, -1px 0 15px #ff00c8, 1px 0 20px #00fff8;
   }
-  30% {
-    text-shadow: 2px 0 5px #ff00c8, -2px 0 10px #00fff8, 2px 0 15px #ff00c8, -2px 0 20px #00fff8;
-  }
-  45% {
-    text-shadow: -2px 0 5px #0ff, 2px 0 10px #ff00c8, -2px 0 15px #0ff, 2px 0 20px #ff00c8;
-  }
-  60% {
+  10% {
     text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
   }
   100% {
