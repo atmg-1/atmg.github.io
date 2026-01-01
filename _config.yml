@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 叶学生的酒吧
-subtitle: '记录学习与生活的点滴'
-description: '欢迎来到我的个人博客，这里记录了我的学习和生活体会。'
-keywords: blog,hexo,github
-author: Your Name
+title: 叶同学的博客
+subtitle: ''
+description: ''
+keywords:
+author: 叶同学
 language: zh-CN
 timezone: ''
 
