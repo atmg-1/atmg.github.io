@@ -1,4 +1,4 @@
-// ±³¾°ÂÒÂëºÍºÚ¿Í´úÂëĞ§¹û
+// èƒŒæ™¯ä¹±ç å’Œé»‘å®¢ä»£ç æ•ˆæœ
 .hacker-code-bg {
   position: fixed;
   top: 0;
@@ -7,19 +7,21 @@
   height: 100%;
   pointer-events: none;
   z-index: -3;
-  opacity: 0.15;
+  opacity: 0.25;
   font-family: 'Courier New', monospace;
-  color: rgba(0, 255, 255, 0.7);
-  font-size: 14px;
+  color: rgba(0, 255, 255, 0.9);
+  font-size: 16px;
   overflow: hidden;
   white-space: nowrap;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .hacker-code-line {
   position: absolute;
-  opacity: 0.6;
+  opacity: 0.8;
   animation: hackerCodeFlow linear infinite;
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6);
+  font-weight: bold;
 }
 
 @keyframes hackerCodeFlow {
@@ -31,15 +33,17 @@
   }
 }
 
-// Ëæ»ú¶¨Î»µÄÂÒÂëÎÄ±¾
+// éšæœºå®šä½çš„ä¹±ç æ–‡æœ¬
 .glitch-text-bg {
   position: fixed;
-  color: rgba(255, 0, 255, 0.2);
+  color: rgba(255, 0, 255, 0.4);
   font-family: 'Courier New', monospace;
-  font-size: 12px;
+  font-size: 14px;
   pointer-events: none;
   z-index: -4;
   animation: glitchTextRotate 20s infinite linear;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4);
+  font-weight: bold;
 }
 
 @keyframes glitchTextRotate {
@@ -47,16 +51,18 @@
   100% { transform: rotate(360deg); }
 }
 
-// Ëæ»ú¸¡¶¯µÄ´úÂëÆ¬¶Î
+// éšæœºæµ®åŠ¨çš„ä»£ç ç‰‡æ®µ
 .floating-code {
   position: fixed;
   font-family: 'Courier New', monospace;
-  color: rgba(0, 255, 255, 0.15);
-  font-size: 10px;
+  color: rgba(0, 255, 255, 0.3);
+  font-size: 12px;
   pointer-events: none;
   z-index: -3;
   animation: floatCode linear infinite;
-  opacity: 0.3;
+  opacity: 0.5;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.4);
+  font-weight: bold;
 }
 
 @keyframes floatCode {
@@ -76,30 +82,33 @@
   }
 }
 
-// ¾²Ì¬ÂÒÂë×°ÊÎ
+// é™æ€ä¹±ç è£…é¥°
 .static-glitch {
   position: fixed;
   font-family: 'Courier New', monospace;
-  color: rgba(255, 0, 255, 0.05);
-  font-size: 16px;
+  color: rgba(255, 0, 255, 0.15);
+  font-size: 18px;
   pointer-events: none;
   z-index: -5;
-  opacity: 0.5;
+  opacity: 0.7;
   writing-mode: vertical-rl;
   text-orientation: mixed;
+  text-shadow: 0 0 12px rgba(255, 0, 255, 0.8), 0 0 25px rgba(255, 0, 255, 0.6);
+  font-weight: bold;
 }
 
-// ±³¾°É¨ÃèÏßĞ§¹û
+// èƒŒæ™¯æ‰«æçº¿æ•ˆæœ
 .scan-line {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
-  background: linear-gradient(to bottom, rgba(0, 255, 255, 0.3), transparent);
+  height: 8px;
+  background: linear-gradient(to bottom, rgba(0, 255, 255, 0.6), rgba(0, 255, 255, 0.3), transparent);
   animation: scanLine linear infinite;
   z-index: -2;
   pointer-events: none;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
 }
 
 @keyframes scanLine {

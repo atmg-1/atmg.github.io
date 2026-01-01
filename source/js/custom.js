@@ -737,23 +737,33 @@ function createHackerBackgroundEffects() {
   document.body.appendChild(scanLine);
   
   // 创建多个黑客代码行
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 25; i++) {  // 增加数量
     setTimeout(() => {
       const hackerLine = document.createElement('div');
       hackerLine.className = 'hacker-code-line';
       
       // 生成随机位置
       hackerLine.style.left = Math.random() * 100 + '%';
-      hackerLine.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      hackerLine.style.animationDuration = (Math.random() * 8 + 6) + 's';  // 减少时间，加快动画
       
       // 生成随机乱码文本
       const chars = '0123456789ABCDEFabcdef!@#$%^&*()_+-=[]{}|;:,.<>?/';
       let text = '';
-      for (let j = 0; j < 100; j++) {
+      for (let j = 0; j < 120; j++) {  // 增加文本长度
         text += chars.charAt(Math.floor(Math.random() * chars.length));
       }
       
       hackerLine.textContent = text;
+      
+      // 随机选择颜色
+      if (Math.random() > 0.5) {
+        hackerLine.style.color = '#00ffff';
+        hackerLine.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6);';
+      } else {
+        hackerLine.style.color = '#ff00ff';
+        hackerLine.style.textShadow = '0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6);';
+      }
+      
       document.body.appendChild(hackerLine);
       
       // 设置生命周期
@@ -761,39 +771,49 @@ function createHackerBackgroundEffects() {
         if (hackerLine.parentNode) {
           hackerLine.remove();
         }
-      }, 15000);
-    }, i * 500);
+      }, 12000);  // 减少生命周期
+    }, i * 400);  // 调整间隔
   }
   
   // 创建随机定位的乱码文本
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 20; i++) {  // 增加数量
     setTimeout(() => {
       const glitchText = document.createElement('div');
       glitchText.className = 'glitch-text-bg';
       glitchText.style.left = Math.random() * 100 + '%';
       glitchText.style.top = Math.random() * 100 + '%';
-      glitchText.style.animationDuration = (Math.random() * 30 + 10) + 's';
+      glitchText.style.animationDuration = (Math.random() * 20 + 8) + 's';  // 减少时间
       
       // 生成随机乱码
       const chars = '0123456789ABCDEFabcdef';
       let text = '0x';
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < 12; j++) {  // 增加长度
         text += chars.charAt(Math.floor(Math.random() * chars.length));
       }
       
       glitchText.textContent = text;
+      
+      // 随机颜色
+      if (Math.random() > 0.5) {
+        glitchText.style.color = '#00ffff';
+        glitchText.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6);';
+      } else {
+        glitchText.style.color = '#ff00ff';
+        glitchText.style.textShadow = '0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6);';
+      }
+      
       document.body.appendChild(glitchText);
-    }, i * 1000);
+    }, i * 800);
   }
   
   // 创建浮动代码片段
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 40; i++) {  // 增加数量
     setTimeout(() => {
       const floatingCode = document.createElement('div');
       floatingCode.className = 'floating-code';
       floatingCode.style.left = Math.random() * 100 + '%';
-      floatingCode.style.animationDuration = (Math.random() * 20 + 15) + 's';
-      floatingCode.style.animationDelay = (Math.random() * 5) + 's';
+      floatingCode.style.animationDuration = (Math.random() * 15 + 10) + 's';  // 减少时间
+      floatingCode.style.animationDelay = (Math.random() * 4) + 's';
       
       // 生成随机代码片段
       const codeFragments = [
@@ -801,10 +821,23 @@ function createHackerBackgroundEffects() {
         'sizeof', 'malloc', 'int i=0', 'return', 'if(x>0)',
         'while(1)', 'for(;;)', 'main()', 'printf', '0xDEADBEEF',
         '0x4558504C', 'HTTP/1.1', 'TCP/IP', 'UDP', 'SSL/TLS',
-        'AES-256', 'SHA-256', 'RSA', 'PKI', 'VPN', 'SSH', 'FTP'
+        'AES-256', 'SHA-256', 'RSA', 'PKI', 'VPN', 'SSH', 'FTP',
+        'root@cyber:', '#include', 'memset', 'memcpy', 'kernel',
+        '0xFFFFFFFF', 'exploit', 'buffer', 'overflow', 'shellcode',
+        'NOP-SLED', 'RCE', '0day', 'payload', 'encrypt', 'decrypt'
       ];
       
       floatingCode.textContent = codeFragments[Math.floor(Math.random() * codeFragments.length)];
+      
+      // 随机颜色
+      if (Math.random() > 0.5) {
+        floatingCode.style.color = '#00ffff';
+        floatingCode.style.textShadow = '0 0 8px rgba(0, 255, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);';
+      } else {
+        floatingCode.style.color = '#ff00ff';
+        floatingCode.style.textShadow = '0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(255, 0, 255, 0.6);';
+      }
+      
       document.body.appendChild(floatingCode);
       
       // 设置生命周期
@@ -812,25 +845,35 @@ function createHackerBackgroundEffects() {
         if (floatingCode.parentNode) {
           floatingCode.remove();
         }
-      }, 25000);
-    }, i * 300);
+      }, 20000);  // 减少生命周期
+    }, i * 250);  // 调整间隔
   }
   
   // 创建静态乱码装饰
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 12; i++) {  // 增加数量
     const staticGlitch = document.createElement('div');
     staticGlitch.className = 'static-glitch';
-    staticGlitch.style.left = (i * 12.5) + '%';
+    staticGlitch.style.left = (i * 8.33) + '%';  // 均匀分布
     staticGlitch.style.top = '0';
     
     // 生成乱码文本
     const chars = '0123456789ABCDEF';
     let text = '';
-    for (let j = 0; j < 20; j++) {
+    for (let j = 0; j < 25; j++) {  // 增加长度
       text += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     
     staticGlitch.textContent = text;
+    
+    // 随机颜色
+    if (Math.random() > 0.5) {
+      staticGlitch.style.color = '#00ffff';
+      staticGlitch.style.textShadow = '0 0 12px rgba(0, 255, 255, 0.8), 0 0 25px rgba(0, 255, 255, 0.6);';
+    } else {
+      staticGlitch.style.color = '#ff00ff';
+      staticGlitch.style.textShadow = '0 0 12px rgba(255, 0, 255, 0.8), 0 0 25px rgba(255, 0, 255, 0.6);';
+    }
+    
     document.body.appendChild(staticGlitch);
   }
 }
