@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function createDynamicParticles() {
     // 创建多个动态粒子
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 100; i++) { // 增加粒子数量
       const particle = document.createElement('div');
       particle.className = 'dynamic-particle';
       
@@ -101,12 +101,17 @@ document.addEventListener('DOMContentLoaded', function() {
       particle.style.top = Math.random() * 100 + 'vh';
       
       // 随机大小
-      const size = Math.random() * 3 + 1;
+      const size = Math.random() * 4 + 1; // 增加最大尺寸
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
       
-      // 随机动画延迟
+      // 随机颜色
+      const colors = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00'];
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      
+      // 随机动画延迟和持续时间
       particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's'; // 增加动画时长
       
       document.body.appendChild(particle);
     }
@@ -114,9 +119,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function createLightBeams() {
     // 创建流动光束效果
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 8; i++) { // 增加光束数量
       const beam = document.createElement('div');
       beam.className = 'light-beam';
+      
+      // 随机方向 (水平或垂直)
+      if (Math.random() > 0.5) {
+        beam.classList.add('light-beam-horizontal');
+      } else {
+        beam.classList.add('light-beam-vertical');
+      }
       
       // 随机动画延迟
       beam.style.animationDelay = (Math.random() * 20) + 's';
@@ -150,10 +162,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }, i * 1500);
     }
 
-    // 为标题添加故障动画
+    // 为标题添加打字机效果
     const title = document.querySelector('.site-title, h1, .title');
     if (title) {
-      title.classList.add('cyber-glitch-text', 'cyber-flicker');
+      // 如果是文章页面的标题，应用打字机效果
+      if (window.location.pathname.includes('/20')) { // 检查是否是文章页
+        title.classList.add('typewriter');
+      } else {
+        title.classList.add('cyber-glitch-text', 'cyber-flicker');
+      }
     }
 
     // 为页面中的文本元素添加赛博朋克动画
@@ -299,6 +316,21 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
+    // 为文章内容添加像素文字效果
+    if (window.location.pathname.includes('/20')) { // 只在文章页面应用像素效果
+      const postContent = document.querySelector('.post-body, .post-content, .article-content');
+      if (postContent) {
+        // 为整个文章内容区域添加像素效果
+        postContent.classList.add('pixel-content');
+        
+        // 为文章内的标题添加像素效果
+        const headings = postContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headings.forEach(heading => {
+          heading.classList.add('pixel-title');
+        });
+      }
+    }
+    
     // 为文章内容中的文本添加随机像素文字效果
     const paragraphs = document.querySelectorAll('p, span, div');
     paragraphs.forEach(p => {
@@ -318,8 +350,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 为特定元素添加故障效果
     const headings = document.querySelectorAll('h1, h2, h3');
     headings.forEach(heading => {
-      if (Math.random() > 0.5) { // 50% 概率添加故障效果
-        heading.classList.add('text-glitch');
+      if (Math.random() > 0.7) { // 30% 概率添加故障效果
+        // 随机选择故障效果类型
+        const glitchTypes = ['text-glitch', 'text-glitch-v2', 'text-glitch-v3'];
+        const randomGlitch = glitchTypes[Math.floor(Math.random() * glitchTypes.length)];
+        heading.classList.add(randomGlitch);
         heading.setAttribute('data-text', heading.textContent);
       }
     });
@@ -330,6 +365,89 @@ document.addEventListener('DOMContentLoaded', function() {
       if (Math.random() > 0.6) { // 40% 概率添加流动效果
         title.classList.add('text-flow');
       }
+    });
+    
+    // 添加更多交互元素
+    addInteractiveElements();
+  }
+  
+  // 添加更多交互元素
+  function addInteractiveElements() {
+    // 为所有链接添加悬停效果
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      // 添加赛博朋克悬停效果
+      link.classList.add('cyber-link');
+      
+      // 添加鼠标进入和离开事件
+      link.addEventListener('mouseenter', function() {
+        // 创建临时光效
+        const glow = document.createElement('div');
+        glow.className = 'link-glow-effect';
+        glow.style.position = 'absolute';
+        glow.style.width = '100%';
+        glow.style.height = '100%';
+        glow.style.top = '0';
+        glow.style.left = '0';
+        glow.style.pointerEvents = 'none';
+        glow.style.borderRadius = getComputedStyle(this).borderRadius;
+        this.appendChild(glow);
+        
+        // 300ms后移除光效
+        setTimeout(() => {
+          if (glow.parentNode) {
+            glow.remove();
+          }
+        }, 300);
+      });
+      
+      link.addEventListener('mouseleave', function() {
+        // 鼠标离开时移除所有光效
+        const glows = this.querySelectorAll('.link-glow-effect');
+        glows.forEach(glow => glow.remove());
+      });
+    });
+    
+    // 为按钮添加动态效果
+    const buttons = document.querySelectorAll('button, .btn, input[type="button"], input[type="submit"]');
+    buttons.forEach(button => {
+      button.classList.add('cyber-button');
+      
+      button.addEventListener('click', function() {
+        // 点击时的脉冲效果
+        const pulse = document.createElement('div');
+        pulse.className = 'button-pulse';
+        
+        // 设置脉冲位置
+        const rect = this.getBoundingClientRect();
+        pulse.style.width = this.offsetWidth + 'px';
+        pulse.style.height = this.offsetHeight + 'px';
+        pulse.style.left = rect.left + 'px';
+        pulse.style.top = rect.top + 'px';
+        
+        document.body.appendChild(pulse);
+        
+        // 600ms后移除脉冲
+        setTimeout(() => {
+          if (pulse.parentNode) {
+            pulse.remove();
+          }
+        }, 600);
+      });
+    });
+    
+    // 添加全局悬停效果
+    const interactiveElements = document.querySelectorAll('div, span, li, .post-block, .post-header');
+    interactiveElements.forEach(element => {
+      element.addEventListener('mouseenter', function() {
+        if (Math.random() > 0.8) { // 20% 概率添加悬停效果
+          this.classList.add('cyber-hover');
+        }
+      });
+      
+      element.addEventListener('mouseleave', function() {
+        this.classList.remove('cyber-hover');
+      });
     });
   }
 });
