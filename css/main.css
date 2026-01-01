@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #a8a787;
+    background: #a8e7d9;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3045,9 +3045,9 @@ body {
   animation: cyberGlitch 3s infinite;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid #0ff;
+  border-right: 2px solid transparent;
   width: 0;
-  animation: typing 3.5s steps(40, end), cursor 0.75s infinite, cyberGlitch 3s infinite;
+  animation: typing 3.5s steps(40, end), cursor 0.75s infinite 3.5s, cyberGlitch 3s infinite;
 }
 .posts-expand .post-title:after {
   content: '';

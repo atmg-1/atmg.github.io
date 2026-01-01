@@ -1,5 +1,64 @@
+// 添加下划线光标效果到标题
+function addTypingUnderscore() {
+  const titles = document.querySelectorAll('.posts-expand .post-title');
+  
+  titles.forEach(title => {
+    // 保存原始文本内容
+    const originalText = title.textContent;
+    
+    // 清空标题内容以进行打字动画
+    title.textContent = '';
+    
+    // 创建一个容器来存放打字效果
+    const textContainer = document.createElement('span');
+    textContainer.textContent = originalText;
+    textContainer.style.visibility = 'hidden';
+    
+    // 创建下划线光标
+    const cursor = document.createElement('span');
+    cursor.textContent = '_';
+    cursor.style.marginLeft = '5px';
+    cursor.style.opacity = '1';
+    cursor.style.animation = 'blink 1s infinite';
+    
+    title.appendChild(textContainer);
+    title.appendChild(cursor);
+    
+    // 执行打字动画
+    let i = 0;
+    const typingSpeed = 100; // 每100毫秒打一个字
+    
+    const typeWriter = setInterval(() => {
+      if (i < originalText.length) {
+        textContainer.textContent += originalText.charAt(i);
+        i++;
+      } else {
+        clearInterval(typeWriter);
+        // 打字完成后，停止光标闪烁并保持显示
+        setTimeout(() => {
+          cursor.style.animation = 'none';
+          cursor.style.opacity = '1';
+        }, 500);
+      }
+    }, typingSpeed);
+  });
+}
+
+// 光标闪烁动画
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
+
 // 代码雨效果实现
 document.addEventListener('DOMContentLoaded', function() {
+  // 添加标题打字效果
+  addTypingUnderscore();
+  
   // 创建代码雨容器
   const matrixContainer = document.createElement('div');
   matrixContainer.className = 'matrix-rain';
