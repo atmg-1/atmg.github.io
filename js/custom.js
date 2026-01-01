@@ -141,6 +141,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // 创建赛博朋克动画元素
+  function createCyberAnims() {
+    // 创建网格动画背景
+    const grid = document.createElement('div');
+    grid.className = 'cyber-grid';
+    grid.style.position = 'fixed';
+    grid.style.top = '0';
+    grid.style.left = '0';
+    grid.style.width = '100%';
+    grid.style.height = '100%';
+    grid.style.pointerEvents = 'none';
+    grid.style.zIndex = '-2';
+    grid.style.opacity = '0.3';
+    document.body.appendChild(grid);
+
+    // 创建多个光束扫描效果
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        const beam = document.createElement('div');
+        beam.className = 'cyber-beam';
+        beam.style.setProperty('--delay', (i * 1.5) + 's');
+        document.body.appendChild(beam);
+      }, i * 1500);
+    }
+
+    // 为标题添加故障动画
+    const title = document.querySelector('.site-title, h1, .title');
+    if (title) {
+      title.classList.add('cyber-glitch-text', 'cyber-flicker');
+    }
+
+    // 为页面中的文本元素添加赛博朋克动画
+    const textElements = document.querySelectorAll('h1, h2, h3, h4, .post-title, .post-header');
+    textElements.forEach(el => {
+      if (Math.random() > 0.7) { // 30% 概率添加动画
+        el.classList.add('cyber-flicker');
+      }
+    });
+  }
+
+  // 调用函数创建赛博朋克动画
+  createCyberAnims();
+
   // 代码雨字符集
   const chars = '01abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/'; 
   const fontSize = 14;

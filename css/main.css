@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #29c8e5;
+    background: #cb4f58;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2950,6 +2950,49 @@ body::after {
   animation: flow 8s ease-in-out infinite;
   background-size: 200% 100%;
 }
+.cyber-animation {
+  position: relative;
+  overflow: hidden;
+}
+.cyber-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.2), transparent);
+  animation: cyberScan 3s linear infinite;
+}
+.cyber-flicker {
+  animation: cyberFlicker 1.5s ease-in-out infinite;
+}
+.cyber-glitch-text {
+  position: relative;
+  display: inline-block;
+  animation: cyberGlitchText 0.5s infinite;
+}
+.cyber-beam {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.1), rgba(255,0,255,0.1), transparent);
+  animation: cyberBeam 4s linear infinite;
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+}
+.cyber-grid {
+  background: linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: cyberGrid 3s linear infinite;
+}
+.cyber-pulse {
+  animation: cyberPulse 2s ease-in-out infinite;
+}
 .ripple-effect {
   animation: ripple 3s infinite;
 }
@@ -3442,6 +3485,69 @@ button {
   100% {
     background-position: 0% 50%;
     transform: translateX(0) translateY(0);
+  }
+}
+@keyframes cyberScan {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+@keyframes cyberFlicker {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+@keyframes cyberGlitchText {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes cyberBeam {
+  0% {
+    transform: translateX(-100%) skew(-15deg);
+  }
+  100% {
+    transform: translateX(100vw) skew(-15deg);
+  }
+}
+@keyframes cyberGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+@keyframes cyberPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(0,255,255,0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 30px rgba(255,0,255,0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0,255,255,0.5);
   }
 }
 @keyframes ripple {
