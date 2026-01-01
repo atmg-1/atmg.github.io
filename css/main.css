@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f92183;
+    background: #ffff8f;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3060,11 +3060,8 @@ a {
   font-size: 2.2em;
   margin: 20px 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-  border-right: 2px solid transparent;
-  width: 0;
-  animation: typing 3.5s steps(40, end);
   transition: all 0.3s ease;
 }
 .posts-expand .post-title.typing-complete {
