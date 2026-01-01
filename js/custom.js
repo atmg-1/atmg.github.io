@@ -90,6 +90,12 @@ document.addEventListener('DOMContentLoaded', function() {
   hologramGrid.className = 'hologram-grid';
   document.body.appendChild(hologramGrid);
 
+  // 创建动态粒子效果
+  createDynamicParticles();
+
+  // 创建流动光束效果
+  createLightBeams();
+
   function addGameUIDecorations() {
     // 创建四个角的装饰元素
     const corners = ['tl', 'tr', 'bl', 'br'];
@@ -98,6 +104,41 @@ document.addEventListener('DOMContentLoaded', function() {
       corner.className = `game-ui-corner ${pos}`;
       document.body.appendChild(corner);
     });
+  }
+
+  function createDynamicParticles() {
+    // 创建多个动态粒子
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'dynamic-particle';
+      
+      // 随机位置
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.top = Math.random() * 100 + 'vh';
+      
+      // 随机大小
+      const size = Math.random() * 3 + 1;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      
+      // 随机动画延迟
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      
+      document.body.appendChild(particle);
+    }
+  }
+
+  function createLightBeams() {
+    // 创建流动光束效果
+    for (let i = 0; i < 5; i++) {
+      const beam = document.createElement('div');
+      beam.className = 'light-beam';
+      
+      // 随机动画延迟
+      beam.style.animationDelay = (Math.random() * 20) + 's';
+      
+      document.body.appendChild(beam);
+    }
   }
 
   // 代码雨字符集

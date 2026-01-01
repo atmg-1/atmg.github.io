@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff7d34;
+    background: #503274;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2920,9 +2920,12 @@ body::before {
   z-index: -1;
 }
 body {
-  animation: flicker 15s infinite, hologram 30s ease-in-out infinite;
+  animation: flicker 10s infinite, hologram 25s ease-in-out infinite;
   position: relative;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* 添加流动感效果 */
+  background-position: 0% 50%;
+  will-change: transform, background-position;
 }
 body::after {
   content: '';
@@ -2946,6 +2949,13 @@ body::after {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: auto;
 }
+.flow-effect {
+  animation: flow 8s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+.ripple-effect {
+  animation: ripple 3s infinite;
+}
 .post-block {
   transition: all 0.4s ease;
 }
@@ -2954,6 +2964,40 @@ a {
 }
 ::-webkit-scrollbar {
   transition: all 0.3s ease;
+}
+.dynamic-particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: rgba(0,255,255,0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  animation: particleFlow 15s linear infinite;
+}
+.dynamic-particle:nth-child(2n) {
+  background: rgba(255,0,255,0.6);
+  animation-duration: 20s;
+}
+.dynamic-particle:nth-child(3n) {
+  background: rgba(0,255,255,0.4);
+  animation-duration: 12s;
+}
+.dynamic-particle:nth-child(4n) {
+  background: rgba(255,0,255,0.3);
+  animation-duration: 25s;
+}
+.light-beam {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.05), transparent);
+  animation: lightBeam 10s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
 }
 .typing-complete {
   animation: cyberGlitch 8s infinite, globalPulse 10s infinite !important;
@@ -3389,6 +3433,30 @@ button {
     filter: brightness(1.05) contrast(0.9) hue-rotate(3deg);
   }
 }
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: translateX(2px) translateY(-1px);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
 @keyframes globalPulse {
   0% {
     filter: brightness(1);
@@ -3398,6 +3466,35 @@ button {
   }
   100% {
     filter: brightness(1);
+  }
+}
+@keyframes particleFlow {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes lightBeam {
+  0% {
+    transform: translateX(-100vw) skew(-15deg);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.05;
+  }
+  100% {
+    transform: translateX(100vw) skew(-15deg);
+    opacity: 0;
   }
 }
 @keyframes matrixFall {
