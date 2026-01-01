@@ -1,3 +1,56 @@
+// 启动画面功能
+function createStartupScreen() {
+  // 创建启动屏幕容器
+  const startupScreen = document.createElement('div');
+  startupScreen.className = 'startup-screen';
+  startupScreen.id = 'startup-screen';
+  
+  // 创建乱码文本元素
+  const glitchText = document.createElement('div');
+  glitchText.className = 'glitch-text-init';
+  glitchText.setAttribute('data-text', '叶同学的博客');
+  glitchText.textContent = '叶同学的博客';
+  
+  startupScreen.appendChild(glitchText);
+  document.body.appendChild(startupScreen);
+  
+  // 添加点击事件以触发动效
+  document.addEventListener('click', function() {
+    if (startupScreen.parentNode) {
+      // 触发赛博朋克风格动效
+      const glitchText = startupScreen.querySelector('.glitch-text-init');
+      if (glitchText) {
+        glitchText.style.animation = 'glitch-disappear 0.8s forwards';
+      }
+      
+      // 添加整体淡出效果
+      startupScreen.style.animation = 'fadeOut 1s forwards';
+      
+      // 1秒后移除启动屏幕
+      setTimeout(() => {
+        startupScreen.remove();
+        
+        // 触发页面内容的进入动画
+        const mainContent = document.querySelector('.main');
+        if (mainContent) {
+          mainContent.style.opacity = '0';
+          mainContent.style.transform = 'translateY(20px)';
+          
+          // 使内容淡入
+          setTimeout(() => {
+            mainContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            mainContent.style.opacity = '1';
+            mainContent.style.transform = 'translateY(0)';
+          }, 10);
+        }
+      }, 800);
+    }
+  }, { once: true }); // 只执行一次
+}
+
+// 在DOM加载前创建启动屏幕
+createStartupScreen();
+
 // 代码雨效果实现
 document.addEventListener('DOMContentLoaded', function() {
   // 创建代码雨容器
