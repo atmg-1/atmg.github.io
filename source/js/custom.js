@@ -729,5 +729,114 @@ function addTagInteractions() {
   });
 }
 
+// 创建背景乱码和黑客代码效果
+function createHackerBackgroundEffects() {
+  // 创建背景扫描线效果
+  const scanLine = document.createElement('div');
+  scanLine.className = 'scan-line';
+  document.body.appendChild(scanLine);
+  
+  // 创建多个黑客代码行
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const hackerLine = document.createElement('div');
+      hackerLine.className = 'hacker-code-line';
+      
+      // 生成随机位置
+      hackerLine.style.left = Math.random() * 100 + '%';
+      hackerLine.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      
+      // 生成随机乱码文本
+      const chars = '0123456789ABCDEFabcdef!@#$%^&*()_+-=[]{}|;:,.<>?/';
+      let text = '';
+      for (let j = 0; j < 100; j++) {
+        text += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      
+      hackerLine.textContent = text;
+      document.body.appendChild(hackerLine);
+      
+      // 设置生命周期
+      setTimeout(() => {
+        if (hackerLine.parentNode) {
+          hackerLine.remove();
+        }
+      }, 15000);
+    }, i * 500);
+  }
+  
+  // 创建随机定位的乱码文本
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
+      const glitchText = document.createElement('div');
+      glitchText.className = 'glitch-text-bg';
+      glitchText.style.left = Math.random() * 100 + '%';
+      glitchText.style.top = Math.random() * 100 + '%';
+      glitchText.style.animationDuration = (Math.random() * 30 + 10) + 's';
+      
+      // 生成随机乱码
+      const chars = '0123456789ABCDEFabcdef';
+      let text = '0x';
+      for (let j = 0; j < 10; j++) {
+        text += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      
+      glitchText.textContent = text;
+      document.body.appendChild(glitchText);
+    }, i * 1000);
+  }
+  
+  // 创建浮动代码片段
+  for (let i = 0; i < 30; i++) {
+    setTimeout(() => {
+      const floatingCode = document.createElement('div');
+      floatingCode.className = 'floating-code';
+      floatingCode.style.left = Math.random() * 100 + '%';
+      floatingCode.style.animationDuration = (Math.random() * 20 + 15) + 's';
+      floatingCode.style.animationDelay = (Math.random() * 5) + 's';
+      
+      // 生成随机代码片段
+      const codeFragments = [
+        '01010101', '11110000', '0xCAFEBABE', 'void*ptr', 'NULL',
+        'sizeof', 'malloc', 'int i=0', 'return', 'if(x>0)',
+        'while(1)', 'for(;;)', 'main()', 'printf', '0xDEADBEEF',
+        '0x4558504C', 'HTTP/1.1', 'TCP/IP', 'UDP', 'SSL/TLS',
+        'AES-256', 'SHA-256', 'RSA', 'PKI', 'VPN', 'SSH', 'FTP'
+      ];
+      
+      floatingCode.textContent = codeFragments[Math.floor(Math.random() * codeFragments.length)];
+      document.body.appendChild(floatingCode);
+      
+      // 设置生命周期
+      setTimeout(() => {
+        if (floatingCode.parentNode) {
+          floatingCode.remove();
+        }
+      }, 25000);
+    }, i * 300);
+  }
+  
+  // 创建静态乱码装饰
+  for (let i = 0; i < 8; i++) {
+    const staticGlitch = document.createElement('div');
+    staticGlitch.className = 'static-glitch';
+    staticGlitch.style.left = (i * 12.5) + '%';
+    staticGlitch.style.top = '0';
+    
+    // 生成乱码文本
+    const chars = '0123456789ABCDEF';
+    let text = '';
+    for (let j = 0; j < 20; j++) {
+      text += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    staticGlitch.textContent = text;
+    document.body.appendChild(staticGlitch);
+  }
+}
+
+// 创建背景乱码和黑客代码效果
+createHackerBackgroundEffects();
+  
 // 初始化页面特定的互动功能
 setTimeout(addInteractiveFeatures, 1000); // 等待启动屏幕消失后再初始化
