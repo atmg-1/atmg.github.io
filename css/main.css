@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #0affb0;
+    background: #2f36ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2891,15 +2891,16 @@ header.header {
   }
 }
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
+  background: linear-gradient(45deg, #0f0c29, #302b63, #24243e, #0f0c29);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
   font-family: 'Noto Sans SC', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   line-height: 1.7;
   color: #e0e0ff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 body::before {
   content: '';
@@ -2908,18 +2909,56 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
   pointer-events: none;
-  background: radial-gradient(ellipse at center, rgba(0,195,255,0.1) 0%, transparent 70%);
   z-index: -1;
 }
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 50%, rgba(0,255,255,0.05) 50%);
+  background-size: 100% 4px;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+body {
+  animation: flicker 5s infinite;
+}
 .post-block {
-  background: rgba(30,30,46,0.8) !important;
+  background: rgba(10,5,20,0.7) !important;
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0,150,255,0.2), 0 0 20px rgba(0,195,255,0.1);
+  box-shadow: 0 0 15px rgba(0,255,255,0.3), 0 0 30px rgba(0,200,255,0.2), inset 0 0 10px rgba(0,255,255,0.1);
   transition: all 0.3s ease;
-  border: 1px solid rgba(0,195,255,0.2);
+  border: 1px solid transparent;
   margin: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.post-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(45deg, #0ff, #f0f, #0ff, #f0f);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: borderAnimation 3s linear infinite;
+}
+.post-block:hover {
+  box-shadow: 0 0 20px rgba(0,255,255,0.5), 0 0 40px rgba(0,200,255,0.3), inset 0 0 15px rgba(0,255,255,0.2);
+  transform: translateY(-5px);
 }
 .sidebar {
   background: rgba(30,30,46,0.8) !important;
@@ -2966,13 +3005,14 @@ body::before {
   background: rgba(102,126,234,0.8);
 }
 .posts-expand .post-title {
-  color: #0ef;
-  text-shadow: 0 0 10px rgba(0,200,255,0.5), 0 0 20px rgba(0,150,255,0.3);
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
   font-weight: 600;
   letter-spacing: 0.5px;
   font-size: 2.2em;
   margin: 20px 0;
   position: relative;
+  animation: cyberGlitch 3s infinite;
 }
 .posts-expand .post-title:after {
   content: '';
@@ -2983,6 +3023,7 @@ body::before {
   height: 3px;
   background: linear-gradient(90deg, transparent, #0ef, transparent);
   border-radius: 50%;
+  animation: cyberLine 2s infinite alternate;
 }
 .post-body {
   font-family: 'Noto Sans SC', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
@@ -3005,15 +3046,31 @@ h6 {
   color: #2c3e50;
 }
 a {
-  color: #0ef;
+  color: #0ff;
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  text-shadow: 0 0 5px rgba(0,200,255,0.3);
+  text-shadow: 0 0 5px #0ff;
+  position: relative;
+  overflow: hidden;
+}
+a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #0ff, transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 a:hover {
-  color: #0ff;
+  color: #f0f;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
   text-decoration: none;
-  text-shadow: 0 0 10px rgba(0,200,255,0.6);
-  transform: translateX(2px);
+  animation: linkGlitch 0.3s infinite;
+}
+a:hover::before {
+  transform: translateX(0);
 }
 .highlight {
   background: rgba(10,15,30,0.8) !important;
@@ -3062,6 +3119,108 @@ button {
 }
 .post-body {
   color: #e0e0ff;
+  position: relative;
+}
+.post-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg, rgba(0,255,255,0.03), rgba(0,255,255,0.03) 1px, transparent 1px, transparent 2px);
+  pointer-events: none;
+  z-index: 1;
+  animation: glitchEffect 0.1s infinite;
+}
+.btn {
+  background: transparent !important;
+  color: #0ff;
+  border: 1px solid #0ff;
+  border-radius: 0;
+  padding: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #0ff;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
+  transition: 0.5s;
+}
+.btn:hover {
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  color: #f0f;
+}
+.btn:hover::before {
+  left: 100%;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #0ff, #f0f);
+  border-radius: 0;
+  animation: thumbGlitch 3s infinite;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #f0f, #0ff);
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  3% {
+    opacity: 0.95;
+  }
+  6% {
+    opacity: 0.98;
+  }
+  9% {
+    opacity: 0.96;
+  }
+  12% {
+    opacity: 0.99;
+  }
+  15% {
+    opacity: 0.97;
+  }
+  18% {
+    opacity: 0.94;
+  }
+  21% {
+    opacity: 0.98;
+  }
 }
 @keyframes borderAnimation {
   0% {
@@ -3069,5 +3228,95 @@ button {
   }
   100% {
     background-position: 400% 0;
+  }
+}
+@keyframes cyberGlitch {
+  0% {
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
+  }
+  15% {
+    text-shadow: -2px 0 5px #ff00c8, 2px 0 10px #00fff8, -2px 0 15px #ff00c8, 2px 0 20px #00fff8;
+  }
+  30% {
+    text-shadow: 2px 0 5px #ff00c8, -2px 0 10px #00fff8, 2px 0 15px #ff00c8, -2px 0 20px #00fff8;
+  }
+  45% {
+    text-shadow: -2px 0 5px #0ff, 2px 0 10px #ff00c8, -2px 0 15px #0ff, 2px 0 20px #ff00c8;
+  }
+  60% {
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
+  }
+}
+@keyframes cyberLine {
+  0% {
+    background: linear-gradient(90deg, transparent, #0ef, transparent);
+  }
+  100% {
+    background: linear-gradient(90deg, transparent, #ff00c8, transparent);
+  }
+}
+@keyframes linkGlitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px);
+  }
+  40% {
+    transform: translate(2px);
+  }
+  60% {
+    transform: translate(-2px);
+  }
+  80% {
+    transform: translate(2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes borderAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+@keyframes glitchEffect {
+  0% {
+    opacity: 0.2;
+    transform: translateX(0);
+  }
+  20% {
+    opacity: 0.3;
+    transform: translateX(-2px);
+  }
+  40% {
+    opacity: 0.1;
+    transform: translateX(2px);
+  }
+  60% {
+    opacity: 0.4;
+    transform: translateX(-1px);
+  }
+  80% {
+    opacity: 0.2;
+    transform: translateX(1px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateX(0);
+  }
+}
+@keyframes thumbGlitch {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
   }
 }
