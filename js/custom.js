@@ -216,15 +216,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 为标题添加打字机效果
-    const title = document.querySelector('.site-title, h1, .title');
-    if (title) {
-      // 如果是文章页面的标题，应用打字机效果
-      if (window.location.pathname.includes('/20')) { // 检查是否是文章页
-        title.classList.add('typewriter');
-      } else {
-        title.classList.add('cyber-glitch-text', 'cyber-flicker');
-      }
-    }
+    // 为所有标题添加打字机效果
+    const allTitles = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .site-title, .title');
+    allTitles.forEach(title => {
+      // 为标题添加打字机效果
+      title.classList.add('typewriter');
+      
+      // 同时添加赛博朋克效果
+      title.classList.add('cyber-glitch-text', 'cyber-flicker');
+    });
 
     // 为页面中的文本元素添加赛博朋克动画
     const textElements = document.querySelectorAll('h1, h2, h3, h4, .post-title, .post-header');
@@ -369,20 +369,18 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // 为文章内容添加像素文字效果
-    if (window.location.pathname.includes('/20')) { // 只在文章页面应用像素效果
-      const postContent = document.querySelector('.post-body, .post-content, .article-content');
-      if (postContent) {
-        // 为整个文章内容区域添加像素效果
-        postContent.classList.add('pixel-content');
-        
-        // 为文章内的标题添加像素效果
-        const headings = postContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        headings.forEach(heading => {
-          heading.classList.add('pixel-title');
-        });
-      }
-    }
+    // 为所有内容添加像素文字效果
+    const allContent = document.querySelectorAll('.post-body, .post-content, .article-content, p, span, div');
+    allContent.forEach(content => {
+      // 为内容区域添加像素效果
+      content.classList.add('pixel-content');
+      
+      // 为内容中的标题添加像素效果
+      const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headings.forEach(heading => {
+        heading.classList.add('pixel-title');
+      });
+    });
     
     // 为文章内容中的文本添加随机像素文字效果
     const paragraphs = document.querySelectorAll('p, span, div');
@@ -504,3 +502,384 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// 为不同页面添加互动功能
+function addInteractiveFeatures() {
+  // 检查当前页面类型
+  const path = window.location.pathname;
+  
+  if (path === '/' || path.includes('index.html')) {
+    // 主页互动功能
+    addHomeInteractions();
+  } else if (path.includes('about')) {
+    // 关于页面互动功能
+    addAboutInteractions();
+  } else if (path.includes('categories')) {
+    // 分类页面互动功能
+    addCategoryInteractions();
+  } else if (path.includes('tags')) {
+    // 标签页面互动功能
+    addTagInteractions();
+  }
+}
+
+// 主页互动功能
+function addHomeInteractions() {
+  // 为文章标题添加悬停效果
+  const postTitles = document.querySelectorAll('.post-title-link');
+  postTitles.forEach(title => {
+    title.classList.add('cyber-link');
+    
+    title.addEventListener('mouseenter', function() {
+      // 添加故障效果
+      this.style.animation = 'textGlitch 0.3s infinite';
+      
+      // 创建悬停效果
+      const hoverEffect = document.createElement('div');
+      hoverEffect.className = 'post-hover-effect';
+      hoverEffect.style.position = 'absolute';
+      hoverEffect.style.bottom = '0';
+      hoverEffect.style.left = '0';
+      hoverEffect.style.width = '100%';
+      hoverEffect.style.height = '2px';
+      hoverEffect.style.background = 'linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent)';
+      hoverEffect.style.opacity = '0';
+      
+      // 添加到链接
+      this.appendChild(hoverEffect);
+      
+      // 动画进入
+      setTimeout(() => {
+        hoverEffect.style.transition = 'opacity 0.3s';
+        hoverEffect.style.opacity = '1';
+      }, 10);
+    });
+    
+    title.addEventListener('mouseleave', function() {
+      this.style.animation = '';
+      // 移除悬停效果
+      const hoverEffect = this.querySelector('.post-hover-effect');
+      if (hoverEffect) {
+        hoverEffect.style.opacity = '0';
+        setTimeout(() => {
+          if (hoverEffect.parentNode) {
+            hoverEffect.remove();
+          }
+        }, 300);
+      }
+    });
+  });
+}
+
+// 关于页面互动功能
+function addAboutInteractions() {
+  // 为关于页面添加打字机动画
+  const aboutContent = document.querySelector('.main-inner');
+  if (aboutContent) {
+    // 添加赛博朋克风格边框
+    aboutContent.classList.add('cyber-border');
+    
+    // 为段落添加点击效果
+    const paragraphs = aboutContent.querySelectorAll('p');
+    paragraphs.forEach((p, index) => {
+      p.style.cursor = 'pointer';
+      p.addEventListener('click', function() {
+        // 点击时添加脉冲效果
+        this.classList.add('pulse-effect');
+        setTimeout(() => {
+          this.classList.remove('pulse-effect');
+        }, 500);
+        
+        // 添加故障艺术效果
+        this.style.animation = 'textGlitch 0.5s';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 500);
+      });
+    });
+  }
+}
+
+// 分类页面互动功能
+function addCategoryInteractions() {
+  // 为分类项添加互动效果
+  const categoryItems = document.querySelectorAll('.category-list-item a, .category-link');
+  categoryItems.forEach(item => {
+    item.classList.add('cyber-link');
+    
+    item.addEventListener('mouseenter', function() {
+      // 添加霓虹发光效果
+      this.style.textShadow = '0 0 5px #00ffff, 0 0 10px #00ffff';
+      this.style.transition = 'all 0.3s ease';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.textShadow = '';
+    });
+    
+    // 点击分类时的动效
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 添加涟漪效果
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.position = 'absolute';
+      ripple.style.borderRadius = '50%';
+      ripple.style.backgroundColor = 'rgba(0, 255, 255, 0.4)';
+      ripple.style.transform = 'scale(0)';
+      ripple.style.animation = 'ripple-animation 0.6s linear';
+      ripple.style.pointerEvents = 'none';
+      
+      // 计算点击位置
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        if (ripple.parentNode) {
+          ripple.remove();
+        }
+      }, 600);
+      
+      // 延迟跳转
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 300);
+    });
+  });
+}
+
+// 标签页面互动功能
+function addTagInteractions() {
+  // 为标签添加互动效果
+  const tagItems = document.querySelectorAll('.tag-cloud a, .tag-link');
+  tagItems.forEach((tag, index) => {
+    tag.classList.add('cyber-tag');
+    
+    // 根据标签使用频率设置不同效果
+    const fontSize = parseFloat(getComputedStyle(tag).fontSize);
+    tag.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    
+    tag.addEventListener('mouseenter', function() {
+      // 随机大小变化
+      const scale = 1 + (Math.random() * 0.3);
+      this.style.transform = `scale(${scale})`;
+      
+      // 随机颜色变化
+      const colors = ['#00ffff', '#ff00ff', '#ffff00', '#00ff00'];
+      this.style.color = colors[Math.floor(Math.random() * colors.length)];
+      this.style.textShadow = `0 0 8px ${colors[Math.floor(Math.random() * colors.length)]}`;
+    });
+    
+    tag.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+      this.style.color = '';
+      this.style.textShadow = '';
+    });
+    
+    // 点击标签时的特殊效果
+    tag.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 添加爆炸效果
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => {
+          const particle = document.createElement('div');
+          particle.style.position = 'absolute';
+          particle.style.width = '6px';
+          particle.style.height = '6px';
+          particle.style.borderRadius = '50%';
+          particle.style.backgroundColor = ['#00ffff', '#ff00ff', '#ffff00'][Math.floor(Math.random() * 3)];
+          particle.style.left = `${e.offsetX}px`;
+          particle.style.top = `${e.offsetY}px`;
+          particle.style.pointerEvents = 'none';
+          
+          // 添加到点击位置
+          this.style.position = 'relative';
+          this.appendChild(particle);
+          
+          // 动画
+          const angle = (i * 60) * Math.PI / 180;
+          const distance = 30;
+          particle.style.transition = 'all 0.6s ease-out';
+          particle.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+          particle.style.opacity = '0';
+          
+          setTimeout(() => {
+            if (particle.parentNode) {
+              particle.remove();
+            }
+          }, 600);
+        }, i * 100);
+      }
+      
+      // 延迟跳转
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 500);
+    });
+  });
+}
+
+// 创建背景乱码和黑客代码效果
+function createHackerBackgroundEffects() {
+  // 创建背景扫描线效果
+  const scanLine = document.createElement('div');
+  scanLine.className = 'scan-line';
+  document.body.appendChild(scanLine);
+  
+  // 创建多个黑客代码行
+  for (let i = 0; i < 25; i++) {  // 增加数量
+    setTimeout(() => {
+      const hackerLine = document.createElement('div');
+      hackerLine.className = 'hacker-code-line';
+      
+      // 生成随机位置
+      hackerLine.style.left = Math.random() * 100 + '%';
+      hackerLine.style.animationDuration = (Math.random() * 8 + 6) + 's';  // 减少时间，加快动画
+      
+      // 生成随机乱码文本
+      const chars = '0123456789ABCDEFabcdef!@#$%^&*()_+-=[]{}|;:,.<>?/';
+      let text = '';
+      for (let j = 0; j < 120; j++) {  // 增加文本长度
+        text += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      
+      hackerLine.textContent = text;
+      
+      // 随机选择颜色
+      if (Math.random() > 0.5) {
+        hackerLine.style.color = '#00ffff';
+        hackerLine.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6);';
+      } else {
+        hackerLine.style.color = '#ff00ff';
+        hackerLine.style.textShadow = '0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6);';
+      }
+      
+      document.body.appendChild(hackerLine);
+      
+      // 设置生命周期
+      setTimeout(() => {
+        if (hackerLine.parentNode) {
+          hackerLine.remove();
+        }
+      }, 12000);  // 减少生命周期
+    }, i * 400);  // 调整间隔
+  }
+  
+  // 创建随机定位的乱码文本
+  for (let i = 0; i < 20; i++) {  // 增加数量
+    setTimeout(() => {
+      const glitchText = document.createElement('div');
+      glitchText.className = 'glitch-text-bg';
+      glitchText.style.left = Math.random() * 100 + '%';
+      glitchText.style.top = Math.random() * 100 + '%';
+      glitchText.style.animationDuration = (Math.random() * 20 + 8) + 's';  // 减少时间
+      
+      // 生成随机乱码
+      const chars = '0123456789ABCDEFabcdef';
+      let text = '0x';
+      for (let j = 0; j < 12; j++) {  // 增加长度
+        text += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      
+      glitchText.textContent = text;
+      
+      // 随机颜色
+      if (Math.random() > 0.5) {
+        glitchText.style.color = '#00ffff';
+        glitchText.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6);';
+      } else {
+        glitchText.style.color = '#ff00ff';
+        glitchText.style.textShadow = '0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6);';
+      }
+      
+      document.body.appendChild(glitchText);
+    }, i * 800);
+  }
+  
+  // 创建浮动代码片段
+  for (let i = 0; i < 40; i++) {  // 增加数量
+    setTimeout(() => {
+      const floatingCode = document.createElement('div');
+      floatingCode.className = 'floating-code';
+      floatingCode.style.left = Math.random() * 100 + '%';
+      floatingCode.style.animationDuration = (Math.random() * 15 + 10) + 's';  // 减少时间
+      floatingCode.style.animationDelay = (Math.random() * 4) + 's';
+      
+      // 生成随机代码片段
+      const codeFragments = [
+        '01010101', '11110000', '0xCAFEBABE', 'void*ptr', 'NULL',
+        'sizeof', 'malloc', 'int i=0', 'return', 'if(x>0)',
+        'while(1)', 'for(;;)', 'main()', 'printf', '0xDEADBEEF',
+        '0x4558504C', 'HTTP/1.1', 'TCP/IP', 'UDP', 'SSL/TLS',
+        'AES-256', 'SHA-256', 'RSA', 'PKI', 'VPN', 'SSH', 'FTP',
+        'root@cyber:', '#include', 'memset', 'memcpy', 'kernel',
+        '0xFFFFFFFF', 'exploit', 'buffer', 'overflow', 'shellcode',
+        'NOP-SLED', 'RCE', '0day', 'payload', 'encrypt', 'decrypt'
+      ];
+      
+      floatingCode.textContent = codeFragments[Math.floor(Math.random() * codeFragments.length)];
+      
+      // 随机颜色
+      if (Math.random() > 0.5) {
+        floatingCode.style.color = '#00ffff';
+        floatingCode.style.textShadow = '0 0 8px rgba(0, 255, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);';
+      } else {
+        floatingCode.style.color = '#ff00ff';
+        floatingCode.style.textShadow = '0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(255, 0, 255, 0.6);';
+      }
+      
+      document.body.appendChild(floatingCode);
+      
+      // 设置生命周期
+      setTimeout(() => {
+        if (floatingCode.parentNode) {
+          floatingCode.remove();
+        }
+      }, 20000);  // 减少生命周期
+    }, i * 250);  // 调整间隔
+  }
+  
+  // 创建静态乱码装饰
+  for (let i = 0; i < 12; i++) {  // 增加数量
+    const staticGlitch = document.createElement('div');
+    staticGlitch.className = 'static-glitch';
+    staticGlitch.style.left = (i * 8.33) + '%';  // 均匀分布
+    staticGlitch.style.top = '0';
+    
+    // 生成乱码文本
+    const chars = '0123456789ABCDEF';
+    let text = '';
+    for (let j = 0; j < 25; j++) {  // 增加长度
+      text += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    staticGlitch.textContent = text;
+    
+    // 随机颜色
+    if (Math.random() > 0.5) {
+      staticGlitch.style.color = '#00ffff';
+      staticGlitch.style.textShadow = '0 0 12px rgba(0, 255, 255, 0.8), 0 0 25px rgba(0, 255, 255, 0.6);';
+    } else {
+      staticGlitch.style.color = '#ff00ff';
+      staticGlitch.style.textShadow = '0 0 12px rgba(255, 0, 255, 0.8), 0 0 25px rgba(255, 0, 255, 0.6);';
+    }
+    
+    document.body.appendChild(staticGlitch);
+  }
+}
+
+// 创建背景乱码和黑客代码效果
+createHackerBackgroundEffects();
+  
+// 初始化页面特定的互动功能
+setTimeout(addInteractiveFeatures, 1000); // 等待启动屏幕消失后再初始化

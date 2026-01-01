@@ -1221,7 +1221,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #6506ff;
+  background: #d1b1fb;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1556,6 +1556,12 @@ pre code {
   color: #f00;
   display: inline-block;
   margin: 0 5px;
+}
+.busuanzi-count #busuanzi_container_site_uv {
+  display: none;
+}
+.busuanzi-count #busuanzi_container_site_pv {
+  display: none;
 }
 @keyframes icon-animate {
   0%, 100% {
@@ -1975,6 +1981,9 @@ pre code {
 .post-meta-item-icon {
   margin-right: 3px;
 }
+.post-meta-item-text {
+  display: none;
+}
 @media (max-width: 991px) {
   .post-meta-item-text {
     display: none;
@@ -1983,6 +1992,9 @@ pre code {
 .post-meta-break {
   flex-basis: 100%;
   height: 0;
+}
+#busuanzi_container_page_pv {
+  display: none;
 }
 .post-nav {
   border-top: 1px solid #eee;
@@ -3033,6 +3045,12 @@ body {
   box-shadow: 0 0 20px rgba(0,255,255,0.1);
   transition: all 0.4s ease;
 }
+.post-meta {
+  display: none !important;
+}
+.post-meta-container {
+  display: none !important;
+}
 .post-body:hover {
   border-color: rgba(255,0,255,0.4);
   box-shadow: 0 0 30px rgba(255,0,255,0.2);
@@ -3042,6 +3060,115 @@ html {
 }
 body {
   -webkit-overflow-scrolling: touch;
+}
+.post-title-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.post-hover-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0ff, #f0f, transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.about-content {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(10,5,20,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,255,255,0.3);
+  transition: all 0.4s ease;
+}
+.pulse-effect {
+  animation: pulseEffect 0.5s ease-in-out;
+}
+.cyber-link {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.cyber-link:hover {
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  transition: all 0.3s ease;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+.cyber-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 4px;
+  border-radius: 4px;
+  background: rgba(10,5,20,0.6);
+  border: 1px solid rgba(0,255,255,0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+.cyber-tag:hover {
+  border-color: rgba(255,0,255,0.6);
+}
+.category-list-item a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 4px;
+  background: rgba(10,5,20,0.4);
+  border: 1px solid rgba(0,255,255,0.2);
+  transition: all 0.3s ease;
+}
+.category-list-item a:hover {
+  border-color: rgba(255,0,255,0.6);
+  box-shadow: 0 0 10px rgba(255,0,255,0.3);
+}
+.tag-cloud a {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: rgba(20,10,30,0.6);
+  border: 1px solid rgba(0,255,255,0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tag-cloud a:hover {
+  border-color: rgba(255,0,255,0.6);
+  box-shadow: 0 0 15px rgba(255,0,255,0.5);
+}
+.cyber-border {
+  position: relative;
+  border: 1px solid rgba(0,255,255,0.3);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(10,5,20,0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+  transition: all 0.4s ease;
+}
+.cyber-border:hover {
+  border-color: rgba(255,0,255,0.6);
+  box-shadow: 0 0 30px rgba(255,0,255,0.3);
+}
+.particle-container {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleExplode 0.6s ease-out forwards;
 }
 @keyframes gradientAnimation {
   0% {
@@ -3653,5 +3780,39 @@ body {
 @keyframes optimizeRender {
   to {
     opacity: 1;
+  }
+}
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0,255,255,0.5);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255,0,255,0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0,255,255,0.5);
+  }
+}
+@keyframes ripple-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+@keyframes particleExplode {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
   }
 }
