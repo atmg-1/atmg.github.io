@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #a8e7d9;
+    background: #ff3232;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3042,12 +3042,28 @@ body {
   font-size: 2.2em;
   margin: 20px 0;
   position: relative;
-  animation: cyberGlitch 3s infinite;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid transparent;
   width: 0;
-  animation: typing 3.5s steps(40, end), cursor 0.75s infinite 3.5s, cyberGlitch 3s infinite;
+  animation: typing 3.5s steps(40, end);
+  transition: all 0.3s ease;
+}
+.posts-expand .post-title.typing-complete {
+  width: 100% !important;
+  animation: cyberGlitch 3s infinite;
+}
+.typing-cursor {
+  display: inline-block;
+  width: 12px;
+  height: 1.2em;
+  margin-left: 5px;
+  vertical-align: middle;
+  background-color: #0ff;
+  opacity: 1;
+  animation: blink 1s infinite;
+  box-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  transition: all 0.3s ease;
 }
 .posts-expand .post-title:after {
   content: '';
@@ -3268,6 +3284,24 @@ button {
   }
   100% {
     background-position: 400% 0;
+  }
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scaleY(0.5);
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 @keyframes typing {

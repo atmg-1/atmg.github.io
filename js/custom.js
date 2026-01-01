@@ -1,58 +1,68 @@
-// 添加下划线光标效果到标题
+// 添加更流畅的下划线光标效果到标题
 function addTypingUnderscore() {
   const titles = document.querySelectorAll('.posts-expand .post-title');
   
   titles.forEach(title => {
     // 保存原始文本内容
-    const originalText = title.textContent;
+    const originalText = title.textContent.trim();
     
     // 清空标题内容以进行打字动画
     title.textContent = '';
     
     // 创建一个容器来存放打字效果
     const textContainer = document.createElement('span');
-    textContainer.textContent = originalText;
-    textContainer.style.visibility = 'hidden';
+    textContainer.textContent = '';
     
     // 创建下划线光标
     const cursor = document.createElement('span');
-    cursor.textContent = '_';
-    cursor.style.marginLeft = '5px';
-    cursor.style.opacity = '1';
-    cursor.style.animation = 'blink 1s infinite';
+    cursor.className = 'typing-cursor';
     
     title.appendChild(textContainer);
     title.appendChild(cursor);
     
     // 执行打字动画
     let i = 0;
-    const typingSpeed = 100; // 每100毫秒打一个字
+    const typingSpeed = 150; // 每150毫秒打一个字，稍微放慢以增加可读性
     
     const typeWriter = setInterval(() => {
       if (i < originalText.length) {
         textContainer.textContent += originalText.charAt(i);
         i++;
+        
+        // 添加打字音效（可选，通过CSS动画模拟）
+        title.style.transform = 'scale(1.01)';
+        setTimeout(() => {
+          title.style.transform = 'scale(1)';
+        }, 50);
       } else {
         clearInterval(typeWriter);
-        // 打字完成后，停止光标闪烁并保持显示
-        setTimeout(() => {
-          cursor.style.animation = 'none';
-          cursor.style.opacity = '1';
-        }, 500);
+        
+        // 打字完成后，移除光标并添加完成类
+        cursor.remove();
+        
+        // 添加完成后触发的赛博朋克故障效果
+        title.classList.add('typing-complete');
+        
+        // 添加一个完成时的视觉反馈
+        title.style.animation = 'cyberGlitch 3s infinite';
+        
+        // 添加一个轻微的脉冲效果来增强完成感
+        title.style.animation = 'cyberGlitch 3s infinite, pulse 0.5s ease';
+        
+        // 添加一个独立的脉冲动画
+        const pulseStyle = document.createElement('style');
+        pulseStyle.textContent = `
+          @keyframes pulse {
+            0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #0080ff, 0 0 20px #0080ff; }
+            50% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #0080ff, 0 0 40px #0080ff; }
+            100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #0080ff, 0 0 20px #0080ff; }
+          }
+        `;
+        document.head.appendChild(pulseStyle);
       }
     }, typingSpeed);
   });
 }
-
-// 光标闪烁动画
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-`;
-document.head.appendChild(style);
 
 // 代码雨效果实现
 document.addEventListener('DOMContentLoaded', function() {
