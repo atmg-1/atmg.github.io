@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff8e5d;
+    background: #dbffff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3053,7 +3053,7 @@ a {
   background: rgba(102,126,234,0.8);
 }
 .posts-expand .post-title {
-  color: #0ff;
+  color: #0ff !important;
   text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0080ff, 0 0 20px #0080ff;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -3182,7 +3182,7 @@ button {
   box-sizing: border-box;
 }
 .post-body {
-  color: #e0e0ff;
+  color: #f0f0ff !important;
   position: relative;
 }
 .post-body::before {
