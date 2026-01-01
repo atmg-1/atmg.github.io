@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #cb4f58;
+    background: #ec6e00;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2993,6 +2993,64 @@ body::after {
 .cyber-pulse {
   animation: cyberPulse 2s ease-in-out infinite;
 }
+.page-glitch-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+}
+.page-glitch-transition.active {
+  animation: pageGlitch 0.8s ease-out forwards;
+}
+.page-glitch-transition .glitch-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0,255,255,0.7);
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  text-transform: uppercase;
+  animation: pageGlitchText 0.3s infinite;
+}
+.page-glitch-transition .glitch-line {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #0ff, #f0f, transparent);
+  animation: pageGlitchLines 0.5s linear infinite;
+}
+.page-glitch-transition .glitch-line:nth-child(1) {
+  top: 20%;
+  animation-delay: 0s;
+}
+.page-glitch-transition .glitch-line:nth-child(2) {
+  top: 40%;
+  animation-delay: 0.2s;
+}
+.page-glitch-transition .glitch-line:nth-child(3) {
+  top: 60%;
+  animation-delay: 0.4s;
+}
+.page-glitch-transition .glitch-line:nth-child(4) {
+  top: 80%;
+  animation-delay: 0.6s;
+}
+.page-glitch-transition .glitch-static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg, rgba(0,255,255,0.05), rgba(0,255,255,0.05) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, rgba(255,0,255,0.05), rgba(255,0,255,0.05) 1px, transparent 1px, transparent 2px);
+  animation: staticNoise 0.1s infinite linear;
+}
 .ripple-effect {
   animation: ripple 3s infinite;
 }
@@ -3548,6 +3606,75 @@ button {
   }
   100% {
     box-shadow: 0 0 5px rgba(0,255,255,0.5);
+  }
+}
+@keyframes pageGlitch {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  16% {
+    transform: translateX(-5px);
+  }
+  17% {
+    transform: translateX(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes pageGlitchText {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes pageGlitchLines {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes staticNoise {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
   }
 }
 @keyframes ripple {

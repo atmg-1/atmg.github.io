@@ -184,6 +184,52 @@ document.addEventListener('DOMContentLoaded', function() {
   // 调用函数创建赛博朋克动画
   createCyberAnims();
 
+  // 创建页面切换故障艺术效果
+  function createPageGlitchTransition() {
+    const glitchContainer = document.createElement('div');
+    glitchContainer.className = 'page-glitch-transition';
+    glitchContainer.innerHTML = `
+      <div class="glitch-static"></div>
+      <div class="glitch-text">LOADING...</div>
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+    `;
+    document.body.appendChild(glitchContainer);
+
+    // 监听页面跳转事件
+    document.addEventListener('click', function(e) {
+      // 检查点击的元素是否为链接
+      const link = e.target.closest('a');
+      if (link && link.href && !link.hasAttribute('target') && !link.href.startsWith('mailto:') && !link.href.startsWith('tel:')) {
+        // 阻止默认行为直到动画完成
+        e.preventDefault();
+        
+        // 显示故障艺术效果
+        glitchContainer.classList.add('active');
+        
+        // 等待动画完成后跳转
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 800);
+      }
+    });
+
+    // 处理浏览器前进后退按钮
+    window.addEventListener('popstate', function() {
+      glitchContainer.classList.add('active');
+    });
+
+    // 页面加载完成后隐藏故障效果
+    window.addEventListener('load', function() {
+      glitchContainer.classList.remove('active');
+    });
+  }
+
+  // 初始化页面跳转故障艺术效果
+  createPageGlitchTransition();
+
   // 代码雨字符集
   const chars = '01abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/'; 
   const fontSize = 14;
