@@ -1,0 +1,2063 @@
+﻿// 閲嶅畾涔塁SS鍙橀噺浠ヨ鐩栭粯璁ゅ€?
+:root {
+  --body-bg-color: 
+    linear-gradient(45deg, rgba(5, 2, 20, 0.95), rgba(15, 5, 40, 0.9), rgba(25, 10, 50, 0.85), rgba(10, 15, 45, 0.9)),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0, 200, 255, 0.05) 1px, rgba(0, 200, 255, 0.05) 2px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(200, 0, 255, 0.05) 1px, rgba(200, 0, 255, 0.05) 2px),
+    radial-gradient(circle at 20% 30%, rgba(150, 50, 200, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(50, 150, 200, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 40% 10%, rgba(200, 50, 100, 0.15) 0%, transparent 15%),
+    radial-gradient(circle at 60% 90%, rgba(100, 200, 50, 0.15) 0%, transparent 15%),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 200, 0.03) 3px, rgba(0, 255, 200, 0.03) 4px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(20, 10, 40, 0.8) 30%, rgba(10, 5, 30, 0.9) 70%, rgba(5, 2, 20, 0.95)) !important;
+  --text-color: #e0e0ff !important;
+  --content-bg-color: rgba(10, 5, 20, 0.6) !important;
+}
+// 璧涘崥鏈嬪厠椋庢牸鑳屾櫙
+body {
+  background: 
+    linear-gradient(45deg, rgba(5, 2, 20, 0.95), rgba(15, 5, 40, 0.9), rgba(25, 10, 50, 0.85), rgba(10, 15, 45, 0.9)),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0, 200, 255, 0.05) 1px, rgba(0, 200, 255, 0.05) 2px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(200, 0, 255, 0.05) 1px, rgba(200, 0, 255, 0.05) 2px),
+    radial-gradient(circle at 20% 30%, rgba(150, 50, 200, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(50, 150, 200, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 40% 10%, rgba(200, 50, 100, 0.15) 0%, transparent 15%),
+    radial-gradient(circle at 60% 90%, rgba(100, 200, 50, 0.15) 0%, transparent 15%),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 200, 0.03) 3px, rgba(0, 255, 200, 0.03) 4px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(20, 10, 40, 0.8) 30%, rgba(10, 5, 30, 0.9) 70%, rgba(5, 2, 20, 0.95)) !important;
+  background-size: 
+    400% 400%, 
+    20px 20px, 
+    20px 20px, 
+    150px 150px, 
+    200px 200px, 
+    180px 180px, 
+    160px 160px, 
+    40px 40px, 
+    100% 100% !important;
+  background-position: 
+    0% 50%, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0 !important;
+  animation: gradientAnimation 15s ease infinite !important;
+  font-family: 'Noto Sans SC', 'HarmonyOS Sans', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #e0e0ff !important;
+  min-height: 100vh !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+  background-blend-mode: screen, overlay, overlay, screen, screen, screen, screen, normal, normal !important;
+}
+// 纭繚鑳屾櫙鏍峰紡瑕嗙洊榛樿鏍峰紡 - 浣跨敤鏇撮珮浼樺厛绾?
+html, body {
+  background: 
+    linear-gradient(45deg, rgba(5, 2, 20, 0.95), rgba(15, 5, 40, 0.9), rgba(25, 10, 50, 0.85), rgba(10, 15, 45, 0.9)),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0, 200, 255, 0.05) 1px, rgba(0, 200, 255, 0.05) 2px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(200, 0, 255, 0.05) 1px, rgba(200, 0, 255, 0.05) 2px),
+    radial-gradient(circle at 20% 30%, rgba(150, 50, 200, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(50, 150, 200, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 40% 10%, rgba(200, 50, 100, 0.15) 0%, transparent 15%),
+    radial-gradient(circle at 60% 90%, rgba(100, 200, 50, 0.15) 0%, transparent 15%),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 200, 0.03) 3px, rgba(0, 255, 200, 0.03) 4px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(20, 10, 40, 0.8) 30%, rgba(10, 5, 30, 0.9) 70%, rgba(5, 2, 20, 0.95)) !important;
+  background-size: 
+    400% 400%, 
+    20px 20px, 
+    20px 20px, 
+    150px 150px, 
+    200px 200px, 
+    180px 180px, 
+    160px 160px, 
+    40px 40px, 
+    100% 100% !important;
+  background-position: 
+    0% 50%, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0 !important;
+  font-family: 'Noto Sans SC', 'HarmonyOS Sans', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #e0e0ff !important;
+  min-height: 100vh !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+  background-blend-mode: screen, overlay, overlay, screen, screen, screen, screen, normal, normal !important;
+}
+// 鑳屾櫙鍔ㄧ敾
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+// 璧涘崥鏈嬪厠缃戞牸涓庨┈璧涘厠鑳屾櫙
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(0, 200, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(0, 200, 255, 0.03) 75%, rgba(0, 200, 255, 0.03)),
+    linear-gradient(-45deg, rgba(200, 0, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(200, 0, 255, 0.03) 75%, rgba(200, 0, 255, 0.03)),
+    repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0, 255, 200, 0.02) 21px, rgba(0, 255, 200, 0.02) 22px, transparent 23px, transparent 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255, 0, 200, 0.02) 21px, rgba(255, 0, 200, 0.02) 22px, transparent 23px, transparent 40px);
+  background-size: 
+    30px 30px, 
+    30px 30px, 
+    20px 20px, 
+    20px 20px, 
+    40px 40px, 
+    40px 40px;
+  background-position: 
+    0 0, 
+    0 0, 
+    0 0, 
+    10px 10px, 
+    0 0, 
+    0 0;
+  pointer-events: none;
+  z-index: -1;
+}
+// 娣诲姞闅忔満闂儊鏁堟灉
+body {
+  animation: flicker 10s infinite, hologram 25s ease-in-out infinite !important;
+  position: relative !important;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  /* 娣诲姞娴佸姩鎰熸晥鏋?*/
+  background-position: 0% 50% !important;
+  will-change: transform, background-position !important;
+}
+// 娣诲姞鏁呴殰鎵弿绾裤€佺矑瀛愬拰娴姩鏁堟灉
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(transparent 50%, rgba(0, 200, 255, 0.08) 50%),
+    radial-gradient(circle at 10% 20%, rgba(0, 200, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(200, 0, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 40%, rgba(0, 200, 255, 0.05) 0%, transparent 15%),
+    radial-gradient(circle at 70% 30%, rgba(200, 0, 255, 0.05) 0%, transparent 3%),
+    radial-gradient(circle at 30% 70%, rgba(0, 255, 200, 0.04) 0%, transparent 2%),
+    radial-gradient(circle at 80% 10%, rgba(255, 0, 200, 0.04) 0%, transparent 2%),
+    radial-gradient(circle at 25% 25%, rgba(100, 200, 255, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 75% 75%, rgba(200, 100, 255, 0.05) 0%, transparent 30%);
+  background-size: 
+    100% 4px, 
+    200px 200px, 
+    300px 300px, 
+    150px 150px, 
+    200px 200px, 
+    180px 180px, 
+    160px 160px, 
+    250px 250px, 
+    250px 250px;
+  background-position: 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0, 
+    0 0;
+  animation: combinedEffects 60s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes combinedEffects {
+  0% {
+    background-position: 
+      0 0, 
+      10% 20%, 
+      90% 80%, 
+      50% 40%, 
+      70% 30%, 
+      30% 70%, 
+      80% 10%,
+      25% 25%,
+      75% 75%;
+  }
+  100% {
+    background-position: 
+      0 100%, 
+      15% 25%, 
+      95% 85%, 
+      55% 45%, 
+      75% 35%, 
+      35% 75%, 
+      85% 15%,
+      30% 30%,
+      70% 70%;
+  }
+}
+// 鍏ㄦ伅鎶曞奖鍔ㄧ敾
+@keyframes hologram {
+  0%, 100% { filter: brightness(1) contrast(1); }
+  25% { filter: brightness(1.1) contrast(1.1) hue-rotate(5deg); }
+  50% { filter: brightness(0.9) contrast(1.2) hue-rotate(-5deg); }
+  75% { filter: brightness(1.05) contrast(0.9) hue-rotate(3deg); }
+}
+// 浼樺寲鏁翠綋鍔ㄧ敾娴佺晠鎬?
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: auto;
+}
+// 娣诲姞娴佸姩鎰熷姩鐢?
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: translateX(2px) translateY(-1px);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateX(0) translateY(0);
+  }
+}
+// 娣诲姞涓嬪垝绾垮厜鏍囨晥鏋?
+.typing-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: #00ffff;
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+// 璧涘崥鏈嬪厠闇撹櫣鏁堟灉
+.cyber-neon {
+  color: #fff;
+  text-shadow: 
+    0 0 5px #00ffff, 
+    0 0 10px #00ffff, 
+    0 0 20px #00ffff, 
+    0 0 30px #00ffff;
+  position: relative;
+}
+// 璧涘崥鏈嬪厠杈规
+.cyber-border {
+  position: relative;
+  border: 1px solid transparent;
+  background: rgba(10,5,20,0.8) !important;
+  backdrop-filter: blur(10px);
+}
+// 璧涘崥鏈嬪厠鏁呴殰鍔ㄧ敾
+@keyframes cyberGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+// 璧涘崥鏈嬪厠闂儊鍔ㄧ敾
+@keyframes cyberFlicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+// 璧涘崥鏈嬪厠闇撹櫣鎵弿鍔ㄧ敾
+@keyframes cyberScan {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+// 璧涘崥鏈嬪厠鍔ㄧ敾鏁堟灉
+.cyber-animation {
+  position: relative;
+  overflow: hidden;
+}
+.cyber-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  animation: cyberScan 3s linear infinite;
+}
+// 璧涘崥鏈嬪厠闂儊鍏冪礌
+.cyber-flicker {
+  animation: cyberFlicker 1.5s ease-in-out infinite;
+}
+// 璧涘崥鏈嬪厠鏁呴殰鏂囨湰
+.cyber-glitch-text {
+  position: relative;
+  display: inline-block;
+  animation: cyberGlitch 0.5s infinite;
+}
+// 璧涘崥鏈嬪厠鍏夋潫鎵弿
+@keyframes cyberBeam {
+  0% { transform: translateX(-100%) skew(-15deg); }
+  100% { transform: translateX(100vw) skew(-15deg); }
+}
+.cyber-beam {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1), transparent);
+  animation: cyberBeam 4s linear infinite;
+  animation-delay: var(--delay, 0s);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+}
+// 璧涘崥鏈嬪厠缃戞牸鍔ㄧ敾
+@keyframes cyberGrid {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 20px; }
+}
+.cyber-grid {
+  background: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: cyberGrid 3s linear infinite;
+}
+// 璧涘崥鏈嬪厠寰勫悜鑴夊啿
+@keyframes cyberPulse {
+  0% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+}
+.cyber-pulse {
+  animation: cyberPulse 2s ease-in-out infinite;
+}
+// 椤甸潰鍒囨崲鏁呴殰鑹烘湳鏁堟灉
+// 鏁呴殰鑹烘湳杩囨浮瀹瑰櫒
+.page-glitch-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+}
+// 鏁呴殰鑹烘湳鏁堟灉
+@keyframes pageGlitch {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  10% { opacity: 0; }
+  15% { opacity: 1; transform: translateX(0); }
+  16% { transform: translateX(-5px); }
+  17% { transform: translateX(0); }
+  30% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes pageGlitchText {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+@keyframes pageGlitchLines {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+.page-glitch-transition.active {
+  animation: pageGlitch 0.8s ease-out forwards;
+}
+.page-glitch-transition .glitch-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 255, 255, 0.7);
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  text-transform: uppercase;
+  animation: pageGlitchText 0.3s infinite;
+}
+.page-glitch-transition .glitch-line {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+  animation: pageGlitchLines 0.5s linear infinite;
+}
+.page-glitch-transition .glitch-line:nth-child(1) {
+  top: 20%;
+  animation-delay: 0s;
+}
+.page-glitch-transition .glitch-line:nth-child(2) {
+  top: 40%;
+  animation-delay: 0.2s;
+}
+.page-glitch-transition .glitch-line:nth-child(3) {
+  top: 60%;
+  animation-delay: 0.4s;
+}
+.page-glitch-transition .glitch-line:nth-child(4) {
+  top: 80%;
+  animation-delay: 0.6s;
+}
+// 娣诲姞闈欐€佹晠闅滄晥鏋?
+@keyframes staticNoise {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 100% 100%; }
+}
+.page-glitch-transition .glitch-static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.05) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.05), rgba(255, 0, 255, 0.05) 1px, transparent 1px, transparent 2px);
+  animation: staticNoise 0.1s infinite linear;
+}
+// 娑熸吉鏁堟灉
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+.ripple-effect {
+  animation: ripple 3s infinite;
+}
+// 浼樺寲鍗＄墖鎮仠鏁堟灉
+.post-block {
+  transition: all 0.4s ease;
+}
+// 浼樺寲閾炬帴浜や簰鏁堟灉
+a {
+  transition: all 0.3s ease;
+}
+// 浼樺寲婊氬姩鏉℃祦鐣呮€?
+::-webkit-scrollbar {
+  transition: all 0.3s ease;
+}
+// 娣诲姞鍏ㄥ眬鑴夊啿鍔ㄧ敾
+@keyframes globalPulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.05); }
+  100% { filter: brightness(1); }
+}
+// 鍚姩鐢婚潰鏍峰紡
+.startup-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  flex-direction: column;
+}
+// 涔辩爜鏂囨湰鏍峰紡
+.glitch-text-init {
+  color: transparent;
+  font-size: 3rem;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+// 涔辩爜瀛楃鏁堟灉
+.glitch-text-init::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 255, 255, 0.8);
+  animation: glitch-anim 0.3s infinite;
+}
+// 涔辩爜鍔ㄧ敾
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+// 涔辩爜棰滆壊鍙樺寲
+.glitch-text-init::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 0, 255, 0.8);
+  animation: glitch-anim-2 0.3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+@keyframes glitch-anim-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, -3px); }
+  40% { transform: translate(3px, 3px); }
+  60% { transform: translate(-3px, -3px); }
+  80% { transform: translate(-3px, 3px); }
+  100% { transform: translate(0); }
+}
+// 鐐瑰嚮鎻愮ず
+.click-prompt {
+  color: rgba(0, 255, 255, 0.7);
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+// 鍚姩鐢婚潰娑堝け鍔ㄧ敾
+.startup-screen.fade-out {
+  animation: fadeOut 0.8s forwards;
+}
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+// 鏍囬杩涘叆鍔ㄧ敾
+@keyframes titleEnter {
+  0% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.title-enter {
+  animation: titleEnter 0.8s ease-out forwards;
+}
+// 涔辩爜娑堝け鏁堟灉
+@keyframes glitch-disappear {
+  0% { opacity: 1; transform: translate(0); filter: blur(0); }
+  30% { opacity: 0.7; transform: translate(-50px, -20px) rotate(-5deg); filter: blur(2px); }
+  60% { opacity: 0.5; transform: translate(40px, 30px) rotate(5deg); filter: blur(4px); }
+  100% { opacity: 0; transform: translate(0, 0) rotate(0); filter: blur(8px); }
+}
+.glitch-disappear {
+  animation: glitch-disappear 0.8s forwards;
+}
+// 绮掑瓙娴佸姩鏁堟灉
+@keyframes particleFlow {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+// 鍔ㄦ€佺矑瀛?
+.dynamic-particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: rgba(0, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  animation: particleFlow 15s linear infinite;
+}
+.dynamic-particle:nth-child(2n) {
+  background: rgba(255, 0, 255, 0.6);
+  animation-duration: 20s;
+}
+.dynamic-particle:nth-child(3n) {
+  background: rgba(0, 255, 255, 0.4);
+  animation-duration: 12s;
+}
+.dynamic-particle:nth-child(4n) {
+  background: rgba(255, 0, 255, 0.3);
+  animation-duration: 25s;
+}
+// 娴佸姩鍏夋潫鏁堟灉
+@keyframes lightBeam {
+  0% {
+    transform: translateX(-100vw) skew(-15deg);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.05;
+  }
+  100% {
+    transform: translateX(100vw) skew(-15deg);
+    opacity: 0;
+  }
+}
+.light-beam {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+  animation: lightBeam 10s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+}
+// 浼樺寲鏍囬瀹屾垚鍚庣殑鍔ㄧ敾
+.typing-complete {
+  animation: cyberGlitch 8s infinite, globalPulse 10s infinite !important;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+// 浠ｇ爜闆ㄦ晥鏋滃鍣?
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+  font-family: monospace;
+  color: rgba(0, 255, 255, 0.7);
+  overflow: hidden;
+  opacity: 0.15;
+  font-size: 14px;
+}
+// 浠ｇ爜闆ㄥ瓧绗︽牱寮?
+.matrix-rain span {
+  position: absolute;
+  top: -20px;
+  animation: matrixFall linear infinite;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+// 浠ｇ爜闆ㄤ笅钀藉姩鐢?
+@keyframes matrixFall {
+  to {
+    top: 100vh;
+  }
+}
+// 缁堢鏍峰紡鏂囨湰鏁堟灉
+.terminal-text {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  color: #00ff00;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+  background-color: rgba(0, 20, 0, 0.8);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+// 鍥涗釜瑙掔殑娓告垙鐣岄潰瑁呴グ鍏冪礌
+.game-ui-corner {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 255, 255, 0.6);
+  z-index: 9999;
+  pointer-events: none;
+}
+.game-ui-corner.tl {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+}
+.game-ui-corner.tr {
+  top: 20px;
+  right: 20px;
+  border-left: none;
+  border-bottom: none;
+}
+.game-ui-corner.bl {
+  bottom: 20px;
+  left: 20px;
+  border-right: none;
+  border-top: none;
+}
+.game-ui-corner.br {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+}
+// 鏁版嵁娴佽楗?
+.data-stream {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.1;
+  background: linear-gradient(0deg, transparent, rgba(0, 255, 255, 0.05) 20%, transparent 40%);
+  animation: dataFlow 15s linear infinite;
+}
+@keyframes dataFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+// 鍏ㄦ伅缃戞牸
+.hologram-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.2;
+  background: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: hologramGrid 8s linear infinite;
+}
+@keyframes hologramGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+// 澶嶅彜鎵撳瓧鏈烘晥鏋?
+.typewriter {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ffff;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #00ffff; }
+}
+// 鍍忕礌鏂囧瓧鏁堟灉
+.pixel-text {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 14px;
+  color: #00ffff;
+  text-shadow: 2px 0 0 #ff00ff, -2px 0 0 #ff00ff, 0 2px 0 #ff00ff, 0 -2px 0 #ff00ff;
+  position: relative;
+  display: inline-block;
+}
+// 鍍忕礌鏂囧瓧鍔ㄧ敾
+@keyframes pixelPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.pixel-text-animated {
+  animation: pixelPulse 2s infinite;
+}
+// 鍍忕礌鍖栨枃绔犲唴瀹?
+.pixel-content {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #00ff00;
+  text-shadow: 1px 0 0 #00ffff, 0 1px 0 #00ffff, -1px 0 0 #ff00ff, 0 -1px 0 #ff00ff;
+}
+// 鍍忕礌鍖栨爣棰?
+.pixel-title {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 24px;
+  color: #ff00ff;
+  text-shadow: 3px 0 0 #00ffff, -3px 0 0 #00ffff, 0 3px 0 #00ffff, 0 -3px 0 #00ffff;
+  margin: 20px 0;
+  display: block;
+}
+// 鏂囧瓧闂儊鏁堟灉
+@keyframes textFlicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.2; }
+  20% { opacity: 0.8; }
+  30% { opacity: 0.1; }
+  40% { opacity: 0.9; }
+  50% { opacity: 0.3; }
+  60% { opacity: 0.7; }
+  70% { opacity: 0.2; }
+  80% { opacity: 0.8; }
+  90% { opacity: 0.4; }
+}
+.text-flicker {
+  animation: textFlicker 3s infinite;
+}
+// 鏂囧瓧鑴夊啿鏁堟灉
+@keyframes textPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.text-pulse {
+  animation: textPulse 2s infinite;
+}
+// 鏂囧瓧闂儊鍏夋檿鏁堟灉
+@keyframes textGlow {
+  0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; }
+  50% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #ff00ff; }
+  100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; }
+}
+.text-glow {
+  animation: textGlow 2s infinite;
+}
+// 鏂囧瓧鎵弿鏁堟灉
+@keyframes textScan {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+.text-scan {
+  background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.2) 50%, transparent 52%);
+  background-size: 200% 200%;
+  animation: textScan 3s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+// 鏂囧瓧鏁呴殰鏁堟灉
+@keyframes textGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+.text-glitch {
+  position: relative;
+  animation: textGlitch 0.5s infinite;
+}
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.text-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: textGlitch-anim 0.5s infinite linear alternate-reverse;
+}
+.text-glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: textGlitch-anim2 0.5s infinite linear alternate-reverse;
+}
+@keyframes textGlitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  10% { clip: rect(12px, 9999px, 59px, 0); }
+  20% { clip: rect(48px, 9999px, 29px, 0); }
+  30% { clip: rect(42px, 9999px, 73px, 0); }
+  40% { clip: rect(63px, 9999px, 27px, 0); }
+  50% { clip: rect(34px, 9999px, 55px, 0); }
+  60% { clip: rect(86px, 9999px, 73px, 0); }
+  70% { clip: rect(20px, 9999px, 20px, 0); }
+  80% { clip: rect(26px, 9999px, 60px, 0); }
+  90% { clip: rect(25px, 9999px, 66px, 0); }
+  100% { clip: rect(75px, 9999px, 45px, 0); }
+}
+@keyframes textGlitch-anim2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); }
+  10% { clip: rect(52px, 9999px, 74px, 0); }
+  20% { clip: rect(79px, 9999px, 85px, 0); }
+  30% { clip: rect(75px, 9999px, 5px, 0); }
+  40% { clip: rect(67px, 9999px, 61px, 0); }
+  50% { clip: rect(14px, 9999px, 79px, 0); }
+  60% { clip: rect(1px, 9999px, 66px, 0); }
+  70% { clip: rect(86px, 9999px, 30px, 0); }
+  80% { clip: rect(23px, 9999px, 98px, 0); }
+  90% { clip: rect(85px, 9999px, 72px, 0); }
+  100% { clip: rect(71px, 9999px, 75px, 0); }
+}
+// 鏂囧瓧娴佸姩鏁堟灉
+@keyframes textFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.text-flow {
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff, #ff00ff);
+  background-size: 200% 200%;
+  animation: textFlow 3s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+// 鍍忕礌鍖栨晥鏋?
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+// 姘村钩鍜屽瀭鐩村厜鏉熸牱寮?
+.light-beam-horizontal {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), rgba(255, 0, 255, 0.8), transparent);
+  animation: lightBeam 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+.light-beam-vertical {
+  position: fixed;
+  left: 0;
+  top: -100vh;
+  width: 2px;
+  height: 100vh;
+  background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.8), rgba(255, 0, 255, 0.8), transparent);
+  animation: lightBeamVertical 10s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+@keyframes lightBeamVertical {
+  0% {
+    transform: translateY(-100vh) skew(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(200vh) skew(0deg);
+    opacity: 0;
+  }
+}
+// 鏇村鏁呴殰鑹烘湳鍙樹綋
+.text-glitch-v2 {
+  position: relative;
+  animation: textGlitch-v2 0.8s infinite;
+}
+@keyframes textGlitch-v2 {
+  0% { transform: translate(0); }
+  25% { transform: translate(-3px, 3px); }
+  50% { transform: translate(3px, -3px); }
+  75% { transform: translate(-3px, -3px); }
+  100% { transform: translate(0); }
+}
+.text-glitch-v3 {
+  position: relative;
+  animation: textGlitch-v3 0.3s infinite;
+}
+@keyframes textGlitch-v3 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-5px, 0); text-shadow: -5px 0 #ff00c1; }
+  40% { transform: translate(5px, -3px); text-shadow: 5px 0 #00fff9; }
+  60% { transform: translate(-5px, 3px); text-shadow: -5px 0 #00ffff; }
+  80% { transform: translate(5px, 0); text-shadow: 5px 0 #ff00ff; }
+}
+// 浜や簰鍏冪礌鏍峰紡
+.cyber-link {
+  transition: all 0.3s ease;
+  position: relative;
+}
+.cyber-link:hover {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+}
+.link-glow-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  animation: linkGlowPulse 0.3s ease-out forwards;
+}
+@keyframes linkGlowPulse {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+.cyber-button {
+  background: rgba(10, 5, 20, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  color: #e0e0ff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.cyber-button:hover {
+  border-color: rgba(255, 0, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3);
+}
+.button-pulse {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  animation: buttonPulseAnim 0.6s ease-out forwards;
+  border: 2px solid rgba(0, 255, 255, 0.6);
+  background: rgba(0, 255, 255, 0.1);
+}
+@keyframes buttonPulseAnim {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.cyber-hover {
+  transition: all 0.3s ease;
+  position: relative;
+}
+.cyber-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+// 棰滆壊鑷€傚簲
+body {
+  // 鏍规嵁鑳屾櫙鍔ㄦ€佽皟鏁存枃瀛楀姣斿害
+  color-adjust: exact;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// 浼樺寲鍔ㄧ敾娴佺晠搴?
+* {
+  will-change: auto;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+// 鍑忓皯鍗￠】鍜屾帀甯?
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    animation: optimizeRender 0.001s;
+  }
+}
+@keyframes optimizeRender {
+  to { opacity: 1; }
+}
+// 閽堝鍐呭鍖哄煙鐨勮禌鍗氭湅鍏嬮鏍煎寮?
+.post-body {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(10, 5, 20, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+// 闅愯棌鏂囩珷鍏冩暟鎹?
+.post-meta {
+  display: none !important;
+}
+.post-meta-container {
+  display: none !important;
+}
+.post-body:hover {
+  border-color: rgba(255, 0, 255, 0.4);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
+}
+// 浼樺寲婊氬姩鎬ц兘
+html {
+  scroll-behavior: smooth;
+}
+body {
+  -webkit-overflow-scrolling: touch;
+}
+// 鏂板椤甸潰鐗瑰畾浜掑姩鍔熻兘鐨勬牱寮?
+// 涓婚〉鏂囩珷鏍囬鎮仠鏁堟灉
+.post-title-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.post-hover-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+// 鍏充簬椤甸潰鏍峰紡
+.about-content {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(10, 5, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+.pulse-effect {
+  animation: pulseEffect 0.5s ease-in-out;
+}
+@keyframes pulseEffect {
+  0% { transform: scale(1); box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+  50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
+  100% { transform: scale(1); box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+}
+// 鍒嗙被鍜屾爣绛鹃〉闈㈡牱寮?
+.cyber-link {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.cyber-link:hover {
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  transition: all 0.3s ease;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+// 鏍囩鏍峰紡
+.cyber-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 4px;
+  border-radius: 4px;
+  background: rgba(10, 5, 20, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+.cyber-tag:hover {
+  border-color: rgba(255, 0, 255, 0.6);
+}
+// 鍒嗙被鍒楄〃椤?
+.category-list-item a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 4px;
+  background: rgba(10, 5, 20, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.category-list-item a:hover {
+  border-color: rgba(255, 0, 255, 0.6);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+// 鏍囩浜?
+.tag-cloud a {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: rgba(20, 10, 30, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tag-cloud a:hover {
+  border-color: rgba(255, 0, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+// 閫氱敤璧涘崥鏈嬪厠杈规
+.cyber-border {
+  position: relative;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(10, 5, 20, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+.cyber-border:hover {
+  border-color: rgba(255, 0, 255, 0.6);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+}
+// 绮掑瓙鐖嗙偢鏁堟灉瀹瑰櫒
+.particle-container {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleExplode 0.6s ease-out forwards;
+}
+@keyframes particleExplode {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+// 楂樼骇闇撹櫣杈规鏁堟灉
+.advanced-neon {
+  position: relative;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff, #ff00ff) 1;
+  box-shadow: 
+    0 0 5px rgba(0, 255, 255, 0.5),
+    0 0 10px rgba(255, 0, 255, 0.3),
+    0 0 15px rgba(0, 255, 255, 0.2),
+    0 0 20px rgba(255, 0, 255, 0.1);
+  animation: 
+    neon-pulse 2s infinite alternate,
+    border-flow 3s linear infinite;
+}
+@keyframes border-flow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+// 鍏ㄦ伅鎶曞奖鏁堟灉
+.holographic-effect {
+  position: relative;
+  overflow: hidden;
+}
+.holographic-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.1) 2px,
+      rgba(0, 255, 255, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 0, 255, 0.1) 2px,
+      rgba(255, 0, 255, 0.1) 4px
+    );
+  animation: 
+    holographic-rotate 6s linear infinite,
+    holographic-flicker 3s ease-in-out infinite;
+  z-index: -1;
+}
+@keyframes holographic-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes holographic-flicker {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+// 楂樼骇鏁呴殰鏁堟灉
+.glitch-advanced {
+  position: relative;
+  overflow: hidden;
+}
+.glitch-advanced::before,
+.glitch-advanced::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.glitch-advanced::before {
+  color: rgba(0, 255, 255, 0.6);
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  animation: 
+    glitch-anim 0.3s infinite,
+    offset-shift-top 6s infinite;
+}
+.glitch-advanced::after {
+  color: rgba(255, 0, 255, 0.6);
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  animation: 
+    glitch-anim2 0.3s infinite,
+    offset-shift-bottom 6s infinite;
+}
+@keyframes offset-shift-top {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-5px, -2px); }
+  50% { transform: translate(3px, 2px); }
+  75% { transform: translate(-3px, -1px); }
+}
+@keyframes offset-shift-bottom {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(5px, 2px); }
+  50% { transform: translate(-3px, -2px); }
+  75% { transform: translate(3px, 1px); }
+}
+// 闇撹櫣鎵弿绾?
+.neon-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 255, 255, 0.8),
+    rgba(255, 0, 255, 0.8),
+    transparent
+  );
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.8),
+    0 0 20px rgba(255, 0, 255, 0.6);
+  animation: neon-scan 4s linear infinite;
+  z-index: 9999;
+  pointer-events: none;
+}
+@keyframes neon-scan {
+  0% { top: 0; }
+  50% { top: 50%; }
+  100% { top: 100%; }
+}
+// 鏁版嵁娴佹晥鏋?
+.data-stream-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -3;
+  opacity: 0.15;
+  background: 
+    linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(0, 255, 255, 0.05) 2%,
+      transparent 4%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 0, 255, 0.05) 2%,
+      transparent 4%
+    );
+  animation: 
+    data-stream-flow 8s linear infinite,
+    data-stream-flicker 5s ease-in-out infinite;
+}
+@keyframes data-stream-flow {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 100vh, 100vw 0; }
+}
+@keyframes data-stream-flicker {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.2; }
+}
+// 璧涘崥鏈嬪厠鍏夋檿鏁堟灉
+.cyber-glow {
+  position: relative;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 30px rgba(0, 255, 255, 0.2),
+    inset 0 0 10px rgba(0, 255, 255, 0.1);
+  animation: cyber-glow-pulse 3s infinite alternate;
+}
+@keyframes cyber-glow-pulse {
+  0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1); }
+  100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 30px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), inset 0 0 15px rgba(0, 255, 255, 0.2); }
+}
+// 楂樼骇缃戞牸绯荤粺
+.advanced-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.2;
+  background: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(0, 200, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(0, 200, 255, 0.05) 75%, rgba(0, 200, 255, 0.05)),
+    linear-gradient(-45deg, rgba(200, 0, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(200, 0, 255, 0.05) 75%, rgba(200, 0, 255, 0.05));
+  background-size: 
+    30px 30px, 
+    30px 30px, 
+    60px 60px, 
+    60px 60px;
+  background-position: 
+    0 0, 
+    0 0, 
+    0 0, 
+    30px 30px;
+  animation: 
+    advanced-grid-move 15s linear infinite,
+    advanced-grid-hue 20s linear infinite;
+}
+@keyframes advanced-grid-move {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+  100% { background-position: 0 100vh, 100vw 0, 0 100vh, 100vw 100vh; }
+}
+@keyframes advanced-grid-hue {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+// 楂樼骇绮掑瓙绯荤粺
+.advanced-particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  animation: 
+    particle-float 15s linear infinite,
+    particle-pulse 3s ease-in-out infinite;
+}
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes particle-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+// 缁堟瀬璧涘崥鏈嬪厠鏁堟灉
+.ultimate-cyberpunk {
+  position: relative;
+  overflow: hidden;
+  animation: 
+    ultimate-glow 4s ease-in-out infinite,
+    ultimate-hue 8s linear infinite;
+}
+@keyframes ultimate-glow {
+  0%, 100% {
+    filter: brightness(1) contrast(1.2) drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+  }
+  25% {
+    filter: brightness(1.2) contrast(1.5) drop-shadow(0 0 10px rgba(255, 0, 255, 0.7));
+  }
+  50% {
+    filter: brightness(0.9) contrast(1.3) drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+  }
+  75% {
+    filter: brightness(1.1) contrast(1.4) drop-shadow(0 0 12px rgba(255, 0, 255, 0.5));
+  }
+}
+@keyframes ultimate-hue {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}/ /   3 D Y?j2]翐XIp
+ . c u b e - 3 d   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     t r a n s f o r m - s t y l e :   p r e s e r v e - 3 d ; 
+     a n i m a t i o n :   r o t a t e 3 d   1 0 s   i n f i n i t e   l i n e a r ; 
+ } 
+ @ k e y f r a m e s   r o t a t e 3 d   { 
+     0 %   {   t r a n s f o r m :   r o t a t e X ( 0 d e g )   r o t a t e Y ( 0 d e g )   r o t a t e Z ( 0 d e g ) ;   } 
+     1 0 0 %   {   t r a n s f o r m :   r o t a t e X ( 3 6 0 d e g )   r o t a t e Y ( 3 6 0 d e g )   r o t a t e Z ( 3 6 0 d e g ) ;   } 
+ } 
+ / /   秓,l0w翐tT発y斬psn翐XIp
+ . m u l t i - l a y e r - g l i t c h   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     a n i m a t i o n :   m u l t i - g l i t c h   0 . 8 s   i n f i n i t e ; 
+ } 
+ . m u l t i - l a y e r - g l i t c h : : b e f o r e , 
+ . m u l t i - l a y e r - g l i t c h : : a f t e r   { 
+     c o n t e n t :   a t t r ( d a t a - t e x t ) ; 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   0 ; 
+     l e f t :   0 ; 
+     w i d t h :   1 0 0 % ; 
+     h e i g h t :   1 0 0 % ; 
+     b a c k g r o u n d :   i n h e r i t ; 
+ } 
+ . m u l t i - l a y e r - g l i t c h : : b e f o r e   { 
+     a n i m a t i o n :   l a y e r - s h i f t - 1   0 . 5 s   i n f i n i t e ; 
+     c l i p - p a t h :   p o l y g o n ( 0   0 ,   1 0 0 %   0 ,   1 0 0 %   3 5 % ,   0   3 5 % ) ; 
+     c o l o r :   # f f 0 0 c 1 ; 
+     o p a c i t y :   0 . 8 ; 
+ } 
+ . m u l t i - l a y e r - g l i t c h : : a f t e r   { 
+     a n i m a t i o n :   l a y e r - s h i f t - 2   0 . 5 s   i n f i n i t e ; 
+     c l i p - p a t h :   p o l y g o n ( 0   6 5 % ,   1 0 0 %   6 5 % ,   1 0 0 %   1 0 0 % ,   0   1 0 0 % ) ; 
+     c o l o r :   # 0 0 f f f 9 ; 
+     o p a c i t y :   0 . 8 ; 
+ } 
+ @ k e y f r a m e s   m u l t i - g l i t c h   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ) ;   } 
+     2 0 %   {   t r a n s f o r m :   t r a n s l a t e ( - 3 p x ,   3 p x ) ;   } 
+     4 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 3 p x ,   - 3 p x ) ;   } 
+     6 0 %   {   t r a n s f o r m :   t r a n s l a t e ( - 3 p x ,   - 3 p x ) ;   } 
+     8 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 3 p x ,   3 p x ) ;   } 
+ } 
+ @ k e y f r a m e s   l a y e r - s h i f t - 1   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ) ;   } 
+     2 5 %   {   t r a n s f o r m :   t r a n s l a t e ( - 5 p x ,   0 )   s k e w ( 5 d e g ) ;   } 
+     5 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ,   0 )   s k e w ( 0 ) ;   } 
+     7 5 %   {   t r a n s f o r m :   t r a n s l a t e ( 5 p x ,   0 )   s k e w ( - 5 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   l a y e r - s h i f t - 2   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ) ;   } 
+     2 5 %   {   t r a n s f o r m :   t r a n s l a t e ( 5 p x ,   0 )   s k e w ( - 5 d e g ) ;   } 
+     5 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ,   0 )   s k e w ( 0 ) ;   } 
+     7 5 %   {   t r a n s f o r m :   t r a n s l a t e ( - 5 p x ,   0 )   s k e w ( 5 d e g ) ;   } 
+ } 
+ / /   O?1O稉辠VY翐XIp瞤馷
+ . h o l o g r a m - e n h a n c e d   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     o v e r f l o w :   h i d d e n ; 
+     a n i m a t i o n :   h o l o g r a m - e n h a n c e d - p u l s e   3 s   i n f i n i t e ; 
+ } 
+ . h o l o g r a m - e n h a n c e d : : b e f o r e   { 
+     c o n t e n t :   ' ' ; 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   - 5 0 % ; 
+     l e f t :   - 5 0 % ; 
+     w i d t h :   2 0 0 % ; 
+     h e i g h t :   2 0 0 % ; 
+     b a c k g r o u n d :   
+         r e p e a t i n g - l i n e a r - g r a d i e n t ( 
+             4 5 d e g , 
+             t r a n s p a r e n t , 
+             t r a n s p a r e n t   2 p x , 
+             r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 )   2 p x , 
+             r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 )   4 p x 
+         ) , 
+         r e p e a t i n g - l i n e a r - g r a d i e n t ( 
+             - 4 5 d e g , 
+             t r a n s p a r e n t , 
+             t r a n s p a r e n t   2 p x , 
+             r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 1 )   2 p x , 
+             r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 1 )   4 p x 
+         ) ; 
+     a n i m a t i o n :   
+         h o l o g r a m - e n h a n c e d - r o t a t e   6 s   l i n e a r   i n f i n i t e , 
+         h o l o g r a m - e n h a n c e d - f l i c k e r   2 s   e a s e - i n - o u t   i n f i n i t e ; 
+     z - i n d e x :   - 1 ; 
+     o p a c i t y :   0 . 5 ; 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - e n h a n c e d - p u l s e   { 
+     0 % ,   1 0 0 %   {   o p a c i t y :   0 . 7 ;   } 
+     5 0 %   {   o p a c i t y :   1 ;   } 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - e n h a n c e d - r o t a t e   { 
+     0 %   {   t r a n s f o r m :   r o t a t e ( 0 d e g ) ;   } 
+     1 0 0 %   {   t r a n s f o r m :   r o t a t e ( 3 6 0 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - e n h a n c e d - f l i c k e r   { 
+     0 % ,   1 0 0 %   {   o p a c i t y :   0 . 4 ;   } 
+     5 0 %   {   o p a c i t y :   0 . 8 ;   } 
+ } 
+ / /   O?Y(l祿｀?_翐XIp
+ . s p e c t r u m - s c a n   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     o v e r f l o w :   h i d d e n ; 
+ } 
+ . s p e c t r u m - s c a n : : a f t e r   { 
+     c o n t e n t :   ' ' ; 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   0 ; 
+     l e f t :   - 1 0 0 % ; 
+     w i d t h :   1 0 0 p x ; 
+     h e i g h t :   1 0 0 % ; 
+     b a c k g r o u n d :   l i n e a r - g r a d i e n t ( 
+         9 0 d e g , 
+         t r a n s p a r e n t , 
+         r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 8 ) , 
+         r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 8 ) , 
+         r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 8 ) , 
+         t r a n s p a r e n t 
+     ) ; 
+     a n i m a t i o n :   s p e c t r u m - s c a n - a n i m a t i o n   3 s   i n f i n i t e ; 
+     z - i n d e x :   1 ; 
+ } 
+ @ k e y f r a m e s   s p e c t r u m - s c a n - a n i m a t i o n   { 
+     0 %   {   l e f t :   - 1 0 0 % ;   } 
+     1 0 0 %   {   l e f t :   1 0 0 % ;   } 
+ } 
+ / /   踾Y囩p.a哷翐XIp
+ . p l a s m a - b a l l   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     b o r d e r - r a d i u s :   5 0 % ; 
+     b a c k g r o u n d :   r a d i a l - g r a d i e n t ( 
+         c i r c l e   a t   3 0 %   3 0 % , 
+         r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 8 ) , 
+         r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 6 ) , 
+         r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 4 ) 
+     ) ; 
+     b o x - s h a d o w : 
+         0   0   2 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 6 ) , 
+         0   0   4 0 p x   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 4 ) , 
+         0   0   6 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 2 ) ; 
+     a n i m a t i o n : 
+         p l a s m a - p u l s e   2 s   i n f i n i t e   a l t e r n a t e , 
+         p l a s m a - r o t a t e   1 0 s   l i n e a r   i n f i n i t e ; 
+ } 
+ @ k e y f r a m e s   p l a s m a - p u l s e   { 
+     0 %   {   
+         b o x - s h a d o w : 
+             0   0   2 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 6 ) , 
+             0   0   4 0 p x   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 4 ) , 
+             0   0   6 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 2 ) ; 
+         t r a n s f o r m :   s c a l e ( 1 ) ; 
+     } 
+     1 0 0 %   {   
+         b o x - s h a d o w : 
+             0   0   3 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 8 ) , 
+             0   0   5 0 p x   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 6 ) , 
+             0   0   7 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 3 ) ; 
+         t r a n s f o r m :   s c a l e ( 1 . 0 5 ) ; 
+     } 
+ } 
+ @ k e y f r a m e s   p l a s m a - r o t a t e   { 
+     0 %   {   t r a n s f o r m :   r o t a t e ( 0 d e g ) ;   } 
+     1 0 0 %   {   t r a n s f o r m :   r o t a t e ( 3 6 0 d e g ) ;   } 
+ } 
+ / /   O?1OU I 葧!2榦
+ . h o l o g r a p h i c - p a n e l   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     b a c k g r o u n d :   r g b a ( 1 0 ,   5 ,   2 0 ,   0 . 6 ) ; 
+     b o r d e r :   1 p x   s o l i d ; 
+     b o r d e r - i m a g e :   l i n e a r - g r a d i e n t ( 
+         4 5 d e g , 
+         r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 8 ) , 
+         r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 8 ) , 
+         r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 8 ) 
+     )   1 ; 
+     b o x - s h a d o w : 
+         0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 3 ) , 
+         0   0   2 0 p x   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 2 ) , 
+         i n s e t   0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
+     b a c k d r o p - f i l t e r :   b l u r ( 1 0 p x ) ; 
+     a n i m a t i o n : 
+         p a n e l - g l o w   4 s   i n f i n i t e   a l t e r n a t e , 
+         p a n e l - h u e   8 s   l i n e a r   i n f i n i t e ; 
+ } 
+ @ k e y f r a m e s   p a n e l - g l o w   { 
+     0 %   { 
+         b o x - s h a d o w : 
+             0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 3 ) , 
+             0   0   2 0 p x   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 2 ) , 
+             i n s e t   0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
+     } 
+     1 0 0 %   { 
+         b o x - s h a d o w : 
+             0   0   1 5 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 5 ) , 
+             0   0   3 0 p x   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 3 ) , 
+             i n s e t   0   0   1 5 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 2 ) ; 
+     } 
+ } 
+ @ k e y f r a m e s   p a n e l - h u e   { 
+     0 %   {   f i l t e r :   h u e - r o t a t e ( 0 d e g ) ;   } 
+     1 0 0 %   {   f i l t e r :   h u e - r o t a t e ( 3 6 0 d e g ) ;   } 
+ } 
+ / /   Bi<j嚉翐tT発翐XIp
+ . a d v a n c e d - g l i t c h   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     a n i m a t i o n :   a d v a n c e d - g l i t c h - m a i n   0 . 8 s   i n f i n i t e ; 
+ } 
+ . a d v a n c e d - g l i t c h : : b e f o r e , 
+ . a d v a n c e d - g l i t c h : : a f t e r   { 
+     c o n t e n t :   a t t r ( d a t a - t e x t ) ; 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   0 ; 
+     l e f t :   0 ; 
+     w i d t h :   1 0 0 % ; 
+     h e i g h t :   1 0 0 % ; 
+     a n i m a t i o n - d u r a t i o n :   0 . 8 s ; 
+     a n i m a t i o n - i t e r a t i o n - c o u n t :   i n f i n i t e ; 
+     a n i m a t i o n - t i m i n g - f u n c t i o n :   l i n e a r ; 
+ } 
+ . a d v a n c e d - g l i t c h : : b e f o r e   { 
+     a n i m a t i o n - n a m e :   a d v a n c e d - g l i t c h - t o p ; 
+     c l i p - p a t h :   p o l y g o n ( 0   0 ,   1 0 0 %   0 ,   1 0 0 %   4 0 % ,   0   4 0 % ) ; 
+     c o l o r :   r g b a ( 2 5 5 ,   0 ,   1 9 3 ,   0 . 7 5 ) ; 
+     z - i n d e x :   - 1 ; 
+     t e x t - s h a d o w :   - 2 p x   0   # f f 0 0 c 1 ; 
+     o p a c i t y :   0 . 8 ; 
+ } 
+ . a d v a n c e d - g l i t c h : : a f t e r   { 
+     a n i m a t i o n - n a m e :   a d v a n c e d - g l i t c h - b o t t o m ; 
+     c l i p - p a t h :   p o l y g o n ( 0   6 0 % ,   1 0 0 %   6 0 % ,   1 0 0 %   1 0 0 % ,   0   1 0 0 % ) ; 
+     c o l o r :   r g b a ( 0 ,   2 5 5 ,   2 4 9 ,   0 . 7 5 ) ; 
+     z - i n d e x :   - 2 ; 
+     t e x t - s h a d o w :   - 2 p x   0   # 0 0 f f f 9 ; 
+     o p a c i t y :   0 . 8 ; 
+ } 
+ @ k e y f r a m e s   a d v a n c e d - g l i t c h - m a i n   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ) ;   } 
+     2 0 %   {   t r a n s f o r m :   t r a n s l a t e ( - 3 p x ,   3 p x ) ;   } 
+     4 0 %   {   t r a n s f o r m :   t r a n s l a t e ( - 3 p x ,   - 3 p x ) ;   } 
+     6 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 3 p x ,   3 p x ) ;   } 
+     8 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 3 p x ,   - 3 p x ) ;   } 
+ } 
+ @ k e y f r a m e s   a d v a n c e d - g l i t c h - t o p   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ) ;   } 
+     2 5 %   {   t r a n s f o r m :   t r a n s l a t e ( - 5 p x ,   0 )   s k e w ( 5 d e g ) ;   } 
+     5 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ,   0 )   s k e w ( 0 ) ;   } 
+     7 5 %   {   t r a n s f o r m :   t r a n s l a t e ( 5 p x ,   0 )   s k e w ( - 5 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   a d v a n c e d - g l i t c h - b o t t o m   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ) ;   } 
+     2 5 %   {   t r a n s f o r m :   t r a n s l a t e ( 5 p x ,   0 )   s k e w ( - 5 d e g ) ;   } 
+     5 0 %   {   t r a n s f o r m :   t r a n s l a t e ( 0 ,   0 )   s k e w ( 0 ) ;   } 
+     7 5 %   {   t r a n s f o r m :   t r a n s l a t e ( - 5 p x ,   0 )   s k e w ( 5 d e g ) ;   } 
+ } 
+ / /   T?1?€OOn蠑-Wx崃?XIp
+ . n e o n - t u b e   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     c o l o r :   # f f f ; 
+     t e x t - s h a d o w : 
+         0   0   5 p x   # f f f , 
+         0   0   1 0 p x   # f f f , 
+         0   0   1 5 p x   # f f f , 
+         0   0   2 0 p x   # f f 0 0 d e , 
+         0   0   3 5 p x   # f f 0 0 d e , 
+         0   0   4 0 p x   # f f 0 0 d e , 
+         0   0   5 0 p x   # f f 0 0 d e , 
+         0   0   7 5 p x   # f f 0 0 d e ; 
+     a n i m a t i o n : 
+         n e o n - f l i c k e r   1 . 5 s   i n f i n i t e   a l t e r n a t e , 
+         n e o n - c o l o r - s h i f t   8 s   i n f i n i t e ; 
+ } 
+ @ k e y f r a m e s   n e o n - f l i c k e r   { 
+     0 % ,   1 9 % ,   2 1 % ,   2 3 % ,   2 5 % ,   5 4 % ,   5 6 % ,   1 0 0 %   { 
+         t e x t - s h a d o w : 
+             0   0   5 p x   # f f f , 
+             0   0   1 0 p x   # f f f , 
+             0   0   1 5 p x   # f f f , 
+             0   0   2 0 p x   # f f 0 0 d e , 
+             0   0   3 5 p x   # f f 0 0 d e , 
+             0   0   4 0 p x   # f f 0 0 d e , 
+             0   0   5 0 p x   # f f 0 0 d e , 
+             0   0   7 5 p x   # f f 0 0 d e ; 
+     } 
+     2 0 % ,   2 4 % ,   5 5 %   { 
+         t e x t - s h a d o w :   n o n e ; 
+     } 
+ } 
+ @ k e y f r a m e s   n e o n - c o l o r - s h i f t   { 
+     0 %   {   f i l t e r :   h u e - r o t a t e ( 0 d e g ) ;   } 
+     2 5 %   {   f i l t e r :   h u e - r o t a t e ( 9 0 d e g ) ;   } 
+     5 0 %   {   f i l t e r :   h u e - r o t a t e ( 1 8 0 d e g ) ;   } 
+     7 5 %   {   f i l t e r :   h u e - r o t a t e ( 2 7 0 d e g ) ;   } 
+     1 0 0 %   {   f i l t e r :   h u e - r o t a t e ( 3 6 0 d e g ) ;   } 
+ } 
+ / /   榤%]葥*[燬簱C譝Y揌ref藫? 
+ . c y b e r - c o n s o l e   { 
+     f o n t - f a m i l y :   ' C o u r i e r   N e w ' ,   m o n o s p a c e ; 
+     p o s i t i o n :   r e l a t i v e ; 
+     p a d d i n g :   2 0 p x ; 
+     b a c k g r o u n d :   r g b a ( 0 ,   1 0 ,   2 0 ,   0 . 8 ) ; 
+     b o r d e r :   1 p x   s o l i d   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 5 ) ; 
+     b o x - s h a d o w : 
+         0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 3 ) , 
+         i n s e t   0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
+     a n i m a t i o n : 
+         c o n s o l e - g l o w   3 s   i n f i n i t e   a l t e r n a t e , 
+         c o n s o l e - s t a t i c   0 . 1 s   i n f i n i t e   l i n e a r ; 
+     o v e r f l o w :   h i d d e n ; 
+ } 
+ @ k e y f r a m e s   c o n s o l e - g l o w   { 
+     0 %   { 
+         b o x - s h a d o w : 
+             0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 3 ) , 
+             i n s e t   0   0   1 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
+     } 
+     1 0 0 %   { 
+         b o x - s h a d o w : 
+             0   0   2 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 5 ) , 
+             i n s e t   0   0   2 0 p x   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 2 ) ; 
+     } 
+ } 
+ @ k e y f r a m e s   c o n s o l e - s t a t i c   { 
+     0 %   {   b a c k g r o u n d - p o s i t i o n :   0   0 ;   } 
+     1 0 0 %   {   b a c k g r o u n d - p o s i t i o n :   1 0 0 %   1 0 0 % ;   } 
+ } 
+ / /   Bi<j嚉bxr飤d兒|瞤馷
+ . a d v a n c e d - g r i d - e n h a n c e d   { 
+     p o s i t i o n :   f i x e d ; 
+     t o p :   0 ; 
+     l e f t :   0 ; 
+     w i d t h :   1 0 0 % ; 
+     h e i g h t :   1 0 0 % ; 
+     p o i n t e r - e v e n t s :   n o n e ; 
+     z - i n d e x :   - 2 ; 
+     o p a c i t y :   0 . 3 ; 
+     b a c k g r o u n d :   
+         l i n e a r - g r a d i e n t ( r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 )   1 p x ,   t r a n s p a r e n t   1 p x ) , 
+         l i n e a r - g r a d i e n t ( 9 0 d e g ,   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 1 )   1 p x ,   t r a n s p a r e n t   1 p x ) , 
+         l i n e a r - g r a d i e n t ( 4 5 d e g ,   r g b a ( 0 ,   2 0 0 ,   2 5 5 ,   0 . 0 5 )   2 5 % ,   t r a n s p a r e n t   2 5 % ,   t r a n s p a r e n t   7 5 % ,   r g b a ( 0 ,   2 0 0 ,   2 5 5 ,   0 . 0 5 )   7 5 % ,   r g b a ( 0 ,   2 0 0 ,   2 5 5 ,   0 . 0 5 ) ) , 
+         l i n e a r - g r a d i e n t ( - 4 5 d e g ,   r g b a ( 2 0 0 ,   0 ,   2 5 5 ,   0 . 0 5 )   2 5 % ,   t r a n s p a r e n t   2 5 % ,   t r a n s p a r e n t   7 5 % ,   r g b a ( 2 0 0 ,   0 ,   2 5 5 ,   0 . 0 5 )   7 5 % ,   r g b a ( 2 0 0 ,   0 ,   2 5 5 ,   0 . 0 5 ) ) , 
+         r a d i a l - g r a d i e n t ( c i r c l e   a t   1 0 %   2 0 % ,   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 )   0 % ,   t r a n s p a r e n t   1 0 % ) , 
+         r a d i a l - g r a d i e n t ( c i r c l e   a t   9 0 %   8 0 % ,   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 1 )   0 % ,   t r a n s p a r e n t   1 0 % ) ; 
+     b a c k g r o u n d - s i z e :   
+         2 0 p x   2 0 p x ,   
+         2 0 p x   2 0 p x ,   
+         4 0 p x   4 0 p x ,   
+         4 0 p x   4 0 p x , 
+         2 0 0 p x   2 0 0 p x , 
+         2 0 0 p x   2 0 0 p x ; 
+     b a c k g r o u n d - p o s i t i o n :   
+         0   0 ,   
+         0   0 ,   
+         0   0 ,   
+         2 0 p x   2 0 p x , 
+         0   0 , 
+         0   0 ; 
+     a n i m a t i o n :   
+         a d v a n c e d - g r i d - e n h a n c e d - m o v e   1 0 s   l i n e a r   i n f i n i t e , 
+         a d v a n c e d - g r i d - e n h a n c e d - h u e   1 5 s   l i n e a r   i n f i n i t e , 
+         a d v a n c e d - g r i d - e n h a n c e d - p u l s e   5 s   e a s e - i n - o u t   i n f i n i t e ; 
+ } 
+ @ k e y f r a m e s   a d v a n c e d - g r i d - e n h a n c e d - m o v e   { 
+     0 %   {   b a c k g r o u n d - p o s i t i o n :   0   0 ,   0   0 ,   0   0 ,   0   0 ,   0   0 ,   0   0 ;   } 
+     1 0 0 %   {   b a c k g r o u n d - p o s i t i o n :   0   1 0 0 v h ,   1 0 0 v w   0 ,   0   1 0 0 v h ,   1 0 0 v w   1 0 0 v h ,   1 0 0 v w   1 0 0 v h ,   1 0 0 v w   1 0 0 v h ;   } 
+ } 
+ @ k e y f r a m e s   a d v a n c e d - g r i d - e n h a n c e d - h u e   { 
+     0 %   {   f i l t e r :   h u e - r o t a t e ( 0 d e g ) ;   } 
+     1 0 0 %   {   f i l t e r :   h u e - r o t a t e ( 3 6 0 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   a d v a n c e d - g r i d - e n h a n c e d - p u l s e   { 
+     0 % ,   1 0 0 %   {   o p a c i t y :   0 . 2 ;   } 
+     5 0 %   {   o p a c i t y :   0 . 4 ;   } 
+ } 
+ / /   O?Yko-擡% j翐XIp
+ . l i g h t - b e a m - m a t r i x   { 
+     p o s i t i o n :   f i x e d ; 
+     t o p :   0 ; 
+     l e f t :   0 ; 
+     w i d t h :   1 0 0 % ; 
+     h e i g h t :   1 0 0 % ; 
+     p o i n t e r - e v e n t s :   n o n e ; 
+     z - i n d e x :   - 1 ; 
+     b a c k g r o u n d :   
+         l i n e a r - g r a d i e n t ( 9 0 d e g ,   t r a n s p a r e n t   9 5 % ,   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 2 )   1 0 0 % ) , 
+         l i n e a r - g r a d i e n t ( 0 d e g ,   t r a n s p a r e n t   9 5 % ,   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 2 )   1 0 0 % ) ; 
+     b a c k g r o u n d - s i z e :   5 0 p x   5 0 p x ; 
+     a n i m a t i o n :   
+         l i g h t - b e a m - m a t r i x - m o v e   2 s   l i n e a r   i n f i n i t e , 
+         l i g h t - b e a m - m a t r i x - f l i c k e r   0 . 5 s   e a s e - i n - o u t   i n f i n i t e ; 
+ } 
+ @ k e y f r a m e s   l i g h t - b e a m - m a t r i x - m o v e   { 
+     0 %   {   b a c k g r o u n d - p o s i t i o n :   0   0 ;   } 
+     1 0 0 %   {   b a c k g r o u n d - p o s i t i o n :   5 0 p x   5 0 p x ;   } 
+ } 
+ @ k e y f r a m e s   l i g h t - b e a m - m a t r i x - f l i c k e r   { 
+     0 % ,   1 0 0 %   {   o p a c i t y :   0 . 1 ;   } 
+     5 0 %   {   o p a c i t y :   0 . 3 ;   } 
+ } 
+ / /   T?1?zO褀p,a€n
+ . p a r t i c l e - f i e l d   { 
+     p o s i t i o n :   f i x e d ; 
+     t o p :   0 ; 
+     l e f t :   0 ; 
+     w i d t h :   1 0 0 % ; 
+     h e i g h t :   1 0 0 % ; 
+     p o i n t e r - e v e n t s :   n o n e ; 
+     z - i n d e x :   - 1 ; 
+ } 
+ . p a r t i c l e - f i e l d   . p a r t i c l e   { 
+     p o s i t i o n :   a b s o l u t e ; 
+     b o r d e r - r a d i u s :   5 0 % ; 
+     b a c k g r o u n d :   c u r r e n t C o l o r ; 
+     a n i m a t i o n :   
+         p a r t i c l e - f l o a t   1 0 s   l i n e a r   i n f i n i t e , 
+         p a r t i c l e - p u l s e   3 s   e a s e - i n - o u t   i n f i n i t e   a l t e r n a t e ; 
+ } 
+ @ k e y f r a m e s   p a r t i c l e - f l o a t   { 
+     0 %   { 
+         t r a n s f o r m :   t r a n s l a t e ( 0 ,   0 )   r o t a t e ( 0 d e g ) ; 
+         o p a c i t y :   0 ; 
+     } 
+     1 0 %   { 
+         o p a c i t y :   1 ; 
+     } 
+     9 0 %   { 
+         o p a c i t y :   0 . 8 ; 
+     } 
+     1 0 0 %   { 
+         t r a n s f o r m :   t r a n s l a t e ( v a r ( - - t x ,   0 ) ,   v a r ( - - t y ,   0 ) )   r o t a t e ( 3 6 0 d e g ) ; 
+         o p a c i t y :   0 ; 
+     } 
+ } 
+ @ k e y f r a m e s   p a r t i c l e - p u l s e   { 
+     0 %   {   t r a n s f o r m :   s c a l e ( 1 ) ;   o p a c i t y :   0 . 5 ;   } 
+     1 0 0 %   {   t r a n s f o r m :   s c a l e ( 1 . 5 ) ;   o p a c i t y :   1 ;   } 
+ } 
+ / /   秓1l頼虀*mh祿_?m翐XIp
+ . s p a c e - w a r p   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     a n i m a t i o n :   
+         s p a c e - w a r p - r o t a t e   2 0 s   l i n e a r   i n f i n i t e , 
+         s p a c e - w a r p - p u l s e   4 s   e a s e - i n - o u t   i n f i n i t e   a l t e r n a t e ; 
+     t r a n s f o r m - s t y l e :   p r e s e r v e - 3 d ; 
+     p e r s p e c t i v e :   1 0 0 0 p x ; 
+ } 
+ @ k e y f r a m e s   s p a c e - w a r p - r o t a t e   { 
+     0 %   {   t r a n s f o r m :   r o t a t e X ( 0 d e g )   r o t a t e Y ( 0 d e g )   r o t a t e Z ( 0 d e g ) ;   } 
+     1 0 0 %   {   t r a n s f o r m :   r o t a t e X ( 3 6 0 d e g )   r o t a t e Y ( 3 6 0 d e g )   r o t a t e Z ( 3 6 0 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   s p a c e - w a r p - p u l s e   { 
+     0 %   {   
+         t r a n s f o r m :   s c a l e ( 1 )   r o t a t e X ( 0 d e g )   r o t a t e Y ( 0 d e g ) ; 
+         f i l t e r :   b r i g h t n e s s ( 1 )   c o n t r a s t ( 1 ) ; 
+     } 
+     1 0 0 %   {   
+         t r a n s f o r m :   s c a l e ( 1 . 0 2 )   r o t a t e X ( 5 d e g )   r o t a t e Y ( 5 d e g ) ; 
+         f i l t e r :   b r i g h t n e s s ( 1 . 1 )   c o n t r a s t ( 1 . 2 ) ; 
+     } 
+ } 
+ / /   Bi<j嚉O?1O稉辠VY
+ . h o l o g r a m - p r o j e c t i o n   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     o v e r f l o w :   h i d d e n ; 
+     a n i m a t i o n :   h o l o g r a m - p r o j e c t i o n - f l o a t   8 s   e a s e - i n - o u t   i n f i n i t e ; 
+ } 
+ . h o l o g r a m - p r o j e c t i o n : : b e f o r e , 
+ . h o l o g r a m - p r o j e c t i o n : : a f t e r   { 
+     c o n t e n t :   ' ' ; 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   - 5 0 % ; 
+     l e f t :   - 5 0 % ; 
+     w i d t h :   2 0 0 % ; 
+     h e i g h t :   2 0 0 % ; 
+     o p a c i t y :   0 . 3 ; 
+     z - i n d e x :   - 1 ; 
+ } 
+ . h o l o g r a m - p r o j e c t i o n : : b e f o r e   { 
+     b a c k g r o u n d :   
+         r a d i a l - g r a d i e n t ( c i r c l e   a t   2 0 %   8 0 % ,   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 3 )   0 % ,   t r a n s p a r e n t   2 0 % ) , 
+         r a d i a l - g r a d i e n t ( c i r c l e   a t   8 0 %   2 0 % ,   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 3 )   0 % ,   t r a n s p a r e n t   2 0 % ) ; 
+     a n i m a t i o n :   
+         h o l o g r a m - p r o j e c t i o n - r o t a t e   1 5 s   l i n e a r   i n f i n i t e , 
+         h o l o g r a m - p r o j e c t i o n - f l i c k e r   3 s   e a s e - i n - o u t   i n f i n i t e ; 
+ } 
+ . h o l o g r a m - p r o j e c t i o n : : a f t e r   { 
+     b a c k g r o u n d :   
+         c o n i c - g r a d i e n t ( f r o m   0 d e g ,   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ,   r g b a ( 2 5 5 ,   0 ,   2 5 5 ,   0 . 1 ) ,   r g b a ( 0 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ) ; 
+     a n i m a t i o n :   
+         h o l o g r a m - p r o j e c t i o n - r o t a t e - r e v e r s e   2 0 s   l i n e a r   i n f i n i t e , 
+         h o l o g r a m - p r o j e c t i o n - f l i c k e r - r e v e r s e   5 s   e a s e - i n - o u t   i n f i n i t e ; 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - p r o j e c t i o n - f l o a t   { 
+     0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e Y ( 0 )   s c a l e ( 1 ) ;   } 
+     5 0 %   {   t r a n s f o r m :   t r a n s l a t e Y ( - 5 p x )   s c a l e ( 1 . 0 1 ) ;   } 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - p r o j e c t i o n - r o t a t e   { 
+     0 %   {   t r a n s f o r m :   r o t a t e ( 0 d e g ) ;   } 
+     1 0 0 %   {   t r a n s f o r m :   r o t a t e ( 3 6 0 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - p r o j e c t i o n - r o t a t e - r e v e r s e   { 
+     0 %   {   t r a n s f o r m :   r o t a t e ( 3 6 0 d e g ) ;   } 
+     1 0 0 %   {   t r a n s f o r m :   r o t a t e ( 0 d e g ) ;   } 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - p r o j e c t i o n - f l i c k e r   { 
+     0 % ,   1 0 0 %   {   o p a c i t y :   0 . 2 ;   } 
+     5 0 %   {   o p a c i t y :   0 . 4 ;   } 
+ } 
+ @ k e y f r a m e s   h o l o g r a m - p r o j e c t i o n - f l i c k e r - r e v e r s e   { 
+     0 % ,   1 0 0 %   {   o p a c i t y :   0 . 1 ;   } 
+     5 0 %   {   o p a c i t y :   0 . 3 ;   } 
+ } 
