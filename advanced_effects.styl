@@ -1,120 +1,48 @@
-// 3D变换效果
-.cube-3d {
+/* 高级赛博朋克效果增强 */
+
+/* 3D旋转霓虹文字 */
+.n3on-3d {
   position: relative;
   transform-style: preserve-3d;
-  animation: rotate3d 10s infinite linear;
+  perspective: 1000px;
+}
+
+.n3on-3d:hover {
+  animation: rotate3d 3s infinite linear;
 }
 
 @keyframes rotate3d {
-  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
   100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
 }
 
-// 多层故障艺术效果
-.multi-layer-glitch {
-  position: relative;
-  animation: multi-glitch 0.8s infinite;
-}
-
-.multi-layer-glitch::before,
-.multi-layer-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-}
-
-.multi-layer-glitch::before {
-  animation: layer-shift-1 0.5s infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-  color: #ff00c1;
-  opacity: 0.8;
-}
-
-.multi-layer-glitch::after {
-  animation: layer-shift-2 0.5s infinite;
-  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-  color: #00fff9;
-  opacity: 0.8;
-}
-
-@keyframes multi-glitch {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-3px, 3px); }
-  40% { transform: translate(3px, -3px); }
-  60% { transform: translate(-3px, -3px); }
-  80% { transform: translate(3px, 3px); }
-}
-
-@keyframes layer-shift-1 {
-  0%, 100% { transform: translate(0); }
-  25% { transform: translate(-5px, 0) skew(5deg); }
-  50% { transform: translate(0, 0) skew(0); }
-  75% { transform: translate(5px, 0) skew(-5deg); }
-}
-
-@keyframes layer-shift-2 {
-  0%, 100% { transform: translate(0); }
-  25% { transform: translate(5px, 0) skew(-5deg); }
-  50% { transform: translate(0, 0) skew(0); }
-  75% { transform: translate(-5px, 0) skew(5deg); }
-}
-
-// 全息投影效果增强
-.hologram-enhanced {
+/* 液态霓虹效果 */
+.liquid-neon {
   position: relative;
   overflow: hidden;
-  animation: hologram-enhanced-pulse 3s infinite;
 }
 
-.hologram-enhanced::before {
+.liquid-neon::before {
   content: '';
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 255, 255, 0.1) 2px,
-      rgba(0, 255, 255, 0.1) 4px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 2px,
-      rgba(255, 0, 255, 0.1) 2px,
-      rgba(255, 0, 255, 0.1) 4px
-    );
-  animation: 
-    hologram-enhanced-rotate 6s linear infinite,
-    hologram-enhanced-flicker 2s ease-in-out infinite;
+  background: conic-gradient(
+    transparent,
+    rgba(0, 255, 255, 0.5),
+    transparent 30%
+  );
+  animation: rotate 4s linear infinite;
   z-index: -1;
-  opacity: 0.5;
 }
 
-@keyframes hologram-enhanced-pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
-}
-
-@keyframes hologram-enhanced-rotate {
-  0% { transform: rotate(0deg); }
+@keyframes rotate {
   100% { transform: rotate(360deg); }
 }
 
-@keyframes hologram-enhanced-flicker {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-// 光谱扫描效果
+/* 光谱扫描效果 */
 .spectrum-scan {
   position: relative;
   overflow: hidden;
@@ -130,443 +58,442 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 255, 255, 0.8),
-    rgba(255, 0, 255, 0.8),
-    rgba(0, 255, 255, 0.8),
+    rgba(0, 255, 255, 0.6),
+    rgba(255, 0, 255, 0.6),
+    rgba(255, 255, 0, 0.6),
     transparent
   );
-  animation: spectrum-scan-animation 3s infinite;
-  z-index: 1;
+  animation: scan 2s linear infinite;
 }
 
-@keyframes spectrum-scan-animation {
+@keyframes scan {
   0% { left: -100%; }
   100% { left: 100%; }
 }
 
-// 等离子球效果
-.plasma-ball {
+/* 电弧连接效果 */
+.arc-connect {
   position: relative;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(0, 255, 255, 0.8),
-    rgba(255, 0, 255, 0.6),
-    rgba(0, 255, 255, 0.4)
-  );
-  box-shadow:
-    0 0 20px rgba(0, 255, 255, 0.6),
-    0 0 40px rgba(255, 0, 255, 0.4),
-    0 0 60px rgba(0, 255, 255, 0.2);
-  animation:
-    plasma-pulse 2s infinite alternate,
-    plasma-rotate 10s linear infinite;
 }
 
-@keyframes plasma-pulse {
+.arc-connect::before,
+.arc-connect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: 
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff,
+    0 0 40px #ff00ff,
+    0 0 70px #ff00ff,
+    0 0 80px #ff00ff;
+  animation: arc-pulse 3s infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.arc-connect::after {
+  animation-delay: 0.5s;
+}
+
+@keyframes arc-pulse {
+  0% { opacity: 0.3; box-shadow: 
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff,
+    0 0 40px #ff00ff,
+    0 0 70px #ff00ff,
+    0 0 80px #ff00ff;
+  }
+  100% { opacity: 0.8; box-shadow: 
+    0 0 20px #00ffff,
+    0 0 40px #00ffff,
+    0 0 60px #00ffff,
+    0 0 80px #ff00ff,
+    0 0 140px #ff00ff,
+    0 0 160px #ff00ff;
+  }
+}
+
+/* 全息投影效果 */
+.hologram-project {
+  position: relative;
+  overflow: hidden;
+}
+
+.hologram-project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(0deg, transparent 50%, rgba(0, 255, 255, 0.1) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 0, 255, 0.1) 50%);
+  background-size: 4px 4px;
+  animation: hologram-grid 0.5s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hologram-grid {
+  0% { background-position: 0 0; }
+  100% { background-position: 4px 4px; }
+}
+
+/* 粒子网络效果 */
+.particle-network {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-network::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 15%),
+    radial-gradient(circle at 70% 30%, rgba(255, 0, 255, 0.05) 0%, transparent 3%);
+  animation: particle-network 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes particle-network {
   0% { 
-    box-shadow:
-      0 0 20px rgba(0, 255, 255, 0.6),
-      0 0 40px rgba(255, 0, 255, 0.4),
-      0 0 60px rgba(0, 255, 255, 0.2);
-    transform: scale(1);
+    background-position: 
+      10% 20%, 
+      90% 80%, 
+      50% 40%, 
+      70% 30%;
   }
   100% { 
-    box-shadow:
-      0 0 30px rgba(0, 255, 255, 0.8),
-      0 0 50px rgba(255, 0, 255, 0.6),
-      0 0 70px rgba(0, 255, 255, 0.3);
-    transform: scale(1.05);
+    background-position: 
+      15% 25%, 
+      95% 85%, 
+      55% 45%, 
+      75% 35%;
   }
 }
 
-@keyframes plasma-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-// 全息UI面板
-.holographic-panel {
+/* 霓虹脉冲波 */
+.neon-pulse-wave {
   position: relative;
-  background: rgba(10, 5, 20, 0.6);
-  border: 1px solid;
-  border-image: linear-gradient(
-    45deg,
-    rgba(0, 255, 255, 0.8),
-    rgba(255, 0, 255, 0.8),
-    rgba(0, 255, 255, 0.8)
-  ) 1;
-  box-shadow:
-    0 0 10px rgba(0, 255, 255, 0.3),
-    0 0 20px rgba(255, 0, 255, 0.2),
-    inset 0 0 10px rgba(0, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  animation:
-    panel-glow 4s infinite alternate,
-    panel-hue 8s linear infinite;
+  overflow: hidden;
 }
 
-@keyframes panel-glow {
-  0% {
-    box-shadow:
-      0 0 10px rgba(0, 255, 255, 0.3),
-      0 0 20px rgba(255, 0, 255, 0.2),
-      inset 0 0 10px rgba(0, 255, 255, 0.1);
+.neon-pulse-wave::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%),
+    radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 60%);
+  animation: pulse-wave 4s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes pulse-wave {
+  0% { 
+    background-size: 0% 0%, 0% 0%;
+    opacity: 0.3;
   }
-  100% {
-    box-shadow:
-      0 0 15px rgba(0, 255, 255, 0.5),
-      0 0 30px rgba(255, 0, 255, 0.3),
-      inset 0 0 15px rgba(0, 255, 255, 0.2);
+  50% { 
+    background-size: 200% 200%, 150% 150%;
+    opacity: 0.6;
+  }
+  100% { 
+    background-size: 0% 0%, 0% 0%;
+    opacity: 0.3;
   }
 }
 
-@keyframes panel-hue {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-// 高级故障效果
-.advanced-glitch {
+/* 故障艺术增强版 */
+.glitch-enhanced {
   position: relative;
-  animation: advanced-glitch-main 0.8s infinite;
 }
 
-.advanced-glitch::before,
-.advanced-glitch::after {
+.glitch-enhanced::before,
+.glitch-enhanced::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  opacity: 0.8;
 }
 
-.advanced-glitch::before {
-  animation-name: advanced-glitch-top;
-  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
-  color: rgba(255, 0, 193, 0.75);
+.glitch-enhanced::before {
+  left: 3px;
+  text-shadow: -3px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-enhanced-anim 0.3s infinite linear alternate-reverse;
+}
+
+.glitch-enhanced::after {
+  left: -3px;
+  text-shadow: -3px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-enhanced-anim2 0.3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-enhanced-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); transform: translate(0); }
+  20% { clip: rect(12px, 9999px, 59px, 0); transform: translate(-5px, 2px); }
+  40% { clip: rect(48px, 9999px, 29px, 0); transform: translate(-3px, -3px); }
+  60% { clip: rect(42px, 9999px, 73px, 0); transform: translate(4px, 3px); }
+  80% { clip: rect(63px, 9999px, 27px, 0); transform: translate(2px, -4px); }
+  100% { clip: rect(34px, 9999px, 55px, 0); transform: translate(0); }
+}
+
+@keyframes glitch-enhanced-anim2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); transform: translate(0); }
+  20% { clip: rect(52px, 9999px, 74px, 0); transform: translate(4px, -2px); }
+  40% { clip: rect(79px, 9999px, 85px, 0); transform: translate(-3px, 3px); }
+  60% { clip: rect(75px, 9999px, 5px, 0); transform: translate(5px, 2px); }
+  80% { clip: rect(67px, 9999px, 61px, 0); transform: translate(-4px, -3px); }
+  100% { clip: rect(14px, 9999px, 79px, 0); transform: translate(0); }
+}
+
+/* 霓虹流动边框 */
+.neon-flow-border {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.neon-flow-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00, #00ffff);
+  background-size: 400% 400%;
   z-index: -1;
-  text-shadow: -2px 0 #ff00c1;
-  opacity: 0.8;
+  border-radius: inherit;
+  animation: flow-border 3s linear infinite;
 }
 
-.advanced-glitch::after {
-  animation-name: advanced-glitch-bottom;
-  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-  color: rgba(0, 255, 249, 0.75);
-  z-index: -2;
-  text-shadow: -2px 0 #00fff9;
-  opacity: 0.8;
+@keyframes flow-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes advanced-glitch-main {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-3px, 3px); }
-  40% { transform: translate(-3px, -3px); }
-  60% { transform: translate(3px, 3px); }
-  80% { transform: translate(3px, -3px); }
-}
-
-@keyframes advanced-glitch-top {
-  0%, 100% { transform: translate(0); }
-  25% { transform: translate(-5px, 0) skew(5deg); }
-  50% { transform: translate(0, 0) skew(0); }
-  75% { transform: translate(5px, 0) skew(-5deg); }
-}
-
-@keyframes advanced-glitch-bottom {
-  0%, 100% { transform: translate(0); }
-  25% { transform: translate(5px, 0) skew(-5deg); }
-  50% { transform: translate(0, 0) skew(0); }
-  75% { transform: translate(-5px, 0) skew(5deg); }
-}
-
-// 动态霓虹管效果
-.neon-tube {
+/* 光线追踪效果 */
+.ray-tracing {
   position: relative;
-  color: #fff;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 15px #fff,
-    0 0 20px #ff00de,
-    0 0 35px #ff00de,
-    0 0 40px #ff00de,
-    0 0 50px #ff00de,
-    0 0 75px #ff00de;
-  animation:
-    neon-flicker 1.5s infinite alternate,
-    neon-color-shift 8s infinite;
-}
-
-@keyframes neon-flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow:
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 15px #fff,
-      0 0 20px #ff00de,
-      0 0 35px #ff00de,
-      0 0 40px #ff00de,
-      0 0 50px #ff00de,
-      0 0 75px #ff00de;
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
-}
-
-@keyframes neon-color-shift {
-  0% { filter: hue-rotate(0deg); }
-  25% { filter: hue-rotate(90deg); }
-  50% { filter: hue-rotate(180deg); }
-  75% { filter: hue-rotate(270deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-// 赛博朋克控制台效果
-.cyber-console {
-  font-family: 'Courier New', monospace;
-  position: relative;
-  padding: 20px;
-  background: rgba(0, 10, 20, 0.8);
-  border: 1px solid rgba(0, 255, 255, 0.5);
-  box-shadow:
-    0 0 10px rgba(0, 255, 255, 0.3),
-    inset 0 0 10px rgba(0, 255, 255, 0.1);
-  animation:
-    console-glow 3s infinite alternate,
-    console-static 0.1s infinite linear;
   overflow: hidden;
 }
 
-@keyframes console-glow {
-  0% {
-    box-shadow:
-      0 0 10px rgba(0, 255, 255, 0.3),
-      inset 0 0 10px rgba(0, 255, 255, 0.1);
-  }
-  100% {
-    box-shadow:
-      0 0 20px rgba(0, 255, 255, 0.5),
-      inset 0 0 20px rgba(0, 255, 255, 0.2);
-  }
+.ray-tracing::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(transparent 50%, rgba(0, 255, 255, 0.05) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 0, 255, 0.05) 50%);
+  background-size: 10px 10px;
+  animation: ray-trace 0.1s linear infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
-@keyframes console-static {
+@keyframes ray-trace {
   0% { background-position: 0 0; }
+  100% { background-position: 10px 10px; }
+}
+
+/* 全息浮动效果 */
+.hologram-float {
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 霓虹扫描线增强 */
+.neon-scan-enhanced {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-scan-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.4),
+    rgba(255, 0, 255, 0.4),
+    transparent
+  );
+  animation: scan-enhanced 1.5s linear infinite;
+}
+
+@keyframes scan-enhanced {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* 霓虹辉光效果 */
+.neon-glow-enhanced {
+  position: relative;
+}
+
+.neon-glow-enhanced::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+  z-index: -1;
+  filter: blur(20px);
+  opacity: 0.5;
+  animation: glow-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+/* 光谱边框 */
+.spectrum-border {
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.spectrum-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    60deg,
+    #00ffff, #00ff80, #00ff00, #80ff00, #ffff00,
+    #ff8000, #ff0000, #ff0080, #ff00ff, #8000ff,
+    #0000ff, #0080ff, #00ffff
+  );
+  background-size: 1000% 1000%;
+  z-index: -1;
+  border-radius: inherit;
+  animation: spectrum-border-animation 3s linear infinite;
+}
+
+@keyframes spectrum-border-animation {
+  0% { background-position: 0% 0%; }
   100% { background-position: 100% 100%; }
 }
 
-// 高级网格系统增强
-.advanced-grid-enhanced {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -2;
-  opacity: 0.3;
-  background: 
-    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 0, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(0, 200, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(0, 200, 255, 0.05) 75%, rgba(0, 200, 255, 0.05)),
-    linear-gradient(-45deg, rgba(200, 0, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(200, 0, 255, 0.05) 75%, rgba(200, 0, 255, 0.05)),
-    radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 10%),
-    radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 10%);
-  background-size: 
-    20px 20px, 
-    20px 20px, 
-    40px 40px, 
-    40px 40px,
-    200px 200px,
-    200px 200px;
-  background-position: 
-    0 0, 
-    0 0, 
-    0 0, 
-    20px 20px,
-    0 0,
-    0 0;
-  animation: 
-    advanced-grid-enhanced-move 10s linear infinite,
-    advanced-grid-enhanced-hue 15s linear infinite,
-    advanced-grid-enhanced-pulse 5s ease-in-out infinite;
-}
-
-@keyframes advanced-grid-enhanced-move {
-  0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
-  100% { background-position: 0 100vh, 100vw 0, 0 100vh, 100vw 100vh, 100vw 100vh, 100vw 100vh; }
-}
-
-@keyframes advanced-grid-enhanced-hue {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-@keyframes advanced-grid-enhanced-pulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.4; }
-}
-
-// 光束矩阵效果
-.light-beam-matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background: 
-    linear-gradient(90deg, transparent 95%, rgba(0, 255, 255, 0.2) 100%),
-    linear-gradient(0deg, transparent 95%, rgba(255, 0, 255, 0.2) 100%);
-  background-size: 50px 50px;
-  animation: 
-    light-beam-matrix-move 2s linear infinite,
-    light-beam-matrix-flicker 0.5s ease-in-out infinite;
-}
-
-@keyframes light-beam-matrix-move {
-  0% { background-position: 0 0; }
-  100% { background-position: 50px 50px; }
-}
-
-@keyframes light-beam-matrix-flicker {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.3; }
-}
-
-// 动态粒子场
-.particle-field {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.particle-field .particle {
-  position: absolute;
-  border-radius: 50%;
-  background: currentColor;
-  animation: 
-    particle-float 10s linear infinite,
-    particle-pulse 3s ease-in-out infinite alternate;
-}
-
-@keyframes particle-float {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(var(--tx, 0), var(--ty, 0)) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes particle-pulse {
-  0% { transform: scale(1); opacity: 0.5; }
-  100% { transform: scale(1.5); opacity: 1; }
-}
-
-// 多维空间扭曲效果
-.space-warp {
-  position: relative;
-  animation: 
-    space-warp-rotate 20s linear infinite,
-    space-warp-pulse 4s ease-in-out infinite alternate;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-@keyframes space-warp-rotate {
-  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-}
-
-@keyframes space-warp-pulse {
-  0% { 
-    transform: scale(1) rotateX(0deg) rotateY(0deg);
-    filter: brightness(1) contrast(1);
-  }
-  100% { 
-    transform: scale(1.02) rotateX(5deg) rotateY(5deg);
-    filter: brightness(1.1) contrast(1.2);
-  }
-}
-
-// 高级全息投影
-.hologram-projection {
+/* 霓虹波纹效果 */
+.neon-ripple {
   position: relative;
   overflow: hidden;
-  animation: hologram-projection-float 8s ease-in-out infinite;
 }
 
-.hologram-projection::before,
-.hologram-projection::after {
+.neon-ripple::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple-animation 2s infinite;
   z-index: -1;
 }
 
-.hologram-projection::before {
+@keyframes ripple-animation {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* 全息纹理 */
+.hologram-texture {
+  position: relative;
+  overflow: hidden;
+}
+
+.hologram-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.3) 0%, transparent 20%),
-    radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.3) 0%, transparent 20%);
-  animation: 
-    hologram-projection-rotate 15s linear infinite,
-    hologram-projection-flicker 3s ease-in-out infinite;
+    linear-gradient(0deg, transparent 50%, rgba(0, 255, 255, 0.03) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 0, 255, 0.03) 50%),
+    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 20%);
+  background-size: 
+    8px 8px, 
+    8px 8px, 
+    150px 150px, 
+    200px 200px;
+  animation: hologram-texture-move 10s linear infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.hologram-projection::after {
-  background: 
-    conic-gradient(from 0deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
-  animation: 
-    hologram-projection-rotate-reverse 20s linear infinite,
-    hologram-projection-flicker-reverse 5s ease-in-out infinite;
-}
-
-@keyframes hologram-projection-float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-5px) scale(1.01); }
-}
-
-@keyframes hologram-projection-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes hologram-projection-rotate-reverse {
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes hologram-projection-flicker {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes hologram-projection-flicker-reverse {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.3; }
+@keyframes hologram-texture-move {
+  0% { 
+    background-position: 
+      0 0, 
+      0 0, 
+      0 0, 
+      0 0; 
+  }
+  100% { 
+    background-position: 
+      8px 8px, 
+      8px 8px, 
+      150px 150px, 
+      200px 200px; 
+  }
 }

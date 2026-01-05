@@ -1,6 +1,3 @@
-// é‡å®šä¹‰CSSå˜é‡ä»¥è¦†ç›–é»˜è®¤å€¼
-:root {
-  --body-bg-color: 
     linear-gradient(45deg, rgba(5, 2, 20, 0.95), rgba(15, 5, 40, 0.9), rgba(25, 10, 50, 0.85), rgba(10, 15, 45, 0.9)),
     repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0, 200, 255, 0.05) 1px, rgba(0, 200, 255, 0.05) 2px),
     repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(200, 0, 255, 0.05) 1px, rgba(200, 0, 255, 0.05) 2px),
@@ -14,7 +11,7 @@
   --content-bg-color: rgba(10, 5, 20, 0.6) !important;
 }
 
-// èµ›åšæœ‹å…‹é£æ ¼èƒŒæ™¯
+ Èü²©Åó¿Ë·ç¸ñ±³¾°
 body {
   background: 
     linear-gradient(45deg, rgba(5, 2, 20, 0.95), rgba(15, 5, 40, 0.9), rgba(25, 10, 50, 0.85), rgba(10, 15, 45, 0.9)),
@@ -57,7 +54,7 @@ body {
   background-blend-mode: screen, overlay, overlay, screen, screen, screen, screen, normal, normal !important;
 }
 
-// ç¡®ä¿èƒŒæ™¯æ ·å¼è¦†ç›–é»˜è®¤æ ·å¼ - ä½¿ç”¨æ›´é«˜ä¼˜å…ˆçº§
+ È·±£±³¾°ÑùÊ½¸²¸ÇÄ¬ÈÏÑùÊ½ - Ê¹ÓÃ¸ü¸ßÓÅÏÈ¼¶
 html, body {
   background: 
     linear-gradient(45deg, rgba(5, 2, 20, 0.95), rgba(15, 5, 40, 0.9), rgba(25, 10, 50, 0.85), rgba(10, 15, 45, 0.9)),
@@ -99,7 +96,7 @@ html, body {
   background-blend-mode: screen, overlay, overlay, screen, screen, screen, screen, normal, normal !important;
 }
 
-// èƒŒæ™¯åŠ¨ç”»
+ ±³¾°¶¯»­
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -112,7 +109,7 @@ html, body {
   }
 }
 
-// èµ›åšæœ‹å…‹ç½‘æ ¼ä¸é©¬èµ›å…‹èƒŒæ™¯
+ Èü²©Åó¿ËÍø¸ñÓëÂíÈü¿Ë±³¾°
 body::before {
   content: '';
   position: fixed;
@@ -145,17 +142,17 @@ body::before {
   z-index: -1;
 }
 
-// æ·»åŠ éšæœºé—ªçƒæ•ˆæœ
+ Ìí¼ÓËæ»úÉÁË¸Ğ§¹û
 body {
   animation: flicker 10s infinite, hologram 25s ease-in-out infinite !important;
   position: relative !important;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  /* æ·»åŠ æµåŠ¨æ•ˆæœ */
+  
   background-position: 0% 50% !important;
   will-change: transform, background-position !important;
 }
 
-// æ·»åŠ æ•…éšœæ‰«æçº¿ã€ç²’å­å’ŒæµåŠ¨æ•ˆæœ
+ Ìí¼Ó¹ÊÕÏÉ¨ÃèÏß¡¢Á£×ÓºÍÁ÷¶¯Ğ§¹û
 body::after {
   content: '';
   position: fixed;
@@ -225,7 +222,7 @@ body::after {
   }
 }
 
-// å…¨æ¯æŠ•å½±åŠ¨ç”»
+ È«Ï¢Í¶Ó°¶¯»­
 @keyframes hologram {
   0%, 100% { filter: brightness(1) contrast(1); }
   25% { filter: brightness(1.1) contrast(1.1) hue-rotate(5deg); }
@@ -233,7 +230,7 @@ body::after {
   75% { filter: brightness(1.05) contrast(0.9) hue-rotate(3deg); }
 }
 
-// ä¼˜åŒ–æ•´ä½“åŠ¨ç”»æµç•…æ€§
+ ÓÅ»¯ÕûÌå¶¯»­Á÷³©ĞÔ
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -242,7 +239,7 @@ body::after {
   will-change: auto;
 }
 
-// æ·»åŠ æµåŠ¨åŠ¨ç”»
+ Ìí¼ÓÁ÷¶¯¶¯»­
 @keyframes flow {
   0% {
     background-position: 0% 50%;
@@ -258,7 +255,7 @@ body::after {
   }
 }
 
-// æ·»åŠ ä¸‹åˆ’çº¿å…‰æ ‡æ•ˆæœ
+ Ìí¼ÓÏÂ»®Ïß¹â±êĞ§¹û
 .typing-cursor {
   display: inline-block;
   width: 8px;
@@ -275,7 +272,7 @@ body::after {
   50% { opacity: 0; }
 }
 
-// èµ›åšæœ‹å…‹éœ“è™¹æ•ˆæœ
+ Èü²©Åó¿ËÄŞºçĞ§¹û
 .cyber-neon {
   color: #fff;
   text-shadow: 
@@ -286,7 +283,7 @@ body::after {
   position: relative;
 }
 
-// èµ›åšæœ‹å…‹è¾¹æ¡†
+ Èü²©Åó¿Ë±ß¿ò
 .cyber-border {
   position: relative;
   border: 1px solid transparent;
@@ -294,7 +291,7 @@ body::after {
   backdrop-filter: blur(10px);
 }
 
-// èµ›åšæœ‹å…‹æ•…éšœåŠ¨ç”»
+ Èü²©Åó¿Ë¹ÊÕÏ¶¯»­
 @keyframes cyberGlitch {
   0% { transform: translate(0); }
   20% { transform: translate(-3px, 3px); }
@@ -304,13 +301,13 @@ body::after {
   100% { transform: translate(0); }
 }
 
-// èµ›åšæœ‹å…‹é—ªçƒåŠ¨ç”»
+ Èü²©Åó¿ËÉÁË¸¶¯»­
 @keyframes cyberFlicker {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 0.4; }
 }
 
-// èµ›åšæœ‹å…‹éœ“è™¹æ‰«æåŠ¨ç”»
+ Èü²©Åó¿ËÄŞºçÉ¨Ãè¶¯»­
 @keyframes cyberScan {
   0% {
     background-position: -200px 0;
@@ -320,7 +317,7 @@ body::after {
   }
 }
 
-// èµ›åšæœ‹å…‹åŠ¨ç”»æ•ˆæœ
+ Èü²©Åó¿Ë¶¯»­Ğ§¹û
 .cyber-animation {
   position: relative;
   overflow: hidden;
@@ -336,19 +333,19 @@ body::after {
   animation: cyberScan 3s linear infinite;
 }
 
-// èµ›åšæœ‹å…‹é—ªçƒå…ƒç´ 
+ Èü²©Åó¿ËÉÁË¸ÔªËØ
 .cyber-flicker {
   animation: cyberFlicker 1.5s ease-in-out infinite;
 }
 
-// èµ›åšæœ‹å…‹æ•…éšœæ–‡æœ¬
+ Èü²©Åó¿Ë¹ÊÕÏÎÄ±¾
 .cyber-glitch-text {
   position: relative;
   display: inline-block;
   animation: cyberGlitch 0.5s infinite;
 }
 
-// èµ›åšæœ‹å…‹å…‰æŸæ‰«æ
+ Èü²©Åó¿Ë¹âÊøÉ¨Ãè
 @keyframes cyberBeam {
   0% { transform: translateX(-100%) skew(-15deg); }
   100% { transform: translateX(100vw) skew(-15deg); }
@@ -367,7 +364,7 @@ body::after {
   opacity: 0.5;
 }
 
-// èµ›åšæœ‹å…‹ç½‘æ ¼åŠ¨ç”»
+ Èü²©Åó¿ËÍø¸ñ¶¯»­
 @keyframes cyberGrid {
   0% { background-position: 0 0; }
   100% { background-position: 20px 20px; }
@@ -380,7 +377,7 @@ body::after {
   animation: cyberGrid 3s linear infinite;
 }
 
-// èµ›åšæœ‹å…‹å¾„å‘è„‰å†²
+ Èü²©Åó¿Ë¾¶ÏòÂö³å
 @keyframes cyberPulse {
   0% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
   50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6); }
@@ -390,8 +387,8 @@ body::after {
   animation: cyberPulse 2s ease-in-out infinite;
 }
 
-// é¡µé¢åˆ‡æ¢æ•…éšœè‰ºæœ¯æ•ˆæœ
-// æ•…éšœè‰ºæœ¯è¿‡æ¸¡å®¹å™¨
+ Ò³ÃæÇĞ»»¹ÊÕÏÒÕÊõĞ§¹û
+ ¹ÊÕÏÒÕÊõ¹ı¶ÉÈİÆ÷
 .page-glitch-transition {
   position: fixed;
   top: 0;
@@ -405,7 +402,7 @@ body::after {
   visibility: hidden;
 }
 
-// æ•…éšœè‰ºæœ¯æ•ˆæœ
+ ¹ÊÕÏÒÕÊõĞ§¹û
 @keyframes pageGlitch {
   0% { opacity: 0; }
   5% { opacity: 1; }
@@ -471,7 +468,7 @@ body::after {
   animation-delay: 0.6s;
 }
 
-// æ·»åŠ é™æ€æ•…éšœæ•ˆæœ
+ Ìí¼Ó¾²Ì¬¹ÊÕÏĞ§¹û
 @keyframes staticNoise {
   0%, 100% { background-position: 0 0; }
   50% { background-position: 100% 100%; }
@@ -488,7 +485,7 @@ body::after {
   animation: staticNoise 0.1s infinite linear;
 }
 
-// æ¶Ÿæ¼ªæ•ˆæœ
+ Á°äôĞ§¹û
 @keyframes ripple {
   0% {
     transform: scale(1);
@@ -503,29 +500,29 @@ body::after {
   animation: ripple 3s infinite;
 }
 
-// ä¼˜åŒ–å¡ç‰‡æ‚¬åœæ•ˆæœ
+ ÓÅ»¯¿¨Æ¬ĞüÍ£Ğ§¹û
 .post-block {
   transition: all 0.4s ease;
 }
 
-// ä¼˜åŒ–é“¾æ¥äº¤äº’æ•ˆæœ
+ ÓÅ»¯Á´½Ó½»»¥Ğ§¹û
 a {
   transition: all 0.3s ease;
 }
 
-// ä¼˜åŒ–æ»šåŠ¨æ¡æµç•…æ€§
+ ÓÅ»¯¹ö¶¯ÌõÁ÷³©ĞÔ
 ::-webkit-scrollbar {
   transition: all 0.3s ease;
 }
 
-// æ·»åŠ å…¨å±€è„‰å†²åŠ¨ç”»
+ Ìí¼ÓÈ«¾ÖÂö³å¶¯»­
 @keyframes globalPulse {
   0% { filter: brightness(1); }
   50% { filter: brightness(1.05); }
   100% { filter: brightness(1); }
 }
 
-// å¯åŠ¨ç”»é¢æ ·å¼
+ Æô¶¯»­ÃæÑùÊ½
 .startup-screen {
   position: fixed;
   top: 0;
@@ -540,7 +537,7 @@ a {
   flex-direction: column;
 }
 
-// ä¹±ç æ–‡æœ¬æ ·å¼
+ ÂÒÂëÎÄ±¾ÑùÊ½
 .glitch-text-init {
   color: transparent;
   font-size: 3rem;
@@ -552,7 +549,7 @@ a {
   letter-spacing: 4px;
 }
 
-// ä¹±ç å­—ç¬¦æ•ˆæœ
+ ÂÒÂë×Ö·ûĞ§¹û
 .glitch-text-init::before {
   content: attr(data-text);
   position: absolute;
@@ -564,7 +561,7 @@ a {
   animation: glitch-anim 0.3s infinite;
 }
 
-// ä¹±ç åŠ¨ç”»
+ ÂÒÂë¶¯»­
 @keyframes glitch-anim {
   0% { transform: translate(0); }
   20% { transform: translate(-3px, 3px); }
@@ -574,7 +571,7 @@ a {
   100% { transform: translate(0); }
 }
 
-// ä¹±ç é¢œè‰²å˜åŒ–
+ ÂÒÂëÑÕÉ«±ä»¯
 .glitch-text-init::after {
   content: attr(data-text);
   position: absolute;
@@ -595,7 +592,7 @@ a {
   100% { transform: translate(0); }
 }
 
-// ç‚¹å‡»æç¤º
+ µã»÷ÌáÊ¾
 .click-prompt {
   color: rgba(0, 255, 255, 0.7);
   font-family: 'Courier New', monospace;
@@ -608,7 +605,7 @@ a {
   50% { opacity: 0.3; }
 }
 
-// å¯åŠ¨ç”»é¢æ¶ˆå¤±åŠ¨ç”»
+ Æô¶¯»­ÃæÏûÊ§¶¯»­
 .startup-screen.fade-out {
   animation: fadeOut 0.8s forwards;
 }
@@ -617,7 +614,7 @@ a {
   100% { opacity: 0; visibility: hidden; }
 }
 
-// æ ‡é¢˜è¿›å…¥åŠ¨ç”»
+ ±êÌâ½øÈë¶¯»­
 @keyframes titleEnter {
   0% { transform: scale(1.5); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
@@ -626,7 +623,7 @@ a {
   animation: titleEnter 0.8s ease-out forwards;
 }
 
-// ä¹±ç æ¶ˆå¤±æ•ˆæœ
+ ÂÒÂëÏûÊ§Ğ§¹û
 @keyframes glitch-disappear {
   0% { opacity: 1; transform: translate(0); filter: blur(0); }
   30% { opacity: 0.7; transform: translate(-50px, -20px) rotate(-5deg); filter: blur(2px); }
@@ -637,7 +634,7 @@ a {
   animation: glitch-disappear 0.8s forwards;
 }
 
-// ç²’å­æµåŠ¨æ•ˆæœ
+ Á£×ÓÁ÷¶¯Ğ§¹û
 @keyframes particleFlow {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
@@ -655,7 +652,7 @@ a {
   }
 }
 
-// åŠ¨æ€ç²’å­
+ ¶¯Ì¬Á£×Ó
 .dynamic-particle {
   position: fixed;
   width: 2px;
@@ -679,7 +676,7 @@ a {
   animation-duration: 25s;
 }
 
-// æµåŠ¨å…‰æŸæ•ˆæœ
+ Á÷¶¯¹âÊøĞ§¹û
 @keyframes lightBeam {
   0% {
     transform: translateX(-100vw) skew(-15deg);
@@ -706,13 +703,13 @@ a {
   opacity: 0;
 }
 
-// ä¼˜åŒ–æ ‡é¢˜å®Œæˆåçš„åŠ¨ç”»
+ ÓÅ»¯±êÌâÍê³ÉºóµÄ¶¯»­
 .typing-complete {
   animation: cyberGlitch 8s infinite, globalPulse 10s infinite !important;
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-// ä»£ç é›¨æ•ˆæœå®¹å™¨
+ ´úÂëÓêĞ§¹ûÈİÆ÷
 .matrix-rain {
   position: fixed;
   top: 0;
@@ -728,7 +725,7 @@ a {
   font-size: 14px;
 }
 
-// ä»£ç é›¨å­—ç¬¦æ ·å¼
+ ´úÂëÓê×Ö·ûÑùÊ½
 .matrix-rain span {
   position: absolute;
   top: -20px;
@@ -736,14 +733,14 @@ a {
   text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
 }
 
-// ä»£ç é›¨ä¸‹è½åŠ¨ç”»
+ ´úÂëÓêÏÂÂä¶¯»­
 @keyframes matrixFall {
   to {
     top: 100vh;
   }
 }
 
-// ç»ˆç«¯æ ·å¼æ–‡æœ¬æ•ˆæœ
+ ÖÕ¶ËÑùÊ½ÎÄ±¾Ğ§¹û
 .terminal-text {
   font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
   color: #00ff00;
@@ -753,7 +750,7 @@ a {
   border-radius: 2px;
 }
 
-// å››ä¸ªè§’çš„æ¸¸æˆç•Œé¢è£…é¥°å…ƒç´ 
+ ËÄ¸ö½ÇµÄÓÎÏ·½çÃæ×°ÊÎÔªËØ
 .game-ui-corner {
   position: fixed;
   width: 40px;
@@ -787,7 +784,7 @@ a {
   border-top: none;
 }
 
-// æ•°æ®æµè£…é¥°
+ Êı¾İÁ÷×°ÊÎ
 .data-stream {
   position: fixed;
   top: 0;
@@ -809,7 +806,7 @@ a {
   }
 }
 
-// å…¨æ¯ç½‘æ ¼
+ È«Ï¢Íø¸ñ
 .hologram-grid {
   position: fixed;
   top: 0;
@@ -834,7 +831,7 @@ a {
   }
 }
 
-// å¤å¤æ‰“å­—æœºæ•ˆæœ
+ ¸´¹Å´ò×Ö»úĞ§¹û
 .typewriter {
   white-space: nowrap;
   overflow: hidden;
@@ -850,7 +847,7 @@ a {
   50% { border-color: #00ffff; }
 }
 
-// åƒç´ æ–‡å­—æ•ˆæœ
+ ÏñËØÎÄ×ÖĞ§¹û
 .pixel-text {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
@@ -863,7 +860,7 @@ a {
   display: inline-block;
 }
 
-// åƒç´ æ–‡å­—åŠ¨ç”»
+ ÏñËØÎÄ×Ö¶¯»­
 @keyframes pixelPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.05); }
@@ -872,7 +869,7 @@ a {
   animation: pixelPulse 2s infinite;
 }
 
-// åƒç´ åŒ–å†…å®¹
+ ÏñËØ»¯ÄÚÈİ
 .pixel-content {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
@@ -884,7 +881,7 @@ a {
   text-shadow: 1px 0 0 #00ffff, 0 1px 0 #00ffff, -1px 0 0 #ff00ff, 0 -1px 0 #ff00ff;
 }
 
-// åƒç´ åŒ–æ ‡é¢˜
+ ÏñËØ»¯±êÌâ
 .pixel-title {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
@@ -897,7 +894,7 @@ a {
   display: block;
 }
 
-// æ–‡å­—é—ªçƒæ•ˆæœ
+ ÎÄ×ÖÉÁË¸Ğ§¹û
 @keyframes textFlicker {
   0%, 100% { opacity: 1; }
   10% { opacity: 0.2; }
@@ -914,7 +911,7 @@ a {
   animation: textFlicker 3s infinite;
 }
 
-// æ–‡å­—è„‰å†²æ•ˆæœ
+ ÎÄ×ÖÂö³åĞ§¹û
 @keyframes textPulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -924,7 +921,7 @@ a {
   animation: textPulse 2s infinite;
 }
 
-// æ–‡å­—é—ªçƒå…‰æ™•æ•ˆæœ
+ ÎÄ×ÖÉÁË¸¹âÔÎĞ§¹û
 @keyframes textGlow {
   0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; }
   50% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #ff00ff; }
@@ -934,7 +931,7 @@ a {
   animation: textGlow 2s infinite;
 }
 
-// æ–‡å­—æ‰«ææ•ˆæœ
+ ÎÄ×ÖÉ¨ÃèĞ§¹û
 @keyframes textScan {
   0% { background-position: 0 0; }
   100% { background-position: 100% 100%; }
@@ -948,7 +945,7 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-// æ–‡å­—æ•…éšœæ•ˆæœ
+ ÎÄ×Ö¹ÊÕÏĞ§¹û
 @keyframes textGlitch {
   0% { transform: translate(0); }
   20% { transform: translate(-3px, 2px); }
@@ -1009,7 +1006,7 @@ a {
   100% { clip: rect(71px, 9999px, 75px, 0); }
 }
 
-// æ–‡å­—æµåŠ¨æ•ˆæœ
+ ÎÄ×ÖÁ÷¶¯Ğ§¹û
 @keyframes textFlow {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
@@ -1023,14 +1020,14 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-// åƒç´ åŒ–æ•ˆæœ
+ ÏñËØ»¯Ğ§¹û
 .pixelated {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
 
-// æ°´å¹³å’Œå‚ç›´å…‰æŸæ ·å¼
+ Ë®Æ½ºÍ´¹Ö±¹âÊøÑùÊ½
 .light-beam-horizontal {
   position: fixed;
   top: 0;
@@ -1073,12 +1070,12 @@ a {
   }
 }
 
-// éšè—æ–‡ç« å…ƒæ•°æ®ï¼Œåªä¿ç•™æ ‡é¢˜å’Œå†…å®¹
+ Òş²ØÎÄÕÂÔªÊı¾İ£¬Ö»±£Áô±êÌâºÍÄÚÈİ
 .post-meta, .post-meta-data, .post-header .post-author, .post-header .post-date, .post-header .post-meta, .post-footer, .post-copyright, .post-nav, .post-nav-wrap {
   display: none !important;
 }
 
-// åªæ˜¾ç¤ºæ ‡é¢˜å’Œå†…å®¹
+ Ö»ÏÔÊ¾±êÌâºÍÄÚÈİ
 .post-block {
   margin-top: 0 !important;
   padding: 40px !important;
@@ -1103,7 +1100,7 @@ a {
   color: #e0e0ff;
 }
 
-// é¦–é¡µæ–‡ç« åˆ—è¡¨æ ·å¼
+ Ê×Ò³ÎÄÕÂÁĞ±íÑùÊ½
 .post-block-wrap {
   background: rgba(10, 5, 20, 0.6) !important;
   backdrop-filter: blur(10px);
@@ -1114,13 +1111,13 @@ a {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
-// æ–‡ç« å†…å®¹åŒºåŸŸæ ·å¼
+ ÎÄÕÂÄÚÈİÇøÓòÑùÊ½
 .post-content {
   color: #e0e0ff !important;
   line-height: 1.8 !important;
 }
 
-// ä»£ç å—æ ·å¼
+ ´úÂë¿éÑùÊ½
 .highlight, .code-block {
   background: rgba(0, 0, 0, 0.7) !important;
   border: 1px solid rgba(0, 255, 255, 0.3) !important;
@@ -1128,7 +1125,7 @@ a {
   overflow: auto !important;
 }
 
-// ä¿®å¤å¯èƒ½çš„èƒŒæ™¯è¦†ç›–é—®é¢˜
+ ĞŞ¸´¿ÉÄÜµÄ±³¾°¸²¸ÇÎÊÌâ
 .main-inner {
   background: transparent !important;
   background-color: transparent !important;
@@ -1144,7 +1141,7 @@ a {
   background-color: transparent !important;
 }
 
-// ç¡®ä¿é¡µé¢å†…å®¹å¯è§
+ È·±£Ò³ÃæÄÚÈİ¿É¼û
 .post-block, .content-wrap, .main {
   background: rgba(10, 5, 20, 0.6) !important;
   backdrop-filter: blur(10px);
@@ -1155,13 +1152,13 @@ a {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
-// ä¼˜åŒ–é¡µé¢å¸ƒå±€
+ ÓÅ»¯Ò³Ãæ²¼¾Ö
 .page-content {
   min-height: 80vh;
   padding: 40px 20px;
 }
 
-// èµ›åšæœ‹å…‹è¾“å…¥æ¡†æ ·å¼
+ Èü²©Åó¿ËÊäÈë¿òÑùÊ½
 input, textarea, select {
   background: rgba(10, 5, 20, 0.6) !important;
   border: 1px solid rgba(0, 255, 255, 0.3) !important;
@@ -1177,13 +1174,13 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.5) !important;
 }
 
-// ä¼˜åŒ–æ–‡ç« æ ‡é¢˜æ ·å¼
+ ÓÅ»¯ÎÄÕÂ±êÌâÑùÊ½
 .posts-expand .post-title, .post-title {
   color: #e0e0ff !important;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.7) !important;
 }
 
-// ä¿®å¤å¯èƒ½çš„å­—ä½“é¢œè‰²é—®é¢˜
+ ĞŞ¸´¿ÉÄÜµÄ×ÖÌåÑÕÉ«ÎÊÌâ
 .post-body p, .post-body li, .post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
   color: #e0e0ff !important;
-}
+} 
