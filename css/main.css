@@ -1221,7 +1221,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #39c11d;
+  background: #0fff33;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3412,6 +3412,112 @@ a:hover::after {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
   animation: progress-shine 2s infinite;
 }
+.neon-pulse-enhanced {
+  animation: enhancedNeonPulse 2s infinite alternate !important;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 40px #0ff !important;
+}
+.enhanced-glitch {
+  position: relative !important;
+}
+.enhanced-glitch::before,
+.enhanced-glitch::after {
+  content: attr(data-text) !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0.8 !important;
+}
+.enhanced-glitch::before {
+  color: #f0f !important;
+  z-index: -1 !important;
+  clip: rect(44px, 450px, 56px, 0px) !important;
+  animation: glitch-anim 5s infinite linear alternate-reverse !important;
+}
+.enhanced-glitch::after {
+  color: #0ff !important;
+  z-index: -2 !important;
+  clip: rect(44px, 450px, 56px, 0px) !important;
+  animation: glitch-anim2 5s infinite linear alternate-reverse !important;
+}
+.enhanced-glitch.glitch-active {
+  animation: glitch-jump 0.3s !important;
+  transform: translate(var(--glitch-translate-x, 5px), 0) !important;
+}
+.laser-beam {
+  transition: opacity 0.1s ease !important;
+}
+#digital-rain {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+.advanced-neon-border {
+  position: relative !important;
+  border: 2px solid transparent !important;
+  background: linear-gradient(45deg, #f0c, #33f, #0cf, #0fc) !important;
+  background-clip: padding-box !important;
+  border-radius: 8px !important;
+  animation: advanced-neon-glow 3s linear infinite !important;
+}
+.advanced-neon-border::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  background: linear-gradient(45deg, #f0c, #33f, #0cf, #0fc) !important;
+  border-radius: 10px !important;
+  z-index: -1 !important;
+  animation: rotate-border 4s linear infinite !important;
+}
+.click-effect {
+  position: fixed !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(0,255,255,0.5), transparent 70%) !important;
+  pointer-events: none !important;
+  animation: ripple-effect 0.6s linear !important;
+  z-index: 9999 !important;
+}
+.cursor-follower {
+  position: fixed !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 2px solid #0ff !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 9998 !important;
+  box-shadow: 0 0 20px #0ff, 0 0 40px rgba(0,255,255,0.5) !important;
+  animation: cursor-pulse 2s infinite alternate !important;
+}
+.hologram-float {
+  animation: hologram-float 6s ease-in-out infinite !important;
+}
+.hologram-texture {
+  position: relative !important;
+}
+.hologram-texture::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(0deg, transparent 40%, rgba(0,255,255,0.03) 50%, transparent 60%), linear-gradient(90deg, transparent 40%, rgba(255,0,255,0.03) 50%, transparent 60%) !important;
+  background-size: 4px 4px !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+  animation: hologram-interference 3s linear infinite !important;
+}
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -4181,5 +4287,136 @@ a:hover::after {
   }
   100% {
     transform: translateX(100%);
+  }
+}
+@keyframes enhancedNeonPulse {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 40px #0ff !important;
+  }
+  100% {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 8px #fff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff !important;
+  }
+}
+@keyframes glitch-anim {
+  0% {
+    transform: none !important;
+  }
+  20% {
+    transform: skew(2deg, 2deg) !important;
+  }
+  40% {
+    transform: skew(0deg, -2deg) !important;
+  }
+  60% {
+    transform: skew(-2deg, 0deg) !important;
+  }
+  80% {
+    transform: skew(0deg, 2deg) !important;
+  }
+  100% {
+    transform: skew(2deg, -2deg) !important;
+  }
+}
+@keyframes glitch-anim2 {
+  0% {
+    transform: none !important;
+  }
+  20% {
+    transform: skew(-2deg, -2deg) !important;
+  }
+  40% {
+    transform: skew(0deg, 2deg) !important;
+  }
+  60% {
+    transform: skew(2deg, 0deg) !important;
+  }
+  80% {
+    transform: skew(0deg, -2deg) !important;
+  }
+  100% {
+    transform: skew(-2deg, 2deg) !important;
+  }
+}
+@keyframes glitch-jump {
+  0%, 100% {
+    transform: translate(0) !important;
+  }
+  20%, 60% {
+    transform: translate(-5px, 0) !important;
+  }
+  40%, 80% {
+    transform: translate(5px, 0) !important;
+  }
+}
+@keyframes advanced-neon-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #fff, inset 0 0 5px rgba(255,0,204,0.5), 0 0 10px rgba(255,0,204,0.5), inset 0 0 10px rgba(255,0,204,0.3) !important;
+  }
+  50% {
+    box-shadow: 0 0 10px #fff, inset 0 0 10px rgba(255,0,204,0.7), 0 0 20px rgba(255,0,204,0.7), inset 0 0 20px rgba(255,0,204,0.5) !important;
+  }
+}
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg) !important;
+  }
+  100% {
+    transform: rotate(360deg) !important;
+  }
+}
+@keyframes cyber-grid-move {
+  0% {
+    background-position: 0 0 !important;
+  }
+  100% {
+    background-position: 100px 100px !important;
+  }
+}
+@keyframes cyber-scan {
+  0% {
+    transform: translateY(-100%) !important;
+  }
+  100% {
+    transform: translateY(100vh) !important;
+  }
+}
+@keyframes cyber-flicker {
+  0%, 100% {
+    opacity: 0.8 !important;
+  }
+  50% {
+    opacity: 0.4 !important;
+  }
+}
+@keyframes ripple-effect {
+  to {
+    width: 300px !important;
+    height: 300px !important;
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+@keyframes cursor-pulse {
+  0% {
+    box-shadow: 0 0 10px #0ff, 0 0 20px rgba(0,255,255,0.5) !important;
+  }
+  100% {
+    box-shadow: 0 0 20px #0ff, 0 0 40px rgba(0,255,255,0.8) !important;
+  }
+}
+@keyframes hologram-float {
+  0%, 100% {
+    transform: translateY(0) !important;
+  }
+  50% {
+    transform: translateY(-10px) !important;
+  }
+}
+@keyframes hologram-interference {
+  0% {
+    background-position: 0 0 !important;
+  }
+  100% {
+    background-position: 4px 4px !important;
   }
 }

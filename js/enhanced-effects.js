@@ -246,3 +246,163 @@ document.addEventListener('keydown', function(e) {
     }, 600);
   }
 });
+
+// 添加更多视觉效果
+function addMoreEffects() {
+  // 添加数字雨效果
+  createDigitalRain();
+  
+  // 添加粒子系统
+  createParticleSystem();
+  
+  // 添加动态霓虹文字
+  createAnimatedNeonTexts();
+  
+  // 添加故障效果增强
+  addEnhancedGlitchEffects();
+  
+  // 添加光束效果
+  addLaserBeams();
+}
+
+// 数字雨效果
+function createDigitalRain() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'digital-rain';
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.zIndex = '-1';
+  canvas.style.pointerEvents = 'none';
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  document.body.appendChild(canvas);
+  
+  const ctx = canvas.getContext('2d');
+  const characters = '0123456789ABCDEF';
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = [];
+  
+  for (let i = 0; i < columns; i++) {
+    drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+  }
+  
+  function drawDigitalRain() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = '#0f0';
+    ctx.font = fontSize + 'px monospace';
+    
+    for (let i = 0; i < drops.length; i++) {
+      const text = characters.charAt(Math.floor(Math.random() * characters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      
+      drops[i]++;
+    }
+  }
+  
+  setInterval(drawDigitalRain, 33);
+}
+
+// 粒子系统
+function createParticleSystem() {
+  // 暂时留空，后续实现
+}
+
+// 动态霓虹文字
+function createAnimatedNeonTexts() {
+  const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .nav-item, .post-title, .site-title, .site-subtitle');
+  elements.forEach(el => {
+    // 添加脉冲效果
+    el.classList.add('neon-pulse-enhanced');
+  });
+}
+
+// 增强故障效果
+function addEnhancedGlitchEffects() {
+  const elements = document.querySelectorAll('h1, h2, h3, .post-block, .main-inner, .content-wrap');
+  elements.forEach(el => {
+    // 添加更复杂的故障效果
+    el.classList.add('enhanced-glitch');
+    
+    // 随机触发故障效果
+    setInterval(() => {
+      if (Math.random() > 0.95) { // 5% 概率
+        el.classList.add('glitch-active');
+        setTimeout(() => {
+          el.classList.remove('glitch-active');
+        }, 200);
+      }
+    }, 2000);
+  });
+}
+
+// 光束效果
+function addLaserBeams() {
+  // 创建光束容器
+  const laserContainer = document.createElement('div');
+  laserContainer.id = 'laser-container';
+  laserContainer.style.position = 'fixed';
+  laserContainer.style.top = '0';
+  laserContainer.style.left = '0';
+  laserContainer.style.width = '100%';
+  laserContainer.style.height = '100%';
+  laserContainer.style.pointerEvents = 'none';
+  laserContainer.style.zIndex = '-1';
+  laserContainer.style.overflow = 'hidden';
+  document.body.appendChild(laserContainer);
+  
+  // 创建随机光束
+  setInterval(() => {
+    if (Math.random() > 0.9) { // 10% 概率
+      createLaserBeam();
+    }
+  }, 1000);
+}
+
+function createLaserBeam() {
+  const laser = document.createElement('div');
+  laser.className = 'laser-beam';
+  laser.style.position = 'absolute';
+  laser.style.height = '2px';
+  laser.style.background = 'linear-gradient(90deg, transparent, #0ff, transparent)';
+  laser.style.width = '100%';
+  laser.style.left = '0';
+  laser.style.top = Math.random() * 100 + '%';
+  laser.style.opacity = '0';
+  laser.style.boxShadow = '0 0 10px #0ff, 0 0 20px #0ff';
+  
+  document.getElementById('laser-container').appendChild(laser);
+  
+  // 动画
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    opacity += 0.05;
+    laser.style.opacity = opacity;
+    if (opacity >= 0.6) {
+      clearInterval(fadeInterval);
+      setTimeout(() => {
+        let fadeOut = 0.6;
+        const fadeOutInterval = setInterval(() => {
+          fadeOut -= 0.05;
+          laser.style.opacity = fadeOut;
+          if (fadeOut <= 0) {
+            clearInterval(fadeOutInterval);
+            if (laser.parentNode) {
+              laser.remove();
+            }
+          }
+        }, 50);
+      }, 500);
+    }
+  }, 30);
+}
+
+// 启动更多效果
+document.addEventListener('DOMContentLoaded', addMoreEffects);
