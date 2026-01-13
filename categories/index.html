@@ -308,7 +308,7 @@
 <script src="/atmg.github.io/js/third-party/comments/gitalk.js" defer></script>
 <!-- Retro Tech Style Override -->
 <style>
-/* 90年代代码风格 - 《流浪地球》科幻主题 - 无闪烁版本 */
+/* 90年代代码风格 - 《流浪地球》科幻主题 - 字体闪烁版本 */
 body {background: #000 !important; color: #0f0 !important; font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;}
 h1, h2, h3, h4, h5, h6 {color: #0f0 !important; text-shadow: 0 0 10px #0f0 !important; font-family: 'Courier New', monospace !important;}
 a {color: #0af !important; text-decoration: underline !important;}
@@ -323,8 +323,9 @@ a {color: #0af !important; text-decoration: underline !important;}
 .headband, .logo-line, .main-menu, .site-author, .site-description {display: none !important;}
 /* 网格背景 */
 body::before {content: '' !important; position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px) !important; background-size: 20px 20px !important; z-index: -1 !important; pointer-events: none !important;}
-/* 移除所有动画以防止闪烁 */
-*, *::before, *::after { animation: none !important; transition: none !important; }
+/* 允许字体闪烁，但禁用其他动画 */
+h1, h2, h3, h4, h5, h6 { animation: fontBlink 2s infinite; }
+*, *::before, *::after { transition: none !important; }
 </style>
 <script src="/js/retro-tech.js"></script>
 </body>

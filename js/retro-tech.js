@@ -103,10 +103,22 @@ function enhanceButtons() {
 function enhanceHeaders() {
   const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
   headers.forEach(header => {
-    // 设置静态样式，无闪烁效果
+    // 设置闪烁样式
     header.style.textShadow = '0 0 10px #0f0';
+    // 添加字体闪烁动画
+    header.style.animation = 'fontBlink 2s infinite';
   });
 }
+
+// 添加字体闪烁动画
+const blinkStyle = document.createElement('style');
+blinkStyle.textContent = `
+  @keyframes fontBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+`;
+document.head.appendChild(blinkStyle);
 
 // 增强段落
 function enhanceParagraphs() {
