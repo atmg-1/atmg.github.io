@@ -1,0 +1,844 @@
+/* 90年代代码风格 - 《流浪地球》科幻主题 */
+
+/* 基础样式重置 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;
+  background: #000 !important;
+  color: #0f0 !important;
+  line-height: 1.6 !important;
+  overflow-x: hidden !important;
+}
+
+/* 黑色背景与绿色代码风格 */
+body::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: 
+    linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 闪烁光标效果 */
+.cursor {
+  display: inline-block !important;
+  width: 8px !important;
+  height: 16px !important;
+  background: #0f0 !important;
+  vertical-align: middle !important;
+  margin-left: 4px !important;
+  animation: blink 1s infinite !important;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 主容器样式 */
+.main-container {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  border: 1px solid #0f0 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* 控制台样式标题 */
+.console-title {
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  margin: 20px 0 !important;
+  font-size: 1.5em !important;
+  text-shadow: 0 0 10px #0f0 !important;
+  position: relative !important;
+}
+
+.console-title::after {
+  content: '>_' !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #f00 !important;
+  font-weight: bold !important;
+}
+
+/* 代码块样式 */
+.code-block {
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  overflow-x: auto !important;
+  position: relative !important;
+}
+
+.code-block::before {
+  content: '> EXECUTING...' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 10px !important;
+  background: #000 !important;
+  color: #f00 !important;
+  padding: 2px 8px !important;
+  font-size: 0.8em !important;
+}
+
+/* 90年代终端输入效果 */
+.terminal-input {
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  padding: 10px !important;
+  margin: 10px 0 !important;
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  position: relative !important;
+}
+
+.terminal-input::before {
+  content: '$ ' !important;
+  color: #f00 !important;
+  margin-right: 5px !important;
+}
+
+/* 流浪地球风格的警告框 */
+.warning-box {
+  border: 2px solid #f00 !important;
+  background: rgba(255, 0, 0, 0.1) !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  position: relative !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.warning-box::before {
+  content: 'WARNING: SYSTEM ALERT' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 10px !important;
+  background: #f00 !important;
+  color: #000 !important;
+  padding: 2px 8px !important;
+  font-size: 0.8em !important;
+  font-weight: bold !important;
+}
+
+/* 流浪地球风格的信息框 */
+.info-box {
+  border: 1px solid #0af !important;
+  background: rgba(0, 175, 255, 0.1) !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  position: relative !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.info-box::before {
+  content: 'INFO: DATA STREAM' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 10px !important;
+  background: #0af !important;
+  color: #000 !important;
+  padding: 2px 8px !important;
+  font-size: 0.8em !important;
+  font-weight: bold !important;
+}
+
+/* 90年代按钮样式 */
+.retro-button {
+  background: #000 !important;
+  color: #0f0 !important;
+  border: 1px solid #0f0 !important;
+  padding: 8px 16px !important;
+  margin: 5px !important;
+  font-family: 'Courier New', monospace !important;
+  cursor: pointer !important;
+  text-transform: uppercase !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+}
+
+.retro-button:hover {
+  background: #0f0 !important;
+  color: #000 !important;
+  box-shadow: 0 0 15px #0f0 !important;
+}
+
+.retro-button::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.5s !important;
+}
+
+.retro-button:hover::after {
+  left: 100% !important;
+}
+
+/* 链接样式 */
+a {
+  color: #0af !important;
+  text-decoration: underline !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+a:hover {
+  color: #0f0 !important;
+  text-shadow: 0 0 10px #0af !important;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  text-shadow: 0 0 10px #0f0 !important;
+  border-bottom: 1px solid #0f0 !important;
+  padding-bottom: 5px !important;
+}
+
+h1 {
+  font-size: 1.8em !important;
+}
+
+h2 {
+  font-size: 1.6em !important;
+}
+
+h3 {
+  font-size: 1.4em !important;
+}
+
+/* 段落样式 */
+p {
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  margin: 15px 0 !important;
+  position: relative !important;
+}
+
+/* 列表样式 */
+ul, ol {
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  padding-left: 30px !important;
+}
+
+li {
+  margin: 8px 0 !important;
+  position: relative !important;
+}
+
+li::marker {
+  color: #f00 !important;
+}
+
+/* 表格样式 */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  border: 1px solid #0f0 !important;
+}
+
+th, td {
+  border: 1px solid #0f0 !important;
+  padding: 8px !important;
+  text-align: left !important;
+}
+
+th {
+  background: rgba(0, 255, 0, 0.1) !important;
+  color: #0f0 !important;
+}
+
+/* 流浪地球风格的进度条 */
+.progress-bar-retro {
+  width: 100% !important;
+  height: 20px !important;
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  position: relative !important;
+  margin: 10px 0 !important;
+  overflow: hidden !important;
+}
+
+.progress-value-retro {
+  height: 100% !important;
+  background: linear-gradient(90deg, #0f0, #0af) !important;
+  width: 0% !important;
+  transition: width 0.5s ease !important;
+  position: relative !important;
+}
+
+.progress-value-retro::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  ) !important;
+  animation: progress-shine 2s infinite !important;
+}
+
+@keyframes progress-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* 扫描线效果 */
+.scan-line {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background: linear-gradient(to right, transparent, #0f0, transparent) !important;
+  animation: scan 4s linear infinite !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* 流浪地球风格的粒子效果 */
+.particle {
+  position: fixed !important;
+  width: 2px !important;
+  height: 2px !important;
+  background: #0f0 !important;
+  border-radius: 50% !important;
+  animation: float-particle 5s linear infinite !important;
+  z-index: -1 !important;
+}
+
+@keyframes float-particle {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+}
+
+/* 流浪地球风格的系统消息 */
+.system-message {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 1px solid #f00 !important;
+  padding: 10px 15px !important;
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  z-index: 10000 !important;
+  min-width: 200px !important;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5) !important;
+}
+
+.system-message.success {
+  border-color: #0f0 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5) !important;
+}
+
+.system-message.warning {
+  border-color: #ff0 !important;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.5) !important;
+}
+
+/* 流浪地球风格的卡片 */
+.retro-card {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #0f0 !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  position: relative !important;
+  font-family: 'Courier New', monospace !important;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2) !important;
+  overflow: hidden !important;
+}
+
+.retro-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(45deg, #0f0, #0af, #0f0) !important;
+  border-image-slice: 1 !important;
+  pointer-events: none !important;
+}
+
+/* 代码行号 */
+.line-number {
+  display: inline-block !important;
+  width: 30px !important;
+  color: #aaa !important;
+  margin-right: 10px !important;
+  user-select: none !important;
+}
+
+/* 强调文本 */
+.emphasis {
+  color: #f00 !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 5px #f00 !important;
+}
+
+/* 90年代风格的输入框 */
+.retro-input {
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  color: #0f0 !important;
+  padding: 8px 12px !important;
+  font-family: 'Courier New', monospace !important;
+  outline: none !important;
+}
+
+.retro-input:focus {
+  box-shadow: 0 0 10px #0f0 !important;
+}
+
+/* 鼠标样式 */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect x='0' y='0' width='32' height='32' fill='%23000000'/%3E%3Cpath d='M0 0 L32 0 L32 32 Z' fill='%2300FF00'/%3E%3C/svg%3E"), auto !important;
+}
+
+/* 90年代风格的滚动条 */
+::-webkit-scrollbar {
+  width: 12px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #000 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f0 !important;
+  border: 1px solid #000 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0af !important;
+}
+
+/* 流浪地球风格的页眉 */
+.header-retro {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-bottom: 2px solid #0f0 !important;
+  padding: 15px 20px !important;
+  position: relative !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.header-retro::after {
+  content: 'SYSTEM READY' !important;
+  position: absolute !important;
+  right: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #f00 !important;
+  font-size: 0.9em !important;
+}
+
+/* 流浪地球风格的页脚 */
+.footer-retro {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-top: 1px solid #0f0 !important;
+  padding: 15px 20px !important;
+  margin-top: 30px !important;
+  font-family: 'Courier New', monospace !important;
+  color: #0a0 !important;
+  font-size: 0.9em !important;
+}
+
+/* 90年代风格的菜单 */
+.menu-retro {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.menu-retro li {
+  margin: 10px 0 !important;
+  position: relative !important;
+}
+
+.menu-retro a {
+  color: #0f0 !important;
+  text-decoration: none !important;
+  display: block !important;
+  padding: 8px 15px !important;
+  border: 1px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-retro a:hover {
+  border-color: #0f0 !important;
+  background: rgba(0, 255, 0, 0.1) !important;
+  text-shadow: 0 0 5px #0f0 !important;
+}
+
+.menu-retro a::before {
+  content: '> ' !important;
+  color: #f00 !important;
+  margin-right: 8px !important;
+}
+
+/* 90年代风格的分隔线 */
+.separator {
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #0f0, transparent) !important;
+  margin: 20px 0 !important;
+  position: relative !important;
+}
+
+.separator::after {
+  content: '***' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #000 !important;
+  padding: 0 10px !important;
+  color: #0f0 !important;
+}
+
+/* 流浪地球风格的时间戳 */
+.timestamp {
+  color: #0a0 !important;
+  font-size: 0.8em !important;
+  font-family: 'Courier New', monospace !important;
+  margin: 5px 0 !important;
+}
+
+/* 90年代风格的弹窗 */
+.modal-retro {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #000 !important;
+  border: 2px solid #0f0 !important;
+  padding: 20px !important;
+  z-index: 10001 !important;
+  font-family: 'Courier New', monospace !important;
+  min-width: 300px !important;
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.5) !important;
+}
+
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  z-index: 10000 !important;
+}
+
+/* 流浪地球风格的加载动画 */
+.loader-retro {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 3px solid #0f0 !important;
+  border-top: 3px solid transparent !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+  margin-right: 10px !important;
+  vertical-align: middle !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 90年代风格的标签 */
+.tag-retro {
+  display: inline-block !important;
+  background: rgba(0, 255, 0, 0.1) !important;
+  border: 1px solid #0f0 !important;
+  color: #0f0 !important;
+  padding: 2px 8px !important;
+  margin: 2px !important;
+  font-size: 0.8em !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* 流浪地球风格的引用 */
+.quote-retro {
+  border-left: 3px solid #0f0 !important;
+  padding-left: 15px !important;
+  margin: 15px 0 !important;
+  font-family: 'Courier New', monospace !important;
+  color: #0a0 !important;
+  position: relative !important;
+}
+
+.quote-retro::before {
+  content: '" > ' !important;
+  color: #f00 !important;
+  font-size: 1.2em !important;
+}
+
+/* 90年代风格的图片框 */
+.image-retro {
+  border: 1px solid #0f0 !important;
+  padding: 5px !important;
+  display: inline-block !important;
+  position: relative !important;
+}
+
+.image-retro::after {
+  content: 'IMAGE_DATA' !important;
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 0 !important;
+  color: #0a0 !important;
+  font-size: 0.8em !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* 流浪地球风格的表格头部 */
+.table-header-retro {
+  background: rgba(0, 255, 0, 0.2) !important;
+  color: #0f0 !important;
+  font-weight: bold !important;
+}
+
+/* 90年代风格的分页 */
+.pagination-retro {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  margin: 20px 0 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.pagination-retro a {
+  color: #0f0 !important;
+  text-decoration: none !important;
+  padding: 5px 10px !important;
+  border: 1px solid #0f0 !important;
+}
+
+.pagination-retro a:hover,
+.pagination-retro a.active {
+  background: #0f0 !important;
+  color: #000 !important;
+}
+
+/* 流浪地球风格的搜索框 */
+.search-retro {
+  position: relative !important;
+  margin: 20px 0 !important;
+}
+
+.search-retro input {
+  width: 100% !important;
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  color: #0f0 !important;
+  padding: 8px 30px 8px 10px !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.search-retro button {
+  position: absolute !important;
+  right: 5px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: #000 !important;
+  color: #0f0 !important;
+  border: 1px solid #0f0 !important;
+  cursor: pointer !important;
+}
+
+/* 90年代风格的面包屑 */
+.breadcrumb-retro {
+  font-family: 'Courier New', monospace !important;
+  color: #0a0 !important;
+  margin: 10px 0 !important;
+  font-size: 0.9em !important;
+}
+
+.breadcrumb-retro a {
+  color: #0f0 !important;
+  text-decoration: none !important;
+}
+
+.breadcrumb-retro span {
+  margin: 0 5px !important;
+  color: #f00 !important;
+}
+
+/* 流浪地球风格的标签云 */
+.tagcloud-retro {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 20px 0 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* 90年代风格的分类 */
+.category-retro {
+  display: inline-block !important;
+  background: rgba(0, 175, 255, 0.1) !important;
+  border: 1px solid #0af !important;
+  color: #0af !important;
+  padding: 3px 10px !important;
+  margin: 3px !important;
+  font-size: 0.8em !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* 流浪地球风格的文章元数据 */
+.post-meta-retro {
+  color: #0a0 !important;
+  font-size: 0.9em !important;
+  font-family: 'Courier New', monospace !important;
+  margin: 10px 0 !important;
+  padding: 10px 0 !important;
+  border-top: 1px solid #0f0 !important;
+  border-bottom: 1px solid #0f0 !important;
+}
+
+/* 90年代风格的评论框 */
+.comment-retro {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid #0f0 !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.comment-retro textarea {
+  width: 100% !important;
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  color: #0f0 !important;
+  padding: 10px !important;
+  font-family: 'Courier New', monospace !important;
+  resize: vertical !important;
+  min-height: 100px !important;
+}
+
+/* 流浪地球风格的归档 */
+.archive-retro {
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+  margin: 20px 0 !important;
+}
+
+.archive-retro h3 {
+  color: #0af !important;
+  border: none !important;
+  border-left: 3px solid #0af !important;
+  padding-left: 10px !important;
+}
+
+/* 90年代风格的侧边栏 */
+.sidebar-retro {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #0f0 !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* 流浪地球风格的导航 */
+.nav-retro {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 10px 0 !important;
+  border-top: 1px solid #0f0 !important;
+  border-bottom: 1px solid #0f0 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.nav-retro a {
+  color: #0f0 !important;
+  text-decoration: none !important;
+  padding: 5px 10px !important;
+  border: 1px solid transparent !important;
+}
+
+.nav-retro a:hover {
+  border-color: #0f0 !important;
+  background: rgba(0, 255, 0, 0.1) !important;
+}
+
+/* 90年代风格的页码 */
+.page-number-retro {
+  display: inline-block !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  text-align: center !important;
+  border: 1px solid #0f0 !important;
+  margin: 0 2px !important;
+  color: #0f0 !important;
+  text-decoration: none !important;
+}
+
+.page-number-retro.current {
+  background: #0f0 !important;
+  color: #000 !important;
+}
+
+/* 流浪地球风格的工具提示 */
+.tooltip-retro {
+  position: relative !important;
+}
+
+.tooltip-retro:hover::after {
+  content: attr(data-tooltip) !important;
+  position: absolute !important;
+  bottom: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #000 !important;
+  border: 1px solid #0f0 !important;
+  color: #0f0 !important;
+  padding: 5px 10px !important;
+  white-space: nowrap !important;
+  z-index: 1000 !important;
+  font-family: 'Courier New', monospace !important;
+  font-size: 0.8em !important;
+}
