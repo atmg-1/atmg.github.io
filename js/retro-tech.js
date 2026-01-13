@@ -421,27 +421,3 @@ function addLoadingAnimation() {
 // 在页面完全加载后添加加载动画 - 已禁用
 // window.addEventListener('load', addLoadingAnimation);
 
-// 最后添加全局样式覆盖
-const globalStyle = document.createElement('style');
-globalStyle.textContent = `
-  /* 全局样式覆盖 */
-  * {
-    font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;
-    transition: none !important;
-  }
-  
-  body {
-    background: #000 !important;
-    color: #0f0 !important;
-  }
-  
-  /* 隐藏原始样式 */
-  .cyber-card, .cyber-grid, .neon-text, .cyber-link, .cyber-quote,
-  .night-mode, .search-form, .search-input, .read-progress-bar,
-  .site-stats, .page-view-counter, .word-count, .back-to-top,
-  .human-card, .warm-tip, .interactive-btn, .form-control,
-  .social-icons, .social-icon, .progress-bar, .progress-value {
-    display: none !important;
-  }
-`;
-document.head.appendChild(globalStyle);

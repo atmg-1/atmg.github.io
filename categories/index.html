@@ -310,14 +310,22 @@
 <style>
 /* 流浪地球CTF风格 - 结合西电CTF与流浪地球美学 */
 body {
-  background: linear-gradient(45deg, #ffffff, #f0f0f0, #d0d0d0) !important;
-  color: #333 !important;
+  background: linear-gradient(135deg, #e0f7fa, #f5f5f5, #e8f5e9) !important;
+  color: #212121 !important;
   font-family: 'Courier New', 'Microsoft YaHei', 'SimHei', 'Arial', monospace !important;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* 背景网格动画 */
@@ -362,111 +370,173 @@ body::after {
 
 /* 流浪地球风格标题 */
 h1, h2, h3, h4, h5, h6 {
-  color: #0066cc !important;
-  text-shadow: 0 0 5px #0066cc, 0 0 10px #0088ee, 0 0 20px #00aaff, 0 0 40px #00ccff !important;
+  background: linear-gradient(45deg, #0066cc, #00aaff, #00ccff, #00eeff, #66ffcc) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.3) !important;
   font-family: 'Courier New', 'Microsoft YaHei', 'SimHei', monospace !important;
   position: relative;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(0, 100, 255, 0.5)); }
+  100% { filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.8)); }
 }
 
 
 
 /* 链接样式 - 西电CTF风格 */
 a {
-  color: #0066cc !important;
+  background: linear-gradient(45deg, #0066cc, #00aaff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
   text-decoration: none !important;
   position: relative;
   transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 100, 255, 0.3) !important;
 }
 
 a:hover {
-  color: #0088ee !important;
-  text-shadow: 0 0 5px #0066cc;
+  background: linear-gradient(45deg, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
+  transform: scale(1.05);
 }
 
 /* 导航菜单 - 西电CTF风格 */
 .main-menu {
-  background: rgba(240, 240, 240, 0.8) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 100, 100, 0.3);
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 150, 200, 0.2) !important;
+  border-radius: 12px !important;
 }
 
 .menu-item a {
-  color: #333 !important;
-  padding: 8px 15px !important;
-  border-radius: 4px;
+  background: linear-gradient(45deg, #0066cc, #00aaff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  padding: 12px 20px !important;
+  border-radius: 8px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  text-shadow: 0 0 5px rgba(0, 100, 255, 0.3) !important;
 }
 
 .menu-item a:hover {
-  background: rgba(100, 100, 100, 0.2) !important;
-  color: #0066cc !important;
-  border: 1px solid rgba(0, 100, 200, 0.5);
-  text-shadow: 0 0 5px #0066cc;
+  background: linear-gradient(45deg, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  border: 1px solid rgba(0, 200, 255, 0.5);
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 200, 255, 0.3) !important;
 }
 
 /* 文章块 - 流浪地球风格 */
 .post-block {
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.5) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 100, 100, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(100, 100, 100, 0.1), inset 0 0 10px rgba(150, 150, 150, 0.1);
-  padding: 20px !important;
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 150, 200, 0.2) !important;
+  padding: 30px !important;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.post-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 200, 255, 0.3) !important;
+  border: 1px solid rgba(0, 200, 255, 0.5);
 }
 
 
 
 /* 侧边栏 - 流浪地球风格 */
 .sidebar {
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.5) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 100, 100, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(100, 100, 100, 0.1), inset 0 0 10px rgba(150, 150, 150, 0.1);
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 150, 200, 0.2) !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.sidebar:hover {
+  box-shadow: 0 15px 35px rgba(0, 200, 255, 0.3) !important;
+  border: 1px solid rgba(0, 200, 255, 0.5);
 }
 
 /* 页眉 - 西电CTF风格 */
 .header {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(100, 100, 100, 0.3) !important;
+  border-bottom: 1px solid rgba(0, 150, 200, 0.3) !important;
+  box-shadow: 0 5px 20px rgba(0, 150, 200, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.header:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(0, 200, 255, 0.2) !important;
 }
 
 /* 页脚 - 流浪地球风格 */
 .footer {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(100, 100, 100, 0.3) !important;
+  border-top: 1px solid rgba(0, 150, 200, 0.3) !important;
+  box-shadow: 0 -5px 20px rgba(0, 150, 200, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.footer:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 -8px 25px rgba(0, 200, 255, 0.2) !important;
 }
 
 /* 按钮样式 - 西电CTF风格 */
 .btn {
-  background: linear-gradient(45deg, #cccccc, #999999) !important;
+  background: linear-gradient(45deg, #0066cc, #00ccff) !important;
   border: none !important;
-  color: #333 !important;
-  padding: 8px 16px !important;
-  border-radius: 4px;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  padding: 12px 24px !important;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(100, 100, 100, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: 1px solid rgba(0, 150, 200, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(0, 150, 200, 0.2) !important;
+  font-weight: bold;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 100, 100, 0.4);
-  background: linear-gradient(45deg, #999999, #cccccc) !important;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 200, 255, 0.4) !important;
+  border: 1px solid rgba(0, 200, 255, 0.6) !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8) !important;
 }
 
 /* 代码块 - 流浪地球风格 */
 .code {
-  background: rgba(240, 240, 240, 0.5) !important;
-  border: 1px solid rgba(100, 100, 100, 0.3) !important;
-  border-radius: 4px;
-  padding: 2px 6px !important;
+  background: linear-gradient(45deg, rgba(240, 240, 255, 0.5), rgba(230, 240, 255, 0.5)) !important;
+  border: 1px solid rgba(0, 150, 200, 0.3) !important;
+  border-radius: 8px;
+  padding: 4px 8px !important;
   color: #0066cc;
+  box-shadow: inset 0 0 10px rgba(0, 150, 200, 0.1) !important;
+  font-weight: bold;
 }
 
 /* 选择性隐藏不需要的样式 */
@@ -485,87 +555,158 @@ a:hover {
 
 /* 个人简介区域 */
 .site-author {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 100, 100, 0.2);
-  border-radius: 8px;
-  padding: 15px !important;
-  margin-bottom: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(240, 245, 255, 0.5)) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  border-radius: 20px;
+  padding: 25px !important;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 150, 200, 0.15) !important;
+  transition: all 0.4s ease !important;
+}
+
+.site-author:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 200, 255, 0.25) !important;
 }
 
 .site-author-name {
-  color: #0066cc !important;
+  background: linear-gradient(45deg, #0066cc, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
   text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.3) !important;
 }
 
 .site-description {
-  color: #333 !important;
+  color: #212121 !important;
   text-align: center;
+  font-style: italic;
 }
 
 /* 目录导航 */
 .sidebar-nav a {
-  color: #333 !important;
+  background: linear-gradient(45deg, #0066cc, #00aaff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 5px rgba(0, 100, 255, 0.3) !important;
 }
 
 .sidebar-nav a:hover {
-  color: #0066cc !important;
+  background: linear-gradient(45deg, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
+  transform: scale(1.1);
 }
 
 /* 选中的导航项 */
 .sidebar-nav .sidebar-nav-active {
-  color: #0066cc !important;
-  border-bottom: 2px solid #0066cc;
+  background: linear-gradient(45deg, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
+  border-bottom: 2px solid #00ccff !important;
+  position: relative;
+}
+
+.sidebar-nav .sidebar-nav-active::after {
+  content: '▶';
+  position: absolute;
+  right: -15px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 /* 卡片样式 */
 .card {
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(240, 245, 255, 0.5)) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 100, 100, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(100, 100, 100, 0.1);
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 150, 200, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 200, 255, 0.25) !important;
+  border: 1px solid rgba(0, 200, 255, 0.5);
 }
 
 /* 流浪地球风格的渐变色 */
 .gradient-text {
-  background: linear-gradient(45deg, #0066cc, #6699cc, #cccccc, #eeeeee);
+  background: linear-gradient(45deg, #0066cc, #00aaff, #00ccff, #00eeff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: bold;
 }
 
 /* 流浪地球风格的边框 */
 .border-glow {
   border: 1px solid transparent;
-  background: linear-gradient(45deg, rgba(100, 100, 100, 0.2), rgba(150, 150, 150, 0.2)) border-box;
+  background: linear-gradient(45deg, rgba(0, 150, 200, 0.3), rgba(0, 200, 255, 0.3)) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+  animation: borderFlow 3s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
 /* 关于页面样式 */
 .about-content {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 100, 100, 0.2);
-  border-radius: 8px;
-  padding: 25px !important;
-  margin: 20px auto;
-  max-width: 800px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(240, 245, 255, 0.6)) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  border-radius: 20px;
+  padding: 35px !important;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 15px 35px rgba(0, 150, 200, 0.2) !important;
+  transition: all 0.4s ease !important;
+}
+
+.about-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 200, 255, 0.25) !important;
 }
 
 .cyber-card {
-  background: rgba(240, 240, 240, 0.5) !important;
-  backdrop-filter: blur(5px);
-  border-radius: 8px;
-  padding: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(240, 245, 255, 0.5)) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid rgba(0, 150, 200, 0.2);
+  transition: all 0.3s ease !important;
+}
+
+.cyber-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 200, 255, 0.2) !important;
+  border: 1px solid rgba(0, 200, 255, 0.4);
 }
 
 .neon-text {
-  color: #0066cc !important;
-  text-shadow: 0 0 5px #0066cc, 0 0 10px #0088ee !important;
+  background: linear-gradient(45deg, #0066cc, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.4) !important;
+  font-weight: bold;
 }
 
 .profile-section {
@@ -580,22 +721,35 @@ a:hover {
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 2px solid #0066cc;
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #0066cc, #00ccff, #00eeff) !important;
+  background-clip: padding-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  transition: all 0.4s ease !important;
 }
 
-.avatar-glow {
+.avatar::before {
+  content: '';
   position: absolute;
   top: -5px;
   left: -5px;
   right: -5px;
   bottom: -5px;
   border-radius: 50%;
-  border: 2px solid #6699cc;
-  filter: blur(5px);
-  animation: pulse 2s infinite;
+  background: linear-gradient(45deg, #0066cc, #00ccff, #00eeff);
+  z-index: -1;
+  filter: blur(10px);
+  animation: avatarGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes avatarGlow {
+  0% { opacity: 0.4; filter: blur(8px); }
+  100% { opacity: 0.8; filter: blur(12px); }
 }
 
 @keyframes pulse {
@@ -763,17 +917,22 @@ a:hover {
 
 /* 分类和标签样式 */
 .tag {
-  background: rgba(150, 150, 150, 0.2) !important;
-  border: 1px solid rgba(100, 100, 100, 0.3) !important;
-  color: #0066cc !important;
-  padding: 3px 8px !important;
-  border-radius: 12px;
+  background: linear-gradient(45deg, #0066cc, #00ccff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  border: 1px solid rgba(0, 150, 200, 0.3) !important;
+  padding: 6px 12px !important;
+  border-radius: 20px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 150, 200, 0.2) !important;
+  font-weight: bold;
 }
 
 .tag:hover {
-  background: rgba(100, 100, 100, 0.3) !important;
-  text-shadow: 0 0 5px #0066cc;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 200, 255, 0.4) !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
 }
 
 /* 文章元数据 */
@@ -799,20 +958,24 @@ a:hover {
 
 /* 滚动条样式 */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(240, 240, 240, 0.2);
+  background: linear-gradient(135deg, #e0f7fa, #f5f5f5) !important;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#cccccc, #999999);
-  border-radius: 4px;
+  background: linear-gradient(135deg, #0066cc, #00ccff) !important;
+  border-radius: 10px;
+  border: 2px solid rgba(240, 245, 255, 0.5) !important;
+  transition: all 0.3s ease !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(#999999, #cccccc);
+  background: linear-gradient(135deg, #00ccff, #00eeff) !important;
+  transform: scale(1.1);
 }
 </style>
 <script src="/js/retro-tech.js"></script>
