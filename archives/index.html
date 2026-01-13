@@ -1037,6 +1037,43 @@ a:hover {
   background: linear-gradient(135deg, #00ccff, #00eeff) !important;
   transform: scale(1.1);
 }
+
+/* 目录弹出按钮 */
+#directory-popup-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#directory-popup {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 150, 200, 0.3) !important;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 150, 200, 0.4) !important;
+  z-index: 10000;
+  font-family: 'Courier New', 'Microsoft YaHei', monospace;
+}
+
+#directory-content li {
+  background: linear-gradient(45deg, #0066cc, #00aaff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 5px rgba(0, 100, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 4px;
+  padding: 5px 8px !important;
+}
+
+#directory-content li:hover {
+  background: linear-gradient(45deg, #00ccff, #00eeff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6) !important;
+  transform: translateX(5px) !important;
+  background-color: rgba(0, 200, 255, 0.1) !important;
+}
 </style>
 <script src="/js/retro-tech.js"></script>
 </body>

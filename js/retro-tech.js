@@ -421,3 +421,260 @@ function addLoadingAnimation() {
 // 在页面完全加载后添加加载动画 - 已禁用
 // window.addEventListener('load', addLoadingAnimation);
 
+// 添加目录弹出功能
+function initDirectoryPopup() {
+  // 创建目录按钮
+  const dirButton = document.createElement('div');
+  dirButton.id = 'directory-popup-btn';
+  dirButton.innerHTML = '☰';
+  dirButton.title = '目录';
+  dirButton.style.cssText = `
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #0066cc, #00ccff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0, 150, 200, 0.4);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 200, 255, 0.8);
+  `;
+  
+  // 添加悬停效果
+  dirButton.addEventListener('mouseenter', () => {
+    dirButton.style.transform = 'translateY(-50%) scale(1.1)';
+    dirButton.style.boxShadow = '0 6px 20px rgba(0, 200, 255, 0.6)';
+  });
+  
+  dirButton.addEventListener('mouseleave', () => {
+    dirButton.style.transform = 'translateY(-50%)';
+    dirButton.style.boxShadow = '0 4px 15px rgba(0, 150, 200, 0.4)';
+  });
+  
+  // 点击按钮显示目录
+  dirButton.addEventListener('click', showDirectoryPopup);
+  
+  document.body.appendChild(dirButton);
+}
+
+// 显示目录弹窗
+function showDirectoryPopup() {
+  // 如果已有弹窗则移除
+  const existingPopup = document.getElementById('directory-popup');
+  if (existingPopup) {
+    existingPopup.remove();
+    return;
+  }
+  
+  // 创建弹窗容器
+  const popup = document.createElement('div');
+  popup.id = 'directory-popup';
+  popup.style.cssText = `
+    position: fixed;
+    left: 80px;
+    top: 20%;
+    width: 300px;
+    max-height: 70vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 150, 200, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 150, 200, 0.4);
+    z-index: 10000;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: 'Courier New', 'Microsoft YaHei', monospace;
+  `;
+  
+  // 创建标题
+  const title = document.createElement('h3');
+  title.textContent = '目录';
+  title.style.cssText = `
+    margin-top: 0;
+    background: linear-gradient(45deg, #0066cc, #00aaff, #00ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 150, 200, 0.3);
+  `;
+  
+  // 创建目录内容
+  const content = document.createElement('div');
+  content.id = 'directory-content';
+  
+  // 获取当前页面的目录
+  const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  
+  if (headings.length > 0) {
+    const ul = document.createElement('ul');
+    ul.style.cssText = `
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    `;
+    
+    headings.forEach((heading, index) => {
+      if (!heading.id) {
+        heading.id = `heading-${index}`;
+      }
+      
+      const li = document.createElement('li');
+      li.style.cssText = `
+        padding: 5px 0;
+        margin: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        padding: 5px 8px;
+      `;
+      
+      li.textContent = heading.textContent;
+      
+      // 添加渐变文字效果
+      li.style.background = 'linear-gradient(45deg, #0066cc, #00aaff)';
+      li.style.webkitBackgroundClip = 'text';
+      li.style.webkitTextFillColor = 'transparent';
+      li.style.backgroundClip = 'text';
+      li.style.textShadow = '0 0 5px rgba(0, 100, 255, 0.3)';
+      
+      li.addEventListener('click', () => {
+        heading.scrollIntoView({ behavior: 'smooth' });
+        popup.remove();
+      });
+      
+      li.addEventListener('mouseenter', () => {
+        li.style.background = 'linear-gradient(45deg, #00ccff, #00eeff)';
+        li.style.webkitBackgroundClip = 'text';
+        li.style.webkitTextFillColor = 'transparent';
+        li.style.backgroundClip = 'text';
+        li.style.textShadow = '0 0 10px rgba(0, 200, 255, 0.6)';
+        li.style.transform = 'translateX(5px)';
+      });
+      
+      li.addEventListener('mouseleave', () => {
+        li.style.background = 'linear-gradient(45deg, #0066cc, #00aaff)';
+        li.style.webkitBackgroundClip = 'text';
+        li.style.webkitTextFillColor = 'transparent';
+        li.style.backgroundClip = 'text';
+        li.style.textShadow = '0 0 5px rgba(0, 100, 255, 0.3)';
+        li.style.transform = 'translateX(0)';
+      });
+      
+      ul.appendChild(li);
+    });
+    
+    content.appendChild(ul);
+  } else {
+    // 如果没有标题，显示网站导航
+    const navItems = [];
+    
+    // 获取主导航菜单项
+    const menuItems = document.querySelectorAll('.menu-item a, nav a, .nav-item a');
+    menuItems.forEach(item => {
+      navItems.push({
+        text: item.textContent,
+        href: item.href,
+        element: item
+      });
+    });
+    
+    // 获取分类
+    const categoryItems = document.querySelectorAll('.category a, .categories a');
+    categoryItems.forEach(item => {
+      navItems.push({
+        text: item.textContent,
+        href: item.href,
+        element: item
+      });
+    });
+    
+    if (navItems.length > 0) {
+      const ul = document.createElement('ul');
+      ul.style.cssText = `
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      `;
+      
+      navItems.forEach(item => {
+        const li = document.createElement('li');
+        li.style.cssText = `
+          padding: 8px;
+          margin: 3px 0;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-radius: 6px;
+        `;
+        
+        li.textContent = item.text;
+        
+        // 添加渐变文字效果
+        li.style.background = 'linear-gradient(45deg, #0066cc, #00aaff)';
+        li.style.webkitBackgroundClip = 'text';
+        li.style.webkitTextFillColor = 'transparent';
+        li.style.backgroundClip = 'text';
+        li.style.textShadow = '0 0 5px rgba(0, 100, 255, 0.3)';
+        
+        li.addEventListener('click', () => {
+          window.location.href = item.href;
+          popup.remove();
+        });
+        
+        li.addEventListener('mouseenter', () => {
+          li.style.background = 'linear-gradient(45deg, #00ccff, #00eeff)';
+          li.style.webkitBackgroundClip = 'text';
+          li.style.webkitTextFillColor = 'transparent';
+          li.style.backgroundClip = 'text';
+          li.style.textShadow = '0 0 10px rgba(0, 200, 255, 0.6)';
+          li.style.backgroundColor = 'rgba(0, 200, 255, 0.1)';
+        });
+        
+        ul.appendChild(li);
+      });
+      
+      content.appendChild(ul);
+    } else {
+      content.innerHTML = '<p style="text-align: center; color: #666;">暂无目录内容</p>';
+    }
+  }
+  
+  // 创建关闭按钮
+  const closeBtn = document.createElement('div');
+  closeBtn.textContent = '×';
+  closeBtn.style.cssText = `
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    z-index: 10001;
+  `;
+  closeBtn.addEventListener('click', () => popup.remove());
+  
+  popup.appendChild(closeBtn);
+  popup.appendChild(title);
+  popup.appendChild(content);
+  
+  document.body.appendChild(popup);
+}
+
+// 初始化目录弹窗功能
+document.addEventListener('DOMContentLoaded', initDirectoryPopup);
+
