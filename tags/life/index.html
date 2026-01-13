@@ -284,12 +284,12 @@
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"your_github_username","repo":"your_blog_repo","client_id":"your_client_id","client_secret":"your_client_secret","admin_user":"your_github_username","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"38772b6da6b4a7caaea94ce2b5bb2962"}</script>
 <script src="/atmg.github.io/js/third-party/comments/gitalk.js" defer></script>
-<!--流浪地球风格-->
+<!--明亮科幻风格-->
 <style>
-/* 流浪地球风格 - 参考西电CTF网站 */
+/* 明亮科幻风格 - 参考西电CTF网站 */
 body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #667eea, #764ba2, #ffd89b) !important;
+  color: #333 !important;
   font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif !important;
   margin: 0;
   padding: 0;
@@ -307,10 +307,10 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
-    linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(125, 240, 240, 0.1) 0%, transparent 20%),
+    linear-gradient(to bottom, rgba(125, 240, 240, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(125, 240, 240, 0.05) 1px, transparent 1px);
   background-size: 100px 100px;
   z-index: -1;
   animation: bgMove 20s linear infinite;
@@ -321,90 +321,90 @@ body::before {
   100% { background-position: 100px 100px; }
 }
 
-/* 流浪地球风格标题 */
+/* 科幻风格标题 */
 h1, h2, h3, h4, h5, h6 {
-  color: #4deeea !important;
-  text-shadow: 0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff !important;
+  color: #00eeff !important;
+  text-shadow: 0 0 5px #00eeff, 0 0 10px #00eeff, 0 0 20px #00ffff, 0 0 40px #00ffff !important;
   font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif !important;
   position: relative;
   animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes titleGlow {
-  0% { text-shadow: 0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff; }
-  100% { text-shadow: 0 0 10px #4deeea, 0 0 20px #4deeea, 0 0 30px #0ff, 0 0 50px #0ff; }
+  0% { text-shadow: 0 0 5px #00eeff, 0 0 10px #00eeff, 0 0 20px #00ffff, 0 0 40px #00ffff; }
+  100% { text-shadow: 0 0 10px #00eeff, 0 0 20px #00eeff, 0 0 30px #00ffff, 0 0 50px #00ffff; }
 }
 
 /* 链接样式 */
 a {
-  color: #74ee15 !important;
+  color: #7cfc00 !important;
   text-decoration: none !important;
   position: relative;
 }
 
 a:hover {
-  color: #fff !important;
-  text-shadow: 0 0 5px #74ee15;
+  color: #000 !important;
+  text-shadow: 0 0 5px #7cfc00;
 }
 
 /* 导航菜单 */
 .main-menu {
-  background: rgba(15, 23, 42, 0.8) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(77, 238, 234, 0.3);
+  border: 1px solid rgba(0, 238, 255, 0.3);
 }
 
 .menu-item a {
-  color: #e0e0ff !important;
+  color: #333 !important;
   padding: 8px 15px !important;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .menu-item a:hover {
-  background: rgba(77, 238, 234, 0.2) !important;
-  color: #4deeea !important;
-  text-shadow: 0 0 5px #4deeea;
+  background: rgba(0, 238, 255, 0.2) !important;
+  color: #00eeff !important;
+  text-shadow: 0 0 5px #00eeff;
 }
 
 /* 文章块 */
 .post-block {
-  background: rgba(15, 23, 42, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(77, 238, 234, 0.2);
+  border: 1px solid rgba(0, 238, 255, 0.2);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
+  box-shadow: 0 0 15px rgba(0, 238, 255, 0.1);
   padding: 20px !important;
 }
 
 /* 侧边栏 */
 .sidebar {
-  background: rgba(15, 23, 42, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(77, 238, 234, 0.2);
+  border: 1px solid rgba(0, 238, 255, 0.2);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
+  box-shadow: 0 0 15px rgba(0, 238, 255, 0.1);
 }
 
 /* 页眉 */
 .header {
-  background: rgba(15, 23, 42, 0.9) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(77, 238, 234, 0.3) !important;
+  border-bottom: 1px solid rgba(0, 238, 255, 0.3) !important;
 }
 
 /* 页脚 */
 .footer {
-  background: rgba(15, 23, 42, 0.9) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(77, 238, 234, 0.3) !important;
+  border-top: 1px solid rgba(0, 238, 255, 0.3) !important;
 }
 
 /* 按钮样式 */
 .btn {
-  background: linear-gradient(45deg, #4deeea, #74ee15) !important;
+  background: linear-gradient(45deg, #00eeff, #7cfc00) !important;
   border: none !important;
-  color: #0f172a !important;
+  color: #000 !important;
   padding: 8px 16px !important;
   border-radius: 4px;
   cursor: pointer;
@@ -413,13 +413,13 @@ a:hover {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(77, 238, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 238, 255, 0.4);
 }
 
 /* 代码块 */
 .code {
-  background: rgba(0, 0, 0, 0.3) !important;
-  border: 1px solid rgba(77, 238, 234, 0.3) !important;
+  background: rgba(240, 240, 240, 0.5) !important;
+  border: 1px solid rgba(0, 238, 255, 0.3) !important;
   border-radius: 4px;
   padding: 2px 6px !important;
 }
@@ -431,25 +431,25 @@ a:hover {
 
 /* 卡片样式 */
 .card {
-  background: rgba(15, 23, 42, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(77, 238, 234, 0.2);
+  border: 1px solid rgba(0, 238, 255, 0.2);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
+  box-shadow: 0 0 15px rgba(0, 238, 255, 0.1);
 }
 
-/* 流浪地球风格的渐变色 */
+/* 科幻风格的渐变色 */
 .gradient-text {
-  background: linear-gradient(45deg, #4deeea, #74ee15, #ffe700, #f000ff);
+  background: linear-gradient(45deg, #00eeff, #7cfc00, #ffe700, #f000ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* 流浪地球风格的边框 */
+/* 科幻风格的边框 */
 .border-glow {
   border: 1px solid transparent;
-  background: linear-gradient(45deg, rgba(77, 238, 234, 0.2), rgba(116, 238, 21, 0.2)) border-box;
+  background: linear-gradient(45deg, rgba(0, 238, 255, 0.2), rgba(124, 252, 0, 0.2)) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
