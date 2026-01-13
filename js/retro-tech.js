@@ -1,686 +1,13 @@
-// 90年代代码风格 - 《流浪地球》科幻主题效果
+// CTF风格科技效果 - 科幻/科技风个人博客系统
 document.addEventListener('DOMContentLoaded', function() {
-  // 初始化所有复古科技效果
-  initRetroTechEffects();
-  createScanLine();
-  createParticles();
-  addTypewriterEffect();
-  addSystemMessages();
+  // 初始化所有科技效果
+  initCTFTechEffects();
+  initSidebarMenu();
 });
 
-// 初始化所有复古科技效果
-function initRetroTechEffects() {
-  // 添加系统就绪消息
-  showSystemMessage('SYSTEM READY', 'success');
-  
-  // 为所有链接添加复古样式
-  enhanceLinks();
-  
-  // 为所有按钮添加复古样式
-  enhanceButtons();
-  
-  // 为所有标题添加复古样式
-  enhanceHeaders();
-  
-  // 为所有段落添加复古样式
-  enhanceParagraphs();
-  
-  // 为所有列表添加复古样式
-  enhanceLists();
-  
-  // 为所有代码块添加复古样式
-  enhanceCodeBlocks();
-}
-
-// 创建扫描线效果 - 已禁用以防止闪烁
-function createScanLine() {
-  // 扫描线效果已禁用
-}
-
-// 创建粒子效果 - 已禁用以防止闪烁
-function createParticles() {
-  // 粒子效果已禁用
-}
-
-// 添加打字机效果 - 已禁用以防止闪烁
-function addTypewriterEffect() {
-  // 打字机效果已禁用
-}
-
-// 添加系统消息 - 已禁用以防止闪烁
-function addSystemMessages() {
-  // 系统消息已禁用
-}
-
-// 显示系统消息
-function showSystemMessage(message, type = 'info') {
-  const msgDiv = document.createElement('div');
-  msgDiv.className = `system-message ${type}`;
-  msgDiv.textContent = `[${getCurrentTimestamp()}] ${message}`;
-  
-  document.body.appendChild(msgDiv);
-  
-  // 3秒后移除消息
-  setTimeout(() => {
-    msgDiv.remove();
-  }, 3000);
-}
-
-// 获取当前时间戳
-function getCurrentTimestamp() {
-  const now = new Date();
-  return now.toISOString().substr(11, 12);
-}
-
-// 增强链接
-function enhanceLinks() {
-  const links = document.querySelectorAll('a');
-  links.forEach(link => {
-    // 添加复古样式类
-    link.classList.add('retro-link');
-    
-    // 设置静态样式，无闪烁效果
-    link.style.color = '#0af';
-    link.style.textDecoration = 'underline';
-  });
-}
-
-// 增强按钮
-function enhanceButtons() {
-  const buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"]');
-  buttons.forEach(button => {
-    // 添加复古样式类
-    button.classList.add('retro-button');
-    
-    // 设置静态样式，无闪烁效果
-    button.style.background = '#000';
-    button.style.color = '#0f0';
-    button.style.border = '1px solid #0f0';
-  });
-}
-
-// 增强标题
-function enhanceHeaders() {
-  const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  headers.forEach(header => {
-    // 设置流浪地球风格样式
-    header.style.color = '#4deeea';
-    header.style.textShadow = '0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff';
-    // 移除动画，保持静态样式
-  });
-}
-
-
-
-
-
-// 增强段落
-function enhanceParagraphs() {
-  const paragraphs = document.querySelectorAll('p');
-  paragraphs.forEach(paragraph => {
-    // 无闪烁效果
-  });
-}
-
-// 增强列表
-function enhanceLists() {
-  const lists = document.querySelectorAll('ul, ol');
-  lists.forEach(list => {
-    // 添加样式
-    list.style.border = '1px solid #0f0';
-    list.style.padding = '10px';
-    list.style.margin = '10px 0';
-    list.style.background = 'rgba(0, 0, 0, 0.5)';
-  });
-}
-
-// 增强代码块
-function enhanceCodeBlocks() {
-  const codeBlocks = document.querySelectorAll('pre, code');
-  codeBlocks.forEach(block => {
-    // 添加复古代码块样式
-    block.classList.add('code-block');
-    
-    // 添加行号
-    if (block.tagName === 'PRE') {
-      addLineNumbers(block);
-    }
-  });
-}
-
-// 为代码块添加行号
-function addLineNumbers(preElement) {
-  const code = preElement.querySelector('code') || preElement;
-  const lines = code.innerHTML.split('\n');
-  
-  let numberedLines = '';
-  lines.forEach((line, index) => {
-    if (line.trim() !== '') {
-      numberedLines += `<span class="line-number">${(index + 1).toString().padStart(3, '0')}</span>${line}\n`;
-    } else {
-      numberedLines += '\n';
-    }
-  });
-  
-  code.innerHTML = numberedLines;
-}
-
-// 添加全局键盘事件监听 - 已禁用以防止闪烁
-// document.addEventListener('keydown', function(e) {
-//   // 按下Ctrl+Shift+H显示帮助信息
-//   if (e.ctrlKey && e.shiftKey && e.key === 'H') {
-//     e.preventDefault();
-//     showSystemMessage('HELP: Ctrl+Shift+H - Help Screen | F1 - System Info', 'info');
-//   }
-//   
-//   // 按下F1显示系统信息
-//   if (e.key === 'F1') {
-//     e.preventDefault();
-//     showSystemMessage('SYSTEM INFO: Retro-Tech v1.0 | Uptime: 00:15:42 | Memory: 64KB', 'info');
-//   }
-// });
-
-// 添加鼠标移动效果 - 已禁用以防止闪烁
-// document.addEventListener('mousemove', function(e) {
-//   // 随机显示系统消息
-//   if (Math.random() < 0.01) { // 1% 概率
-//     const messages = [
-//       'DATA STREAM ACTIVE',
-//       'PROCESSING...',
-//       'MEMORY USAGE: LOW',
-//       'CPU: 42%',
-//       'CONNECTION SECURE'
-//     ];
-//     showSystemMessage(messages[Math.floor(Math.random() * messages.length)], 'info');
-//   }
-// });
-
-// 添加页面可见性变化事件 - 已禁用以防止闪烁
-// document.addEventListener('visibilitychange', function() {
-//   if (document.hidden) {
-//     showSystemMessage('SYSTEM PAUSED', 'warning');
-//   } else {
-//     showSystemMessage('SYSTEM RESUMED', 'success');
-//   }
-// });
-
-// 添加页面加载完成事件
-window.addEventListener('load', function() {
-  // 移除动态效果以防止闪烁
-  const mainContainer = document.querySelector('.main-container') || document.body;
-  if (mainContainer) {
-    mainContainer.style.border = '1px solid #0f0';
-    mainContainer.style.boxShadow = '0 0 20px rgba(0, 255, 0, 0.3)';
-  }
-});
-
-// 添加周期性的系统检查 - 已禁用以防止闪烁
-// setInterval(() => {
-//   if (Math.random() < 0.3) { // 30% 概率
-//     const checks = ['MEMORY CHECK', 'VIRUS SCAN', 'BACKUP ACTIVE', 'SYNC COMPLETE'];
-//     showSystemMessage(`${checks[Math.floor(Math.random() * checks.length)]}: OK`, 'success');
-//   }
-// }, 10000);
-
-// 添加页面错误监控
-window.addEventListener('error', function(event) {
-  showSystemMessage(`ERROR: ${event.error.message}`, 'error');
-});
-
-// 添加控制台日志拦截 - 已禁用以防止闪烁
-// const originalLog = console.log;
-// console.log = function(...args) {
-//   originalLog.apply(console, args);
-//   // 也可以在这里添加到系统消息
-//   if (args.length > 0 && typeof args[0] === 'string') {
-//     showSystemMessage(`LOG: ${args[0].substring(0, 50)}...`, 'info');
-//   }
-// };
-
-// 添加复古输入框效果
-function enhanceInputs() {
-  const inputs = document.querySelectorAll('input, textarea, select');
-  inputs.forEach(input => {
-    input.classList.add('retro-input');
-    
-    // 设置静态样式，无闪烁效果
-    input.style.background = '#000';
-    input.style.color = '#0f0';
-    input.style.border = '1px solid #0f0';
-  });
-}
-
-// 在页面完全加载后增强输入框
-window.addEventListener('load', enhanceInputs);
-
-// 添加复古卡片效果
-function enhanceCards() {
-  const cards = document.querySelectorAll('.post-block, .card, .article');
-  cards.forEach(card => {
-    card.classList.add('retro-card');
-  });
-}
-
-// 在页面完全加载后增强卡片
-window.addEventListener('load', enhanceCards);
-
-// 添加复古菜单效果
-function enhanceMenus() {
-  const menus = document.querySelectorAll('.menu, .nav, nav');
-  menus.forEach(menu => {
-    menu.classList.add('menu-retro');
-  });
-}
-
-// 在页面完全加载后增强菜单
-window.addEventListener('load', enhanceMenus);
-
-// 添加复古表格效果
-function enhanceTables() {
-  const tables = document.querySelectorAll('table');
-  tables.forEach(table => {
-    table.style.border = '1px solid #0f0';
-    table.style.background = 'rgba(0, 0, 0, 0.7)';
-    
-    const headers = table.querySelectorAll('th');
-    headers.forEach(th => {
-      th.classList.add('table-header-retro');
-    });
-  });
-}
-
-// 在页面完全加载后增强表格
-window.addEventListener('load', enhanceTables);
-
-// 添加复古标签效果
-function enhanceTags() {
-  const tags = document.querySelectorAll('.tag, .label, .badge');
-  tags.forEach(tag => {
-    tag.classList.add('tag-retro');
-  });
-}
-
-// 在页面完全加载后增强标签
-window.addEventListener('load', enhanceTags);
-
-// 添加复古引用效果
-function enhanceQuotes() {
-  const quotes = document.querySelectorAll('blockquote, q');
-  quotes.forEach(quote => {
-    quote.classList.add('quote-retro');
-  });
-}
-
-// 在页面完全加载后增强引用
-window.addEventListener('load', enhanceQuotes);
-
-// 添加复古分页效果
-function enhancePagination() {
-  const pagination = document.querySelectorAll('.pagination, .pager');
-  pagination.forEach(pager => {
-    pager.classList.add('pagination-retro');
-  });
-}
-
-// 在页面完全加载后增强分页
-window.addEventListener('load', enhancePagination);
-
-// 添加复古搜索效果
-function enhanceSearch() {
-  const searchForms = document.querySelectorAll('.search-form, .search-box');
-  searchForms.forEach(form => {
-    form.classList.add('search-retro');
-  });
-}
-
-// 在页面完全加载后增强搜索
-window.addEventListener('load', enhanceSearch);
-
-// 添加复古面包屑效果
-function enhanceBreadcrumbs() {
-  const breadcrumbs = document.querySelectorAll('.breadcrumb, .path');
-  breadcrumbs.forEach(crumb => {
-    crumb.classList.add('breadcrumb-retro');
-  });
-}
-
-// 在页面完全加载后增强面包屑
-window.addEventListener('load', enhanceBreadcrumbs);
-
-// 添加复古分类效果
-function enhanceCategories() {
-  const categories = document.querySelectorAll('.category, .cat');
-  categories.forEach(cat => {
-    cat.classList.add('category-retro');
-  });
-}
-
-// 在页面完全加载后增强分类
-window.addEventListener('load', enhanceCategories);
-
-// 添加复古评论效果
-function enhanceComments() {
-  const comments = document.querySelectorAll('.comment, .reply');
-  comments.forEach(comment => {
-    comment.classList.add('comment-retro');
-  });
-}
-
-// 在页面完全加载后增强评论
-window.addEventListener('load', enhanceComments);
-
-// 添加复古归档效果
-function enhanceArchives() {
-  const archives = document.querySelectorAll('.archive, .archive-item');
-  archives.forEach(archive => {
-    archive.classList.add('archive-retro');
-  });
-}
-
-// 在页面完全加载后增强归档
-window.addEventListener('load', enhanceArchives);
-
-// 添加复古侧边栏效果
-function enhanceSidebars() {
-  const sidebars = document.querySelectorAll('.sidebar, .widget');
-  sidebars.forEach(sidebar => {
-    sidebar.classList.add('sidebar-retro');
-  });
-}
-
-// 在页面完全加载后增强侧边栏
-window.addEventListener('load', enhanceSidebars);
-
-// 添加复古导航效果
-function enhanceNav() {
-  const navs = document.querySelectorAll('.nav, .navigation');
-  navs.forEach(nav => {
-    nav.classList.add('nav-retro');
-  });
-}
-
-// 在页面完全加载后增强导航
-window.addEventListener('load', enhanceNav);
-
-// 添加复古页码效果
-function enhancePageNumbers() {
-  const pageNumbers = document.querySelectorAll('.page-number, .page-numbers');
-  pageNumbers.forEach(num => {
-    num.classList.add('page-number-retro');
-  });
-}
-
-// 在页面完全加载后增强页码
-window.addEventListener('load', enhancePageNumbers);
-
-// 添加复古加载动画 - 已禁用以防止闪烁
-function addLoadingAnimation() {
-  // 加载动画已禁用
-}
-
-// 在页面完全加载后添加加载动画 - 已禁用
-// window.addEventListener('load', addLoadingAnimation);
-
-// 添加目录弹出功能
-function initDirectoryPopup() {
-  // 创建目录按钮
-  const dirButton = document.createElement('div');
-  dirButton.id = 'directory-popup-btn';
-  dirButton.innerHTML = '☰';
-  dirButton.title = '目录';
-  dirButton.style.cssText = `
-    position: fixed;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #0066cc, #00ccff);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 9999;
-    box-shadow: 0 4px 15px rgba(0, 150, 200, 0.4);
-    transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(0, 200, 255, 0.8);
-  `;
-  
-  // 添加悬停效果
-  dirButton.addEventListener('mouseenter', () => {
-    dirButton.style.transform = 'translateY(-50%) scale(1.1)';
-    dirButton.style.boxShadow = '0 6px 20px rgba(0, 200, 255, 0.6)';
-  });
-  
-  dirButton.addEventListener('mouseleave', () => {
-    dirButton.style.transform = 'translateY(-50%)';
-    dirButton.style.boxShadow = '0 4px 15px rgba(0, 150, 200, 0.4)';
-  });
-  
-  // 点击按钮显示目录
-  dirButton.addEventListener('click', showDirectoryPopup);
-  
-  document.body.appendChild(dirButton);
-}
-
-// 显示目录弹窗
-function showDirectoryPopup() {
-  // 如果已有弹窗则移除
-  const existingPopup = document.getElementById('directory-popup');
-  if (existingPopup) {
-    existingPopup.remove();
-    return;
-  }
-  
-  // 创建弹窗容器
-  const popup = document.createElement('div');
-  popup.id = 'directory-popup';
-  popup.style.cssText = `
-    position: fixed;
-    left: 80px;
-    top: 20%;
-    width: 300px;
-    max-height: 70vh;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 150, 200, 0.3);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 150, 200, 0.4);
-    z-index: 10000;
-    padding: 20px;
-    overflow-y: auto;
-    font-family: 'Courier New', 'Microsoft YaHei', monospace;
-  `;
-  
-  // 创建标题
-  const title = document.createElement('h3');
-  title.textContent = '目录';
-  title.style.cssText = `
-    margin-top: 0;
-    background: linear-gradient(45deg, #0066cc, #00aaff, #00ccff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
-    font-weight: bold;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 150, 200, 0.3);
-  `;
-  
-  // 创建目录内容
-  const content = document.createElement('div');
-  content.id = 'directory-content';
-  
-  // 获取当前页面的目录
-  const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  
-  if (headings.length > 0) {
-    const ul = document.createElement('ul');
-    ul.style.cssText = `
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    `;
-    
-    headings.forEach((heading, index) => {
-      if (!heading.id) {
-        heading.id = `heading-${index}`;
-      }
-      
-      const li = document.createElement('li');
-      li.style.cssText = `
-        padding: 5px 0;
-        margin: 0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border-radius: 4px;
-        padding: 5px 8px;
-      `;
-      
-      li.textContent = heading.textContent;
-      
-      // 添加渐变文字效果
-      li.style.background = 'linear-gradient(45deg, #0066cc, #00aaff)';
-      li.style.webkitBackgroundClip = 'text';
-      li.style.webkitTextFillColor = 'transparent';
-      li.style.backgroundClip = 'text';
-      li.style.textShadow = '0 0 5px rgba(0, 100, 255, 0.3)';
-      
-      li.addEventListener('click', () => {
-        heading.scrollIntoView({ behavior: 'smooth' });
-        popup.remove();
-      });
-      
-      li.addEventListener('mouseenter', () => {
-        li.style.background = 'linear-gradient(45deg, #00ccff, #00eeff)';
-        li.style.webkitBackgroundClip = 'text';
-        li.style.webkitTextFillColor = 'transparent';
-        li.style.backgroundClip = 'text';
-        li.style.textShadow = '0 0 10px rgba(0, 200, 255, 0.6)';
-        li.style.transform = 'translateX(5px)';
-      });
-      
-      li.addEventListener('mouseleave', () => {
-        li.style.background = 'linear-gradient(45deg, #0066cc, #00aaff)';
-        li.style.webkitBackgroundClip = 'text';
-        li.style.webkitTextFillColor = 'transparent';
-        li.style.backgroundClip = 'text';
-        li.style.textShadow = '0 0 5px rgba(0, 100, 255, 0.3)';
-        li.style.transform = 'translateX(0)';
-      });
-      
-      ul.appendChild(li);
-    });
-    
-    content.appendChild(ul);
-  } else {
-    // 如果没有标题，显示网站导航
-    const navItems = [];
-    
-    // 获取主导航菜单项
-    const menuItems = document.querySelectorAll('.menu-item a, nav a, .nav-item a');
-    menuItems.forEach(item => {
-      navItems.push({
-        text: item.textContent,
-        href: item.href,
-        element: item
-      });
-    });
-    
-    // 获取分类
-    const categoryItems = document.querySelectorAll('.category a, .categories a');
-    categoryItems.forEach(item => {
-      navItems.push({
-        text: item.textContent,
-        href: item.href,
-        element: item
-      });
-    });
-    
-    if (navItems.length > 0) {
-      const ul = document.createElement('ul');
-      ul.style.cssText = `
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      `;
-      
-      navItems.forEach(item => {
-        const li = document.createElement('li');
-        li.style.cssText = `
-          padding: 8px;
-          margin: 3px 0;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          border-radius: 6px;
-        `;
-        
-        li.textContent = item.text;
-        
-        // 添加渐变文字效果
-        li.style.background = 'linear-gradient(45deg, #0066cc, #00aaff)';
-        li.style.webkitBackgroundClip = 'text';
-        li.style.webkitTextFillColor = 'transparent';
-        li.style.backgroundClip = 'text';
-        li.style.textShadow = '0 0 5px rgba(0, 100, 255, 0.3)';
-        
-        li.addEventListener('click', () => {
-          window.location.href = item.href;
-          popup.remove();
-        });
-        
-        li.addEventListener('mouseenter', () => {
-          li.style.background = 'linear-gradient(45deg, #00ccff, #00eeff)';
-          li.style.webkitBackgroundClip = 'text';
-          li.style.webkitTextFillColor = 'transparent';
-          li.style.backgroundClip = 'text';
-          li.style.textShadow = '0 0 10px rgba(0, 200, 255, 0.6)';
-          li.style.backgroundColor = 'rgba(0, 200, 255, 0.1)';
-        });
-        
-        ul.appendChild(li);
-      });
-      
-      content.appendChild(ul);
-    } else {
-      content.innerHTML = '<p style="text-align: center; color: #666;">暂无目录内容</p>';
-    }
-  }
-  
-  // 创建关闭按钮
-  const closeBtn = document.createElement('div');
-  closeBtn.textContent = '×';
-  closeBtn.style.cssText = `
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    color: #666;
-    z-index: 10001;
-  `;
-  closeBtn.addEventListener('click', () => popup.remove());
-  
-  popup.appendChild(closeBtn);
-  popup.appendChild(title);
-  popup.appendChild(content);
-  
-  document.body.appendChild(popup);
-}
-
-// 初始化目录弹窗功能
-document.addEventListener('DOMContentLoaded', initDirectoryPopup);
-
-// 添加动态科技背景效果
-function initTechBackground() {
-  // 创建浮动粒子效果
+// 初始化CTF科技效果
+function initCTFTechEffects() {
+  // 创建动态粒子效果
   createFloatingParticles();
   
   // 添加数据流动画
@@ -701,11 +28,11 @@ function createFloatingParticles() {
     z-index: -1;
     overflow: hidden;
   `;
-  
+
   document.body.appendChild(particlesContainer);
-  
+
   // 创建多个粒子
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 30; i++) {
     setTimeout(() => {
       createParticle(particlesContainer);
       
@@ -713,38 +40,42 @@ function createFloatingParticles() {
       setInterval(() => {
         createParticle(particlesContainer);
       }, 3000 + Math.random() * 5000);
-    }, i * 1000);
+    }, i * 200);
   }
 }
 
 // 创建单个粒子
 function createParticle(container) {
   const particle = document.createElement('div');
-  
+
   // 随机大小
-  const size = 1 + Math.random() * 3;
+  const size = 1 + Math.random() * 2;
   
+  // 随机位置
+  const posX = Math.random() * 100;
+  const posY = Math.random() * 100;
+
   particle.style.cssText = `
     position: absolute;
     width: ${size}px;
     height: ${size}px;
-    background: rgba(${Math.floor(100 + Math.random() * 155)}, ${Math.floor(150 + Math.random() * 105)}, ${Math.floor(200 + Math.random() * 55)}, ${0.3 + Math.random() * 0.7});
+    background: rgba(59, 130, 246, ${0.3 + Math.random() * 0.4});
     border-radius: 50%;
-    top: ${Math.random() * 100}vh;
-    left: ${Math.random() * 100}vw;
-    box-shadow: 0 0 ${5 + Math.random() * 10}px rgba(${Math.floor(100 + Math.random() * 155)}, ${Math.floor(150 + Math.random() * 105)}, ${Math.floor(200 + Math.random() * 55)}, 0.8);
-    animation: float${Math.floor(Math.random() * 3)} 15s linear infinite;
+    top: ${posY}vh;
+    left: ${posX}vw;
+    box-shadow: 0 0 ${5 + Math.random() * 10}px rgba(59, 130, 246, 0.8);
+    animation: floatParticle ${15 + Math.random() * 15}s linear infinite;
     filter: blur(1px);
   `;
-  
+
   container.appendChild(particle);
-  
-  // 15秒后移除粒子
+
+  // 20秒后移除粒子
   setTimeout(() => {
     if (particle.parentNode) {
       particle.remove();
     }
-  }, 15000);
+  }, 20000);
 }
 
 // 添加数据流动画
@@ -752,49 +83,346 @@ function addDataStreamEffect() {
   // 创建关键帧
   const style = document.createElement('style');
   style.textContent = `
-    @keyframes float0 {
-      0% { transform: translate(0, 0); opacity: 0.3; }
-      25% { transform: translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px); opacity: 0.6; }
-      50% { transform: translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px); opacity: 0.3; }
-      75% { transform: translate(${(Math.random() - 0.5) * 300}px, ${(Math.random() - 0.5) * 300}px); opacity: 0.6; }
-      100% { transform: translate(${(Math.random() - 0.5) * 400}px, ${(Math.random() - 0.5) * 400}px); opacity: 0.3; }
-    }
-    
-    @keyframes float1 {
-      0% { transform: translate(0, 0); opacity: 0.6; }
-      25% { transform: translate(${(Math.random() - 0.5) * 150}px, ${(Math.random() - 0.5) * 150}px); opacity: 0.3; }
-      50% { transform: translate(${(Math.random() - 0.5) * 250}px, ${(Math.random() - 0.5) * 250}px); opacity: 0.6; }
-      75% { transform: translate(${(Math.random() - 0.5) * 350}px, ${(Math.random() - 0.5) * 350}px); opacity: 0.3; }
-      100% { transform: translate(${(Math.random() - 0.5) * 450}px, ${(Math.random() - 0.5) * 450}px); opacity: 0.6; }
-    }
-    
-    @keyframes float2 {
-      0% { transform: translate(0, 0); opacity: 0.4; }
-      25% { transform: translate(${(Math.random() - 0.5) * 120}px, ${(Math.random() - 0.5) * 120}px); opacity: 0.7; }
-      50% { transform: translate(${(Math.random() - 0.5) * 220}px, ${(Math.random() - 0.5) * 220}px); opacity: 0.4; }
-      75% { transform: translate(${(Math.random() - 0.5) * 320}px, ${(Math.random() - 0.5) * 320}px); opacity: 0.7; }
-      100% { transform: translate(${(Math.random() - 0.5) * 420}px, ${(Math.random() - 0.5) * 420}px); opacity: 0.4; }
+    @keyframes floatParticle {
+      0% { 
+        transform: translate(0, 0); 
+        opacity: 0.3; 
+      }
+      25% { 
+        transform: translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px); 
+        opacity: 0.6; 
+      }
+      50% { 
+        transform: translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px); 
+        opacity: 0.3; 
+      }
+      75% { 
+        transform: translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px); 
+        opacity: 0.6; 
+      }
+      100% { 
+        transform: translate(0, 0); 
+        opacity: 0.3; 
+      }
     }
     
     /* 数据流线条动画 */
     .data-stream-line {
       position: fixed;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #00ccff, transparent);
-      filter: drop-shadow(0 0 2px #00ccff) drop-shadow(0 0 4px #00ccff);
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent);
+      filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
       animation: streamMove 3s linear infinite;
       z-index: -2;
     }
     
     @keyframes streamMove {
-      0% { transform: translateX(-100px); }
-      100% { transform: translateX(calc(100vw + 100px)); }
+      0% { transform: translateX(-100px); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateX(calc(100vw + 100px)); opacity: 0; }
     }
   `;
-  
+
   document.head.appendChild(style);
 }
 
-// 页面加载完成后初始化科技背景
-document.addEventListener('DOMContentLoaded', initTechBackground);
+// 初始化左侧侧边栏菜单
+function initSidebarMenu() {
+  // 创建侧边栏遮罩
+  const sidebarOverlay = document.createElement('div');
+  sidebarOverlay.id = 'sidebar-overlay';
+  sidebarOverlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  `;
 
+  // 创建侧边栏
+  const sidebar = document.createElement('div');
+  sidebar.id = 'sidebar-menu';
+  sidebar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  `;
+
+  // 创建侧边栏头部
+  const sidebarHeader = document.createElement('div');
+  sidebarHeader.className = 'sidebar-header';
+  sidebarHeader.style.cssText = `
+    padding: 20px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `;
+
+  const logo = document.createElement('h2');
+  logo.textContent = '叶同学的博客';
+  logo.style.cssText = `
+    margin: 0;
+    color: #e2e8f0;
+    font-size: 1.2em;
+    font-family: 'Courier New', 'Microsoft YaHei', monospace;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  `;
+
+  const closeBtn = document.createElement('div');
+  closeBtn.innerHTML = '&times;';
+  closeBtn.style.cssText = `
+    font-size: 1.5em;
+    color: #e2e8f0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  `;
+  
+  closeBtn.addEventListener('click', closeSidebar);
+
+  closeBtn.addEventListener('mouseenter', () => {
+    closeBtn.style.background = 'rgba(59, 130, 246, 0.2)';
+    closeBtn.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.5)';
+  });
+  
+  closeBtn.addEventListener('mouseleave', () => {
+    closeBtn.style.background = 'transparent';
+    closeBtn.style.boxShadow = 'none';
+  });
+
+  sidebarHeader.appendChild(logo);
+  sidebarHeader.appendChild(closeBtn);
+
+  // 创建菜单内容
+  const menuContent = document.createElement('div');
+  menuContent.className = 'menu-content';
+  menuContent.style.cssText = `
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+  `;
+
+  // 创建菜单项
+  const menuItems = [
+    { text: '首页', href: '/', icon: '🏠' },
+    { text: '博客', href: '/archives/', icon: '📝' },
+    { text: '分类', href: '/categories/', icon: '📂' },
+    { text: '标签', href: '/tags/', icon: '🏷️' },
+    { text: '关于', href: '/about/', icon: '👤' }
+  ];
+
+  const menuList = document.createElement('ul');
+  menuList.style.cssText = `
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  `;
+
+  menuItems.forEach(item => {
+    const li = document.createElement('li');
+    li.style.cssText = `
+      padding: 12px 20px;
+      margin: 0;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-left: 3px solid transparent;
+      color: #cbd5e1;
+    `;
+
+    const link = document.createElement('a');
+    link.href = item.href;
+    link.innerHTML = `${item.icon} ${item.text}`;
+    link.style.cssText = `
+      color: #cbd5e1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    `;
+
+    li.addEventListener('mouseenter', () => {
+      li.style.background = 'rgba(59, 130, 246, 0.1)';
+      li.style.borderLeft = '3px solid #3b82f6';
+      li.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.2)';
+      link.style.color = '#3b82f6';
+      link.style.textShadow = '0 0 10px rgba(59, 130, 246, 0.5)';
+    });
+
+    li.addEventListener('mouseleave', () => {
+      li.style.background = 'transparent';
+      li.style.borderLeft = '3px solid transparent';
+      li.style.boxShadow = 'none';
+      link.style.color = '#cbd5e1';
+      link.style.textShadow = 'none';
+    });
+
+    // 点击事件
+    li.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeSidebar();
+      setTimeout(() => {
+        window.location.href = item.href;
+      }, 300);
+    });
+
+    li.appendChild(link);
+    menuList.appendChild(li);
+  });
+
+  menuContent.appendChild(menuList);
+
+  // 创建侧边栏底部
+  const sidebarFooter = document.createElement('div');
+  sidebarFooter.className = 'sidebar-footer';
+  sidebarFooter.style.cssText = `
+    padding: 15px 20px;
+    border-top: 1px solid rgba(59, 130, 246, 0.2);
+    display: flex;
+    justify-content: center;
+  `;
+
+  const themeToggle = document.createElement('button');
+  themeToggle.textContent = '🌙';
+  themeToggle.style.cssText = `
+    background: rgba(59, 130, 246, 0.2);
+    color: #e2e8f0;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  `;
+
+  themeToggle.addEventListener('mouseenter', () => {
+    themeToggle.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.5)';
+  });
+
+  themeToggle.addEventListener('mouseleave', () => {
+    themeToggle.style.boxShadow = 'none';
+  });
+
+  sidebarFooter.appendChild(themeToggle);
+
+  // 组装侧边栏
+  sidebar.appendChild(sidebarHeader);
+  sidebar.appendChild(menuContent);
+  sidebar.appendChild(sidebarFooter);
+
+  // 创建汉堡菜单按钮
+  const hamburgerBtn = document.createElement('div');
+  hamburgerBtn.id = 'hamburger-menu';
+  hamburgerBtn.innerHTML = '☰';
+  hamburgerBtn.style.cssText = `
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 9999;
+    color: #e2e8f0;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  `;
+
+  hamburgerBtn.addEventListener('click', openSidebar);
+
+  hamburgerBtn.addEventListener('mouseenter', () => {
+    hamburgerBtn.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.5)';
+    hamburgerBtn.style.background = 'rgba(59, 130, 246, 0.2)';
+    hamburgerBtn.style.color = '#3b82f6';
+  });
+
+  hamburgerBtn.addEventListener('mouseleave', () => {
+    hamburgerBtn.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.1)';
+    hamburgerBtn.style.background = 'rgba(30, 41, 59, 0.8)';
+    hamburgerBtn.style.color = '#e2e8f0';
+  });
+
+  // 添加到文档
+  document.body.appendChild(sidebarOverlay);
+  document.body.appendChild(sidebar);
+  document.body.appendChild(hamburgerBtn);
+
+  // 点击遮罩关闭侧边栏
+  sidebarOverlay.addEventListener('click', closeSidebar);
+}
+
+// 打开侧边栏
+function openSidebar() {
+  const sidebar = document.getElementById('sidebar-menu');
+  const overlay = document.getElementById('sidebar-overlay');
+  
+  sidebar.style.left = '0';
+  overlay.style.opacity = '1';
+  overlay.style.visibility = 'visible';
+  
+  // 防止背景滚动
+  document.body.style.overflow = 'hidden';
+}
+
+// 关闭侧边栏
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar-menu');
+  const overlay = document.getElementById('sidebar-overlay');
+  
+  sidebar.style.left = '-300px';
+  overlay.style.opacity = '0';
+  overlay.style.visibility = 'hidden';
+  
+  // 恢复背景滚动
+  document.body.style.overflow = 'auto';
+}
+
+// 添加页面过渡效果
+document.addEventListener('click', function(e) {
+  // 检查是否点击了内部链接
+  if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('/')) {
+    e.preventDefault();
+    const href = e.target.getAttribute('href');
+    
+    // 添加页面过渡效果
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.3s ease';
+    
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300);
+  }
+});
