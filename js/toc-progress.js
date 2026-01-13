@@ -25,12 +25,19 @@ function isPageWithHeadings() {
 }
 
 function createTableOfContents() {
-  const postBody = document.querySelector('.post-body') || document.querySelector('.post-content');
-  if (!postBody) return;
+  // 修改逻辑以支持多种页面类型
+  let contentArea = document.querySelector('.post-body') || 
+               document.querySelector('.post-content') || 
+               document.querySelector('.about-content') ||
+               document.querySelector('.page-content') ||
+               document.querySelector('main') ||
+               document.querySelector('body');
+  
+  if (!contentArea) return;
   
   // 查找所有标题
-  const headings = postBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  if (headings.length < 2) return; // 如果标题少于2个，不生成目录
+  const headings = contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  if (headings.length < 1) return; // 至少需要1个标题才生成目录
   
   // 创建目录容器
   const tocContainer = document.createElement('div');
@@ -66,8 +73,8 @@ function createTableOfContents() {
     tocList.appendChild(listItem);
   });
   
-  // 添加到文章开头
-  postBody.insertBefore(tocContainer, postBody.firstChild);
+  // 添加到内容开头
+  contentArea.insertBefore(tocContainer, contentArea.firstChild);
 }
 
 function getHeadingLevel(heading) {
