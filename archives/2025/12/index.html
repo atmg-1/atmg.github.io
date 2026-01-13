@@ -356,7 +356,7 @@ body {
   position: relative;
   overflow-x: hidden;
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  /* animation: gradientShift 15s ease infinite; */
 }
 
 @keyframes gradientShift {
@@ -401,10 +401,11 @@ body::after {
   animation: lightEffect 15s ease-in-out infinite alternate;
 }
 
-@keyframes lightEffect {
+/* 已禁用闪烁动画 */
+/* @keyframes lightEffect {
   0% { opacity: 0.3; }
   100% { opacity: 0.6; }
-}
+} */
 
 /* 添加数据流效果 */
 body {
@@ -438,7 +439,7 @@ body::before, body::after {
   z-index: -1;
   border-radius: inherit;
   background-size: 400% 400%;
-  animation: borderAnimation 8s ease infinite;
+  /* animation: borderAnimation 8s ease infinite; */
 }
 
 @keyframes borderAnimation {
@@ -447,13 +448,14 @@ body::before, body::after {
   100% { background-position: 0% 50%; }
 }
 
-@keyframes gridMove {
+/* 已禁用闪烁动画 */
+/* @keyframes gridMove {
   0% { background-position: 0 0; }
   100% { background-position: 60px 60px; }
-}
+} */
 
-/* 扫描线效果 */
-body::after {
+/* 扫描线效果 - 已禁用以防止闪烁 */
+/* body::after {
   content: "";
   position: fixed;
   top: 0;
@@ -464,7 +466,7 @@ body::after {
   animation: scanline 8s linear infinite;
   z-index: 9998;
   pointer-events: none;
-}
+} */
 
 @keyframes scanline {
   0% { top: 0; }
@@ -821,7 +823,7 @@ a:hover {
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  animation: borderFlow 3s linear infinite;
+  /* animation: borderFlow 3s linear infinite; */
 }
 
 @keyframes borderFlow {
@@ -905,7 +907,7 @@ a:hover {
   background: linear-gradient(45deg, #0066cc, #00ccff, #00eeff);
   z-index: -1;
   filter: blur(10px);
-  animation: avatarGlow 2s ease-in-out infinite alternate;
+  /* animation: avatarGlow 2s ease-in-out infinite alternate; */
 }
 
 @keyframes avatarGlow {

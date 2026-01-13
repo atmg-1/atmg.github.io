@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 初始化CTF科技效果
 function initCTFTechEffects() {
-  // 创建动态粒子效果
-  createFloatingParticles();
-  
   // 添加数据流动画
   addDataStreamEffect();
 }
