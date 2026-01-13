@@ -15,13 +15,19 @@ function isPageWithHeadings() {
          document.querySelector('.post-title') !== null ||
          document.querySelector('.about-content') !== null ||
          document.querySelector('.page-content') !== null ||
-         document.querySelector('main') !== null;
+         document.querySelector('main') !== null ||
+         document.querySelector('body') !== null;
          
   if (!hasContentArea) return false;
   
   // 同时检查页面是否有足够的标题来生成目录
   const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-  return allHeadings.length >= 2; // 至少需要2个标题才生成目录
+  // 对于主页，只要有标题就生成目录
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    return allHeadings.length >= 1; // 主页只要有1个标题就生成目录
+  } else {
+    return allHeadings.length >= 2; // 其他页面需要2个标题才生成目录
+  }
 }
 
 function createTableOfContents() {
