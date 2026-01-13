@@ -678,3 +678,123 @@ function showDirectoryPopup() {
 // 初始化目录弹窗功能
 document.addEventListener('DOMContentLoaded', initDirectoryPopup);
 
+// 添加动态科技背景效果
+function initTechBackground() {
+  // 创建浮动粒子效果
+  createFloatingParticles();
+  
+  // 添加数据流动画
+  addDataStreamEffect();
+}
+
+// 创建浮动粒子
+function createFloatingParticles() {
+  const particlesContainer = document.createElement('div');
+  particlesContainer.id = 'tech-particles';
+  particlesContainer.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  `;
+  
+  document.body.appendChild(particlesContainer);
+  
+  // 创建多个粒子
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
+      createParticle(particlesContainer);
+      
+      // 定期间隔创建新粒子
+      setInterval(() => {
+        createParticle(particlesContainer);
+      }, 3000 + Math.random() * 5000);
+    }, i * 1000);
+  }
+}
+
+// 创建单个粒子
+function createParticle(container) {
+  const particle = document.createElement('div');
+  
+  // 随机大小
+  const size = 1 + Math.random() * 3;
+  
+  particle.style.cssText = `
+    position: absolute;
+    width: ${size}px;
+    height: ${size}px;
+    background: rgba(${Math.floor(100 + Math.random() * 155)}, ${Math.floor(150 + Math.random() * 105)}, ${Math.floor(200 + Math.random() * 55)}, ${0.3 + Math.random() * 0.7});
+    border-radius: 50%;
+    top: ${Math.random() * 100}vh;
+    left: ${Math.random() * 100}vw;
+    box-shadow: 0 0 ${5 + Math.random() * 10}px rgba(${Math.floor(100 + Math.random() * 155)}, ${Math.floor(150 + Math.random() * 105)}, ${Math.floor(200 + Math.random() * 55)}, 0.8);
+    animation: float${Math.floor(Math.random() * 3)} 15s linear infinite;
+    filter: blur(1px);
+  `;
+  
+  container.appendChild(particle);
+  
+  // 15秒后移除粒子
+  setTimeout(() => {
+    if (particle.parentNode) {
+      particle.remove();
+    }
+  }, 15000);
+}
+
+// 添加数据流动画
+function addDataStreamEffect() {
+  // 创建关键帧
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float0 {
+      0% { transform: translate(0, 0); opacity: 0.3; }
+      25% { transform: translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px); opacity: 0.6; }
+      50% { transform: translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px); opacity: 0.3; }
+      75% { transform: translate(${(Math.random() - 0.5) * 300}px, ${(Math.random() - 0.5) * 300}px); opacity: 0.6; }
+      100% { transform: translate(${(Math.random() - 0.5) * 400}px, ${(Math.random() - 0.5) * 400}px); opacity: 0.3; }
+    }
+    
+    @keyframes float1 {
+      0% { transform: translate(0, 0); opacity: 0.6; }
+      25% { transform: translate(${(Math.random() - 0.5) * 150}px, ${(Math.random() - 0.5) * 150}px); opacity: 0.3; }
+      50% { transform: translate(${(Math.random() - 0.5) * 250}px, ${(Math.random() - 0.5) * 250}px); opacity: 0.6; }
+      75% { transform: translate(${(Math.random() - 0.5) * 350}px, ${(Math.random() - 0.5) * 350}px); opacity: 0.3; }
+      100% { transform: translate(${(Math.random() - 0.5) * 450}px, ${(Math.random() - 0.5) * 450}px); opacity: 0.6; }
+    }
+    
+    @keyframes float2 {
+      0% { transform: translate(0, 0); opacity: 0.4; }
+      25% { transform: translate(${(Math.random() - 0.5) * 120}px, ${(Math.random() - 0.5) * 120}px); opacity: 0.7; }
+      50% { transform: translate(${(Math.random() - 0.5) * 220}px, ${(Math.random() - 0.5) * 220}px); opacity: 0.4; }
+      75% { transform: translate(${(Math.random() - 0.5) * 320}px, ${(Math.random() - 0.5) * 320}px); opacity: 0.7; }
+      100% { transform: translate(${(Math.random() - 0.5) * 420}px, ${(Math.random() - 0.5) * 420}px); opacity: 0.4; }
+    }
+    
+    /* 数据流线条动画 */
+    .data-stream-line {
+      position: fixed;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00ccff, transparent);
+      filter: drop-shadow(0 0 2px #00ccff) drop-shadow(0 0 4px #00ccff);
+      animation: streamMove 3s linear infinite;
+      z-index: -2;
+    }
+    
+    @keyframes streamMove {
+      0% { transform: translateX(-100px); }
+      100% { transform: translateX(calc(100vw + 100px)); }
+    }
+  `;
+  
+  document.head.appendChild(style);
+}
+
+// 页面加载完成后初始化科技背景
+document.addEventListener('DOMContentLoaded', initTechBackground);
+
