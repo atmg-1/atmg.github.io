@@ -106,85 +106,11 @@ function enhanceHeaders() {
     // 设置流浪地球风格样式
     header.style.color = '#4deeea';
     header.style.textShadow = '0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff';
-    // 添加丝滑的发光动画
-    header.style.animation = 'titleGlow 1s ease-in-out infinite alternate';
+    // 移除动画，保持静态样式
   });
 }
 
-// 添加黑客风格闪烁动画
-const hackBlinkStyle = document.createElement('style');
-hackBlinkStyle.textContent = `
-  @keyframes hackBlink {
-    0%, 100% { 
-      opacity: 1; 
-      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0; 
-    }
-    50% { 
-      opacity: 0.8; 
-      text-shadow: 0 0 5px #0f0; 
-    }
-    75% { 
-      opacity: 0.9; 
-      text-shadow: 0 0 15px #0f0, 0 0 30px #0f0; 
-    }
-  }
-  
-  /* 添加故障效果 */
-  .glitch::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    left: 2px;
-    text-shadow: -2px 0 #f00;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
-  }
-  
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    left: -2px;
-    text-shadow: -2px 0 #00f, 2px 2px #f00;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 5s infinite linear alternate-reverse;
-  }
-  
-  @keyframes glitch-anim {
-    0% { clip: rect(42px, 9999px, 44px, 0); }
-    10% { clip: rect(12px, 9999px, 59px, 0); }
-    20% { clip: rect(48px, 9999px, 29px, 0); }
-    30% { clip: rect(42px, 9999px, 73px, 0); }
-    40% { clip: rect(63px, 9999px, 27px, 0); }
-    50% { clip: rect(34px, 9999px, 55px, 0); }
-    60% { clip: rect(86px, 9999px, 73px, 0); }
-    70% { clip: rect(20px, 9999px, 20px, 0); }
-    80% { clip: rect(26px, 9999px, 60px, 0); }
-    90% { clip: rect(25px, 9999px, 66px, 0); }
-    100% { clip: rect(57px, 9999px, 98px, 0); }
-  }
-  
-  @keyframes glitch-anim2 {
-    0% { clip: rect(65px, 9999px, 100px, 0); }
-    10% { clip: rect(52px, 9999px, 74px, 0); }
-    20% { clip: rect(79px, 9999px, 85px, 0); }
-    30% { clip: rect(75px, 9999px, 5px, 0); }
-    40% { clip: rect(67px, 9999px, 61px, 0); }
-    50% { clip: rect(14px, 9999px, 79px, 0); }
-    60% { clip: rect(1px, 9999px, 66px, 0); }
-    70% { clip: rect(86px, 9999px, 30px, 0); }
-    80% { clip: rect(23px, 9999px, 98px, 0); }
-    90% { clip: rect(85px, 9999px, 72px, 0); }
-    100% { clip: rect(71px, 9999px, 75px, 0); }
-  }
-`;
-document.head.appendChild(hackBlinkStyle);
+
 
 
 
