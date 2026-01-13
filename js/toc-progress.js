@@ -1,18 +1,27 @@
 // 文章目录生成和阅读进度条功能
 document.addEventListener('DOMContentLoaded', function() {
-  // 如果是文章页面，生成目录和进度条
-  if (isPostPage()) {
+  // 检查是否为可以生成目录的页面
+  if (isPageWithHeadings()) {
     createTableOfContents();
     createReadingProgressBar();
     updateReadingProgress();
   }
 });
 
-function isPostPage() {
-  // 检查是否为文章页面
-  return document.querySelector('.post-body') !== null || 
+function isPageWithHeadings() {
+  // 检查页面是否包含标题元素，适用于文章页面和其他页面
+  const hasContentArea = document.querySelector('.post-body') !== null || 
          document.querySelector('.post-content') !== null ||
-         document.querySelector('.post-title') !== null;
+         document.querySelector('.post-title') !== null ||
+         document.querySelector('.about-content') !== null ||
+         document.querySelector('.page-content') !== null ||
+         document.querySelector('main') !== null;
+         
+  if (!hasContentArea) return false;
+  
+  // 同时检查页面是否有足够的标题来生成目录
+  const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  return allHeadings.length >= 2; // 至少需要2个标题才生成目录
 }
 
 function createTableOfContents() {
