@@ -103,13 +103,11 @@ function enhanceButtons() {
 function enhanceHeaders() {
   const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
   headers.forEach(header => {
-    // 设置黑客风格样式
-    header.style.textShadow = '0 0 10px #0f0, 0 0 20px #0f0';
-    // 添加更复杂的闪烁动画
-    header.style.animation = 'hackBlink 1.5s infinite';
-    
-    // 添加字符随机替换效果
-    addGlitchEffect(header);
+    // 设置流浪地球风格样式
+    header.style.color = '#4deeea';
+    header.style.textShadow = '0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff';
+    // 添加丝滑的发光动画
+    header.style.animation = 'titleGlow 3s ease-in-out infinite alternate';
   });
 }
 
@@ -208,45 +206,7 @@ hackBlinkStyle.textContent = `
 `;
 document.head.appendChild(hackBlinkStyle);
 
-// 添加故障效果
-function addGlitchEffect(element) {
-  element.classList.add('glitch');
-  element.setAttribute('data-text', element.textContent);
-  
-  // 创建故障效果的定时器
-  setInterval(() => {
-    if (Math.random() < 0.3) { // 30% 概率触发故障
-      glitchText(element);
-    }
-  }, 2000);
-}
 
-// 故障文本效果
-function glitchText(element) {
-  const originalText = element.textContent;
-  let glitchedText = '';
-  
-  for (let i = 0; i < originalText.length; i++) {
-    if (Math.random() < 0.2) { // 20% 概率替换字符
-      glitchedText += getRandomChar();
-    } else {
-      glitchedText += originalText[i];
-    }
-  }
-  
-  element.textContent = glitchedText;
-  
-  // 500ms 后恢复原始文本
-  setTimeout(() => {
-    element.textContent = originalText;
-  }, 500);
-}
-
-// 获取随机字符
-function getRandomChar() {
-  const chars = '0123456789ABCDEF!@#$%^&*(){}[]|;:,.<>?~';
-  return chars.charAt(Math.floor(Math.random() * chars.length));
-}
 
 // 增强段落
 function enhanceParagraphs() {

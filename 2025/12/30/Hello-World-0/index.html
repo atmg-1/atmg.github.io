@@ -328,213 +328,177 @@
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"your_github_username","repo":"your_blog_repo","client_id":"your_client_id","client_secret":"your_client_secret","admin_user":"your_github_username","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"0231bf26c40a15e9be5e00227afbc73a"}</script>
 <script src="/atmg.github.io/js/third-party/comments/gitalk.js" defer></script>
-<!-- Retro Tech Style Override -->
+<!--流浪地球风格-->
 <style>
-/* 高级黑客风格 - 《流浪地球》科幻主题 */
+/* 流浪地球风格 - 参考西电CTF网站 */
 body {
-  background: #000 !important;
-  color: #0f0 !important;
-  font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
+  color: #fff !important;
+  font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* 添加黑客扫描线效果 */
-body::after {
-  content: "";
+/* 背景动画 */
+body::before {
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 10px;
-  background: linear-gradient(to bottom, rgba(0, 255, 0, 0), rgba(0, 255, 0, 0.2), rgba(0, 255, 0, 0));
-  animation: scanline 8s linear infinite;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-@keyframes scanline {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
-
-/* 网格背景 */
-body::before {
-  content: '' !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  height: 100%;
   background: 
-    linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px) !important;
-  background-size: 20px 20px !important;
-  z-index: -1 !important;
-  pointer-events: none !important;
+    radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 20%),
+    linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px;
+  z-index: -1;
+  animation: bgMove 20s linear infinite;
 }
 
-/* 黑客风格标题 */
+@keyframes bgMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* 流浪地球风格标题 */
 h1, h2, h3, h4, h5, h6 {
-  color: #0f0 !important;
-  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0 !important;
-  font-family: 'Courier New', monospace !important;
+  color: #4deeea !important;
+  text-shadow: 0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff !important;
+  font-family: 'Microsoft YaHei', 'SimHei', 'Arial', sans-serif !important;
   position: relative;
-  animation: hackBlink 1.5s infinite;
-  overflow: hidden;
+  animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
-/* 添加标题故障效果 */
-h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  left: 2px;
-  text-shadow: -2px 0 #f00;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
-  opacity: 0.2;
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff; }
+  100% { text-shadow: 0 0 10px #4deeea, 0 0 20px #4deeea, 0 0 30px #0ff, 0 0 50px #0ff; }
 }
 
-h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  left: -2px;
-  text-shadow: -2px 0 #00f, 2px 2px #f00;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim2 5s infinite linear alternate-reverse;
-  opacity: 0.2;
-}
-
-/* 黑客风格链接 */
+/* 链接样式 */
 a {
-  color: #0af !important;
-  text-decoration: underline !important;
+  color: #74ee15 !important;
+  text-decoration: none !important;
   position: relative;
 }
 
 a:hover {
-  color: #0f0 !important;
-  text-shadow: 0 0 10px #0af;
+  color: #fff !important;
+  text-shadow: 0 0 5px #74ee15;
 }
 
-/* 站点元素样式 */
-.site-title, .site-subtitle, .post-title, .post-meta, .post-body {
-  font-family: 'Courier New', monospace !important;
-  color: #0f0 !important;
+/* 导航菜单 */
+.main-menu {
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(77, 238, 234, 0.3);
 }
 
 .menu-item a {
-  color: #0f0 !important;
-  border: 1px solid #0f0 !important;
-  padding: 5px 10px !important;
+  color: #e0e0ff !important;
+  padding: 8px 15px !important;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .menu-item a:hover {
-  background: #0f0 !important;
-  color: #000 !important;
+  background: rgba(77, 238, 234, 0.2) !important;
+  color: #4deeea !important;
+  text-shadow: 0 0 5px #4deeea;
 }
 
+/* 文章块 */
 .post-block {
-  background: rgba(0, 0, 0, 0.7) !important;
-  border: 1px solid #0f0 !important;
+  background: rgba(15, 23, 42, 0.7) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(77, 238, 234, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
+  padding: 20px !important;
 }
 
+/* 侧边栏 */
 .sidebar {
-  background: rgba(0, 0, 0, 0.7) !important;
-  border: 1px solid #0f0 !important;
+  background: rgba(15, 23, 42, 0.7) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(77, 238, 234, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
 }
 
+/* 页眉 */
 .header {
-  background: rgba(0, 0, 0, 0.9) !important;
-  border-bottom: 2px solid #0f0 !important;
+  background: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(77, 238, 234, 0.3) !important;
 }
 
+/* 页脚 */
 .footer {
-  background: rgba(0, 0, 0, 0.9) !important;
-  border-top: 1px solid #0f0 !important;
+  background: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(77, 238, 234, 0.3) !important;
+}
+
+/* 按钮样式 */
+.btn {
+  background: linear-gradient(45deg, #4deeea, #74ee15) !important;
+  border: none !important;
+  color: #0f172a !important;
+  padding: 8px 16px !important;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(77, 238, 234, 0.4);
+}
+
+/* 代码块 */
+.code {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(77, 238, 234, 0.3) !important;
+  border-radius: 4px;
+  padding: 2px 6px !important;
 }
 
 /* 隐藏原始样式 */
-.headband, .logo-line, .main-menu, .site-author, .site-description {
+.headband {
   display: none !important;
 }
 
-/* 故障动画 */
-@keyframes glitch-anim {
-  0% { clip: rect(42px, 9999px, 44px, 0); }
-  5% { clip: rect(12px, 9999px, 59px, 0); }
-  10% { clip: rect(48px, 9999px, 29px, 0); }
-  15% { clip: rect(42px, 9999px, 73px, 0); }
-  20% { clip: rect(63px, 9999px, 27px, 0); }
-  25% { clip: rect(34px, 9999px, 55px, 0); }
-  30% { clip: rect(86px, 9999px, 73px, 0); }
-  35% { clip: rect(20px, 9999px, 20px, 0); }
-  40% { clip: rect(26px, 9999px, 60px, 0); }
-  45% { clip: rect(25px, 9999px, 66px, 0); }
-  50% { clip: rect(57px, 9999px, 98px, 0); }
-  55% { clip: rect(5px, 9999px, 46px, 0); }
-  60% { clip: rect(82px, 9999px, 31px, 0); }
-  65% { clip: rect(54px, 9999px, 27px, 0); }
-  70% { clip: rect(28px, 9999px, 99px, 0); }
-  75% { clip: rect(45px, 9999px, 69px, 0); }
-  80% { clip: rect(23px, 9999px, 85px, 0); }
-  85% { clip: rect(54px, 9999px, 84px, 0); }
-  90% { clip: rect(45px, 9999px, 47px, 0); }
-  95% { clip: rect(37px, 9999px, 20px, 0); }
-  100% { clip: rect(73px, 9999px, 99px, 0); }
+/* 卡片样式 */
+.card {
+  background: rgba(15, 23, 42, 0.7) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(77, 238, 234, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
 }
 
-@keyframes glitch-anim2 {
-  0% { clip: rect(65px, 9999px, 100px, 0); }
-  5% { clip: rect(52px, 9999px, 74px, 0); }
-  10% { clip: rect(79px, 9999px, 85px, 0); }
-  15% { clip: rect(75px, 9999px, 5px, 0); }
-  20% { clip: rect(67px, 9999px, 61px, 0); }
-  25% { clip: rect(14px, 9999px, 79px, 0); }
-  30% { clip: rect(1px, 9999px, 66px, 0); }
-  35% { clip: rect(86px, 9999px, 30px, 0); }
-  40% { clip: rect(23px, 9999px, 98px, 0); }
-  45% { clip: rect(85px, 9999px, 72px, 0); }
-  50% { clip: rect(71px, 9999px, 75px, 0); }
-  55% { clip: rect(28px, 9999px, 84px, 0); }
-  60% { clip: rect(45px, 9999px, 54px, 0); }
-  65% { clip: rect(38px, 9999px, 19px, 0); }
-  70% { clip: rect(58px, 9999px, 87px, 0); }
-  75% { clip: rect(70px, 9999px, 60px, 0); }
-  80% { clip: rect(18px, 9999px, 53px, 0); }
-  85% { clip: rect(72px, 9999px, 100px, 0); }
-  90% { clip: rect(40px, 9999px, 85px, 0); }
-  95% { clip: rect(91px, 9999px, 74px, 0); }
-  100% { clip: rect(12px, 9999px, 80px, 0); }
+/* 流浪地球风格的渐变色 */
+.gradient-text {
+  background: linear-gradient(45deg, #4deeea, #74ee15, #ffe700, #f000ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* 黑客风格闪烁动画 */
-@keyframes hackBlink {
-  0%, 100% { 
-    opacity: 1; 
-    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0; 
-  }
-  50% { 
-    opacity: 0.8; 
-    text-shadow: 0 0 5px #0f0; 
-  }
-  75% { 
-    opacity: 0.9; 
-    text-shadow: 0 0 15px #0f0, 0 0 30px #0f0; 
-  }
+/* 流浪地球风格的边框 */
+.border-glow {
+  border: 1px solid transparent;
+  background: linear-gradient(45deg, rgba(77, 238, 234, 0.2), rgba(116, 238, 21, 0.2)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
 }
-
-/* 允许字体闪烁，但禁用其他动画 */
-h1, h2, h3, h4, h5, h6 { animation: hackBlink 1.5s infinite; }
-*, *::before, *::after { transition: none !important; }
 </style>
 <script src="/js/retro-tech.js"></script>
 </body>
