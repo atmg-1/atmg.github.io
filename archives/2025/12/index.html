@@ -343,7 +343,24 @@
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"your_github_username","repo":"your_blog_repo","client_id":"your_client_id","client_secret":"your_client_secret","admin_user":"your_github_username","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"897650a52111fea13b2d09b68dc25531"}</script>
 <script src="/atmg.github.io/js/third-party/comments/gitalk.js" defer></script>
-<link rel="stylesheet" href="/css/retro-tech.css">
+<!-- Retro Tech Style Override -->
+<style>
+/* 90年代代码风格 - 《流浪地球》科幻主题 */
+body {background: #000 !important; color: #0f0 !important; font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;}
+h1, h2, h3, h4, h5, h6 {color: #0f0 !important; text-shadow: 0 0 10px #0f0 !important; font-family: 'Courier New', monospace !important;}
+a {color: #0af !important; text-decoration: underline !important;}
+.site-title, .site-subtitle, .post-title, .post-meta, .post-body {font-family: 'Courier New', monospace !important; color: #0f0 !important;}
+.menu-item a {color: #0f0 !important; border: 1px solid #0f0 !important; padding: 5px 10px !important;}
+.menu-item a:hover {background: #0f0 !important; color: #000 !important;}
+.post-block {background: rgba(0, 0, 0, 0.7) !important; border: 1px solid #0f0 !important;}
+.sidebar {background: rgba(0, 0, 0, 0.7) !important; border: 1px solid #0f0 !important;}
+.header {background: rgba(0, 0, 0, 0.9) !important; border-bottom: 2px solid #0f0 !important;}
+.footer {background: rgba(0, 0, 0, 0.9) !important; border-top: 1px solid #0f0 !important;}
+/* 隐藏原始样式 */
+.headband, .logo-line, .main-menu, .site-author, .site-description {display: none !important;}
+/* 网格背景 */
+body::before {content: '' !important; position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px) !important; background-size: 20px 20px !important; z-index: -1 !important; pointer-events: none !important;}
+</style>
 <script src="/js/retro-tech.js"></script>
 </body>
 </html>
