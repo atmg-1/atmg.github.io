@@ -354,12 +354,12 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 5px #0066cc, 0 0 10px #0088ee, 0 0 20px #00aaff, 0 0 40px #00ccff !important;
   font-family: 'Courier New', 'Microsoft YaHei', 'SimHei', monospace !important;
   position: relative;
-  animation: titleGlow 3s ease-in-out infinite alternate;
+  animation: titleGlow 1s ease-in-out infinite alternate;
 }
 
 @keyframes titleGlow {
-  0% { text-shadow: 0 0 5px #00eeff, 0 0 10px #00eeff, 0 0 20px #0080ff, 0 0 40px #0080ff; }
-  100% { text-shadow: 0 0 10px #00eeff, 0 0 20px #00eeff, 0 0 30px #0080ff, 0 0 50px #0080ff; }
+  0% { text-shadow: 0 0 5px #0066cc, 0 0 10px #0066cc, 0 0 20px #0080ff, 0 0 40px #0080ff; }
+  100% { text-shadow: 0 0 10px #0088ee, 0 0 20px #0088ee, 0 0 30px #00aaff, 0 0 50px #00aaff; }
 }
 
 /* 链接样式 - 西电CTF风格 */
@@ -791,6 +791,38 @@ a:hover {
 /* 文章元数据 */
 .post-meta {
   color: #0066cc !important;
+}
+
+/* 文章内容进入动画 */
+.post-body {
+  animation: articleAppear 1s ease-out forwards;
+}
+
+@keyframes articleAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 文章块进入动画 */
+.post-block {
+  animation: blockAppear 1s ease-out forwards;
+}
+
+@keyframes blockAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* 归档页面样式 */

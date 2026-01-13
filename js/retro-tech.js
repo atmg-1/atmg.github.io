@@ -107,7 +107,7 @@ function enhanceHeaders() {
     header.style.color = '#4deeea';
     header.style.textShadow = '0 0 5px #4deeea, 0 0 10px #4deeea, 0 0 20px #0ff, 0 0 40px #0ff';
     // 添加丝滑的发光动画
-    header.style.animation = 'titleGlow 3s ease-in-out infinite alternate';
+    header.style.animation = 'titleGlow 1s ease-in-out infinite alternate';
   });
 }
 
