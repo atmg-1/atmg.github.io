@@ -14,6 +14,11 @@ function initCTFTechEffects() {
   addDataStreamEffect();
 }
 
+// 移除可能导致闪烁的重复初始化
+window.addEventListener('load', function() {
+  // 确保只初始化一次
+});
+
 // 创建浮动粒子
 function createFloatingParticles() {
   const particlesContainer = document.createElement('div');
@@ -31,16 +36,11 @@ function createFloatingParticles() {
 
   document.body.appendChild(particlesContainer);
 
-  // 创建多个粒子
-  for (let i = 0; i < 30; i++) {
+  // 创建少量粒子，减少性能负担和闪烁
+  for (let i = 0; i < 15; i++) {
     setTimeout(() => {
       createParticle(particlesContainer);
-      
-      // 定期间隔创建新粒子
-      setInterval(() => {
-        createParticle(particlesContainer);
-      }, 3000 + Math.random() * 5000);
-    }, i * 200);
+    }, i * 500);
   }
 }
 
@@ -143,6 +143,7 @@ function initSidebarMenu() {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
   `;
 
   // 创建侧边栏

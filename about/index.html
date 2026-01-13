@@ -521,11 +521,10 @@ body::after {
 
 /* CTF风格标题 */
 h1, h2, h3, h4, h5, h6 {
-  color: #e2e8f0 !important;
   font-family: 'Courier New', 'Microsoft YaHei', 'SimHei', monospace !important;
   position: relative;
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: #e2e8f0 !important;
 }
 
 h1 {
@@ -533,6 +532,8 @@ h1 {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
+  font-size: 1.8em;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3) !important;
 }
 
 h2 {
@@ -540,10 +541,19 @@ h2 {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
+  font-size: 1.6em;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.3) !important;
 }
 
 h3 {
   color: #3b82f6 !important;
+  font-size: 1.4em;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3) !important;
+}
+
+h4, h5, h6 {
+  color: #e2e8f0 !important;
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.2) !important;
 }
 
 @keyframes textGlow {
