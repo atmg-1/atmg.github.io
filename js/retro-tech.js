@@ -103,22 +103,150 @@ function enhanceButtons() {
 function enhanceHeaders() {
   const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
   headers.forEach(header => {
-    // 设置闪烁样式
-    header.style.textShadow = '0 0 10px #0f0';
-    // 添加字体闪烁动画
-    header.style.animation = 'fontBlink 2s infinite';
+    // 设置黑客风格样式
+    header.style.textShadow = '0 0 10px #0f0, 0 0 20px #0f0';
+    // 添加更复杂的闪烁动画
+    header.style.animation = 'hackBlink 1.5s infinite';
+    
+    // 添加字符随机替换效果
+    addGlitchEffect(header);
   });
 }
 
-// 添加字体闪烁动画
-const blinkStyle = document.createElement('style');
-blinkStyle.textContent = `
-  @keyframes fontBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+// 添加黑客风格闪烁动画
+const hackBlinkStyle = document.createElement('style');
+hackBlinkStyle.textContent = `
+  @keyframes hackBlink {
+    0%, 100% { 
+      opacity: 1; 
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0; 
+    }
+    50% { 
+      opacity: 0.8; 
+      text-shadow: 0 0 5px #0f0; 
+    }
+    75% { 
+      opacity: 0.9; 
+      text-shadow: 0 0 15px #0f0, 0 0 30px #0f0; 
+    }
+  }
+  
+  /* 添加故障效果 */
+  .glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: 2px;
+    text-shadow: -2px 0 #f00;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+  
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #00f, 2px 2px #f00;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+  
+  @keyframes glitch-anim {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    5% { clip: rect(12px, 9999px, 59px, 0); }
+    10% { clip: rect(48px, 9999px, 29px, 0); }
+    15% { clip: rect(42px, 9999px, 73px, 0); }
+    20% { clip: rect(63px, 9999px, 27px, 0); }
+    25% { clip: rect(34px, 9999px, 55px, 0); }
+    30% { clip: rect(86px, 9999px, 73px, 0); }
+    35% { clip: rect(20px, 9999px, 20px, 0); }
+    40% { clip: rect(26px, 9999px, 60px, 0); }
+    45% { clip: rect(25px, 9999px, 66px, 0); }
+    50% { clip: rect(57px, 9999px, 98px, 0); }
+    55% { clip: rect(5px, 9999px, 46px, 0); }
+    60% { clip: rect(82px, 9999px, 31px, 0); }
+    65% { clip: rect(54px, 9999px, 27px, 0); }
+    70% { clip: rect(28px, 9999px, 99px, 0); }
+    75% { clip: rect(45px, 9999px, 69px, 0); }
+    80% { clip: rect(23px, 9999px, 85px, 0); }
+    85% { clip: rect(54px, 9999px, 84px, 0); }
+    90% { clip: rect(45px, 9999px, 47px, 0); }
+    95% { clip: rect(37px, 9999px, 20px, 0); }
+    100% { clip: rect(73px, 9999px, 99px, 0); }
+  }
+  
+  @keyframes glitch-anim2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    5% { clip: rect(52px, 9999px, 74px, 0); }
+    10% { clip: rect(79px, 9999px, 85px, 0); }
+    15% { clip: rect(75px, 9999px, 5px, 0); }
+    20% { clip: rect(67px, 9999px, 61px, 0); }
+    25% { clip: rect(14px, 9999px, 79px, 0); }
+    30% { clip: rect(1px, 9999px, 66px, 0); }
+    35% { clip: rect(86px, 9999px, 30px, 0); }
+    40% { clip: rect(23px, 9999px, 98px, 0); }
+    45% { clip: rect(85px, 9999px, 72px, 0); }
+    50% { clip: rect(71px, 9999px, 75px, 0); }
+    55% { clip: rect(28px, 9999px, 84px, 0); }
+    60% { clip: rect(45px, 9999px, 54px, 0); }
+    65% { clip: rect(38px, 9999px, 19px, 0); }
+    70% { clip: rect(58px, 9999px, 87px, 0); }
+    75% { clip: rect(70px, 9999px, 60px, 0); }
+    80% { clip: rect(18px, 9999px, 53px, 0); }
+    85% { clip: rect(72px, 9999px, 100px, 0); }
+    90% { clip: rect(40px, 9999px, 85px, 0); }
+    95% { clip: rect(91px, 9999px, 74px, 0); }
+    100% { clip: rect(12px, 9999px, 80px, 0); }
   }
 `;
-document.head.appendChild(blinkStyle);
+document.head.appendChild(hackBlinkStyle);
+
+// 添加故障效果
+function addGlitchEffect(element) {
+  element.classList.add('glitch');
+  element.setAttribute('data-text', element.textContent);
+  
+  // 创建故障效果的定时器
+  setInterval(() => {
+    if (Math.random() < 0.3) { // 30% 概率触发故障
+      glitchText(element);
+    }
+  }, 2000);
+}
+
+// 故障文本效果
+function glitchText(element) {
+  const originalText = element.textContent;
+  let glitchedText = '';
+  
+  for (let i = 0; i < originalText.length; i++) {
+    if (Math.random() < 0.2) { // 20% 概率替换字符
+      glitchedText += getRandomChar();
+    } else {
+      glitchedText += originalText[i];
+    }
+  }
+  
+  element.textContent = glitchedText;
+  
+  // 500ms 后恢复原始文本
+  setTimeout(() => {
+    element.textContent = originalText;
+  }, 500);
+}
+
+// 获取随机字符
+function getRandomChar() {
+  const chars = '0123456789ABCDEF!@#$%^&*(){}[]|;:,.<>?~';
+  return chars.charAt(Math.floor(Math.random() * chars.length));
+}
 
 // 增强段落
 function enhanceParagraphs() {

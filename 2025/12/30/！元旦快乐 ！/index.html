@@ -346,23 +346,210 @@
 <script src="/atmg.github.io/js/third-party/comments/gitalk.js" defer></script>
 <!-- Retro Tech Style Override -->
 <style>
-/* 90年代代码风格 - 《流浪地球》科幻主题 - 字体闪烁版本 */
-body {background: #000 !important; color: #0f0 !important; font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;}
-h1, h2, h3, h4, h5, h6 {color: #0f0 !important; text-shadow: 0 0 10px #0f0 !important; font-family: 'Courier New', monospace !important;}
-a {color: #0af !important; text-decoration: underline !important;}
-.site-title, .site-subtitle, .post-title, .post-meta, .post-body {font-family: 'Courier New', monospace !important; color: #0f0 !important;}
-.menu-item a {color: #0f0 !important; border: 1px solid #0f0 !important; padding: 5px 10px !important;}
-.menu-item a:hover {background: #0f0 !important; color: #000 !important;}
-.post-block {background: rgba(0, 0, 0, 0.7) !important; border: 1px solid #0f0 !important;}
-.sidebar {background: rgba(0, 0, 0, 0.7) !important; border: 1px solid #0f0 !important;}
-.header {background: rgba(0, 0, 0, 0.9) !important; border-bottom: 2px solid #0f0 !important;}
-.footer {background: rgba(0, 0, 0, 0.9) !important; border-top: 1px solid #0f0 !important;}
-/* 隐藏原始样式 */
-.headband, .logo-line, .main-menu, .site-author, .site-description {display: none !important;}
+/* 高级黑客风格 - 《流浪地球》科幻主题 */
+body {
+  background: #000 !important;
+  color: #0f0 !important;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace !important;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 添加黑客扫描线效果 */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to bottom, rgba(0, 255, 0, 0), rgba(0, 255, 0, 0.2), rgba(0, 255, 0, 0));
+  animation: scanline 8s linear infinite;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
 /* 网格背景 */
-body::before {content: '' !important; position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px) !important; background-size: 20px 20px !important; z-index: -1 !important; pointer-events: none !important;}
+body::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: 
+    linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.05) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 黑客风格标题 */
+h1, h2, h3, h4, h5, h6 {
+  color: #0f0 !important;
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0 !important;
+  font-family: 'Courier New', monospace !important;
+  position: relative;
+  animation: hackBlink 1.5s infinite;
+  overflow: hidden;
+}
+
+/* 添加标题故障效果 */
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 #f00;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+  opacity: 0.2;
+}
+
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 #00f, 2px 2px #f00;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+  opacity: 0.2;
+}
+
+/* 黑客风格链接 */
+a {
+  color: #0af !important;
+  text-decoration: underline !important;
+  position: relative;
+}
+
+a:hover {
+  color: #0f0 !important;
+  text-shadow: 0 0 10px #0af;
+}
+
+/* 站点元素样式 */
+.site-title, .site-subtitle, .post-title, .post-meta, .post-body {
+  font-family: 'Courier New', monospace !important;
+  color: #0f0 !important;
+}
+
+.menu-item a {
+  color: #0f0 !important;
+  border: 1px solid #0f0 !important;
+  padding: 5px 10px !important;
+}
+
+.menu-item a:hover {
+  background: #0f0 !important;
+  color: #000 !important;
+}
+
+.post-block {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #0f0 !important;
+}
+
+.sidebar {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #0f0 !important;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-bottom: 2px solid #0f0 !important;
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-top: 1px solid #0f0 !important;
+}
+
+/* 隐藏原始样式 */
+.headband, .logo-line, .main-menu, .site-author, .site-description {
+  display: none !important;
+}
+
+/* 故障动画 */
+@keyframes glitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  5% { clip: rect(12px, 9999px, 59px, 0); }
+  10% { clip: rect(48px, 9999px, 29px, 0); }
+  15% { clip: rect(42px, 9999px, 73px, 0); }
+  20% { clip: rect(63px, 9999px, 27px, 0); }
+  25% { clip: rect(34px, 9999px, 55px, 0); }
+  30% { clip: rect(86px, 9999px, 73px, 0); }
+  35% { clip: rect(20px, 9999px, 20px, 0); }
+  40% { clip: rect(26px, 9999px, 60px, 0); }
+  45% { clip: rect(25px, 9999px, 66px, 0); }
+  50% { clip: rect(57px, 9999px, 98px, 0); }
+  55% { clip: rect(5px, 9999px, 46px, 0); }
+  60% { clip: rect(82px, 9999px, 31px, 0); }
+  65% { clip: rect(54px, 9999px, 27px, 0); }
+  70% { clip: rect(28px, 9999px, 99px, 0); }
+  75% { clip: rect(45px, 9999px, 69px, 0); }
+  80% { clip: rect(23px, 9999px, 85px, 0); }
+  85% { clip: rect(54px, 9999px, 84px, 0); }
+  90% { clip: rect(45px, 9999px, 47px, 0); }
+  95% { clip: rect(37px, 9999px, 20px, 0); }
+  100% { clip: rect(73px, 9999px, 99px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); }
+  5% { clip: rect(52px, 9999px, 74px, 0); }
+  10% { clip: rect(79px, 9999px, 85px, 0); }
+  15% { clip: rect(75px, 9999px, 5px, 0); }
+  20% { clip: rect(67px, 9999px, 61px, 0); }
+  25% { clip: rect(14px, 9999px, 79px, 0); }
+  30% { clip: rect(1px, 9999px, 66px, 0); }
+  35% { clip: rect(86px, 9999px, 30px, 0); }
+  40% { clip: rect(23px, 9999px, 98px, 0); }
+  45% { clip: rect(85px, 9999px, 72px, 0); }
+  50% { clip: rect(71px, 9999px, 75px, 0); }
+  55% { clip: rect(28px, 9999px, 84px, 0); }
+  60% { clip: rect(45px, 9999px, 54px, 0); }
+  65% { clip: rect(38px, 9999px, 19px, 0); }
+  70% { clip: rect(58px, 9999px, 87px, 0); }
+  75% { clip: rect(70px, 9999px, 60px, 0); }
+  80% { clip: rect(18px, 9999px, 53px, 0); }
+  85% { clip: rect(72px, 9999px, 100px, 0); }
+  90% { clip: rect(40px, 9999px, 85px, 0); }
+  95% { clip: rect(91px, 9999px, 74px, 0); }
+  100% { clip: rect(12px, 9999px, 80px, 0); }
+}
+
+/* 黑客风格闪烁动画 */
+@keyframes hackBlink {
+  0%, 100% { 
+    opacity: 1; 
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0; 
+  }
+  50% { 
+    opacity: 0.8; 
+    text-shadow: 0 0 5px #0f0; 
+  }
+  75% { 
+    opacity: 0.9; 
+    text-shadow: 0 0 15px #0f0, 0 0 30px #0f0; 
+  }
+}
+
 /* 允许字体闪烁，但禁用其他动画 */
-h1, h2, h3, h4, h5, h6 { animation: fontBlink 2s infinite; }
+h1, h2, h3, h4, h5, h6 { animation: hackBlink 1.5s infinite; }
 *, *::before, *::after { transition: none !important; }
 </style>
 <script src="/js/retro-tech.js"></script>
