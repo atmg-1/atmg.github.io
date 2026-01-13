@@ -32,63 +32,24 @@ function initRetroTechEffects() {
   enhanceCodeBlocks();
 }
 
-// 创建扫描线效果
+// 创建扫描线效果 - 已禁用以防止闪烁
 function createScanLine() {
-  const scanLine = document.createElement('div');
-  scanLine.className = 'scan-line';
-  document.body.appendChild(scanLine);
+  // 扫描线效果已禁用
 }
 
-// 创建粒子效果
+// 创建粒子效果 - 已禁用以防止闪烁
 function createParticles() {
-  // 创建多个粒子
-  for (let i = 0; i < 50; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    particle.style.animationDelay = `${Math.random() * 5}s`;
-    document.body.appendChild(particle);
-  }
+  // 粒子效果已禁用
 }
 
-// 添加打字机效果
+// 添加打字机效果 - 已禁用以防止闪烁
 function addTypewriterEffect() {
-  // 为特定元素添加打字机效果
-  const elements = document.querySelectorAll('h1, h2, .site-title, .post-title');
-  elements.forEach(el => {
-    // 添加打字机效果
-    const originalText = el.textContent;
-    el.textContent = '';
-    el.style.visibility = 'visible';
-    
-    let i = 0;
-    const speed = 50; // 打字速度
-    
-    function typeWriter() {
-      if (i < originalText.length) {
-        el.textContent += originalText.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    }
-    
-    // 延迟开始打字效果
-    setTimeout(typeWriter, Math.random() * 1000);
-  });
+  // 打字机效果已禁用
 }
 
-// 添加系统消息
+// 添加系统消息 - 已禁用以防止闪烁
 function addSystemMessages() {
-  // 添加页面加载消息
-  setTimeout(() => {
-    showSystemMessage('PAGE LOADED SUCCESSFULLY', 'success');
-  }, 1000);
-  
-  // 添加安全协议消息
-  setTimeout(() => {
-    showSystemMessage('SECURITY PROTOCOL ACTIVE', 'info');
-  }, 3000);
+  // 系统消息已禁用
 }
 
 // 显示系统消息
@@ -118,16 +79,9 @@ function enhanceLinks() {
     // 添加复古样式类
     link.classList.add('retro-link');
     
-    // 添加悬停效果
-    link.addEventListener('mouseenter', function() {
-      this.style.textShadow = '0 0 10px #0f0';
-      this.style.color = '#0f0';
-    });
-    
-    link.addEventListener('mouseleave', function() {
-      this.style.textShadow = 'none';
-      this.style.color = '#0af';
-    });
+    // 设置静态样式，无闪烁效果
+    link.style.color = '#0af';
+    link.style.textDecoration = 'underline';
   });
 }
 
@@ -138,18 +92,10 @@ function enhanceButtons() {
     // 添加复古样式类
     button.classList.add('retro-button');
     
-    // 添加点击效果
-    button.addEventListener('mousedown', function() {
-      this.style.background = '#0f0';
-      this.style.color = '#000';
-      this.style.boxShadow = '0 0 20px #0f0';
-    });
-    
-    button.addEventListener('mouseup', function() {
-      this.style.background = '#000';
-      this.style.color = '#0f0';
-      this.style.boxShadow = '0 0 15px #0f0';
-    });
+    // 设置静态样式，无闪烁效果
+    button.style.background = '#000';
+    button.style.color = '#0f0';
+    button.style.border = '1px solid #0f0';
   });
 }
 
@@ -157,14 +103,8 @@ function enhanceButtons() {
 function enhanceHeaders() {
   const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
   headers.forEach(header => {
-    // 添加闪烁效果
-    header.addEventListener('mouseenter', function() {
-      this.style.textShadow = '0 0 15px #0f0, 0 0 20px #0f0';
-    });
-    
-    header.addEventListener('mouseleave', function() {
-      this.style.textShadow = '0 0 10px #0f0';
-    });
+    // 设置静态样式，无闪烁效果
+    header.style.textShadow = '0 0 10px #0f0';
   });
 }
 
@@ -172,14 +112,7 @@ function enhanceHeaders() {
 function enhanceParagraphs() {
   const paragraphs = document.querySelectorAll('p');
   paragraphs.forEach(paragraph => {
-    // 添加闪烁效果
-    paragraph.addEventListener('mouseenter', function() {
-      this.style.textShadow = '0 0 8px #0f0';
-    });
-    
-    paragraph.addEventListener('mouseleave', function() {
-      this.style.textShadow = 'none';
-    });
+    // 无闪烁效果
   });
 }
 
@@ -226,82 +159,77 @@ function addLineNumbers(preElement) {
   code.innerHTML = numberedLines;
 }
 
-// 添加全局键盘事件监听
-document.addEventListener('keydown', function(e) {
-  // 按下Ctrl+Shift+H显示帮助信息
-  if (e.ctrlKey && e.shiftKey && e.key === 'H') {
-    e.preventDefault();
-    showSystemMessage('HELP: Ctrl+Shift+H - Help Screen | F1 - System Info', 'info');
-  }
-  
-  // 按下F1显示系统信息
-  if (e.key === 'F1') {
-    e.preventDefault();
-    showSystemMessage('SYSTEM INFO: Retro-Tech v1.0 | Uptime: 00:15:42 | Memory: 64KB', 'info');
-  }
-});
+// 添加全局键盘事件监听 - 已禁用以防止闪烁
+// document.addEventListener('keydown', function(e) {
+//   // 按下Ctrl+Shift+H显示帮助信息
+//   if (e.ctrlKey && e.shiftKey && e.key === 'H') {
+//     e.preventDefault();
+//     showSystemMessage('HELP: Ctrl+Shift+H - Help Screen | F1 - System Info', 'info');
+//   }
+//   
+//   // 按下F1显示系统信息
+//   if (e.key === 'F1') {
+//     e.preventDefault();
+//     showSystemMessage('SYSTEM INFO: Retro-Tech v1.0 | Uptime: 00:15:42 | Memory: 64KB', 'info');
+//   }
+// });
 
-// 添加鼠标移动效果
-document.addEventListener('mousemove', function(e) {
-  // 随机显示系统消息
-  if (Math.random() < 0.01) { // 1% 概率
-    const messages = [
-      'DATA STREAM ACTIVE',
-      'PROCESSING...',
-      'MEMORY USAGE: LOW',
-      'CPU: 42%',
-      'CONNECTION SECURE'
-    ];
-    showSystemMessage(messages[Math.floor(Math.random() * messages.length)], 'info');
-  }
-});
+// 添加鼠标移动效果 - 已禁用以防止闪烁
+// document.addEventListener('mousemove', function(e) {
+//   // 随机显示系统消息
+//   if (Math.random() < 0.01) { // 1% 概率
+//     const messages = [
+//       'DATA STREAM ACTIVE',
+//       'PROCESSING...',
+//       'MEMORY USAGE: LOW',
+//       'CPU: 42%',
+//       'CONNECTION SECURE'
+//     ];
+//     showSystemMessage(messages[Math.floor(Math.random() * messages.length)], 'info');
+//   }
+// });
 
-// 添加页面可见性变化事件
-document.addEventListener('visibilitychange', function() {
-  if (document.hidden) {
-    showSystemMessage('SYSTEM PAUSED', 'warning');
-  } else {
-    showSystemMessage('SYSTEM RESUMED', 'success');
-  }
-});
+// 添加页面可见性变化事件 - 已禁用以防止闪烁
+// document.addEventListener('visibilitychange', function() {
+//   if (document.hidden) {
+//     showSystemMessage('SYSTEM PAUSED', 'warning');
+//   } else {
+//     showSystemMessage('SYSTEM RESUMED', 'success');
+//   }
+// });
 
 // 添加页面加载完成事件
 window.addEventListener('load', function() {
-  showSystemMessage('ALL SYSTEMS NOMINAL', 'success');
-  
-  // 添加加载完成的特殊效果
+  // 移除动态效果以防止闪烁
   const mainContainer = document.querySelector('.main-container') || document.body;
-  mainContainer.style.border = '2px solid #0f0';
-  mainContainer.style.boxShadow = '0 0 25px rgba(0, 255, 0, 0.4)';
-  
-  setTimeout(() => {
+  if (mainContainer) {
     mainContainer.style.border = '1px solid #0f0';
     mainContainer.style.boxShadow = '0 0 20px rgba(0, 255, 0, 0.3)';
-  }, 2000);
+  }
 });
 
-// 添加周期性的系统检查
-setInterval(() => {
-  if (Math.random() < 0.3) { // 30% 概率
-    const checks = ['MEMORY CHECK', 'VIRUS SCAN', 'BACKUP ACTIVE', 'SYNC COMPLETE'];
-    showSystemMessage(`${checks[Math.floor(Math.random() * checks.length)]}: OK`, 'success');
-  }
-}, 10000);
+// 添加周期性的系统检查 - 已禁用以防止闪烁
+// setInterval(() => {
+//   if (Math.random() < 0.3) { // 30% 概率
+//     const checks = ['MEMORY CHECK', 'VIRUS SCAN', 'BACKUP ACTIVE', 'SYNC COMPLETE'];
+//     showSystemMessage(`${checks[Math.floor(Math.random() * checks.length)]}: OK`, 'success');
+//   }
+// }, 10000);
 
 // 添加页面错误监控
 window.addEventListener('error', function(event) {
   showSystemMessage(`ERROR: ${event.error.message}`, 'error');
 });
 
-// 添加控制台日志拦截
-const originalLog = console.log;
-console.log = function(...args) {
-  originalLog.apply(console, args);
-  // 也可以在这里添加到系统消息
-  if (args.length > 0 && typeof args[0] === 'string') {
-    showSystemMessage(`LOG: ${args[0].substring(0, 50)}...`, 'info');
-  }
-};
+// 添加控制台日志拦截 - 已禁用以防止闪烁
+// const originalLog = console.log;
+// console.log = function(...args) {
+//   originalLog.apply(console, args);
+//   // 也可以在这里添加到系统消息
+//   if (args.length > 0 && typeof args[0] === 'string') {
+//     showSystemMessage(`LOG: ${args[0].substring(0, 50)}...`, 'info');
+//   }
+// };
 
 // 添加复古输入框效果
 function enhanceInputs() {
@@ -309,16 +237,10 @@ function enhanceInputs() {
   inputs.forEach(input => {
     input.classList.add('retro-input');
     
-    // 添加聚焦效果
-    input.addEventListener('focus', function() {
-      this.style.boxShadow = '0 0 15px #0f0';
-      this.style.borderColor = '#0f0';
-    });
-    
-    input.addEventListener('blur', function() {
-      this.style.boxShadow = 'none';
-      this.style.borderColor = '#0f0';
-    });
+    // 设置静态样式，无闪烁效果
+    input.style.background = '#000';
+    input.style.color = '#0f0';
+    input.style.border = '1px solid #0f0';
   });
 }
 
@@ -485,35 +407,13 @@ function enhancePageNumbers() {
 // 在页面完全加载后增强页码
 window.addEventListener('load', enhancePageNumbers);
 
-// 添加复古加载动画
+// 添加复古加载动画 - 已禁用以防止闪烁
 function addLoadingAnimation() {
-  const loader = document.createElement('div');
-  loader.className = 'loader-retro';
-  loader.style.position = 'fixed';
-  loader.style.top = '50%';
-  loader.style.left = '50%';
-  loader.style.zIndex = '9999';
-  loader.style.display = 'none';
-  
-  document.body.appendChild(loader);
-  
-  // 显示加载动画
-  function showLoader() {
-    loader.style.display = 'inline-block';
-  }
-  
-  // 隐藏加载动画
-  function hideLoader() {
-    loader.style.display = 'none';
-  }
-  
-  // 页面加载事件
-  window.addEventListener('beforeunload', showLoader);
-  window.addEventListener('load', hideLoader);
+  // 加载动画已禁用
 }
 
-// 在页面完全加载后添加加载动画
-window.addEventListener('load', addLoadingAnimation);
+// 在页面完全加载后添加加载动画 - 已禁用
+// window.addEventListener('load', addLoadingAnimation);
 
 // 最后添加全局样式覆盖
 const globalStyle = document.createElement('style');
