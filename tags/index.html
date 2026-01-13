@@ -298,8 +298,8 @@
 <style>
 /* 流浪地球CTF风格 - 结合西电CTF与流浪地球美学 */
 body {
-  background: linear-gradient(45deg, #0f2027, #203a43, #2c5364) !important;
-  color: #e6f7ff !important;
+  background: linear-gradient(45deg, #ffffff, #f0f0f0, #d0d0d0) !important;
+  color: #333 !important;
   font-family: 'Courier New', 'Microsoft YaHei', 'SimHei', 'Arial', monospace !important;
   margin: 0;
   padding: 0;
@@ -317,8 +317,8 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(rgba(0, 150, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 150, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(100, 100, 100, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 100, 100, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
   z-index: -1;
   animation: gridMove 20s linear infinite;
@@ -337,7 +337,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 10px;
-  background: linear-gradient(to bottom, rgba(0, 255, 255, 0), rgba(0, 255, 255, 0.2), rgba(0, 255, 255, 0));
+  background: linear-gradient(to bottom, rgba(150, 150, 150, 0), rgba(150, 150, 150, 0.2), rgba(150, 150, 150, 0));
   animation: scanline 8s linear infinite;
   z-index: 9998;
   pointer-events: none;
@@ -350,8 +350,8 @@ body::after {
 
 /* 流浪地球风格标题 */
 h1, h2, h3, h4, h5, h6 {
-  color: #00eeff !important;
-  text-shadow: 0 0 5px #00eeff, 0 0 10px #00eeff, 0 0 20px #0080ff, 0 0 40px #0080ff !important;
+  color: #0066cc !important;
+  text-shadow: 0 0 5px #0066cc, 0 0 10px #0088ee, 0 0 20px #00aaff, 0 0 40px #00ccff !important;
   font-family: 'Courier New', 'Microsoft YaHei', 'SimHei', monospace !important;
   position: relative;
   animation: titleGlow 3s ease-in-out infinite alternate;
@@ -364,26 +364,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 链接样式 - 西电CTF风格 */
 a {
-  color: #4deeea !important;
+  color: #0066cc !important;
   text-decoration: none !important;
   position: relative;
   transition: all 0.3s ease;
 }
 
 a:hover {
-  color: #74ee15 !important;
-  text-shadow: 0 0 5px #4deeea;
+  color: #0088ee !important;
+  text-shadow: 0 0 5px #0066cc;
 }
 
 /* 导航菜单 - 西电CTF风格 */
 .main-menu {
-  background: rgba(0, 20, 40, 0.8) !important;
+  background: rgba(240, 240, 240, 0.8) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 238, 255, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
 }
 
 .menu-item a {
-  color: #e6f7ff !important;
+  color: #333 !important;
   padding: 8px 15px !important;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -391,19 +391,19 @@ a:hover {
 }
 
 .menu-item a:hover {
-  background: rgba(0, 238, 255, 0.2) !important;
-  color: #74ee15 !important;
-  border: 1px solid rgba(116, 238, 21, 0.5);
-  text-shadow: 0 0 5px #74ee15;
+  background: rgba(100, 100, 100, 0.2) !important;
+  color: #0066cc !important;
+  border: 1px solid rgba(0, 100, 200, 0.5);
+  text-shadow: 0 0 5px #0066cc;
 }
 
 /* 文章块 - 流浪地球风格 */
 .post-block {
-  background: rgba(0, 20, 40, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 238, 255, 0.1), inset 0 0 10px rgba(0, 200, 255, 0.1);
+  box-shadow: 0 0 15px rgba(100, 100, 100, 0.1), inset 0 0 10px rgba(150, 150, 150, 0.1);
   padding: 20px !important;
   position: relative;
   overflow: hidden;
@@ -433,52 +433,52 @@ a:hover {
 
 /* 侧边栏 - 流浪地球风格 */
 .sidebar {
-  background: rgba(0, 20, 40, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 238, 255, 0.1), inset 0 0 10px rgba(0, 200, 255, 0.1);
+  box-shadow: 0 0 15px rgba(100, 100, 100, 0.1), inset 0 0 10px rgba(150, 150, 150, 0.1);
 }
 
 /* 页眉 - 西电CTF风格 */
 .header {
-  background: rgba(0, 20, 40, 0.9) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 238, 255, 0.3) !important;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3) !important;
 }
 
 /* 页脚 - 流浪地球风格 */
 .footer {
-  background: rgba(0, 20, 40, 0.9) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(0, 238, 255, 0.3) !important;
+  border-top: 1px solid rgba(100, 100, 100, 0.3) !important;
 }
 
 /* 按钮样式 - 西电CTF风格 */
 .btn {
-  background: linear-gradient(45deg, #00eeff, #74ee15) !important;
+  background: linear-gradient(45deg, #cccccc, #999999) !important;
   border: none !important;
-  color: #000 !important;
+  color: #333 !important;
   padding: 8px 16px !important;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 238, 255, 0.3);
+  border: 1px solid rgba(100, 100, 100, 0.3);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 238, 255, 0.4);
-  background: linear-gradient(45deg, #74ee15, #00eeff) !important;
+  box-shadow: 0 5px 15px rgba(100, 100, 100, 0.4);
+  background: linear-gradient(45deg, #999999, #cccccc) !important;
 }
 
 /* 代码块 - 流浪地球风格 */
 .code {
-  background: rgba(0, 10, 20, 0.5) !important;
-  border: 1px solid rgba(0, 238, 255, 0.3) !important;
+  background: rgba(240, 240, 240, 0.5) !important;
+  border: 1px solid rgba(100, 100, 100, 0.3) !important;
   border-radius: 4px;
   padding: 2px 6px !important;
-  color: #74ee15;
+  color: #0066cc;
 }
 
 /* 选择性隐藏不需要的样式 */
@@ -488,60 +488,60 @@ a:hover {
 
 /* 确保目录和侧边栏内容可见 */
 .sidebar-nav {
-  color: #e6f7ff !important;
+  color: #333 !important;
 }
 
 .sidebar-container {
-  color: #e6f7ff !important;
+  color: #333 !important;
 }
 
 /* 个人简介区域 */
 .site-author {
-  background: rgba(0, 20, 40, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
   border-radius: 8px;
   padding: 15px !important;
   margin-bottom: 15px;
 }
 
 .site-author-name {
-  color: #00eeff !important;
+  color: #0066cc !important;
   text-align: center;
 }
 
 .site-description {
-  color: #e6f7ff !important;
+  color: #333 !important;
   text-align: center;
 }
 
 /* 目录导航 */
 .sidebar-nav a {
-  color: #e6f7ff !important;
+  color: #333 !important;
 }
 
 .sidebar-nav a:hover {
-  color: #74ee15 !important;
+  color: #0066cc !important;
 }
 
 /* 选中的导航项 */
 .sidebar-nav .sidebar-nav-active {
-  color: #74ee15 !important;
-  border-bottom: 2px solid #74ee15;
+  color: #0066cc !important;
+  border-bottom: 2px solid #0066cc;
 }
 
 /* 卡片样式 */
 .card {
-  background: rgba(0, 20, 40, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 238, 255, 0.1);
+  box-shadow: 0 0 15px rgba(100, 100, 100, 0.1);
 }
 
 /* 流浪地球风格的渐变色 */
 .gradient-text {
-  background: linear-gradient(45deg, #00eeff, #74ee15, #ffe700, #f000ff);
+  background: linear-gradient(45deg, #0066cc, #6699cc, #cccccc, #eeeeee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -550,7 +550,7 @@ a:hover {
 /* 流浪地球风格的边框 */
 .border-glow {
   border: 1px solid transparent;
-  background: linear-gradient(45deg, rgba(0, 238, 255, 0.2), rgba(116, 238, 21, 0.2)) border-box;
+  background: linear-gradient(45deg, rgba(100, 100, 100, 0.2), rgba(150, 150, 150, 0.2)) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
@@ -559,9 +559,9 @@ a:hover {
 
 /* 关于页面样式 */
 .about-content {
-  background: rgba(0, 20, 40, 0.7) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
   border-radius: 8px;
   padding: 25px !important;
   margin: 20px auto;
@@ -569,15 +569,15 @@ a:hover {
 }
 
 .cyber-card {
-  background: rgba(0, 10, 20, 0.5) !important;
+  background: rgba(240, 240, 240, 0.5) !important;
   backdrop-filter: blur(5px);
   border-radius: 8px;
   padding: 20px;
 }
 
 .neon-text {
-  color: #00eeff !important;
-  text-shadow: 0 0 5px #00eeff, 0 0 10px #00eeff !important;
+  color: #0066cc !important;
+  text-shadow: 0 0 5px #0066cc, 0 0 10px #0088ee !important;
 }
 
 .profile-section {
@@ -595,7 +595,7 @@ a:hover {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid #00eeff;
+  border: 2px solid #0066cc;
 }
 
 .avatar-glow {
@@ -605,7 +605,7 @@ a:hover {
   right: -5px;
   bottom: -5px;
   border-radius: 50%;
-  border: 2px solid #74ee15;
+  border: 2px solid #6699cc;
   filter: blur(5px);
   animation: pulse 2s infinite;
 }
@@ -626,12 +626,12 @@ a:hover {
 
 .info-item h3 {
   margin-bottom: 5px;
-  color: #00eeff !important;
+  color: #0066cc !important;
 }
 
 .info-item p {
   margin: 0;
-  color: #e6f7ff;
+  color: #333;
 }
 
 .cyber-profile-details {
@@ -646,14 +646,14 @@ a:hover {
 }
 
 .profile-detail {
-  background: rgba(0, 10, 20, 0.5);
+  background: rgba(240, 240, 240, 0.5);
   padding: 15px;
   border-radius: 6px;
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
 }
 
 .profile-detail h4 {
-  color: #00eeff !important;
+  color: #0066cc !important;
   margin-bottom: 8px;
 }
 
@@ -671,7 +671,7 @@ a:hover {
 
 .security-list li:before {
   content: '> ';
-  color: #74ee15;
+  color: #0066cc;
   position: absolute;
   left: 0;
 }
@@ -688,29 +688,29 @@ a:hover {
 }
 
 .contact-item {
-  background: rgba(0, 10, 20, 0.5);
+  background: rgba(240, 240, 240, 0.5);
   padding: 15px;
   border-radius: 6px;
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
   text-align: center;
 }
 
 .contact-item h4 {
-  color: #00eeff !important;
+  color: #0066cc !important;
   margin: 0 0 8px 0;
 }
 
 .contact-item p {
   margin: 0;
-  color: #e6f7ff;
+  color: #333;
 }
 
 .cyber-network-security {
   margin: 25px 0;
   padding: 20px;
-  background: rgba(0, 10, 20, 0.5);
+  background: rgba(240, 240, 240, 0.5);
   border-radius: 8px;
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
 }
 
 .cyber-links {
@@ -723,8 +723,8 @@ a:hover {
 .cyber-link {
   display: inline-block;
   padding: 10px 20px;
-  background: linear-gradient(45deg, #00eeff, #74ee15) !important;
-  color: #000 !important;
+  background: linear-gradient(45deg, #cccccc, #999999) !important;
+  color: #333 !important;
   text-decoration: none !important;
   border-radius: 25px;
   transition: all 0.3s ease;
@@ -739,70 +739,70 @@ a:hover {
   text-align: center;
   margin-top: 20px;
   padding: 15px;
-  background: rgba(0, 10, 20, 0.3);
+  background: rgba(240, 240, 240, 0.3);
   border-radius: 6px;
-  border: 1px solid rgba(0, 238, 255, 0.2);
+  border: 1px solid rgba(100, 100, 100, 0.2);
 }
 
 .cyber-quote p {
   font-style: italic;
-  color: #00eeff !important;
+  color: #0066cc !important;
   margin: 0;
 }
 
 /* 搜索框样式 */
 .search-input {
-  background: rgba(0, 10, 20, 0.5) !important;
-  border: 1px solid rgba(0, 238, 255, 0.3) !important;
-  color: #e6f7ff !important;
+  background: rgba(240, 240, 240, 0.5) !important;
+  border: 1px solid rgba(100, 100, 100, 0.3) !important;
+  color: #333 !important;
   border-radius: 4px;
   padding: 8px 12px !important;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #74ee15;
-  box-shadow: 0 0 10px rgba(116, 238, 21, 0.5);
+  border-color: #0066cc;
+  box-shadow: 0 0 10px rgba(0, 100, 200, 0.5);
 }
 
 /* 代码高亮块 */
 .highlight {
-  background: rgba(0, 10, 20, 0.7) !important;
-  border: 1px solid rgba(0, 238, 255, 0.2) !important;
+  background: rgba(240, 240, 240, 0.7) !important;
+  border: 1px solid rgba(100, 100, 100, 0.2) !important;
   border-radius: 6px;
   overflow: hidden;
 }
 
 /* 分类和标签样式 */
 .tag {
-  background: rgba(0, 238, 255, 0.2) !important;
-  border: 1px solid rgba(0, 238, 255, 0.3) !important;
-  color: #74ee15 !important;
+  background: rgba(150, 150, 150, 0.2) !important;
+  border: 1px solid rgba(100, 100, 100, 0.3) !important;
+  color: #0066cc !important;
   padding: 3px 8px !important;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .tag:hover {
-  background: rgba(116, 238, 21, 0.3) !important;
-  text-shadow: 0 0 5px #74ee15;
+  background: rgba(100, 100, 100, 0.3) !important;
+  text-shadow: 0 0 5px #0066cc;
 }
 
 /* 文章元数据 */
 .post-meta {
-  color: #4deeea !important;
+  color: #0066cc !important;
 }
 
 /* 归档页面样式 */
 .archive-list {
-  background: rgba(0, 20, 40, 0.5) !important;
+  background: rgba(240, 240, 240, 0.5) !important;
   border-radius: 8px;
   padding: 15px !important;
 }
 
 /* 分页导航 */
 .pagination {
-  background: rgba(0, 20, 40, 0.5) !important;
+  background: rgba(240, 240, 240, 0.5) !important;
   border-radius: 6px;
   padding: 10px !important;
 }
@@ -813,16 +813,16 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 20, 40, 0.2);
+  background: rgba(240, 240, 240, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#00eeff, #74ee15);
+  background: linear-gradient(#cccccc, #999999);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(#74ee15, #00eeff);
+  background: linear-gradient(#999999, #cccccc);
 }
 </style>
 <script src="/js/retro-tech.js"></script>
