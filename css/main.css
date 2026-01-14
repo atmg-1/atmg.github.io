@@ -1277,7 +1277,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #0b7f3d;
+  background: #e475ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2858,6 +2858,70 @@ blockquote {
   background: rgba(79,195,247,0.1);
   padding: 5px 8px;
   border-radius: 3px;
+}
+.search-pop-overlay {
+  background: rgba(10,26,42,0.95);
+  backdrop-filter: none;
+}
+.popup {
+  background: rgba(20,40,60,0.97);
+  border: 1px solid rgba(128,222,234,0.6);
+  box-shadow: 0 0 30px rgba(128,222,234,0.4), 0 0 10px rgba(128,222,234,0.2) inset;
+  border-radius: 8px;
+  color: #e8f4fd;
+  font-family: 'Segoe UI', 'Orbitron', sans-serif;
+}
+.popup .search-header {
+  border-bottom: 1px solid rgba(128,222,234,0.4);
+}
+.popup .search-header .search-input-container input {
+  background: rgba(10,26,42,0.7);
+  border: 1px solid rgba(128,222,234,0.5);
+  color: #e8f4fd;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.popup .search-header .search-input-container input:focus {
+  border: 1px solid #80deea;
+  box-shadow: 0 0 15px rgba(128,222,234,0.5);
+}
+.popup .search-header .popup-btn-close {
+  color: #80deea;
+  transition: all 0.3s ease;
+}
+.popup .search-header .popup-btn-close:hover {
+  color: #e0f7fa;
+  text-shadow: 0 0 10px rgba(128,222,234,0.7);
+}
+.popup .search-result-container .search-result {
+  border-bottom: 1px solid rgba(128,222,234,0.2);
+}
+.popup .search-result-container .search-result .search-result-title {
+  color: #80deea;
+  transition: all 0.3s ease;
+}
+.popup .search-result-container .search-result .search-result-title:hover {
+  color: #e0f7fa;
+  text-shadow: 0 0 8px rgba(128,222,234,0.6);
+  padding-left: 5px;
+}
+.popup .search-result-container .search-result .search-result-item {
+  border-left: 2px solid rgba(128,222,234,0.3);
+}
+.popup .search-result-container .search-result .search-result-item:hover {
+  border-left: 2px solid #80deea;
+  background: rgba(128,222,234,0.1);
+}
+.popup .search-result-container .search-result-icon {
+  color: #80deea;
+  text-align: center;
+  font-size: 24px;
+}
+.sidebar-panel-container {
+  background: rgba(20,40,60,0.95);
+  border: 1px solid rgba(128,222,234,0.5);
+  box-shadow: 0 0 25px rgba(128,222,234,0.3);
 }
 .note {
   border-radius: 6px;
