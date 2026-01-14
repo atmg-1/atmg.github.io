@@ -1277,7 +1277,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #e8ffcf;
+  background: #0b7f3d;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2680,9 +2680,11 @@ h5,
 h6 {
   font-family: 'Orbitron', 'Segoe UI', sans-serif;
   color: #80deea;
-  text-shadow: 0 0 5px rgba(128,222,234,0.7), 0 0 15px rgba(128,222,234,0.3);
+  text-shadow: 0 0 3px rgba(128,222,234,0.5), 0 0 8px rgba(128,222,234,0.3);
   margin: 20px 0 15px 0;
   font-weight: 500;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 h1 {
   font-size: 2.2em;
@@ -2704,11 +2706,15 @@ a {
   text-decoration: none;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
+  text-shadow: 0 0 2px rgba(128,222,234,0.3);
 }
 a:hover {
   color: #e0f7fa;
   border-bottom: 1px solid #80deea;
-  text-shadow: 0 0 5px rgba(128,222,234,0.8);
+  text-shadow: 0 0 8px rgba(128,222,234,0.6);
+  background: rgba(79,195,247,0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
 }
 .post-block,
 .sidebar,
@@ -2716,10 +2722,11 @@ a:hover {
 .footer,
 .card {
   background: rgba(20,40,60,0.95);
-  border: 1px solid rgba(79,195,247,0.5);
-  box-shadow: 0 0 20px rgba(79,195,247,0.2), inset 0 0 10px rgba(79,195,247,0.15);
+  border: 1px solid rgba(128,222,234,0.6);
+  box-shadow: 0 0 25px rgba(128,222,234,0.25), inset 0 0 15px rgba(128,222,234,0.2);
   border-radius: 8px;
-  padding: 20px;
+  padding: 25px;
+  backdrop-filter: none;
 }
 .main-menu {
   background: rgba(20,40,60,0.95);
@@ -2818,6 +2825,39 @@ blockquote {
   margin: 20px 0;
   border-radius: 0 4px 4px 0;
   color: #bbdefb;
+}
+.post-body {
+  color: #e8f4fd;
+  line-height: 1.8;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+.post-title {
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  color: #80deea;
+  text-shadow: 0 0 3px rgba(128,222,234,0.5), 0 0 8px rgba(128,222,234,0.3);
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.3s ease;
+}
+.post-title-link {
+  color: #80deea;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+  display: block;
+  padding: 5px 0;
+}
+.post-title-link:hover {
+  color: #e0f7fa;
+  border-bottom: 1px solid #80deea;
+  text-shadow: 0 0 8px rgba(128,222,234,0.6);
+  background: rgba(79,195,247,0.1);
+  padding: 5px 8px;
+  border-radius: 3px;
 }
 .note {
   border-radius: 6px;
