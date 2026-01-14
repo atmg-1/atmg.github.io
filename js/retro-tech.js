@@ -1,14 +1,83 @@
-// CTF风格科技效果 - 科幻/科技风个人博客系统
+// CTF西电风格科技效果 - 网络安全竞赛风格个人博客系统
 document.addEventListener('DOMContentLoaded', function() {
-  // 初始化所有科技效果
+  // 初始化所有CTF科技效果
   initCTFTechEffects();
   initSidebarMenu();
+  initDynamicParticles();
+  initTypewriterEffect();
 });
 
 // 初始化CTF科技效果
 function initCTFTechEffects() {
   // 添加数据流动画
   addDataStreamEffect();
+  // 添加终端打印效果
+  addTerminalPrintEffect();
+  // 添加CTF风格动画
+  addCTFAnimations();
+}
+
+// 初始化动态粒子效果
+function initDynamicParticles() {
+  const particleContainer = document.createElement('div');
+  particleContainer.className = 'particle-container';
+  document.body.appendChild(particleContainer);
+  
+  // 创建多个粒子
+  for (let i = 0; i < 30; i++) {
+    createParticle(particleContainer);
+  }
+  
+  // 定期添加新粒子以保持动态效果
+  setInterval(() => {
+    if (particleContainer.children.length < 40) {
+      createParticle(particleContainer);
+    }
+  }, 3000);
+}
+
+// 创建单个粒子
+function createParticle(container) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  
+  // 随机大小
+  const size = Math.random() * 5 + 1;
+  particle.style.width = `${size}px`;
+  particle.style.height = `${size}px`;
+  
+  // 随机位置
+  particle.style.left = `${Math.random() * 100}%`;
+  particle.style.top = `${Math.random() * 100}%`;
+  
+  // 随机动画时长和延迟
+  const duration = Math.random() * 20 + 10;
+  const delay = Math.random() * 5;
+  particle.style.animation = `float ${duration}s infinite linear ${delay}s`;
+  
+  container.appendChild(particle);
+}
+
+// 简化文字效果，避免影响文字显示
+function initTypewriterEffect() {
+  // 暂时禁用可能影响文字显示的打字机效果
+  // 保持原始文字内容不变，只添加轻微的淡入效果
+  setTimeout(() => {
+    const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headers.forEach(header => {
+      header.style.opacity = 0;
+      
+      let opacity = 0;
+      const timer = setInterval(() => {
+        opacity += 0.02;
+        header.style.opacity = opacity;
+        
+        if (opacity >= 1) {
+          clearInterval(timer);
+        }
+      }, 50);
+    });
+  }, 100);
 }
 
 // 移除可能导致闪烁的重复初始化
@@ -16,63 +85,47 @@ window.addEventListener('load', function() {
   // 确保只初始化一次
 });
 
-// 创建浮动粒子
-function createFloatingParticles() {
-  const particlesContainer = document.createElement('div');
-  particlesContainer.id = 'tech-particles';
-  particlesContainer.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-  `;
-
-  document.body.appendChild(particlesContainer);
-
-  // 创建少量粒子，减少性能负担和闪烁
-  for (let i = 0; i < 15; i++) {
-    setTimeout(() => {
-      createParticle(particlesContainer);
-    }, i * 500);
-  }
-}
-
-// 创建单个粒子
-function createParticle(container) {
-  const particle = document.createElement('div');
-
-  // 随机大小
-  const size = 1 + Math.random() * 2;
-  
-  // 随机位置
-  const posX = Math.random() * 100;
-  const posY = Math.random() * 100;
-
-  particle.style.cssText = `
-    position: absolute;
-    width: ${size}px;
-    height: ${size}px;
-    background: rgba(59, 130, 246, ${0.3 + Math.random() * 0.4});
-    border-radius: 50%;
-    top: ${posY}vh;
-    left: ${posX}vw;
-    box-shadow: 0 0 ${5 + Math.random() * 10}px rgba(59, 130, 246, 0.8);
-    animation: floatParticle ${15 + Math.random() * 15}s linear infinite;
-    filter: blur(1px);
-  `;
-
-  container.appendChild(particle);
-
-  // 20秒后移除粒子
-  setTimeout(() => {
-    if (particle.parentNode) {
-      particle.remove();
+// 添加终端打印效果
+function addTerminalPrintEffect() {
+  // 创建终端样式的动画效果
+  const terminalStyle = document.createElement('style');
+  terminalStyle.textContent = `
+    /* 终端光标闪烁效果 */
+    .terminal-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background-color: #00ff00;
+      vertical-align: middle;
+      animation: blink 1s infinite;
+      margin-left: 4px;
     }
-  }, 20000);
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    /* 终端文本输入动画 */
+    .terminal-typewriter {
+      overflow: hidden;
+      border-right: 2px solid #00ff00;
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #00ff00; }
+    }
+  `;
+
+  document.head.appendChild(terminalStyle);
 }
 
 // 添加数据流动画
@@ -103,12 +156,12 @@ function addDataStreamEffect() {
       }
     }
     
-    /* 数据流线条动画 */
+    /* CTF风格数据流线条动画 */
     .data-stream-line {
       position: fixed;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent);
-      filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 4px rgba(59, 130, 246, 0.6));
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.8), transparent);
+      filter: drop-shadow(0 0 2px rgba(0, 255, 0, 0.8)) drop-shadow(0 0 4px rgba(0, 255, 0, 0.6));
       animation: streamMove 3s linear infinite;
       z-index: -2;
     }
@@ -124,37 +177,65 @@ function addDataStreamEffect() {
   document.head.appendChild(style);
 }
 
+// 添加CTF风格动画
+function addCTFAnimations() {
+  // 创建CTF风格的动画效果
+  const ctfStyle = document.createElement('style');
+  ctfStyle.textContent = `
+    /* CTF风格脉冲动画 */
+    .ctf-pulse {
+      animation: ctfPulse 2s infinite;
+    }
+    
+    @keyframes ctfPulse {
+      0% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+      50% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 200, 0, 0.6); }
+      100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+    }
+    
+    /* CTF风格扫描动画 */
+    .ctf-scan {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ctf-scan::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+      animation: ctfScan 3s linear infinite;
+    }
+    
+    @keyframes ctfScan {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    /* CTF风格闪烁动画 */
+    .ctf-flicker {
+      animation: ctfFlicker 1.5s infinite;
+    }
+    
+    @keyframes ctfFlicker {
+      0%, 100% { opacity: 1; filter: brightness(1); }
+      25% { opacity: 0.8; filter: brightness(1.1); }
+      50% { opacity: 0.6; filter: brightness(0.9); }
+      75% { opacity: 0.9; filter: brightness(1.05); }
+    }
+  `;
+  
+  document.head.appendChild(ctfStyle);
+}
+
 // 初始化左侧侧边栏菜单 - 已禁用弹出功能
 function initSidebarMenu() {
   // 不创建弹出侧边栏，保持默认侧边栏
   console.log('侧边栏弹出功能已禁用');
   return;
-}
-
-// 打开侧边栏
-function openSidebar() {
-  const sidebar = document.getElementById('sidebar-menu');
-  const overlay = document.getElementById('sidebar-overlay');
-  
-  sidebar.style.left = '0';
-  overlay.style.opacity = '1';
-  overlay.style.visibility = 'visible';
-  
-  // 防止背景滚动
-  document.body.style.overflow = 'hidden';
-}
-
-// 关闭侧边栏
-function closeSidebar() {
-  const sidebar = document.getElementById('sidebar-menu');
-  const overlay = document.getElementById('sidebar-overlay');
-  
-  sidebar.style.left = '-300px';
-  overlay.style.opacity = '0';
-  overlay.style.visibility = 'hidden';
-  
-  // 恢复背景滚动
-  document.body.style.overflow = 'auto';
 }
 
 // 添加页面过渡效果
