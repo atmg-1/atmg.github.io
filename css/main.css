@@ -1277,7 +1277,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #e475ff;
+  background: #52a605;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2918,10 +2918,145 @@ blockquote {
   text-align: center;
   font-size: 24px;
 }
-.sidebar-panel-container {
+.sidebar {
+  background: rgba(20,40,60,0.95);
+  border: 1px solid rgba(128,222,234,0.5);
+  box-shadow: 0 0 25px rgba(128,222,234,0.3), inset 0 0 15px rgba(128,222,234,0.2);
+  border-radius: 8px;
+  color: #e8f4fd;
+  padding: 20px;
+  backdrop-filter: none;
+}
+.sidebar .sidebar-title {
+  color: #80deea;
+  border-bottom: 1px solid rgba(128,222,234,0.4);
+  text-shadow: 0 0 5px rgba(128,222,234,0.4);
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+.sidebar .sidebar-nav {
+  margin: 0;
+  padding: 0;
+}
+.sidebar .sidebar-nav > li {
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.sidebar .sidebar-nav > li:hover {
+  border-left: 2px solid #80deea;
+  background: rgba(128,222,234,0.1);
+  transform: translateX(5px);
+}
+.sidebar .sidebar-nav > li.active {
+  border-left: 2px solid #80deea;
+  background: rgba(128,222,234,0.15);
+}
+.sidebar .sidebar-nav > li a {
+  color: #e8f4fd;
+  padding: 8px 15px;
+  display: block;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+.sidebar .sidebar-nav > li a:hover {
+  color: #e0f7fa;
+  background: rgba(128,222,234,0.2);
+  text-shadow: 0 0 8px rgba(128,222,234,0.6);
+}
+.sidebar .sidebar-nav > li a.active {
+  color: #e0f7fa;
+  background: rgba(128,222,234,0.25);
+  border-left: 2px solid #80deea;
+}
+.sidebar .sidebar-panel-container {
   background: rgba(20,40,60,0.95);
   border: 1px solid rgba(128,222,234,0.5);
   box-shadow: 0 0 25px rgba(128,222,234,0.3);
+  border-radius: 8px;
+  padding: 15px;
+}
+.sidebar .sidebar-panel-container .site-overview .site-author .site-author-name {
+  color: #80deea;
+  text-shadow: 0 0 5px rgba(128,222,234,0.4);
+  margin-bottom: 10px;
+}
+.sidebar .sidebar-panel-container .site-overview .site-author .site-description {
+  color: #bbdefb;
+  font-size: 14px;
+}
+.sidebar .sidebar-panel-container .site-overview .site-state {
+  border-top: 1px solid rgba(128,222,234,0.3);
+}
+.sidebar .sidebar-panel-container .site-overview .site-state .site-state-item a {
+  border-bottom: none;
+}
+.sidebar .sidebar-panel-container .site-overview .site-state .site-state-item a .site-state-item-name {
+  color: #bbdefb;
+}
+.sidebar .sidebar-panel-container .site-overview .site-state .site-state-item a .site-state-item-value {
+  color: #80deea;
+  text-shadow: 0 0 5px rgba(128,222,234,0.4);
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc-title {
+  color: #80deea;
+  text-shadow: 0 0 5px rgba(128,222,234,0.4);
+  border-bottom: 1px solid rgba(128,222,234,0.3);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol {
+  padding-left: 15px;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li {
+  margin: 8px 0;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > ol {
+  padding-left: 12px;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > ol > li {
+  margin: 6px 0;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > ol > li a {
+  color: #bbdefb;
+  transition: all 0.3s ease;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > ol > li a:hover {
+  color: #e0f7fa;
+  text-shadow: 0 0 8px rgba(128,222,234,0.6);
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > a {
+  color: #80deea;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > a:hover {
+  color: #e0f7fa;
+  background: rgba(128,222,234,0.15);
+  text-shadow: 0 0 8px rgba(128,222,234,0.6);
+}
+.sidebar .sidebar-panel-container .post-toc .post-toc ol > li > a.active {
+  color: #e0f7fa;
+  background: rgba(128,222,234,0.25);
+  border-left: 2px solid #80deea;
+}
+.sidebar-toggle {
+  background: rgba(128,222,234,0.2);
+  border: 1px solid rgba(128,222,234,0.5);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.sidebar-toggle:hover {
+  background: rgba(128,222,234,0.3);
+  box-shadow: 0 0 15px rgba(128,222,234,0.5);
+}
+.sidebar-toggle .toggle-line {
+  background: #80deea;
+}
+.sidebar-dimmer {
+  background: rgba(10,26,42,0.8);
 }
 .note {
   border-radius: 6px;
