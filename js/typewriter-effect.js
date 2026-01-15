@@ -116,10 +116,11 @@ function fadeOutLoadingScreen() {
   }
 }
 
-// 添加键盘事件，允许用户跳过动画
-document.addEventListener('keydown', function(e) {
-  if (document.body.classList.contains('loading')) {
-    // 如果按下任意键，跳过动画
+// 固定3秒后自动完成动画
+typeTimeout();
+
+function typeTimeout() {
+  setTimeout(() => {
     const loadingScreen = document.querySelector('.loading-screen');
     if (loadingScreen) {
       loadingScreen.style.display = 'none';
@@ -128,5 +129,5 @@ document.addEventListener('keydown', function(e) {
       // 标记已经显示过打字机效果
       localStorage.setItem('typewriterShown', 'true');
     }
-  }
-});
+  }, 3000);
+}
