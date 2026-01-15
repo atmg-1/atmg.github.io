@@ -1,91 +1,131 @@
 // 流浪地球风格 - JavaScript增强功能
 
-// 侧边栏增强功能
-function initSidebarEnhancements() {
-  // 获取侧边栏和遮罩元素
-  const sidebar = document.querySelector('.sidebar');
-  const sidebarDimmer = document.querySelector('.sidebar-dimmer');
-  const sidebarToggle = document.querySelector('.sidebar-toggle');
+// 创建黑客风格背景效果
+function createHackerBackground() {
+  // 创建电路背景层
+  const hackerBg = document.createElement('div');
+  hackerBg.className = 'hacker-background';
+  document.body.appendChild(hackerBg);
   
-  // 添加完全隐藏侧边栏的功能
-  if (sidebar && sidebarDimmer) {
-    // 点击遮罩隐藏侧边栏
-    sidebarDimmer.addEventListener('click', function() {
-      hideSidebar();
-    });
-    
-    // ESC键隐藏侧边栏
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        hideSidebar();
-      }
-    });
-  }
+  // 创建电路连线层
+  const circuitLines = document.createElement('div');
+  circuitLines.className = 'circuit-lines';
+  document.body.appendChild(circuitLines);
   
-  // 隐藏侧边栏函数
-  function hideSidebar() {
-    if (sidebar) {
-      sidebar.classList.add('hidden');
-    }
-    if (sidebarDimmer) {
-      sidebarDimmer.classList.add('hidden');
-    }
-    // 移除激活类
-    document.body.classList.remove('sidebar-active');
+  // 创建数据流层
+  const dataFlow = document.createElement('div');
+  dataFlow.className = 'data-flow';
+  
+  // 添加数据流线条
+  for (let i = 0; i < 9; i++) {
+    const flowLine = document.createElement('div');
+    flowLine.className = 'flow-line';
+    dataFlow.appendChild(flowLine);
   }
-
-  // 如果有侧边栏切换按钮，也绑定隐藏功能
-  if (sidebarToggle) {
-    sidebarToggle.addEventListener('click', function() {
-      // 检查侧边栏当前是否激活
-      const isActive = document.body.classList.contains('sidebar-active');
-      if (isActive) {
-        // 如果激活，则在点击后再次隐藏
-        setTimeout(hideSidebar, 300); // 等待动画完成
-      }
-    });
-  }
-
-  // 添加侧边栏菜单项的点击隐藏功能
-  const sidebarMenuItems = document.querySelectorAll('.sidebar-nav a');
-  sidebarMenuItems.forEach(function(item) {
-    item.addEventListener('click', function() {
-      // 延迟隐藏侧边栏，让链接跳转先发生
-      setTimeout(hideSidebar, 100);
-    });
-  });
-
-  // 添加键盘快捷键功能
-  document.addEventListener('keydown', function(event) {
-    // Ctrl/Cmd + Shift + S 隐藏侧边栏
-    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === 's') {
-      event.preventDefault();
-      hideSidebar();
-    }
-  });
-
-  // 为侧边栏添加滚动监听，防止内容滚动时侧边栏干扰
-  if (sidebar) {
-    sidebar.addEventListener('wheel', function(e) {
-      // 防止侧边栏滚动影响页面滚动
-      const scrollTop = this.scrollTop;
-      const scrollHeight = this.scrollHeight;
-      const clientHeight = this.clientHeight;
-      const delta = e.deltaY;
-
-      // 只有在滚动到顶部或底部时才允许页面滚动
-      if ((delta < 0 && scrollTop === 0) || (delta > 0 && scrollTop + clientHeight >= scrollHeight)) {
-        e.stopPropagation();
-      }
-    }, { passive: false });
-  }
+  document.body.appendChild(dataFlow);
+  
+  // 创建脉冲节点
+  const pulseNodes = document.createElement('div');
+  pulseNodes.className = 'pulse-nodes';
+  document.body.appendChild(pulseNodes);
 }
 
-// 在DOM加载完成后初始化侧边栏增强功能
+// 创建简洁的导航弹窗
+function initNavModal() {
+  // 创建导航弹窗HTML
+  const navModal = document.createElement('div');
+  navModal.className = 'nav-modal';
+  navModal.innerHTML = `
+    <div class="nav-modal-content">
+      <button class="nav-modal-close">×</button>
+      <div class="nav-modal-header">
+        <h3>导航菜单</h3>
+      </div>
+      <ul class="nav-modal-menu">
+        <li><a href="/atmg.github.io/"><i class="fa fa-home"></i>首页</a></li>
+        <li><a href="/atmg.github.io/about/"><i class="fa fa-user"></i>关于</a></li>
+        <li><a href="/atmg.github.io/tags/"><i class="fa fa-tags"></i>标签</a></li>
+        <li><a href="/atmg.github.io/categories/"><i class="fa fa-th"></i>分类</a></li>
+        <li><a href="/atmg.github.io/archives/"><i class="fa fa-archive"></i>归档</a></li>
+        <li><a href="#" class="popup-trigger"><i class="fa fa-search"></i>搜索</a></li>
+      </ul>
+    </div>
+  `;
+  document.body.appendChild(navModal);
+  
+  // 创建导航按钮
+  const navButton = document.createElement('div');
+  navButton.className = 'nav-toggle-btn';
+  navButton.innerHTML = `
+    <div class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  `;
+  document.body.appendChild(navButton);
+  
+  // 获取菜单元素
+  const modalCloseBtn = navModal.querySelector('.nav-modal-close');
+  const menuLinks = navModal.querySelectorAll('.nav-modal-menu a');
+  
+  // 显示弹窗
+  function showModal() {
+    navModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+  }
+  
+  // 隐藏弹窗
+  function hideModal() {
+    navModal.classList.remove('active');
+    document.body.style.overflow = ''; // 恢复滚动
+  }
+  
+  // 点击导航按钮显示弹窗
+  navButton.addEventListener('click', showModal);
+  
+  // 点击关闭按钮隐藏弹窗
+  modalCloseBtn.addEventListener('click', hideModal);
+  
+  // 点击弹窗外区域隐藏弹窗
+  navModal.addEventListener('click', function(e) {
+    if (e.target === navModal) {
+      hideModal();
+    }
+  });
+  
+  // ESC键关闭弹窗
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navModal.classList.contains('active')) {
+      hideModal();
+    }
+  });
+  
+  // 为菜单项添加点击事件
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // 对于搜索链接，触发搜索功能
+      if (this.classList.contains('popup-trigger')) {
+        // 触发现有的搜索功能
+        const searchPopup = document.querySelector('.search-pop-overlay');
+        if (searchPopup) {
+          searchPopup.click(); // 点击搜索overlay来触发搜索
+        }
+      }
+      hideModal(); // 点击后隐藏弹窗
+    });
+  });
+}
+
+// 初始化所有效果
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSidebarEnhancements);
+  document.addEventListener('DOMContentLoaded', function() {
+    createHackerBackground();
+    initNavModal();
+  });
 } else {
-  initSidebarEnhancements();
+  createHackerBackground();
+  initNavModal();
 }
 
 // 添加流浪地球主题的动态效果

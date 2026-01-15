@@ -353,36 +353,457 @@ html, body
   color: #e8f4fd  // 更亮的文字颜色
   min-height: 100vh
   position: relative
+  overflow-x: hidden
 
-// 增强科技感背景
-body::before
-  content: ''
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
+// 黑客帝国风格电路背景
+.hacker-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1005;
+  pointer-events: none;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(rgba(0, 255, 128, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 128, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+// 电路板连线效果
+.circuit-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1004;
+  pointer-events: none;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    // 水平和垂直连线
+    background-image: 
+      linear-gradient(transparent 49%, rgba(0, 255, 128, 0.2) 50%, transparent 51%),
+      linear-gradient(90deg, transparent 49%, rgba(0, 255, 128, 0.2) 50%, transparent 51%);
+    background-size: 100px 100px;
+  }
+  
+  &::after {
+    // 斜向连线
+    background-image: 
+      linear-gradient(45deg, transparent 49%, rgba(0, 255, 128, 0.1) 50%, transparent 51%),
+      linear-gradient(-45deg, transparent 49%, rgba(0, 255, 128, 0.1) 50%, transparent 51%);
+    background-size: 100px 100px;
+  }
+}
+
+// 数据流效果
+.data-flow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1003;
+  pointer-events: none;
+  overflow: hidden;
+  
+  .flow-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 128, 0.8), rgba(0, 255, 128, 0.5), transparent);
+    animation: flow-data 8s linear infinite;
+    
+    // 随机位置和速度
+    &:nth-child(1) { top: 10%; animation-delay: 0s; }
+    &:nth-child(2) { top: 20%; animation-delay: 2s; }
+    &:nth-child(3) { top: 30%; animation-delay: 4s; }
+    &:nth-child(4) { top: 40%; animation-delay: 1s; }
+    &:nth-child(5) { top: 50%; animation-delay: 3s; }
+    &:nth-child(6) { top: 60%; animation-delay: 5s; }
+    &:nth-child(7) { top: 70%; animation-delay: 2s; }
+    &:nth-child(8) { top: 80%; animation-delay: 4s; }
+    &:nth-child(9) { top: 90%; animation-delay: 6s; }
+  }
+}
+
+@keyframes flow-data {
+  0% {
+    left: -100px;
+    width: 100px;
+  }
+  100% {
+    left: 100%;
+    width: 100px;
+  }
+}
+
+// 黑客代码雨效果
+.matrix-code {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1002;
+  pointer-events: none;
+  color: rgba(0, 255, 128, 0.05);
+  font-size: 14px;
+  font-family: monospace;
+  letter-spacing: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 脉冲节点效果
+.pulse-nodes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1001;
+  pointer-events: none;
+  
+  .pulse-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 255, 128, 0.6);
+    border-radius: 50%;
+    animation: pulse-glow 2s infinite;
+    
+    // 随机分布
+    &:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+    &:nth-child(2) { top: 25%; left: 20%; animation-delay: 0.5s; }
+    &:nth-child(3) { top: 35%; left: 80%; animation-delay: 1s; }
+    &:nth-child(4) { top: 45%; left: 70%; animation-delay: 1.5s; }
+    &:nth-child(5) { top: 55%; left: 30%; animation-delay: 0s; }
+    &:nth-child(6) { top: 65%; left: 60%; animation-delay: 0.8s; }
+    &:nth-child(7) { top: 75%; left: 40%; animation-delay: 1.2s; }
+    &:nth-child(8) { top: 85%; left: 90%; animation-delay: 0.3s; }
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 255, 128, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 128, 0.9), 0 0 30px rgba(0, 255, 128, 0.5);
+    transform: scale(1.5);
+  }
+}
+
+// 增强型动态粒子背景
+.particle-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1002;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(128, 222, 234, 0.3);
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+// 数据流效果
+.data-stream {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1003;
+  overflow: hidden;
+  
+  .stream-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(128, 222, 234, 0.6), transparent);
+    animation: stream-move 15s linear infinite;
+  }
+}
+
+@keyframes stream-move {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+// 全息投影效果
+.holographic-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1004;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(128, 222, 234, 0.05) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(128, 222, 234, 0.05) 0%, transparent 20%),
-    radial-gradient(circle at 50% 50%, rgba(128, 222, 234, 0.03) 0%, transparent 30%)
-  pointer-events: none
-  z-index: -1001
+    radial-gradient(circle at 20% 30%, rgba(128, 222, 234, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(128, 222, 234, 0.05) 0%, transparent 20%);
+  animation: holographic-float 20s ease-in-out infinite;
+}
 
-// 网格背景
-body::after
-  content: ''
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-image: 
-    linear-gradient(rgba(128, 222, 234, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(128, 222, 234, 0.03) 1px, transparent 1px)
-  background-size: 50px 50px
-  pointer-events: none
-  z-index: -1000
+@keyframes holographic-float {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: rotate(1deg);
+  }
+}
+
+// 能量场效果
+.energy-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1005;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(128, 222, 234, 0.1) 0%, transparent 70%);
+    animation: energy-pulse 8s ease-in-out infinite;
+  }
+}
+
+@keyframes energy-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.2;
+  }
+}
+
+// 扫描线效果
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1006;
+  background: linear-gradient(to bottom, transparent 0%, rgba(128, 222, 234, 0.05) 1%, transparent 2%);
+  animation: scan-animation 8s linear infinite;
+}
+
+@keyframes scan-animation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+// 简洁的导航弹窗样式
+.nav-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 30, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.nav-modal-content {
+  background: rgba(20, 40, 60, 0.95);
+  border: 1px solid rgba(128, 222, 234, 0.6);
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 30px rgba(128, 222, 234, 0.3);
+  text-align: center;
+}
+
+.nav-modal-header {
+  margin-bottom: 20px;
+  
+  h3 {
+    margin: 0;
+    color: #80deea;
+    font-size: 1.5em;
+  }
+}
+
+.nav-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #e0f7fa;
+  font-size: 1.5em;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(128, 222, 234, 0.2);
+    color: #80deea;
+    transform: scale(1.1);
+  }
+}
+
+.nav-modal-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin-bottom: 12px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    a {
+      display: block;
+      padding: 15px;
+      color: #e0f7fa;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(128, 222, 234, 0.2);
+      
+      &:hover {
+        background: rgba(128, 222, 234, 0.2);
+        color: #80deea;
+        border-color: rgba(128, 222, 234, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// 简洁的导航按钮样式
+.nav-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(128, 222, 234, 0.2);
+  border: 1px solid rgba(128, 222, 234, 0.4);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  
+  &:hover {
+    background: rgba(128, 222, 234, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(128, 222, 234, 0.4);
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    height: 16px;
+    justify-content: space-between;
+    
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: #80deea;
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+// 平滑过渡动画
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
 
 // 标题样式 - 使用科幻字体
 h1, h2, h3, h4, h5, h6
