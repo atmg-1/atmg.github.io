@@ -27,14 +27,6 @@ function showTypewriterAnimation() {
           <span class="typewriter-text" id="typewriter-text"></span>
           <span class="cursor" id="typewriter-cursor">█</span>
         </div>
-        <div class="typewriter-output" id="typewriter-output"></div>
-        <div class="typewriter-footer">
-          <div class="system-info">
-            <span class="info-item">System: Wandering Earth 2026</span>
-            <span class="info-item">Kernel: Linux 5.4.0</span>
-            <span class="info-item">Uptime: 24d 18h 32m</span>
-          </div>
-        </div>
       </div>
     </div>
   `;
