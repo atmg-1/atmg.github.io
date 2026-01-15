@@ -6,7 +6,7 @@
   <link href="https://atmg-1.github.io/atmg.github.io/atom.xml" rel="self"/>
   
   <link href="https://atmg-1.github.io/atmg.github.io/"/>
-  <updated>2026-01-15T05:58:15.694Z</updated>
+  <updated>2026-01-15T06:36:10.281Z</updated>
   <id>https://atmg-1.github.io/atmg.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="https://atmg-1.github.io/atmg.github.io/2026/01/15/hello-world/"/>
     <id>https://atmg-1.github.io/atmg.github.io/2026/01/15/hello-world/</id>
-    <published>2026-01-15T05:58:15.694Z</published>
-    <updated>2026-01-15T05:58:15.694Z</updated>
+    <published>2026-01-15T06:36:10.281Z</published>
+    <updated>2026-01-15T06:36:10.281Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -41,7 +41,7 @@
     <link href="https://atmg-1.github.io/atmg.github.io/2026/01/13/test-post/"/>
     <id>https://atmg-1.github.io/atmg.github.io/2026/01/13/test-post/</id>
     <published>2026-01-13T07:13:37.000Z</published>
-    <updated>2026-01-15T05:58:15.695Z</updated>
+    <updated>2026-01-15T06:36:10.282Z</updated>
     
     
     
@@ -54,7 +54,7 @@
     <link href="https://atmg-1.github.io/atmg.github.io/2025/12/30/%EF%BC%81%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%20%EF%BC%81/"/>
     <id>https://atmg-1.github.io/atmg.github.io/2025/12/30/%EF%BC%81%E5%85%83%E6%97%A6%E5%BF%AB%E4%B9%90%20%EF%BC%81/</id>
     <published>2025-12-30T13:42:07.000Z</published>
-    <updated>2026-01-15T05:58:15.697Z</updated>
+    <updated>2026-01-15T06:36:10.284Z</updated>
     
     <content type="html"><![CDATA[<p>✨ 愿你在新的一年里：晨光赶走旧岁尘，岁月温柔常待君。烟火点亮平安路，清风送福入家门。事业如竹节节盛，生活似糖日日甜。健康常伴岁月暖，笑颜永驻心自安。2026年，所期皆所愿，所行化坦途，每个寻常日子都藏着惊喜，每次奔赴都有回响！🎉 </p>]]></content>
     
@@ -79,7 +79,7 @@
     <link href="https://atmg-1.github.io/atmg.github.io/2025/12/30/%E5%A4%A7%E5%AE%B6%E5%A5%BD%E5%95%8A%EF%BC%81/"/>
     <id>https://atmg-1.github.io/atmg.github.io/2025/12/30/%E5%A4%A7%E5%AE%B6%E5%A5%BD%E5%95%8A%EF%BC%81/</id>
     <published>2025-12-30T12:51:00.000Z</published>
-    <updated>2026-01-15T05:58:15.696Z</updated>
+    <updated>2026-01-15T06:36:10.283Z</updated>
     
     <content type="html"><![CDATA[<p>大家好啊！ </p>]]></content>
     
@@ -100,7 +100,7 @@
     <link href="https://atmg-1.github.io/atmg.github.io/2025/12/30/Hello-World-0/"/>
     <id>https://atmg-1.github.io/atmg.github.io/2025/12/30/Hello-World-0/</id>
     <published>2025-12-30T11:08:14.000Z</published>
-    <updated>2026-01-15T05:58:15.693Z</updated>
+    <updated>2026-01-15T06:36:10.279Z</updated>
     
     
     
