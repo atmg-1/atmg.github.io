@@ -1277,7 +1277,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #14b9a6;
+  background: #e0914b;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2862,28 +2862,170 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-body::before {
-  content: '';
+.hacker-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 20%, rgba(128,222,234,0.05) 0%, transparent 20%), radial-gradient(circle at 90% 80%, rgba(128,222,234,0.05) 0%, transparent 20%), radial-gradient(circle at 50% 50%, rgba(128,222,234,0.03) 0%, transparent 30%);
+  z-index: -1005;
   pointer-events: none;
-  z-index: -1001;
 }
-body::after {
+.hacker-background::before {
   content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,255,128,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,128,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.circuit-lines {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(128,222,234,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(128,222,234,0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+  z-index: -1004;
   pointer-events: none;
-  z-index: -1000;
+}
+.circuit-lines::before,
+.circuit-lines::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(transparent 49%, rgba(0,255,128,0.2) 50%, transparent 51%), linear-gradient(90deg, transparent 49%, rgba(0,255,128,0.2) 50%, transparent 51%);
+  background-size: 100px 100px;
+}
+.circuit-lines::after {
+  background-image: linear-gradient(45deg, transparent 49%, rgba(0,255,128,0.1) 50%, transparent 51%), linear-gradient(-45deg, transparent 49%, rgba(0,255,128,0.1) 50%, transparent 51%);
+  background-size: 100px 100px;
+}
+.data-flow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1003;
+  pointer-events: none;
+  overflow: hidden;
+}
+.data-flow .flow-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0,255,128,0.8), rgba(0,255,128,0.5), transparent);
+  animation: flow-data 8s linear infinite;
+}
+.data-flow .flow-line:nth-child(1) {
+  top: 10%;
+  animation-delay: 0s;
+}
+.data-flow .flow-line:nth-child(2) {
+  top: 20%;
+  animation-delay: 2s;
+}
+.data-flow .flow-line:nth-child(3) {
+  top: 30%;
+  animation-delay: 4s;
+}
+.data-flow .flow-line:nth-child(4) {
+  top: 40%;
+  animation-delay: 1s;
+}
+.data-flow .flow-line:nth-child(5) {
+  top: 50%;
+  animation-delay: 3s;
+}
+.data-flow .flow-line:nth-child(6) {
+  top: 60%;
+  animation-delay: 5s;
+}
+.data-flow .flow-line:nth-child(7) {
+  top: 70%;
+  animation-delay: 2s;
+}
+.data-flow .flow-line:nth-child(8) {
+  top: 80%;
+  animation-delay: 4s;
+}
+.data-flow .flow-line:nth-child(9) {
+  top: 90%;
+  animation-delay: 6s;
+}
+.matrix-code {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1002;
+  pointer-events: none;
+  color: rgba(0,255,128,0.05);
+  font-size: 14px;
+  font-family: monospace;
+  letter-spacing: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.pulse-nodes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1001;
+  pointer-events: none;
+}
+.pulse-nodes .pulse-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(0,255,128,0.6);
+  border-radius: 50%;
+  animation: pulse-glow 2s infinite;
+}
+.pulse-nodes .pulse-node:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.pulse-nodes .pulse-node:nth-child(2) {
+  top: 25%;
+  left: 20%;
+  animation-delay: 0.5s;
+}
+.pulse-nodes .pulse-node:nth-child(3) {
+  top: 35%;
+  left: 80%;
+  animation-delay: 1s;
+}
+.pulse-nodes .pulse-node:nth-child(4) {
+  top: 45%;
+  left: 70%;
+  animation-delay: 1.5s;
+}
+.pulse-nodes .pulse-node:nth-child(5) {
+  top: 55%;
+  left: 30%;
+  animation-delay: 0s;
+}
+.pulse-nodes .pulse-node:nth-child(6) {
+  top: 65%;
+  left: 60%;
+  animation-delay: 0.8s;
+}
+.pulse-nodes .pulse-node:nth-child(7) {
+  top: 75%;
+  left: 40%;
+  animation-delay: 1.2s;
+}
+.pulse-nodes .pulse-node:nth-child(8) {
+  top: 85%;
+  left: 90%;
+  animation-delay: 0.3s;
 }
 .particle-field {
   position: fixed;
@@ -3847,6 +3989,26 @@ body.loading {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(128,222,234,0);
+  }
+}
+@keyframes flow-data {
+  0% {
+    left: -100px;
+    width: 100px;
+  }
+  100% {
+    left: 100%;
+    width: 100px;
+  }
+}
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0,255,128,0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0,255,128,0.9), 0 0 30px rgba(0,255,128,0.5);
+    transform: scale(1.5);
   }
 }
 @keyframes float-particle {
