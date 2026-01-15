@@ -24,7 +24,6 @@ function showTypewriterAnimation() {
     <div class="typewriter-container">
       <div class="typewriter-content">
         <div class="typewriter-header">
-          <span class="terminal-prompt">visitor@wandering-earth:~$ </span>
           <span class="typewriter-text" id="typewriter-text"></span>
           <span class="cursor" id="typewriter-cursor">█</span>
         </div>
@@ -43,26 +42,33 @@ function showTypewriterAnimation() {
   document.body.insertBefore(loadingScreen, document.body.firstChild);
   document.body.classList.add('loading');
   
-  // 定义打字机内容序列
-  const typewriterSequence = [
-    { text: 'Initializing Wandering Earth System...', delay: 500 },
-    { text: 'Loading quantum drive cores...', delay: 800 },
-    { text: 'Calibrating planetary engines...', delay: 1000 },
-    { text: 'Checking navigation systems...', delay: 700 },
-    { text: 'Establishing quantum entanglement...', delay: 900 },
-    { text: 'Accessing underground city networks...', delay: 800 },
-    { text: 'Connecting to Beijing 2078 Control Center...', delay: 1000 },
-    { text: 'Welcome to the Wandering Earth Blog!', delay: 1000 }
+  // 定义博客标题序列
+  const blogTitleSequence = [
+    '叶_',
+    '叶同_',
+    '叶同__',
+    '叶同学_',
+    '叶同学__',
+    '叶同学的_',
+    '叶同学的博_',
+    '叶同学的博客_'
   ];
   
-  // 开始打字机序列
-  typeSequence(typewriterSequence, 0);
+  // 开始标题打字机序列
+  typeBlogTitle(blogTitleSequence, 0);
 }
 
-function typeSequence(sequence, index) {
+// 逐步显示博客标题的函数
+function typeBlogTitle(sequence, index) {
   if (index >= sequence.length) {
-    // 序列完成后，淡出加载屏幕
-    setTimeout(fadeOutLoadingScreen, 2000);
+    // 标题显示完成后，移除下划线并淡出加载屏幕
+    setTimeout(() => {
+      const textElement = document.getElementById('typewriter-text');
+      if (textElement) {
+        textElement.textContent = textElement.textContent.replace(/_/g, ''); // 移除所有下划线
+      }
+      setTimeout(fadeOutLoadingScreen, 1000);
+    }, 1000);
     return;
   }
   
@@ -74,22 +80,16 @@ function typeSequence(sequence, index) {
   textElement.textContent = '';
   
   // 显示当前项的文本，逐字打字
-  typeText(currentItem.text, 0, () => {
+  typeText(currentItem, 0, () => {
     // 文本打完后等待指定延迟，然后继续下一项
     setTimeout(() => {
-      // 添加输出到输出区域
-      const outputElement = document.getElementById('typewriter-output');
-      const outputLine = document.createElement('div');
-      outputLine.className = 'output-line';
-      outputLine.textContent = currentItem.text.replace('...', '');
-      outputElement.appendChild(outputLine);
-      
       // 继续下一个序列
-      typeSequence(sequence, index + 1);
-    }, currentItem.delay);
+      typeBlogTitle(sequence, index + 1);
+    }, 800);
   });
 }
 
+// 逐字打字函数
 function typeText(text, index, callback) {
   const textElement = document.getElementById('typewriter-text');
   const cursorElement = document.getElementById('typewriter-cursor');
