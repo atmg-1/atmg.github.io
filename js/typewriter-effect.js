@@ -53,14 +53,14 @@ function showTypewriterAnimation() {
 // 逐步显示博客标题的函数
 function typeBlogTitle(sequence, index) {
   if (index >= sequence.length) {
-    // 标题显示完成后，移除下划线并淡出加载屏幕
+    // 标题显示完成后，移除下划线并等待3秒后淡出加载屏幕
     setTimeout(() => {
       const textElement = document.getElementById('typewriter-text');
       if (textElement) {
         textElement.textContent = textElement.textContent.replace(/_/g, ''); // 移除所有下划线
       }
-      setTimeout(fadeOutLoadingScreen, 1000);
-    }, 1000);
+      fadeOutLoadingScreen();
+    }, 1000); // 稍作停顿后淡出
     return;
   }
   
@@ -114,20 +114,4 @@ function fadeOutLoadingScreen() {
       localStorage.setItem('typewriterShown', 'true');
     }, 1500);
   }
-}
-
-// 固定3秒后自动完成动画
-typeTimeout();
-
-function typeTimeout() {
-  setTimeout(() => {
-    const loadingScreen = document.querySelector('.loading-screen');
-    if (loadingScreen) {
-      loadingScreen.style.display = 'none';
-      document.body.classList.remove('loading');
-      
-      // 标记已经显示过打字机效果
-      localStorage.setItem('typewriterShown', 'true');
-    }
-  }, 3000);
 }
