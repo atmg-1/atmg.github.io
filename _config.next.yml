@@ -14,7 +14,7 @@ cache:
   enable: true
 
 # Remove unnecessary files after hexo generate.
-minify: false
+minify: true
 
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
@@ -30,6 +30,7 @@ custom_file_path:
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
+  #eDEX-UI Cyberpunk Style - 已集成到 styles.styl
 
 
 # ---------------------------------------------------------------
@@ -43,11 +44,11 @@ scheme: Muse
 #scheme: Gemini
 
 # Dark Mode
-darkmode: false
+darkmode: true
 
 # Light-Dark Mode
 lightdark:
-  enable: false
+  enable: true
   # Add @supports (color: light-dark(red, red)) check
   check_supports: true
 
@@ -895,7 +896,7 @@ vendors:
   # The default CDN provider of third-party plugins.
   # Available values: local | jsdelivr | unpkg | cdnjs | custom
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: cdnjs
+  plugins: jsdelivr
   # Custom CDN URL
   # For example:
   # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}

@@ -1,5 +1,209 @@
-﻿// 流浪地球风格 - 未来科幻感设计
-// 完全重新设计，确保无闪烁、无问题效果
+﻿// eDEX-UI 风格赛博朋克增强
+// 在流浪地球基础上添加 eDEX-UI 元素
+
+// eDEX-UI 配色方案
+$cyber-primary = #00ffea      // eDEX-UI 青色
+$cyber-secondary = #ff6b00    // eDEX-UI 橙色
+$cyber-accent = #00ff9f       // eDEX-UI 绿色
+$cyber-alert = #ff2a00        // eDEX-UI 红色
+$cyber-grid-color = rgba(0, 255, 234, 0.05)
+
+// eDEX-UI 网格背景效果
+body::before
+  content: ''
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-image: 
+    linear-gradient($cyber-grid-color 1px, transparent 1px),
+    linear-gradient(90deg, $cyber-grid-color 1px, transparent 1px)
+  background-size: 50px 50px
+  background-position: center center
+  pointer-events: none
+  z-index: -990
+  opacity: 0.4
+
+// CRT 扫描线效果
+body::after
+  content: ''
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  )
+  pointer-events: none
+  z-index: 10000
+  opacity: 0.3
+
+// eDEX-UI 风格故障艺术标题
+.site-title, .site-brand, .post-title
+  position: relative
+  text-shadow: 
+    2px 0 var(--cyber-secondary, #ff6b00),
+    -2px 0 var(--cyber-primary, #00ffea)
+  animation: cyber-glitch 3s infinite
+
+@keyframes cyber-glitch
+  0%
+    text-shadow: 2px 0 var(--cyber-secondary, #ff6b00), -2px 0 var(--cyber-primary, #00ffea)
+  25%
+    text-shadow: -2px 0 var(--cyber-secondary, #ff6b00), 2px 0 var(--cyber-primary, #00ffea)
+  50%
+    text-shadow: 2px 0 var(--cyber-secondary, #ff6b00), -2px 0 var(--cyber-primary, #00ffea)
+  75%
+    text-shadow: -2px 0 var(--cyber-secondary, #ff6b00), 2px 0 var(--cyber-primary, #00ffea)
+  100%
+    text-shadow: 2px 0 var(--cyber-secondary, #ff6b00), -2px 0 var(--cyber-primary, #00ffea)
+
+// eDEX-UI 风格代码块
+.highlight-container
+  position: relative
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%)
+  border: 1px solid rgba(0, 255, 234, 0.3)
+  box-shadow: 0 0 20px rgba(0, 255, 234, 0.1)
+  
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 2px
+    background: rgba(0, 255, 234, 0.3)
+    box-shadow: 0 0 10px rgba(0, 255, 234, 0.5)
+    animation: scan 3s linear infinite
+    pointer-events: none
+
+@keyframes scan
+  0%
+    top: 0%
+  100%
+    top: 100%
+
+// eDEX-UI 风格按钮
+.btn
+  position: relative
+  overflow: hidden
+  background: transparent
+  border: 2px solid $cyber-primary
+  color: $cyber-primary
+  box-shadow: 0 0 10px rgba(0, 255, 234, 0.3)
+  transition: all 0.3s ease
+  
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: -100%
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 234, 0.4), transparent)
+    transition: left 0.5s ease
+  
+  &:hover::before
+    left: 100%
+  
+  &:hover
+    background: $cyber-primary
+    color: $cyber-dark
+    box-shadow: 0 0 30px rgba(0, 255, 234, 0.6)
+
+// eDEX-UI 暗黑模式增强
+body.dark-mode
+  background: #030303
+  
+  .main-content
+    color: #ffffff
+  
+  .post-body h1,
+  .post-body h2,
+  .post-body h3
+    color: $cyber-primary
+    text-shadow: 0 0 10px rgba(0, 255, 234, 0.5)
+  
+  a
+    color: $cyber-secondary
+    transition: color 0.3s ease
+    
+    &:hover
+      color: $cyber-primary
+      text-shadow: 0 0 8px $cyber-primary
+
+// eDEX-UI 时间线指示器
+.timeline-indicator
+  position: fixed
+  right: 20px
+  bottom: 20px
+  width: 60px
+  height: 60px
+  background: rgba(3, 3, 3, 0.9)
+  border: 2px solid $cyber-primary
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  box-shadow: 0 0 20px rgba(0, 255, 234, 0.4)
+  z-index: 1000
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  &:hover
+    transform: scale(1.1)
+    box-shadow: 0 0 30px rgba(0, 255, 234, 0.8)
+
+// eDEX-UI 阅读进度条
+.reading-progress-bar
+  background: linear-gradient(90deg, $cyber-primary, $cyber-secondary)
+  box-shadow: 0 0 10px rgba(0, 255, 234, 0.8)
+
+// eDEX-UI 标签和分类徽章
+.post-meta .category,
+.post-meta .tag
+  background: rgba(0, 255, 234, 0.1)
+  border: 1px solid $cyber-primary
+  color: $cyber-primary
+  padding: 2px 8px
+  border-radius: 3px
+  transition: all 0.3s ease
+  
+  &:hover
+    background: $cyber-primary
+    color: #030303
+    box-shadow: 0 0 15px rgba(0, 255, 234, 0.6)
+
+// eDEX-UI 搜索框
+.search-input-container input
+  background: rgba(3, 3, 3, 0.8)
+  border: 2px solid rgba(0, 255, 234, 0.3)
+  color: #ffffff
+  transition: all 0.3s ease
+  
+  &:focus
+    border-color: $cyber-primary
+    box-shadow: 0 0 20px rgba(0, 255, 234, 0.4)
+
+// eDEX-UI 页脚
+.footer
+  background: linear-gradient(180deg, rgba(3, 3, 3, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%)
+  border-top: 2px solid $cyber-secondary
+  box-shadow: 0 -5px 20px rgba(255, 107, 0, 0.2)
+
+// 响应式优化
+@media (max-width: 768px)
+  .site-title
+    font-size: 1.5rem
+  
+  .post-block
+    margin: 10px
 
 // 主要背景色 - 深邃太空
 $body-bg = #0a1a2a
