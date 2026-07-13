@@ -1,48 +1,16 @@
-﻿// eDEX-UI 风格赛博朋克增强
-// 在流浪地球基础上添加 eDEX-UI 元素
-
-// eDEX-UI 配色方案
-$cyber-primary = #00ffea      // eDEX-UI 青色
-$cyber-secondary = #ff6b00    // eDEX-UI 橙色
-$cyber-accent = #00ff9f       // eDEX-UI 绿色
-$cyber-alert = #ff2a00        // eDEX-UI 红色
-$cyber-grid-color = rgba(0, 255, 234, 0.05)
-
-// eDEX-UI 网格背景效果
-body::before
-  content: ''
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-image: 
-    linear-gradient($cyber-grid-color 1px, transparent 1px),
-    linear-gradient(90deg, $cyber-grid-color 1px, transparent 1px)
-  background-size: 50px 50px
-  background-position: center center
-  pointer-events: none
-  z-index: -990
-  opacity: 0.4
-
-// CRT 扫描线效果
-body::after
-  content: ''
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-  )
-  pointer-events: none
-  z-index: 10000
-  opacity: 0.3
+﻿// ============================================================
+// 流浪地球科幻风 — 配色方案
+// ============================================================
+$cyber-primary = #2979FF      // 地球发动机蓝
+$cyber-secondary = #FF6D00    // 推进器火焰橙
+$cyber-accent = #00E5FF       // 等离子冰青
+$cyber-alert = #FF1744        // 警报红
+$cyber-purple = #7C4DFF       // 木星极光紫
+$body-bg = #0A1628            // 深空黑
+$card-bg = #1A2332            // 卡片面板
+$text-color = #E8F0FE         // 冰白蓝
+$primary-color = #2979FF      // 主蓝
+$accent-color = #00E5FF       // 冰青
 
 // eDEX-UI 风格故障艺术标题
 .site-title, .site-brand, .post-title
@@ -64,13 +32,13 @@ body::after
   100%
     text-shadow: 2px 0 var(--cyber-secondary, #ff6b00), -2px 0 var(--cyber-primary, #00ffea)
 
-// eDEX-UI 风格代码块
+// 代码块
 .highlight-container
   position: relative
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%)
-  border: 1px solid rgba(0, 255, 234, 0.3)
-  box-shadow: 0 0 20px rgba(0, 255, 234, 0.1)
-  
+  background: linear-gradient(135deg, #0D1628 0%, #1A2332 100%)
+  border: 1px solid rgba(41, 121, 255, 0.25)
+  box-shadow: 0 0 20px rgba(41, 121, 255, 0.08)
+
   &::before
     content: ''
     position: absolute
@@ -78,27 +46,27 @@ body::after
     left: 0
     width: 100%
     height: 2px
-    background: rgba(0, 255, 234, 0.3)
-    box-shadow: 0 0 10px rgba(0, 255, 234, 0.5)
-    animation: scan 3s linear infinite
+    background: rgba(0, 229, 255, 0.25)
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4)
+    animation: code-scan 3s linear infinite
     pointer-events: none
 
-@keyframes scan
+@keyframes code-scan
   0%
     top: 0%
   100%
     top: 100%
 
-// eDEX-UI 风格按钮
+// 按钮样式
 .btn
   position: relative
   overflow: hidden
   background: transparent
   border: 2px solid $cyber-primary
   color: $cyber-primary
-  box-shadow: 0 0 10px rgba(0, 255, 234, 0.3)
+  box-shadow: 0 0 10px rgba(41, 121, 255, 0.25)
   transition: all 0.3s ease
-  
+
   &::before
     content: ''
     position: absolute
@@ -106,96 +74,96 @@ body::after
     left: -100%
     width: 100%
     height: 100%
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 234, 0.4), transparent)
+    background: linear-gradient(90deg, transparent, rgba(41, 121, 255, 0.3), transparent)
     transition: left 0.5s ease
-  
+
   &:hover::before
     left: 100%
-  
+
   &:hover
     background: $cyber-primary
-    color: $cyber-dark
-    box-shadow: 0 0 30px rgba(0, 255, 234, 0.6)
+    color: $cyber-darker
+    box-shadow: 0 0 30px rgba(41, 121, 255, 0.5)
 
-// eDEX-UI 暗黑模式增强
+// 暗黑模式增强
 body.dark-mode
-  background: #030303
-  
+  background: #060E1A
+
   .main-content
-    color: #ffffff
-  
+    color: $cyber-light
+
   .post-body h1,
   .post-body h2,
   .post-body h3
     color: $cyber-primary
-    text-shadow: 0 0 10px rgba(0, 255, 234, 0.5)
-  
+    text-shadow: 0 0 10px rgba(41, 121, 255, 0.5)
+
   a
     color: $cyber-secondary
     transition: color 0.3s ease
-    
-    &:hover
-      color: $cyber-primary
-      text-shadow: 0 0 8px $cyber-primary
 
-// eDEX-UI 时间线指示器
+    &:hover
+      color: $cyber-accent
+      text-shadow: 0 0 8px rgba(0, 229, 255, 0.5)
+
+// 时间线指示器
 .timeline-indicator
   position: fixed
   right: 20px
   bottom: 20px
   width: 60px
   height: 60px
-  background: rgba(3, 3, 3, 0.9)
+  background: rgba(6, 14, 26, 0.9)
   border: 2px solid $cyber-primary
   border-radius: 50%
   display: flex
   align-items: center
   justify-content: center
-  box-shadow: 0 0 20px rgba(0, 255, 234, 0.4)
+  box-shadow: 0 0 20px rgba(41, 121, 255, 0.35)
   z-index: 1000
   cursor: pointer
   transition: all 0.3s ease
-  
+
   &:hover
     transform: scale(1.1)
-    box-shadow: 0 0 30px rgba(0, 255, 234, 0.8)
+    box-shadow: 0 0 30px rgba(41, 121, 255, 0.6), 0 0 60px rgba(124, 77, 255, 0.25)
 
-// eDEX-UI 阅读进度条
+// 阅读进度条
 .reading-progress-bar
-  background: linear-gradient(90deg, $cyber-primary, $cyber-secondary)
-  box-shadow: 0 0 10px rgba(0, 255, 234, 0.8)
+  background: linear-gradient(90deg, $cyber-primary, $cyber-purple, $cyber-secondary)
+  box-shadow: 0 0 10px rgba(41, 121, 255, 0.6)
 
-// eDEX-UI 标签和分类徽章
+// 标签和分类徽章
 .post-meta .category,
 .post-meta .tag
-  background: rgba(0, 255, 234, 0.1)
+  background: rgba(41, 121, 255, 0.1)
   border: 1px solid $cyber-primary
-  color: $cyber-primary
+  color: $cyber-accent
   padding: 2px 8px
   border-radius: 3px
   transition: all 0.3s ease
-  
+
   &:hover
     background: $cyber-primary
-    color: #030303
-    box-shadow: 0 0 15px rgba(0, 255, 234, 0.6)
+    color: $cyber-light
+    box-shadow: 0 0 15px rgba(41, 121, 255, 0.6)
 
-// eDEX-UI 搜索框
+// 搜索框
 .search-input-container input
-  background: rgba(3, 3, 3, 0.8)
-  border: 2px solid rgba(0, 255, 234, 0.3)
-  color: #ffffff
+  background: rgba(6, 14, 26, 0.8)
+  border: 2px solid rgba(41, 121, 255, 0.3)
+  color: $cyber-light
   transition: all 0.3s ease
-  
+
   &:focus
     border-color: $cyber-primary
-    box-shadow: 0 0 20px rgba(0, 255, 234, 0.4)
+    box-shadow: 0 0 20px rgba(41, 121, 255, 0.4)
 
-// eDEX-UI 页脚
+// 页脚
 .footer
-  background: linear-gradient(180deg, rgba(3, 3, 3, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%)
+  background: linear-gradient(180deg, rgba(10, 22, 40, 0.95), rgba(6, 14, 26, 0.98))
   border-top: 2px solid $cyber-secondary
-  box-shadow: 0 -5px 20px rgba(255, 107, 0, 0.2)
+  box-shadow: 0 -5px 20px rgba(255, 109, 0, 0.15)
 
 // 响应式优化
 @media (max-width: 768px)
@@ -205,16 +173,9 @@ body.dark-mode
   .post-block
     margin: 10px
 
-// 主要背景色 - 深邃太空
-$body-bg = #0a1a2a
-$text-color = #e0f0ff
-$primary-color = #4fc3f7
-$accent-color = #29b6f6
-
-// 全局背景
+// 背景和文字的基础样式
 body
-  background: $body-bg
-  color: #e8f4fd  // 更亮的文字颜色
+  color: $text-color
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
   font-weight: 300
   line-height: 1.7
@@ -222,7 +183,10 @@ body
   position: relative
   overflow-x: hidden
 
-// 星空背景效果 - 使用伪元素创建
+// ============================================================
+// 统一的 body::before — 多层叠加背景
+// 使用 CSS 多背景叠加：星空 → 科技网格 → 底色
+// ============================================================
 body::before
   content: ''
   position: fixed
@@ -230,11 +194,37 @@ body::before
   left: 0
   width: 100%
   height: 100%
-  background: $body-bg
-  z-index: -1000
   pointer-events: none
+  z-index: -2
+  /* CSS 多背景：星空粒子 + 科技网格 + 底色 */
+  background:
+    radial-gradient(1.5px 1.5px at 50px 50px, #90CAF9, transparent),
+    radial-gradient(1px 1px at 100px 150px, $cyber-accent, transparent),
+    radial-gradient(1px 1px at 200px 80px, $cyber-primary, transparent),
+    radial-gradient(1px 1px at 250px 200px, #90CAF9, transparent),
+    radial-gradient(1px 1px at 300px 100px, $cyber-accent, transparent),
+    radial-gradient(1px 1px at 400px 180px, $cyber-primary, transparent),
+    radial-gradient(1px 1px at 500px 60px, #90CAF9, transparent),
+    radial-gradient(1px 1px at 600px 220px, $cyber-accent, transparent),
+    radial-gradient(1px 1px at 700px 120px, $cyber-primary, transparent),
+    radial-gradient(1px 1px at 50px 250px, #90CAF9, transparent),
+    radial-gradient(1px 1px at 150px 300px, $cyber-accent, transparent),
+    radial-gradient(1px 1px at 350px 350px, $cyber-primary, transparent),
 
-// 星星点点效果
+    linear-gradient(rgba(41, 121, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 121, 255, 0.04) 1px, transparent 1px),
+
+    $body-bg
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat
+  background-size:
+    300px 300px, 300px 300px, 300px 300px, 300px 300px,
+    300px 300px, 300px 300px, 300px 300px, 300px 300px,
+    300px 300px, 300px 300px, 300px 300px, 300px 300px,
+    40px 40px, 40px 40px, auto
+
+// ============================================================
+// 统一的 body::after — CRT 扫描线 + 能量场叠加效果
+// ============================================================
 body::after
   content: ''
   position: fixed
@@ -242,55 +232,24 @@ body::after
   left: 0
   width: 100%
   height: 100%
-  background-image: 
-    radial-gradient(1.5px 1.5px at 50px 50px, #81d4fa, transparent),
-    radial-gradient(1px 1px at 100px 150px, #e0f0ff, transparent),
-    radial-gradient(1px 1px at 200px 80px, #4fc3f7, transparent),
-    radial-gradient(1px 1px at 250px 200px, #81d4fa, transparent),
-    radial-gradient(1px 1px at 300px 100px, #e0f0ff, transparent),
-    radial-gradient(1px 1px at 400px 180px, #4fc3f7, transparent),
-    radial-gradient(1px 1px at 500px 60px, #81d4fa, transparent),
-    radial-gradient(1px 1px at 600px 220px, #e0f0ff, transparent),
-    radial-gradient(1px 1px at 700px 120px, #4fc3f7, transparent),
-    radial-gradient(1px 1px at 50px 250px, #81d4fa, transparent),
-    radial-gradient(1px 1px at 150px 300px, #e0f0ff, transparent),
-    radial-gradient(1px 1px at 350px 350px, #4fc3f7, transparent)
-  background-repeat: repeat
-  background-size: 300px 300px
-  z-index: -999
   pointer-events: none
-
-// 添加科技网格背景
-body::before
-  content: ''
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-image: 
-    linear-gradient(rgba(128, 222, 234, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(128, 222, 234, 0.05) 1px, transparent 1px)
-  background-size: 40px 40px
-  z-index: -998
-  pointer-events: none
-
-// 添加动态能量场效果
-body::after
-  content: ''
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background: radial-gradient(
-    circle at center,
-    transparent 0%,
-    rgba(128, 222, 234, 0.05) 70%,
-    rgba(128, 222, 234, 0.1) 100%
-  )
-  z-index: -997
-  pointer-events: none
+  z-index: 10000
+  /* CRT 扫描线 + 能量场辉光 */
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at center,
+      transparent 0%,
+      rgba(41, 121, 255, 0.04) 70%,
+      rgba(124, 77, 255, 0.06) 100%
+    )
+  opacity: 0.3
   animation: energy-field 20s infinite alternate
 
 // 添加能量场动画
@@ -311,9 +270,9 @@ body::after
   height: 8px
   background: linear-gradient(
     to bottom,
-    rgba(128, 222, 234, 0) 0%,
-    rgba(128, 222, 234, 0.3) 50%,
-    rgba(128, 222, 234, 0) 100%
+    rgba(0, 229, 255, 0) 0%,
+    rgba(0, 229, 255, 0.2) 50%,
+    rgba(0, 229, 255, 0) 100%
   )
   z-index: -996
   animation: scan 8s linear infinite
@@ -333,7 +292,7 @@ body::after
     top: 100%
     opacity: 0
 
-// 添加电路板纹理
+/* 电路板纹理 */
 .circuit-pattern
   position: fixed
   top: 0
@@ -341,16 +300,16 @@ body::after
   width: 100%
   height: 100%
   background-image: 
-    linear-gradient(rgba(128, 222, 234, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(128, 222, 234, 0.03) 1px, transparent 1px),
-    radial-gradient(circle at 10% 20%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 20% 40%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 30% 60%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 40% 80%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 60% 10%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 70% 30%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 80% 50%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px),
-    radial-gradient(circle at 90% 70%, rgba(128, 222, 234, 0.05) 0.1px, transparent 0.1px)
+    linear-gradient(rgba(41, 121, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 121, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 10% 20%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 20% 40%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 30% 60%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 40% 80%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 60% 10%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 70% 30%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 80% 50%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px),
+    radial-gradient(circle at 90% 70%, rgba(41, 121, 255, 0.05) 0.1px, transparent 0.1px)
   background-size: 
     60px 60px,
     60px 60px,
@@ -376,7 +335,7 @@ body::after
     left: -5px
     right: -5px
     bottom: -5px
-    border: 2px solid rgba(128, 222, 234, 0.6)
+    border: 2px solid rgba(41, 121, 255, 0.6)
     border-radius: inherit
     filter: blur(10px)
     z-index: -1
@@ -385,10 +344,10 @@ body::after
 @keyframes neon-pulse
   0%
     opacity: 0.3
-    box-shadow: 0 0 10px rgba(128, 222, 234, 0.3)
+    box-shadow: 0 0 10px rgba(41, 121, 255, 0.3)
   100%
     opacity: 0.8
-    box-shadow: 0 0 20px rgba(128, 222, 234, 0.6)
+    box-shadow: 0 0 20px rgba(41, 121, 255, 0.6)
 
 // 添加全息投影效果
 .hologram-effect
@@ -409,28 +368,6 @@ body::after
   left: 120%
   transition: left 0.6s
 
-// 添加高级卡片样式
-.post-block, .sidebar, .header, .footer, .card
-  background: rgba(20, 40, 60, 0.95)
-  border: 1px solid rgba(128, 222, 234, 0.6)  // 使用更亮的颜色
-  box-shadow: 
-    0 0 25px rgba(128, 222, 234, 0.25),  // 更亮的发光效果
-    inset 0 0 15px rgba(128, 222, 234, 0.2),  // 内部发光更明显
-    0 0 40px rgba(128, 222, 234, 0.1)  // 外围发光
-  border-radius: 8px
-  padding: 25px  // 增加内边距改善阅读空间
-  backdrop-filter: none  // 移除模糊效果提高清晰度
-  position: relative
-  overflow: hidden
-  transition: all 0.3s ease
-
-.post-block:hover, .sidebar:hover, .header:hover, .footer:hover, .card:hover
-  box-shadow: 
-    0 0 35px rgba(128, 222, 234, 0.4),
-    inset 0 0 20px rgba(128, 222, 234, 0.3),
-    0 0 50px rgba(128, 222, 234, 0.2)
-  transform: translateY(-3px)
-
 // 添加浮动粒子效果
 .floating-particles
   position: fixed
@@ -444,7 +381,7 @@ body::after
 .particle
   position: absolute
   border-radius: 50%
-  background: rgba(128, 222, 234, 0.6)
+  background: rgba(41, 121, 255, 0.6)
   animation: float 15s infinite linear
 
 @keyframes float
@@ -461,9 +398,9 @@ body::after
 
 // 添加科技按钮样式
 .button-tech
-  background: linear-gradient(45deg, rgba(128, 222, 234, 0.1), rgba(128, 222, 234, 0.3))
-  border: 1px solid rgba(128, 222, 234, 0.5)
-  color: #80deea
+  background: linear-gradient(45deg, rgba(41, 121, 255, 0.1), rgba(41, 121, 255, 0.3))
+  border: 1px solid rgba(41, 121, 255, 0.5)
+  color: $cyber-primary
   padding: 12px 24px
   border-radius: 6px
   cursor: pointer
@@ -473,9 +410,9 @@ body::after
   font-family: 'Orbitron', 'Segoe UI', sans-serif
 
 .button-tech:hover
-  background: linear-gradient(45deg, rgba(128, 222, 234, 0.3), rgba(128, 222, 234, 0.5))
-  box-shadow: 0 0 15px rgba(128, 222, 234, 0.5)
-  color: #e0f7fa
+  background: linear-gradient(45deg, rgba(41, 121, 255, 0.3), rgba(41, 121, 255, 0.5))
+  box-shadow: 0 0 15px rgba(41, 121, 255, 0.5)
+  color: $cyber-light
   transform: translateY(-2px)
 
 // 添加数据流效果
@@ -485,7 +422,7 @@ body::after
   left: 0
   width: 100%
   height: 4px
-  background: linear-gradient(90deg, transparent, rgba(128, 222, 234, 0.8), transparent)
+  background: linear-gradient(90deg, transparent, rgba(41, 121, 255, 0.8), transparent)
   animation: data-flow 2s linear infinite
   z-index: 9999
   pointer-events: none
@@ -501,9 +438,9 @@ body::after
   position: relative
   color: #e8f4fd
   text-shadow: 
-    0 0 5px rgba(128, 222, 234, 0.5),
-    0 0 10px rgba(128, 222, 234, 0.3),
-    0 0 15px rgba(128, 222, 234, 0.2)
+    0 0 5px rgba(41, 121, 255, 0.5),
+    0 0 10px rgba(41, 121, 255, 0.3),
+    0 0 15px rgba(41, 121, 255, 0.2)
 
 // 添加脉冲效果
 .pulse-element
@@ -511,21 +448,21 @@ body::after
 
 @keyframes pulse-animation
   0%
-    box-shadow: 0 0 0 0 rgba(128, 222, 234, 0.7)
+    box-shadow: 0 0 0 0 rgba(41, 121, 255, 0.7)
   70%
-    box-shadow: 0 0 0 15px rgba(128, 222, 234, 0)
+    box-shadow: 0 0 0 15px rgba(41, 121, 255, 0)
   100%
-    box-shadow: 0 0 0 0 rgba(128, 222, 234, 0)
+    box-shadow: 0 0 0 0 rgba(41, 121, 255, 0)
 
 // 添加高级导航样式
 .nav-tech
   background: rgba(20, 40, 60, 0.8)
   backdrop-filter: none
-  border-bottom: 1px solid rgba(128, 222, 234, 0.3)
+  border-bottom: 1px solid rgba(41, 121, 255, 0.3)
   padding: 15px 0
 
 .nav-tech .menu-item a
-  color: #bbdefb
+  color: #90CAF9
   padding: 10px 20px
   border-radius: 5px
   transition: all 0.3s ease
@@ -539,16 +476,16 @@ body::after
   left: -100%
   width: 100%
   height: 100%
-  background: linear-gradient(90deg, transparent, rgba(128, 222, 234, 0.2), transparent)
+  background: linear-gradient(90deg, transparent, rgba(41, 121, 255, 0.2), transparent)
   transition: left 0.5s
 
 .nav-tech .menu-item a:hover::before
   left: 100%
 
 .nav-tech .menu-item a:hover
-  color: #80deea
-  background: rgba(128, 222, 234, 0.1)
-  text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+  color: $cyber-primary
+  background: rgba(41, 121, 255, 0.1)
+  text-shadow: 0 0 8px rgba(41, 121, 255, 0.6)
 
 // 页面整体容器
 html, body
@@ -730,7 +667,7 @@ html, body
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(128, 222, 234, 0.3);
+  background: rgba(41, 121, 255, 0.3);
   animation: float-particle linear infinite;
 }
 
@@ -765,7 +702,7 @@ html, body
   .stream-line {
     position: absolute;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(128, 222, 234, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(41, 121, 255, 0.6), transparent);
     animation: stream-move 15s linear infinite;
   }
 }
@@ -789,8 +726,8 @@ html, body
   pointer-events: none;
   z-index: -1004;
   background: 
-    radial-gradient(circle at 20% 30%, rgba(128, 222, 234, 0.05) 0%, transparent 20%),
-    radial-gradient(circle at 80% 70%, rgba(128, 222, 234, 0.05) 0%, transparent 20%);
+    radial-gradient(circle at 20% 30%, rgba(41, 121, 255, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(41, 121, 255, 0.05) 0%, transparent 20%);
   animation: holographic-float 20s ease-in-out infinite;
 }
 
@@ -823,7 +760,7 @@ html, body
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(128, 222, 234, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(41, 121, 255, 0.1) 0%, transparent 70%);
     animation: energy-pulse 8s ease-in-out infinite;
   }
 }
@@ -848,7 +785,7 @@ html, body
   height: 100%;
   pointer-events: none;
   z-index: -1006;
-  background: linear-gradient(to bottom, transparent 0%, rgba(128, 222, 234, 0.05) 1%, transparent 2%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(41, 121, 255, 0.05) 1%, transparent 2%);
   animation: scan-animation 8s linear infinite;
 }
 
@@ -885,12 +822,12 @@ html, body
 
 .nav-modal-content {
   background: rgba(20, 40, 60, 0.95);
-  border: 1px solid rgba(128, 222, 234, 0.6);
+  border: 1px solid rgba(41, 121, 255, 0.6);
   border-radius: 12px;
   padding: 30px;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 0 30px rgba(128, 222, 234, 0.3);
+  box-shadow: 0 0 30px rgba(41, 121, 255, 0.3);
   text-align: center;
 }
 
@@ -899,7 +836,7 @@ html, body
   
   h3 {
     margin: 0;
-    color: #80deea;
+    color: $cyber-primary;
     font-size: 1.5em;
   }
 }
@@ -910,7 +847,7 @@ html, body
   right: 15px;
   background: transparent;
   border: none;
-  color: #e0f7fa;
+  color: $cyber-light;
   font-size: 1.5em;
   cursor: pointer;
   width: 30px;
@@ -919,8 +856,8 @@ html, body
   transition: all 0.3s ease;
   
   &:hover {
-    background: rgba(128, 222, 234, 0.2);
-    color: #80deea;
+    background: rgba(41, 121, 255, 0.2);
+    color: $cyber-primary;
     transform: scale(1.1);
   }
 }
@@ -940,16 +877,16 @@ html, body
     a {
       display: block;
       padding: 15px;
-      color: #e0f7fa;
+      color: $cyber-light;
       text-decoration: none;
       border-radius: 8px;
       transition: all 0.3s ease;
-      border: 1px solid rgba(128, 222, 234, 0.2);
+      border: 1px solid rgba(41, 121, 255, 0.2);
       
       &:hover {
-        background: rgba(128, 222, 234, 0.2);
-        color: #80deea;
-        border-color: rgba(128, 222, 234, 0.4);
+        background: rgba(41, 121, 255, 0.2);
+        color: $cyber-primary;
+        border-color: rgba(41, 121, 255, 0.4);
         transform: translateY(-2px);
       }
       
@@ -968,8 +905,8 @@ html, body
   top: 20px;
   right: 20px;
   z-index: 1000;
-  background: rgba(128, 222, 234, 0.2);
-  border: 1px solid rgba(128, 222, 234, 0.4);
+  background: rgba(41, 121, 255, 0.2);
+  border: 1px solid rgba(41, 121, 255, 0.4);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -981,9 +918,9 @@ html, body
   backdrop-filter: blur(5px);
   
   &:hover {
-    background: rgba(128, 222, 234, 0.3);
+    background: rgba(41, 121, 255, 0.3);
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(128, 222, 234, 0.4);
+    box-shadow: 0 0 15px rgba(41, 121, 255, 0.4);
   }
   
   .menu-icon {
@@ -1009,58 +946,68 @@ html, body
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-// 标题样式 - 使用科幻字体
+// 标题样式 - 使用科幻字体，分层颜色
 h1, h2, h3, h4, h5, h6
   font-family: 'Orbitron', 'Segoe UI', sans-serif
-  color: #80deea  // 更亮的蓝色
-  text-shadow: 0 0 3px rgba(128, 222, 234, 0.5), 0 0 8px rgba(128, 222, 234, 0.3)
   margin: 20px 0 15px 0
   font-weight: 500
-  text-rendering: optimizeLegibility  // 优化文字渲染
-  -webkit-font-smoothing: antialiased  // 抗锯齿
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
 
 h1
   font-size: 2.2em
-  color: #80deea  // 更亮的蓝色
-  text-shadow: 0 0 5px rgba(128, 222, 234, 0.8), 0 0 15px rgba(128, 222, 234, 0.4)
+  color: $cyber-primary  // 地球发动机蓝
+  text-shadow: 0 0 5px rgba(41, 121, 255, 0.6), 0 0 15px rgba(41, 121, 255, 0.3)
 
 h2
   font-size: 1.8em
-  color: #80deea  // 更亮的蓝色
-  text-shadow: 0 0 5px rgba(128, 222, 234, 0.7), 0 0 12px rgba(128, 222, 234, 0.35)
+  color: $cyber-accent  // 等离子冰青
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.5), 0 0 12px rgba(0, 229, 255, 0.25)
 
 h3
   font-size: 1.5em
-  color: #80deea  // 更亮的蓝色
-  text-shadow: 0 0 5px rgba(128, 222, 234, 0.6), 0 0 10px rgba(128, 222, 234, 0.25)
+  color: #B388FF  // 淡紫（极光）
+  text-shadow: 0 0 5px rgba(124, 77, 255, 0.4), 0 0 10px rgba(124, 77, 255, 0.2)
+
+h4
+  color: $text-color
+  font-size: 1.2em
 
 // 链接样式
 a
-  color: #80deea  // 更亮的蓝色
+  color: $cyber-accent  // 冰青
   text-decoration: none
   transition: all 0.3s ease
   border-bottom: 1px solid transparent
-  text-shadow: 0 0 2px rgba(128, 222, 234, 0.3)  // 轻微文字阴影提高对比度
+  text-shadow: 0 0 2px rgba(0, 229, 255, 0.2)
 
 a:hover
-  color: #e0f7fa  // 更亮的白色
-  border-bottom: 1px solid #80deea
-  text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
-  background: rgba(79, 195, 247, 0.1)  // 添加悬停背景提高可读性
-  padding: 2px 4px  // 添加内边距避免文字变形
+  color: $cyber-light
+  border-bottom: 1px solid $cyber-accent
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5)
+  background: rgba(41, 121, 255, 0.08)
+  padding: 2px 4px
   border-radius: 3px
 
 // 卡片和区块样式
 .post-block, .sidebar, .header, .footer, .card
-  background: rgba(20, 40, 60, 0.95)
-  border: 1px solid rgba(128, 222, 234, 0.6)  // 使用更亮的颜色
-  box-shadow: 
-    0 0 25px rgba(128, 222, 234, 0.25),  // 更亮的发光效果
-    inset 0 0 15px rgba(128, 222, 234, 0.2)  // 内部发光更明显
+  background: $card-bg
+  border: 1px solid rgba(41, 121, 255, 0.3)
+  box-shadow:
+    0 0 25px rgba(41, 121, 255, 0.12),
+    inset 0 0 15px rgba(41, 121, 255, 0.06)
   border-radius: 8px
-  padding: 25px  // 增加内边距改善阅读空间
-  backdrop-filter: none  // 移除模糊效果提高清晰度
+  padding: 25px
   position: relative
+  overflow: hidden
+  transition: all 0.3s ease
+
+.post-block:hover, .sidebar:hover, .header:hover, .footer:hover, .card:hover
+  box-shadow:
+    0 0 35px rgba(41, 121, 255, 0.2),
+    inset 0 0 20px rgba(41, 121, 255, 0.1),
+    0 0 50px rgba(124, 77, 255, 0.08)
+  transform: translateY(-3px)
 
 // 添加科技感边框修饰
 .post-block::before, .sidebar::before, .header::before, .footer::before, .card::before
@@ -1073,16 +1020,10 @@ a:hover
   border-radius: 10px
   z-index: -1
   border: 1px solid transparent
-  background: linear-gradient(45deg, rgba(128, 222, 234, 0.1), rgba(128, 222, 234, 0.3), rgba(128, 222, 234, 0.1), rgba(128, 222, 234, 0.3))
+  background: linear-gradient(45deg, rgba(41, 121, 255, 0.08), rgba(124, 77, 255, 0.2), rgba(0, 229, 255, 0.08), rgba(41, 121, 255, 0.2))
   background-origin: border-box
   background-clip: content-box, border-box
-  animation: borderAnimation 3s linear infinite
-
-@keyframes borderAnimation
-  0%
-    filter: hue-rotate(0deg)
-  100%
-    filter: hue-rotate(360deg)
+  animation: borderAnimation 4s linear infinite
 
 // 添加内部发光效果
 .post-block::after, .sidebar::after, .header::after, .footer::after, .card::after
@@ -1094,38 +1035,36 @@ a:hover
   height: 100%
   border-radius: 8px
   box-shadow: 
-    inset 0 0 15px rgba(128, 222, 234, 0.15),
-    inset 0 0 30px rgba(128, 222, 234, 0.1)
+    inset 0 0 15px rgba(41, 121, 255, 0.15),
+    inset 0 0 30px rgba(41, 121, 255, 0.1)
   z-index: -1
 
 // 导航菜单
 .main-menu
-  background: rgba(20, 40, 60, 0.95)
-  border: 1px solid rgba(79, 195, 247, 0.5)
-  box-shadow: 0 0 20px rgba(79, 195, 247, 0.2)
+  background: linear-gradient(135deg, rgba(16, 28, 46, 0.97), rgba(26, 35, 50, 0.95))
+  border: 1px solid rgba(41, 121, 255, 0.3)
+  box-shadow: 0 0 20px rgba(41, 121, 255, 0.15)
   border-radius: 8px
   padding: 10px
 
 .menu-item a
-  color: #e8f4fd  // 更亮的文字颜色
+  color: $text-color
   padding: 12px 20px
   border-radius: 6px
   transition: all 0.3s ease
   border: 1px solid transparent
-  text-shadow: none  // 移除文字阴影提高清晰度
   font-family: 'Segoe UI', sans-serif
 
 .menu-item a:hover
-  color: #e0f7fa  // 更亮的悬停颜色
-  background: rgba(79, 195, 247, 0.2)
-  border: 1px solid rgba(79, 195, 247, 0.3)
-  text-shadow: none  // 移除文字阴影提高清晰度
-  box-shadow: 0 0 15px rgba(79, 195, 247, 0.3)
+  color: $cyber-accent
+  background: rgba(41, 121, 255, 0.12)
+  border: 1px solid rgba(41, 121, 255, 0.25)
+  box-shadow: 0 0 15px rgba(41, 121, 255, 0.2)
 
 // 输入框样式
 input[type="text"], input[type="search"], textarea
   background: rgba(10, 26, 42, 0.5)
-  border: 1px solid rgba(79, 195, 247, 0.3)
+  border: 1px solid rgba(41, 121, 255, 0.3)
   color: $text-color
   padding: 10px 15px
   border-radius: 4px
@@ -1134,7 +1073,7 @@ input[type="text"], input[type="search"], textarea
 input[type="text"]:focus, input[type="search"]:focus, textarea:focus
   outline: none
   border: 1px solid $primary-color
-  box-shadow: 0 0 10px rgba(79, 195, 247, 0.5)
+  box-shadow: 0 0 10px rgba(41, 121, 255, 0.5)
 
 // 滚动条样式
 ::-webkit-scrollbar
@@ -1149,11 +1088,11 @@ input[type="text"]:focus, input[type="search"]:focus, textarea:focus
 
 // 文本选择样式
 ::selection
-  background: rgba(79, 195, 247, 0.3)
+  background: rgba(41, 121, 255, 0.3)
   color: #ffffff
 
 ::-moz-selection
-  background: rgba(79, 195, 247, 0.3)
+  background: rgba(41, 121, 255, 0.3)
   color: #ffffff
 
 // 分页导航
@@ -1161,7 +1100,7 @@ input[type="text"]:focus, input[type="search"]:focus, textarea:focus
 .pagination .prev, 
 .pagination .next
   background: rgba(10, 26, 42, 0.5)
-  border: 1px solid rgba(79, 195, 247, 0.3)
+  border: 1px solid rgba(41, 121, 255, 0.3)
   color: $text-color
   padding: 8px 15px
   border-radius: 4px
@@ -1169,58 +1108,58 @@ input[type="text"]:focus, input[type="search"]:focus, textarea:focus
 .pagination .page-number:hover, 
 .pagination .prev:hover, 
 .pagination .next:hover
-  background: rgba(79, 195, 247, 0.2)
+  background: rgba(41, 121, 255, 0.2)
   border: 1px solid $primary-color
   color: #ffffff
 
 // 标签样式
 .tag
-  background: rgba(79, 195, 247, 0.1)
-  border: 1px solid rgba(79, 195, 247, 0.3)
+  background: rgba(41, 121, 255, 0.1)
+  border: 1px solid rgba(41, 121, 255, 0.3)
   color: $primary-color
   padding: 4px 10px
   border-radius: 20px
 
 .tag:hover
-  background: rgba(79, 195, 247, 0.3)
-  box-shadow: 0 0 10px rgba(79, 195, 247, 0.5)
+  background: rgba(41, 121, 255, 0.3)
+  box-shadow: 0 0 10px rgba(41, 121, 255, 0.5)
 
 // 代码块样式
 .codeblock
   background: rgba(0, 0, 0, 0.3)
-  border: 1px solid rgba(79, 195, 247, 0.3)
+  border: 1px solid rgba(41, 121, 255, 0.3)
   border-radius: 6px
 
 // 引用块样式
 blockquote
   border-left: 3px solid $primary-color
-  background: rgba(79, 195, 247, 0.05)
+  background: rgba(41, 121, 255, 0.05)
   padding: 15px 20px
   margin: 20px 0
   border-radius: 0 4px 4px 0
-  color: #bbdefb
+  color: #90CAF9
 
 // 文章内容区域
 .post-body
-  color: #e8f4fd  // 更亮的文字
+  color: $text-color
   line-height: 1.8
-  font-size: 16px  // 确保合适的字体大小
-  letter-spacing: 0.5px  // 增加字母间距提高可读性
+  font-size: 16px
+  letter-spacing: 0.5px
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
 
 // 文章标题样式
 .post-title
   font-family: 'Orbitron', 'Segoe UI', sans-serif
-  color: #80deea  // 亮蓝色
-  text-shadow: 0 0 3px rgba(128, 222, 234, 0.5), 0 0 8px rgba(128, 222, 234, 0.3)
+  color: $cyber-primary  // 亮蓝色
+  text-shadow: 0 0 3px rgba(41, 121, 255, 0.5), 0 0 8px rgba(41, 121, 255, 0.3)
   font-weight: 500
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
   transition: all 0.3s ease
 
 .post-title-link
-  color: #80deea  // 亮蓝色
+  color: $cyber-primary  // 亮蓝色
   text-decoration: none
   transition: all 0.3s ease
   border-bottom: 1px solid transparent
@@ -1228,84 +1167,83 @@ blockquote
   padding: 5px 0
 
 .post-title-link:hover
-  color: #e0f7fa  // 更亮的悬停颜色
-  border-bottom: 1px solid #80deea
-  text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
-  background: rgba(79, 195, 247, 0.1)
+  color: $cyber-accent
+  border-bottom: 1px solid $cyber-accent
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5)
+  background: rgba(41, 121, 255, 0.08)
   padding: 5px 8px
   border-radius: 3px
 
 // 搜索弹窗样式
 .search-pop-overlay {
-  background: rgba(10, 26, 42, 0.95)  // 深色半透明背景
-  backdrop-filter: none  // 移除模糊提高清晰度
+  background: rgba(6, 14, 26, 0.96)
 }
 
 .popup {
-  background: rgba(20, 40, 60, 0.97)  // 深蓝背景
-  border: 1px solid rgba(128, 222, 234, 0.6)  // 科技蓝边框
-  box-shadow: 0 0 30px rgba(128, 222, 234, 0.4), 0 0 10px rgba(128, 222, 234, 0.2) inset  // 发光效果
+  background: rgba(16, 28, 46, 0.98)
+  border: 1px solid rgba(41, 121, 255, 0.4)
+  box-shadow: 0 0 30px rgba(41, 121, 255, 0.3), 0 0 10px rgba(124, 77, 255, 0.15) inset
   border-radius: 8px
-  color: #e8f4fd  // 清晰文字颜色
-  font-family: 'Segoe UI', 'Orbitron', sans-serif  // 科技字体
+  color: $text-color
+  font-family: 'Segoe UI', 'Orbitron', sans-serif
 
   .search-header {
-    border-bottom: 1px solid rgba(128, 222, 234, 0.4)
-    
+    border-bottom: 1px solid rgba(41, 121, 255, 0.3)
+
     .search-input-container {
       input {
-        background: rgba(10, 26, 42, 0.7)
-        border: 1px solid rgba(128, 222, 234, 0.5)
-        color: #e8f4fd
+        background: rgba(6, 14, 26, 0.7)
+        border: 1px solid rgba(41, 121, 255, 0.35)
+        color: $text-color
         padding: 12px 15px
         border-radius: 6px
         font-family: 'Segoe UI', sans-serif
-        
+
         &:focus {
-          border: 1px solid #80deea
-          box-shadow: 0 0 15px rgba(128, 222, 234, 0.5)
+          border: 1px solid $cyber-primary
+          box-shadow: 0 0 15px rgba(41, 121, 255, 0.4)
         }
       }
     }
-    
+
     .popup-btn-close {
-      color: #80deea
+      color: $cyber-primary
       transition: all 0.3s ease
-      
+
       &:hover {
-        color: #e0f7fa
-        text-shadow: 0 0 10px rgba(128, 222, 234, 0.7)
+        color: $cyber-accent
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.5)
       }
     }
   }
-  
+
   .search-result-container {
     .search-result {
-      border-bottom: 1px solid rgba(128, 222, 234, 0.2)
-      
+      border-bottom: 1px solid rgba(41, 121, 255, 0.15)
+
       .search-result-title {
-        color: #80deea
+        color: $cyber-primary
         transition: all 0.3s ease
-        
+
         &:hover {
-          color: #e0f7fa
-          text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+          color: $cyber-accent
+          text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
           padding-left: 5px
         }
       }
-      
+
       .search-result-item {
-        border-left: 2px solid rgba(128, 222, 234, 0.3)
-        
+        border-left: 2px solid rgba(41, 121, 255, 0.2)
+
         &:hover {
-          border-left: 2px solid #80deea
-          background: rgba(128, 222, 234, 0.1)
+          border-left: 2px solid $cyber-primary
+          background: rgba(41, 121, 255, 0.08)
         }
       }
     }
-    
+
     .search-result-icon {
-      color: #80deea
+      color: $cyber-primary
       text-align: center
       font-size: 24px
     }
@@ -1314,162 +1252,161 @@ blockquote
 
 // 侧边栏整体样式
 .sidebar {
-  background: rgba(20, 40, 60, 0.95)
-  border: 1px solid rgba(128, 222, 234, 0.5)
-  box-shadow: 
-    0 0 25px rgba(128, 222, 234, 0.3),
-    inset 0 0 15px rgba(128, 222, 234, 0.2)
+  background: rgba(16, 28, 46, 0.97)
+  border: 1px solid rgba(41, 121, 255, 0.35)
+  box-shadow:
+    0 0 25px rgba(41, 121, 255, 0.15),
+    inset 0 0 15px rgba(41, 121, 255, 0.08)
   border-radius: 8px
-  color: #e8f4fd
+  color: $text-color
   padding: 20px
-  backdrop-filter: none  // 移除模糊提高清晰度
 
   // 侧边栏标题
   .sidebar-title {
-    color: #80deea
-    border-bottom: 1px solid rgba(128, 222, 234, 0.4)
-    text-shadow: 0 0 5px rgba(128, 222, 234, 0.4)
+    color: $cyber-primary
+    border-bottom: 1px solid rgba(41, 121, 255, 0.3)
+    text-shadow: 0 0 5px rgba(41, 121, 255, 0.35)
     font-family: 'Orbitron', 'Segoe UI', sans-serif
     margin-bottom: 15px
     padding-bottom: 10px
   }
-  
+
   // 侧边栏菜单项
   .sidebar-nav {
     margin: 0
     padding: 0
-    
+
     & > li {
       border-left: 2px solid transparent
       transition: all 0.3s ease
-      
+
       &:hover {
-        border-left: 2px solid #80deea
-        background: rgba(128, 222, 234, 0.1)
+        border-left: 2px solid $cyber-primary
+        background: rgba(41, 121, 255, 0.08)
         transform: translateX(5px)
       }
-      
+
       &.active {
-        border-left: 2px solid #80deea
-        background: rgba(128, 222, 234, 0.15)
+        border-left: 2px solid $cyber-primary
+        background: rgba(41, 121, 255, 0.12)
       }
-      
+
       a {
-        color: #e8f4fd
+        color: $text-color
         padding: 8px 15px
         display: block
         transition: all 0.3s ease
         border-radius: 4px
-        
+
         &:hover {
-          color: #e0f7fa
-          background: rgba(128, 222, 234, 0.2)
-          text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+          color: $cyber-accent
+          background: rgba(41, 121, 255, 0.12)
+          text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
         }
-        
+
         &.active {
-          color: #e0f7fa
-          background: rgba(128, 222, 234, 0.25)
-          border-left: 2px solid #80deea
+          color: $cyber-light
+          background: rgba(41, 121, 255, 0.18)
+          border-left: 2px solid $cyber-primary
         }
       }
     }
   }
-  
+
   // 侧边栏面板容器
   .sidebar-panel-container {
-    background: rgba(20, 40, 60, 0.95)
-    border: 1px solid rgba(128, 222, 234, 0.5)
-    box-shadow: 0 0 25px rgba(128, 222, 234, 0.3)
+    background: rgba(16, 28, 46, 0.95)
+    border: 1px solid rgba(41, 121, 255, 0.35)
+    box-shadow: 0 0 25px rgba(41, 121, 255, 0.15)
     border-radius: 8px
     padding: 15px
-    
+
     // 侧边栏概览
     .site-overview {
       .site-author {
         .site-author-name {
-          color: #80deea
-          text-shadow: 0 0 5px rgba(128, 222, 234, 0.4)
+          color: $cyber-primary
+          text-shadow: 0 0 5px rgba(41, 121, 255, 0.35)
           margin-bottom: 10px
         }
-        
+
         .site-description {
-          color: #bbdefb
+          color: #90CAF9
           font-size: 14px
         }
       }
-      
+
       .site-state {
-        border-top: 1px solid rgba(128, 222, 234, 0.3)
-        
+        border-top: 1px solid rgba(41, 121, 255, 0.25)
+
         .site-state-item {
           a {
             border-bottom: none
-            
+
             .site-state-item-name {
-              color: #bbdefb
+              color: #90CAF9
             }
-            
+
             .site-state-item-value {
-              color: #80deea
-              text-shadow: 0 0 5px rgba(128, 222, 234, 0.4)
+              color: $cyber-primary
+              text-shadow: 0 0 5px rgba(41, 121, 255, 0.35)
             }
           }
         }
       }
     }
-    
+
     // 侧边栏文章目录
     .post-toc {
       .post-toc-title {
-        color: #80deea
-        text-shadow: 0 0 5px rgba(128, 222, 234, 0.4)
-        border-bottom: 1px solid rgba(128, 222, 234, 0.3)
+        color: $cyber-primary
+        text-shadow: 0 0 5px rgba(41, 121, 255, 0.35)
+        border-bottom: 1px solid rgba(41, 121, 255, 0.25)
         padding-bottom: 8px
         margin-bottom: 10px
       }
-      
+
       .post-toc ol {
         padding-left: 15px
-        
+
         > li {
           margin: 8px 0
-          
+
           > ol {
             padding-left: 12px
-            
+
             > li {
               margin: 6px 0
-              
+
               a {
-                color: #bbdefb
+                color: #90CAF9
                 transition: all 0.3s ease
-                
+
                 &:hover {
-                  color: #e0f7fa
-                  text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+                  color: $cyber-accent
+                  text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
                 }
               }
             }
           }
-          
+
           > a {
-            color: #80deea
+            color: $cyber-primary
             transition: all 0.3s ease
             display: block
             padding: 3px 5px
             border-radius: 3px
-            
+
             &:hover {
-              color: #e0f7fa
-              background: rgba(128, 222, 234, 0.15)
-              text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+              color: $cyber-light
+              background: rgba(41, 121, 255, 0.1)
+              text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
             }
-            
+
             &.active {
-              color: #e0f7fa
-              background: rgba(128, 222, 234, 0.25)
-              border-left: 2px solid #80deea
+              color: $cyber-light
+              background: rgba(41, 121, 255, 0.18)
+              border-left: 2px solid $cyber-primary
             }
           }
         }
@@ -1480,40 +1417,25 @@ blockquote
 
 // 侧边栏开关按钮
 .sidebar-toggle {
-  background: rgba(128, 222, 234, 0.2)
-  border: 1px solid rgba(128, 222, 234, 0.5)
+  background: rgba(41, 121, 255, 0.15)
+  border: 1px solid rgba(41, 121, 255, 0.35)
   border-radius: 5px
   transition: all 0.3s ease
-  
+
   &:hover {
-    background: rgba(128, 222, 234, 0.3)
-    box-shadow: 0 0 15px rgba(128, 222, 234, 0.5)
+    background: rgba(41, 121, 255, 0.25)
+    box-shadow: 0 0 15px rgba(41, 121, 255, 0.4)
   }
-  
+
   .toggle-line {
-    background: #80deea
+    background: $cyber-accent
   }
 }
 
 // 侧边栏遮罩
+// Pisces 方案下侧边栏始终显示，不需要遮罩
 .sidebar-dimmer {
-  background: rgba(10, 26, 42, 0.8)
-  opacity: 1
-  visibility: visible
-  transition: all 0.4s ease
-  z-index: 1000
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  pointer-events: auto
-  
-  &.hidden {
-    opacity: 0
-    visibility: hidden
-    pointer-events: none
-  }
+  display: none !important;
 }
 
 // 完全隐藏侧边栏
@@ -1532,8 +1454,8 @@ blockquote
 .sidebar-social {
   margin-top: 20px
   padding-top: 15px
-  border-top: 1px solid rgba(128, 222, 234, 0.3)
-  
+  border-top: 1px solid rgba(41, 121, 255, 0.25)
+
   .social-item {
     display: inline-block
     margin: 0 8px
@@ -1542,16 +1464,16 @@ blockquote
     line-height: 36px
     text-align: center
     border-radius: 50%
-    background: rgba(128, 222, 234, 0.1)
-    border: 1px solid rgba(128, 222, 234, 0.3)
-    color: #80deea
+    background: rgba(41, 121, 255, 0.08)
+    border: 1px solid rgba(41, 121, 255, 0.25)
+    color: $cyber-primary
     transition: all 0.3s ease
-    
+
     &:hover {
-      background: rgba(128, 222, 234, 0.3)
-      color: #e0f7fa
-      border: 1px solid rgba(128, 222, 234, 0.6)
-      text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+      background: rgba(41, 121, 255, 0.25)
+      color: $cyber-accent
+      border: 1px solid rgba(0, 229, 255, 0.5)
+      text-shadow: 0 0 8px rgba(0, 229, 255, 0.5)
       transform: scale(1.1)
     }
   }
@@ -1561,24 +1483,24 @@ blockquote
 .sidebar-tags {
   margin-top: 20px
   padding-top: 15px
-  border-top: 1px solid rgba(128, 222, 234, 0.3)
-  
+  border-top: 1px solid rgba(41, 121, 255, 0.25)
+
   .sidebar-tag-item {
     display: inline-block
     margin: 4px 3px
     padding: 3px 10px
-    background: rgba(128, 222, 234, 0.1)
-    border: 1px solid rgba(128, 222, 234, 0.2)
+    background: rgba(41, 121, 255, 0.08)
+    border: 1px solid rgba(41, 121, 255, 0.15)
     border-radius: 12px
-    color: #bbdefb
+    color: #90CAF9
     font-size: 12px
     transition: all 0.3s ease
-    
+
     &:hover {
-      background: rgba(128, 222, 234, 0.3)
-      color: #e0f7fa
-      border: 1px solid rgba(128, 222, 234, 0.5)
-      text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+      background: rgba(124, 77, 255, 0.2)
+      color: $cyber-accent
+      border: 1px solid rgba(124, 77, 255, 0.35)
+      text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
     }
   }
 }
@@ -1587,32 +1509,32 @@ blockquote
 .sidebar-archives {
   margin-top: 20px
   padding-top: 15px
-  border-top: 1px solid rgba(128, 222, 234, 0.3)
-  
+  border-top: 1px solid rgba(41, 121, 255, 0.25)
+
   .archive-item {
     padding: 5px 0
     border-left: 2px solid transparent
     transition: all 0.3s ease
-    
+
     &:hover {
-      border-left: 2px solid #80deea
-      background: rgba(128, 222, 234, 0.1)
+      border-left: 2px solid $cyber-primary
+      background: rgba(41, 121, 255, 0.08)
       padding-left: 8px
     }
-    
+
     .archive-link {
-      color: #bbdefb
+      color: #90CAF9
       transition: all 0.3s ease
-      
+
       &:hover {
-        color: #e0f7fa
-        text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+        color: $cyber-accent
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
       }
     }
-    
+
     .archive-count {
       float: right
-      color: #80deea
+      color: $cyber-primary
       font-size: 12px
     }
   }
@@ -1622,32 +1544,32 @@ blockquote
 .sidebar-categories {
   margin-top: 20px
   padding-top: 15px
-  border-top: 1px solid rgba(128, 222, 234, 0.3)
-  
+  border-top: 1px solid rgba(41, 121, 255, 0.25)
+
   .category-item {
     padding: 5px 0
     border-left: 2px solid transparent
     transition: all 0.3s ease
-    
+
     &:hover {
-      border-left: 2px solid #80deea
-      background: rgba(128, 222, 234, 0.1)
+      border-left: 2px solid $cyber-primary
+      background: rgba(41, 121, 255, 0.08)
       padding-left: 8px
     }
-    
+
     .category-link {
-      color: #bbdefb
+      color: #90CAF9
       transition: all 0.3s ease
-      
+
       &:hover {
-        color: #e0f7fa
-        text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+        color: $cyber-accent
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
       }
     }
-    
+
     .category-count {
       float: right
-      color: #80deea
+      color: $cyber-primary
       font-size: 12px
     }
   }
@@ -1657,30 +1579,30 @@ blockquote
 .sidebar-recent-posts {
   margin-top: 20px
   padding-top: 15px
-  border-top: 1px solid rgba(128, 222, 234, 0.3)
-  
+  border-top: 1px solid rgba(41, 121, 255, 0.25)
+
   .recent-post-item {
     padding: 8px 0
-    border-bottom: 1px solid rgba(128, 222, 234, 0.1)
-    
+    border-bottom: 1px solid rgba(41, 121, 255, 0.08)
+
     &:last-child {
       border-bottom: none
     }
-    
+
     .recent-post-title {
-      color: #80deea
+      color: $cyber-primary
       font-size: 14px
       transition: all 0.3s ease
-      
+
       &:hover {
-        color: #e0f7fa
-        text-shadow: 0 0 8px rgba(128, 222, 234, 0.6)
+        color: $cyber-accent
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.4)
         padding-left: 5px
       }
     }
-    
+
     .recent-post-date {
-      color: #bbdefb
+      color: #90CAF9
       font-size: 12px
       margin-top: 3px
     }
@@ -1691,24 +1613,24 @@ blockquote
 .sidebar-search {
   margin-top: 20px
   padding: 15px
-  background: rgba(10, 26, 42, 0.3)
-  border: 1px solid rgba(128, 222, 234, 0.2)
+  background: rgba(6, 14, 26, 0.3)
+  border: 1px solid rgba(41, 121, 255, 0.15)
   border-radius: 6px
-  
+
   .search-input {
     width: 100%
     padding: 8px 12px
-    background: rgba(10, 26, 42, 0.5)
-    border: 1px solid rgba(128, 222, 234, 0.3)
+    background: rgba(6, 14, 26, 0.5)
+    border: 1px solid rgba(41, 121, 255, 0.25)
     border-radius: 4px
-    color: #e8f4fd
+    color: $text-color
     font-family: 'Segoe UI', sans-serif
     transition: all 0.3s ease
-    
+
     &:focus {
       outline: none
-      border: 1px solid #80deea
-      box-shadow: 0 0 10px rgba(128, 222, 234, 0.4)
+      border: 1px solid $cyber-primary
+      box-shadow: 0 0 10px rgba(41, 121, 255, 0.35)
     }
   }
 }
@@ -1721,7 +1643,7 @@ blockquote
   border-left: 4px solid
 
 .note.default
-  background: rgba(79, 195, 247, 0.1)
+  background: rgba(41, 121, 255, 0.1)
   border-color: $primary-color
   color: $text-color
 
@@ -1733,7 +1655,7 @@ blockquote
 .note.info
   background: rgba(33, 150, 243, 0.1)
   border-color: $accent-color
-  color: #bbdefb
+  color: #90CAF9
 
 .note.success
   background: rgba(76, 175, 80, 0.1)
@@ -1757,8 +1679,8 @@ blockquote
   left: 0
   width: 100%
   height: 100%
-  background: #0a1a2a
-  z-index: 9999
+  background: #060E1A
+  z-index: 10001
   display: flex
   align-items: center
   justify-content: center
@@ -1771,7 +1693,7 @@ blockquote
   display: flex
   flex-direction: column
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-  color: #e0f7fa
+  color: $cyber-light
   overflow: hidden
   position: relative
 
@@ -1789,20 +1711,22 @@ blockquote
   justify-content: center
 
 .typewriter-text
-  color: #e0f7fa
+  color: $cyber-accent
   display: inline-block
   font-size: 2.5em
   font-weight: 300
   letter-spacing: 2px
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5), 0 0 20px rgba(41, 121, 255, 0.3)
 
 .cursor
   display: inline-block
   width: 4px
   height: 1.2em
-  background: #e0f7fa
+  background: $cyber-primary
   margin-left: 8px
   animation: blink 1s infinite
   vertical-align: middle
+  box-shadow: 0 0 8px $cyber-primary
 
 @keyframes blink
   0%, 100%
@@ -1813,3 +1737,29 @@ blockquote
 // 防止页面在加载时滚动
 body.loading
   overflow: hidden
+
+// 加载时隐藏 CRT 扫描线和背景特效
+body.loading::before
+  display: none
+
+body.loading::after
+  display: none
+
+// 加载画面样式加强
+.loading-screen
+  .typewriter-container
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .typewriter-text
+    font-size: 3em
+    color: #00E5FF
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 40px rgba(41, 121, 255, 0.4)
+    letter-spacing: 4px
+
+  .cursor
+    background: #2979FF
+    box-shadow: 0 0 10px #2979FF
+    width: 3px
+    height: 1.5em

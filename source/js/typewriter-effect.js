@@ -1,117 +1,67 @@
-// 古典打字机效果实现
-document.addEventListener('DOMContentLoaded', function() {
-  // 检查是否应该显示打字机效果
-  const showTypewriter = localStorage.getItem('typewriterShown');
-  
-  // 如果还没有显示过打字机效果，则显示它
-  if (!showTypewriter) {
-    showTypewriterAnimation();
-  } else {
-    // 如果已经显示过，则直接显示主要内容
-    const loadingScreen = document.querySelector('.loading-screen');
-    if (loadingScreen) {
-      loadingScreen.style.display = 'none';
-    }
-    document.body.classList.remove('loading');
-  }
-});
+// 首页打字机效果 — 每次返回首页时播放
+(function() {
+  'use strict';
 
-function showTypewriterAnimation() {
-  // 创建加载屏幕
-  const loadingScreen = document.createElement('div');
-  loadingScreen.className = 'loading-screen';
-  loadingScreen.innerHTML = `
-    <div class="typewriter-container">
-      <div class="typewriter-content">
-        <div class="typewriter-header">
-          <span class="typewriter-text" id="typewriter-text"></span>
-          <span class="cursor" id="typewriter-cursor">█</span>
+  // 判断是否是首页
+  function isHomePage() {
+    const path = window.location.pathname.replace(/\/$/, '');
+    const root = '/atmg.github.io';
+    return path === root || path === root + '/index.html' || path === '';
+  }
+
+  function showTypewriter() {
+    const loading = document.createElement('div');
+    loading.id = 'typewriter-loading';
+    loading.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#060E1A;z-index:999999;display:flex;align-items:center;justify-content:center;overflow:hidden;';
+
+    loading.innerHTML = `
+      <div style="text-align:center;padding:30px;">
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <span id="tw-text" style="color:#00E5FF;font-size:3em;font-family:'Segoe UI',sans-serif;font-weight:300;letter-spacing:4px;text-shadow:0 0 20px rgba(0,229,255,0.8),0 0 40px rgba(41,121,255,0.4);"></span>
+          <span style="display:inline-block;width:4px;height:1.2em;background:#2979FF;margin-left:8px;box-shadow:0 0 10px #2979FF;animation:tw-blink 1s infinite;vertical-align:middle;"></span>
         </div>
       </div>
-    </div>
-  `;
-  
-  document.body.insertBefore(loadingScreen, document.body.firstChild);
-  document.body.classList.add('loading');
-  
-  // 定义博客标题序列
-  const blogTitleSequence = [
-    '叶_',
-    '叶同_',
-    '叶同__',
-    '叶同学_',
-    '叶同学__',
-    '叶同学的_',
-    '叶同学的博_',
-    '叶同学的博客_'
-  ];
-  
-  // 开始标题打字机序列
-  typeBlogTitle(blogTitleSequence, 0);
-}
+    `;
 
-// 逐步显示博客标题的函数
-function typeBlogTitle(sequence, index) {
-  if (index >= sequence.length) {
-    // 标题显示完成后，移除下划线并等待3秒后淡出加载屏幕
-    setTimeout(() => {
-      const textElement = document.getElementById('typewriter-text');
-      if (textElement) {
-        textElement.textContent = textElement.textContent.replace(/_/g, ''); // 移除所有下划线
+    // 光标动画
+    const style = document.createElement('style');
+    style.textContent = '@keyframes tw-blink{0%,100%{opacity:1}50%{opacity:0}}';
+    document.head.appendChild(style);
+
+    document.body.insertBefore(loading, document.body.firstChild);
+    document.body.style.overflow = 'hidden';
+
+    const text = '叶同学的博客';
+    const el = document.getElementById('tw-text');
+    let i = 0;
+
+    function typeChar() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeChar, Math.random() * 60 + 40);
+      } else {
+        // 打完字停留一会再淡出
+        setTimeout(fadeOut, 800);
       }
-      fadeOutLoadingScreen();
-    }, 1000); // 稍作停顿后淡出
-    return;
+    }
+
+    function fadeOut() {
+      loading.style.pointerEvents = 'none';
+      loading.style.transition = 'opacity 0.8s ease-out';
+      loading.style.opacity = '0';
+      setTimeout(() => {
+        loading.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 800);
+    }
+
+    typeChar();
   }
-  
-  const currentItem = sequence[index];
-  const textElement = document.getElementById('typewriter-text');
-  const cursorElement = document.getElementById('typewriter-cursor');
-  
-  // 清空当前文本
-  textElement.textContent = '';
-  
-  // 显示当前项的文本，逐字打字
-  typeText(currentItem, 0, () => {
-    // 文本打完后等待指定延迟，然后继续下一项
-    setTimeout(() => {
-      // 继续下一个序列
-      typeBlogTitle(sequence, index + 1);
-    }, 800);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (isHomePage()) {
+      showTypewriter();
+    }
   });
-}
-
-// 逐字打字函数
-function typeText(text, index, callback) {
-  const textElement = document.getElementById('typewriter-text');
-  const cursorElement = document.getElementById('typewriter-cursor');
-  
-  if (index < text.length) {
-    textElement.textContent += text.charAt(index);
-    index++;
-    
-    // 随机打字速度，模拟真实打字效果
-    const randomDelay = Math.random() * 100 + 50;
-    setTimeout(() => typeText(text, index, callback), randomDelay);
-  } else {
-    // 文本完成，调用回调
-    if (callback) callback();
-  }
-}
-
-function fadeOutLoadingScreen() {
-  const loadingScreen = document.querySelector('.loading-screen');
-  if (loadingScreen) {
-    // 添加淡出效果
-    loadingScreen.style.transition = 'opacity 1.5s ease-out';
-    loadingScreen.style.opacity = '0';
-    
-    setTimeout(() => {
-      loadingScreen.style.display = 'none';
-      document.body.classList.remove('loading');
-      
-      // 标记已经显示过打字机效果
-      localStorage.setItem('typewriterShown', 'true');
-    }, 1500);
-  }
-}
+})();

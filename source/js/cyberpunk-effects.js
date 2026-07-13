@@ -14,7 +14,7 @@
     enableTimeControl: true,
     enableSystemMonitor: false, // 预留系统监控功能
     glitchInterval: 3000,
-    gridColor: '#00ffea',
+    gridColor: '#2979FF',
     gridOpacity: 0.05
   };
 
@@ -40,7 +40,7 @@
       this.size = Math.random() * 2 + 0.5;
       this.speedX = Math.random() * 2 - 1;
       this.speedY = Math.random() * 2 - 1;
-      this.color = `hsla(${Math.random() * 60 + 160}, 100%, 50%, ${Math.random() * 0.5 + 0.3})`;
+      this.color = `hsla(${Math.random() * 60 + 210}, 80%, 55%, ${Math.random() * 0.5 + 0.3})`;
       this.life = Math.random() * 100 + 50;
       this.maxLife = this.life;
     }
@@ -180,9 +180,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba(10, 10, 10, 0.95);
-        border: 2px solid #00ffff;
-        color: #00ffff;
+        background: rgba(10, 22, 40, 0.95);
+        border: 2px solid #2979FF;
+        color: #00E5FF;
         padding: 20px 40px;
         font-size: 16px;
         font-family: 'Courier New', monospace;
@@ -225,8 +225,8 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background: rgba(0, 255, 255, 0.3);
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        background: rgba(0, 229, 255, 0.25);
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
         animation: scan 3s linear infinite;
         pointer-events: none;
       `;

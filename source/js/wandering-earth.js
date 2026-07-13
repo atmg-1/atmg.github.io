@@ -25,8 +25,8 @@ function addEngineGlowEffect() {
   engineGlow.style.width = '60px';
   engineGlow.style.height = '60px';
   engineGlow.style.borderRadius = '50%';
-  engineGlow.style.background = 'radial-gradient(circle, rgba(0,188,212,0.8) 0%, rgba(0,188,212,0.2) 70%, transparent 100%)';
-  engineGlow.style.boxShadow = '0 0 30px rgba(0,188,212,0.6)';
+  engineGlow.style.background = 'radial-gradient(circle, rgba(41,121,255,0.6) 0%, rgba(124,77,255,0.2) 70%, transparent 100%)';
+  engineGlow.style.boxShadow = '0 0 30px rgba(41,121,255,0.4)';
   engineGlow.style.zIndex = '-999';
   engineGlow.style.opacity = '0.3';
   engineGlow.style.pointerEvents = 'none';
@@ -66,7 +66,7 @@ function addSubtleDataFlow() {
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(79, 195, 247, 0.1),
+        rgba(41, 121, 255, 0.1),
         transparent
       );
       animation: dataFlow 8s infinite linear;
@@ -120,11 +120,11 @@ function createFloatingParticle(container) {
   particle.style.position = 'absolute';
   particle.style.width = Math.random() * 3 + 1 + 'px';
   particle.style.height = particle.style.width;
-  particle.style.backgroundColor = `rgba(79, 195, 247, ${Math.random() * 0.4 + 0.1})`;
+  particle.style.backgroundColor = `rgba(41, 121, 255, ${Math.random() * 0.4 + 0.1})`;
   particle.style.borderRadius = '50%';
   particle.style.top = Math.random() * 100 + '%';
   particle.style.left = Math.random() * 100 + '%';
-  particle.style.boxShadow = `0 0 ${Math.random() * 5 + 2}px rgba(79, 195, 247, 0.5)`;
+  particle.style.boxShadow = `0 0 ${Math.random() * 5 + 2}px rgba(41, 121, 255, 0.5)`;
   
   // 设置动画
   const duration = Math.random() * 20 + 10;
