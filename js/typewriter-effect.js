@@ -1,117 +1,106 @@
-// 古典打字机效果实现
-document.addEventListener('DOMContentLoaded', function() {
-  // 检查是否应该显示打字机效果
-  const showTypewriter = localStorage.getItem('typewriterShown');
-  
-  // 如果还没有显示过打字机效果，则显示它
-  if (!showTypewriter) {
-    showTypewriterAnimation();
-  } else {
-    // 如果已经显示过，则直接显示主要内容
-    const loadingScreen = document.querySelector('.loading-screen');
-    if (loadingScreen) {
-      loadingScreen.style.display = 'none';
-    }
-    document.body.classList.remove('loading');
+// 首页打字机 — 仅首页，圆润顺滑
+(function () {
+  'use strict';
+
+  function isHomePage() {
+    var path = window.location.pathname.replace(/\/+$/, '') || '/';
+    return (
+      path === '' ||
+      path === '/' ||
+      path === '/index.html' ||
+      path === '/atmg.github.io' ||
+      path === '/atmg.github.io/index.html' ||
+      /\/atmg\.github\.io\/?$/.test(path)
+    );
   }
-});
 
-function showTypewriterAnimation() {
-  // 创建加载屏幕
-  const loadingScreen = document.createElement('div');
-  loadingScreen.className = 'loading-screen';
-  loadingScreen.innerHTML = `
-    <div class="typewriter-container">
-      <div class="typewriter-content">
-        <div class="typewriter-header">
-          <span class="typewriter-text" id="typewriter-text"></span>
-          <span class="cursor" id="typewriter-cursor">█</span>
-        </div>
-      </div>
-    </div>
-  `;
-  
-  document.body.insertBefore(loadingScreen, document.body.firstChild);
-  document.body.classList.add('loading');
-  
-  // 定义博客标题序列
-  const blogTitleSequence = [
-    '叶_',
-    '叶同_',
-    '叶同__',
-    '叶同学_',
-    '叶同学__',
-    '叶同学的_',
-    '叶同学的博_',
-    '叶同学的博客_'
-  ];
-  
-  // 开始标题打字机序列
-  typeBlogTitle(blogTitleSequence, 0);
-}
+  function showTypewriter() {
+    if (document.getElementById('typewriter-loading')) return;
 
-// 逐步显示博客标题的函数
-function typeBlogTitle(sequence, index) {
-  if (index >= sequence.length) {
-    // 标题显示完成后，移除下划线并等待3秒后淡出加载屏幕
-    setTimeout(() => {
-      const textElement = document.getElementById('typewriter-text');
-      if (textElement) {
-        textElement.textContent = textElement.textContent.replace(/_/g, ''); // 移除所有下划线
+    var loading = document.createElement('div');
+    loading.id = 'typewriter-loading';
+    loading.style.cssText =
+      'position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;' +
+      'overflow:hidden;background:radial-gradient(ellipse at center,#0d1b33 0%,#060E1A 70%);' +
+      'opacity:0;transition:opacity 0.45s cubic-bezier(0.22,1,0.36,1);';
+
+    loading.innerHTML =
+      '<div style="text-align:center;padding:30px;transform:translateY(8px);opacity:0;' +
+      'transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),opacity 0.5s cubic-bezier(0.22,1,0.36,1);">' +
+      '<div style="display:inline-flex;align-items:center;justify-content:center;' +
+      'padding:18px 28px;border-radius:999px;background:rgba(41,121,255,0.06);' +
+      'border:1px solid rgba(41,121,255,0.12);backdrop-filter:blur(8px);">' +
+      '<span id="tw-text" style="color:#E8F0FE;font-size:clamp(1.7rem,4.8vw,2.8rem);' +
+      "font-family:'Segoe UI',system-ui,sans-serif;font-weight:300;letter-spacing:0.18em;" +
+      'text-shadow:0 0 28px rgba(41,121,255,0.3);"></span>' +
+      '<span style="display:inline-block;width:3px;height:1.1em;background:#2979FF;' +
+      'margin-left:10px;border-radius:2px;box-shadow:0 0 12px #2979FF;' +
+      'animation:tw-blink 1s infinite;vertical-align:middle;"></span>' +
+      '</div>' +
+      '<div style="margin-top:20px;color:rgba(232,240,254,0.4);font-size:0.85rem;' +
+      'letter-spacing:0.32em;font-weight:300;">EXPLORE · CREATE · IMAGINE</div>' +
+      '</div>';
+
+    var style = document.createElement('style');
+    style.textContent =
+      '@keyframes tw-blink{0%,100%{opacity:1}50%{opacity:0}}' +
+      '@media (prefers-reduced-motion:reduce){#typewriter-loading{transition:none!important}}';
+    document.head.appendChild(style);
+
+    document.body.insertBefore(loading, document.body.firstChild);
+    document.body.style.overflow = 'hidden';
+
+    // 入场
+    requestAnimationFrame(function () {
+      loading.style.opacity = '1';
+      var inner = loading.firstElementChild;
+      if (inner) {
+        inner.style.opacity = '1';
+        inner.style.transform = 'translateY(0)';
       }
-      fadeOutLoadingScreen();
-    }, 1000); // 稍作停顿后淡出
-    return;
-  }
-  
-  const currentItem = sequence[index];
-  const textElement = document.getElementById('typewriter-text');
-  const cursorElement = document.getElementById('typewriter-cursor');
-  
-  // 清空当前文本
-  textElement.textContent = '';
-  
-  // 显示当前项的文本，逐字打字
-  typeText(currentItem, 0, () => {
-    // 文本打完后等待指定延迟，然后继续下一项
-    setTimeout(() => {
-      // 继续下一个序列
-      typeBlogTitle(sequence, index + 1);
-    }, 800);
-  });
-}
+    });
 
-// 逐字打字函数
-function typeText(text, index, callback) {
-  const textElement = document.getElementById('typewriter-text');
-  const cursorElement = document.getElementById('typewriter-cursor');
-  
-  if (index < text.length) {
-    textElement.textContent += text.charAt(index);
-    index++;
-    
-    // 随机打字速度，模拟真实打字效果
-    const randomDelay = Math.random() * 100 + 50;
-    setTimeout(() => typeText(text, index, callback), randomDelay);
+    var text = '叶同学的博客';
+    var el = document.getElementById('tw-text');
+    var i = 0;
+
+    function typeChar() {
+      if (!el) return;
+      if (i < text.length) {
+        el.textContent += text.charAt(i++);
+        setTimeout(typeChar, 42 + Math.random() * 35);
+      } else {
+        setTimeout(fadeOut, 650);
+      }
+    }
+
+    function fadeOut() {
+      loading.style.pointerEvents = 'none';
+      var inner = loading.firstElementChild;
+      if (inner) {
+        inner.style.opacity = '0';
+        inner.style.transform = 'translateY(-6px)';
+      }
+      loading.style.opacity = '0';
+      setTimeout(function () {
+        if (loading.parentNode) loading.parentNode.removeChild(loading);
+        document.body.style.overflow = '';
+      }, 480);
+    }
+
+    setTimeout(typeChar, 280);
+  }
+
+  function boot() {
+    if (isHomePage()) showTypewriter();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    // 文本完成，调用回调
-    if (callback) callback();
+    boot();
   }
-}
 
-function fadeOutLoadingScreen() {
-  const loadingScreen = document.querySelector('.loading-screen');
-  if (loadingScreen) {
-    // 添加淡出效果
-    loadingScreen.style.transition = 'opacity 1.5s ease-out';
-    loadingScreen.style.opacity = '0';
-    
-    setTimeout(() => {
-      loadingScreen.style.display = 'none';
-      document.body.classList.remove('loading');
-      
-      // 标记已经显示过打字机效果
-      localStorage.setItem('typewriterShown', 'true');
-    }, 1500);
-  }
-}
+  document.addEventListener('swup:page:view', boot);
+  document.addEventListener('pjax:complete', boot);
+})();
