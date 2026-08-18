@@ -6,7 +6,7 @@
   <link href="https://atmg-1.github.io/atmg.github.io/atom.xml" rel="self"/>
   
   <link href="https://atmg-1.github.io/atmg.github.io/"/>
-  <updated>2026-07-13T09:46:15.146Z</updated>
+  <updated>2026-08-18T15:17:55.312Z</updated>
   <id>https://atmg-1.github.io/atmg.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>夏季攻势</title>
+    <link href="https://atmg-1.github.io/atmg.github.io/2026/08/18/%E5%A4%8F%E6%97%A5%E6%94%BB%E5%8A%BF/"/>
+    <id>https://atmg-1.github.io/atmg.github.io/2026/08/18/%E5%A4%8F%E6%97%A5%E6%94%BB%E5%8A%BF/</id>
+    <published>2026-08-18T13:42:07.000Z</published>
+    <updated>2026-08-18T15:17:55.312Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="为了抵抗境外势力的压迫（就业环境不好）叶式统帅部集中了强大的token-开始发起对敌对实例的反击作战-简称：夏季攻势"><a href="#为了抵抗境外势力的压迫（就业环境不好）叶式统帅部集中了强大的token-开始发起对敌对实例的反击作战-简称：夏季攻势" class="headerlink" title="为了抵抗境外势力的压迫（就业环境不好）叶式统帅部集中了强大的token 开始发起对敌对实例的反击作战 简称：夏季攻势"></a>为了抵抗境外势力的压迫（<strong>就业环境不好</strong>）叶式统帅部集中了强大的token 开始发起对敌对实例的反击作战 简称：<em>夏季攻势</em></h2><h1 id="夏季大反攻"><a href="#夏季大反攻" class="headerlink" title="夏季大反攻"></a>夏季大反攻</h1><h3 id="从7-20开始-我方从主要从三个方向开始了对技术进攻"><a href="#从7-20开始-我方从主要从三个方向开始了对技术进攻" class="headerlink" title="从7.20开始 我方从主要从三个方向开始了对技术进攻"></a>从7.20开始 我方从主要从三个方向开始了对技术进攻</h3><p>1.ai token的获取</p><p>2.src的挖掘</p><p>3.ai模型的微调与量化</p><p>其他的 ICT CTF ACM 为伴随方面军</p><h4 id="1-ai-token的获取"><a href="#1-ai-token的获取" class="headerlink" title="1.ai token的获取"></a>1.ai token的获取</h4><p>随着ai的日益发展 ai挖洞已经不是虚幻。但在我看来 ai永远无法代替人 它只是一个工具 它是一个聪明的老实人！所以只要它听我指挥 就可以挖洞 </p><p>所以在未来的渗透测试中 谁有了token 谁就是老大 谁就掌握了主动权 在相同skill与agent harness下 所以我们要掌握永不过期的aiapikey！</p><p>1.公益站2.github3.网络泄露4.薅羊毛</p><h4 id="2-src的挖掘"><a href="#2-src的挖掘" class="headerlink" title="2.src的挖掘"></a>2.src的挖掘</h4><p>运气是十分重要的 我认为 在ai挖掘下 找到一个洞的工作是 80%运气+19%信息收集+1%渗透测试 </p><p>但是这是你的harness与skills都是最佳的情况下 不然运气占比会提升</p><p>要降低运气的占比 主要以提升skill内容为主 而skill的提升主要靠到是你的写法 </p><p>如果skill越规范 ai的聪明度要求就降低 这个主要是信息收集的skill ai模型使用</p><p>但是在渗透测试中更主要的ai的强大 不skill约束思想 用skill约束行为更好</p><p>subagent的研究是skill最重要的行为  写的越好 越事半功倍</p><p>在deepseek涨价之前 本人是一个web信息收集skill 一个app逆向信息收集skill 一个渗透测试skill …</p><p>有两个信息泄露与一个oss都是直接在 web信息收集skill app逆向信息收集skill 的资产中发现的 </p><p>分别花3亿＋5千万    一次渗透测试花1到2亿 （注意只是渗透一次 且测试的资产在信息收集发现的总资产中占比10%）</p><p>目前aiapi都面临涨价问题 渗透测试不能省略 而且必须越强大的ai模型越好 但是web信息收集skill 要改进</p><p>（主要是未缓存输入太多 最好都是调用工具而不是ai来看 要继续调优）</p><p>总之该省省 该花花 嗯 不错 只有人有思路才行 （对了 注意ai幻觉与假阳性 所以罗列统一拒收判据）</p><h4 id="3-ai模型的微调与量化"><a href="#3-ai模型的微调与量化" class="headerlink" title="3.ai模型的微调与量化"></a>3.ai模型的微调与量化</h4><p>这是有5060独显才好干 因为可以跑算力 这个不过多透露（1与2 也有好多没有透露 成长道路自己悟）</p><h3 id="到现在8-18完成了nisp（水证！）"><a href="#到现在8-18完成了nisp（水证！）" class="headerlink" title="到现在8.18完成了nisp（水证！）"></a>到现在8.18完成了nisp（水证！）</h3><p>比赛不必多说…慢慢来吧 防止好多还得学还得练 固件-硬件 软件…</p><p>软件工程 网络工程 数字媒体 … 计算机都要死 </p><p>预告：大二的攻势为 金盾防护2026演习</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;为了抵抗境外势力的压迫（就业环境不好）叶式统帅部集中了强大的token-开始发起对敌对实例的反击作战-简称：夏季攻势&quot;&gt;&lt;a href=&quot;#为了抵抗境外势力的压迫（就业环境不好）叶式统帅部集中了强大的token-开始发起对敌对实例的反击作战-简称：夏季攻势&quot; cl</summary>
+      
+    
+    
+    
+    <category term="就业" scheme="https://atmg-1.github.io/atmg.github.io/categories/%E5%B0%B1%E4%B8%9A/"/>
+    
+    
+    <category term="计算机" scheme="https://atmg-1.github.io/atmg.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>未来征途</title>
@@ -62,27 +86,6 @@
     
     
     <category term="life" scheme="https://atmg-1.github.io/atmg.github.io/tags/life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大家好啊！</title>
-    <link href="https://atmg-1.github.io/atmg.github.io/2025/12/30/%E5%A4%A7%E5%AE%B6%E5%A5%BD%E5%95%8A%EF%BC%81/"/>
-    <id>https://atmg-1.github.io/atmg.github.io/2025/12/30/%E5%A4%A7%E5%AE%B6%E5%A5%BD%E5%95%8A%EF%BC%81/</id>
-    <published>2025-12-30T12:51:00.000Z</published>
-    <updated>2026-01-15T06:36:10.283Z</updated>
-    
-    <content type="html"><![CDATA[<p>大家好啊！ </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;大家好啊！ &lt;/p&gt;
-</summary>
-      
-    
-    
-    
     
   </entry>
   
