@@ -10,3 +10,4 @@ _multiconfig.yml
 # 本地草稿 / 临时文件（不进版本库）
 样本.md
 *.jpg
+start.bat
