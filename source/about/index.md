@@ -8,7 +8,7 @@ date: 2025-12-30 19:57:40
     <h2 class="neon-text">关于我</h2>
     <div class="profile-section">
       <div class="avatar-container">
-        <img src="/images/avatar.gif" alt="头像" class="avatar">
+        <img src="/atmg.github.io/images/avatar.jpg" alt="头像" class="avatar">
         <div class="avatar-glow"></div>
       </div>
       <div class="info-section">

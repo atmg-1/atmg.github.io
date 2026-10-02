@@ -1,0 +1,25 @@
+# ============================================================
+# 友情链接数据
+# 供 source/friends/index.md (type: links) 渲染
+# 主题会自动加载此文件并生成友情链接页面
+# ============================================================
+
+- links_category: 朋友们
+  list:
+    - name: CYH's Blog
+      link: https://cyh-32.github.io/friends/
+      avatar: https://img.cdn1.vip/i/695499951457a_1767152021.webp
+      description: 一个有趣的技术博客
+      thumbnail:
+
+    - name: Smileless' Blog
+      link: https://smileless-l.github.io/blog/
+      avatar: https://img.cdn1.vip/i/695497b08d365_1767151536.webp
+      description: 分享技术与生活
+      thumbnail:
+
+    - name: Haicaji's Digital Garden
+      link: https://haicaji.github.io/#/page/haicaji's%20digitalgarden-%E9%A6%96%E9%A1%B5
+      avatar: https://avatars.githubusercontent.com/u/132796021?v=4
+      description: 数字花园，知识沉淀
+      thumbnail:

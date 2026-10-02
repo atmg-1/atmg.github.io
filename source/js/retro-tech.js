@@ -95,7 +95,7 @@ function addTerminalPrintEffect() {
       display: inline-block;
       width: 8px;
       height: 16px;
-      background-color: #00ff00;
+      background-color: #00E5FF;
       vertical-align: middle;
       animation: blink 1s infinite;
       margin-left: 4px;
@@ -109,7 +109,7 @@ function addTerminalPrintEffect() {
     /* 终端文本输入动画 */
     .terminal-typewriter {
       overflow: hidden;
-      border-right: 2px solid #00ff00;
+      border-right: 2px solid #2979FF;
       white-space: nowrap;
       animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
     }
@@ -121,7 +121,7 @@ function addTerminalPrintEffect() {
     
     @keyframes blink-caret {
       from, to { border-color: transparent; }
-      50% { border-color: #00ff00; }
+      50% { border-color: #2979FF; }
     }
   `;
 
@@ -160,8 +160,8 @@ function addDataStreamEffect() {
     .data-stream-line {
       position: fixed;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.8), transparent);
-      filter: drop-shadow(0 0 2px rgba(0, 255, 0, 0.8)) drop-shadow(0 0 4px rgba(0, 255, 0, 0.6));
+      background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.8), transparent);
+      filter: drop-shadow(0 0 2px rgba(0, 229, 255, 0.8)) drop-shadow(0 0 4px rgba(41, 121, 255, 0.6));
       animation: streamMove 3s linear infinite;
       z-index: -2;
     }
@@ -188,9 +188,9 @@ function addCTFAnimations() {
     }
     
     @keyframes ctfPulse {
-      0% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
-      50% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 200, 0, 0.6); }
-      100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+      0% { box-shadow: 0 0 5px rgba(41, 121, 255, 0.5); }
+      50% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 200, 0, 0.6); }
+      100% { box-shadow: 0 0 5px rgba(41, 121, 255, 0.5); }
     }
     
     /* CTF风格扫描动画 */
@@ -206,7 +206,7 @@ function addCTFAnimations() {
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(41, 121, 255, 0.1), transparent);
       animation: ctfScan 3s linear infinite;
     }
     
